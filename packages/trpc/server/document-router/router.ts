@@ -4,6 +4,7 @@ import { createAttachmentRoute } from './attachment/create-attachment';
 import { deleteAttachmentRoute } from './attachment/delete-attachment';
 import { findAttachmentsRoute } from './attachment/find-attachments';
 import { updateAttachmentRoute } from './attachment/update-attachment';
+import { bulkDeleteDocumentsRoute } from './bulk-delete-documents';
 import { bulkMoveDocumentsRoute } from './bulk-move-documents';
 import { createDocumentRoute } from './create-document';
 import { createDocumentTemporaryRoute } from './create-document-temporary';
@@ -34,6 +35,7 @@ export const documentRouter = router({
   create: createDocumentRoute,
   update: updateDocumentRoute,
   bulkMove: bulkMoveDocumentsRoute,
+  bulkDelete: bulkDeleteDocumentsRoute,
   delete: deleteDocumentRoute,
   duplicate: duplicateDocumentRoute,
   downloadCertificate: downloadDocumentCertificateRoute,

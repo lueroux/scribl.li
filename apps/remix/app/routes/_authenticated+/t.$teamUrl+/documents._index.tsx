@@ -20,6 +20,7 @@ import type { RowSelectionState } from '@documenso/ui/primitives/data-table';
 import { Tabs, TabsList, TabsTrigger } from '@documenso/ui/primitives/tabs';
 
 import { DocumentMoveToFolderDialog } from '~/components/dialogs/document-move-to-folder-dialog';
+import { DocumentsBulkDeleteDialog } from '~/components/dialogs/documents-bulk-delete-dialog';
 import { DocumentsBulkMoveDialog } from '~/components/dialogs/documents-bulk-move-dialog';
 import { DocumentSearch } from '~/components/general/document/document-search';
 import { DocumentStatus } from '~/components/general/document/document-status';
@@ -59,6 +60,7 @@ export default function DocumentsPage() {
 
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
   const [isBulkMoving, setIsBulkMoving] = useState(false);
+  const [isBulkDeleting, setIsBulkDeleting] = useState(false);
 
   const selectedDocumentIds = useMemo(() => {
     return Object.entries(rowSelection)
@@ -234,6 +236,7 @@ export default function DocumentsPage() {
         <DocumentsTableBulkActionBar
           selectedCount={selectedDocumentIds.length}
           onMoveToFolder={() => setIsBulkMoving(true)}
+          onDelete={() => setIsBulkDeleting(true)}
           onClearSelection={() => setRowSelection({})}
         />
 
@@ -242,6 +245,13 @@ export default function DocumentsPage() {
           open={isBulkMoving}
           currentFolderId={folderId}
           onOpenChange={setIsBulkMoving}
+          onSuccess={() => setRowSelection({})}
+        />
+
+        <DocumentsBulkDeleteDialog
+          documentIds={selectedDocumentIds}
+          open={isBulkDeleting}
+          onOpenChange={setIsBulkDeleting}
           onSuccess={() => setRowSelection({})}
         />
       </div>
