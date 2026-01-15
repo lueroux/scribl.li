@@ -7,6 +7,7 @@ import { Trans } from '@lingui/react/macro';
 import type * as DialogPrimitive from '@radix-ui/react-dialog';
 import { FolderIcon, HomeIcon, Loader2, Search } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { match } from 'ts-pattern';
 import { z } from 'zod';
 
 import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
@@ -109,27 +110,17 @@ export const DocumentsBulkMoveDialog = ({
     } catch (err) {
       const error = AppError.parseError(err);
 
-      if (error.code === AppErrorCode.NOT_FOUND) {
-        toast({
-          title: _(msg`Error`),
-          description: _(msg`The folder you are trying to move the documents to does not exist.`),
-          variant: 'destructive',
-        });
-        return;
-      }
-
-      if (error.code === AppErrorCode.UNAUTHORIZED) {
-        toast({
-          title: _(msg`Error`),
-          description: _(msg`You are not allowed to move these documents.`),
-          variant: 'destructive',
-        });
-        return;
-      }
+      const errorMessage = match(error.code)
+        .with(
+          AppErrorCode.NOT_FOUND,
+          () => msg`The folder you are trying to move the documents to does not exist.`,
+        )
+        .with(AppErrorCode.UNAUTHORIZED, () => msg`You are not allowed to move these documents.`)
+        .otherwise(() => msg`An error occurred while moving the documents.`);
 
       toast({
         title: _(msg`Error`),
-        description: _(msg`An error occurred while moving the documents.`),
+        description: _(errorMessage),
         variant: 'destructive',
       });
     }
