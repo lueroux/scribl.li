@@ -9,7 +9,7 @@ import { match } from 'ts-pattern';
 
 import { useCurrentEnvelopeRender } from '@documenso/lib/client-only/providers/envelope-render-provider';
 import { mapSecondaryIdToDocumentId } from '@documenso/lib/utils/envelope';
-import PDFViewerKonvaLazy from '@documenso/ui/components/pdf-viewer/pdf-viewer-konva-lazy';
+import { EnvelopePdfViewer } from '@documenso/ui/components/pdf-viewer/envelope-pdf-viewer';
 import { Button } from '@documenso/ui/primitives/button';
 import { Separator } from '@documenso/ui/primitives/separator';
 
@@ -228,7 +228,7 @@ export const DocumentSigningPageViewV2 = () => {
             {/* Document View */}
             <div className="embed--DocumentViewer flex flex-col items-center justify-center p-2 sm:mt-4 sm:p-4">
               {currentEnvelopeItem ? (
-                <PDFViewerKonvaLazy
+                <EnvelopePdfViewer
                   renderer="signing"
                   key={currentEnvelopeItem.id}
                   customPageRenderer={EnvelopeSignerPageRenderer}
@@ -236,7 +236,7 @@ export const DocumentSigningPageViewV2 = () => {
               ) : (
                 <div className="flex flex-col items-center justify-center py-32">
                   <p className="text-sm text-foreground">
-                    <Trans>No documents found</Trans>
+                    <Trans>No document selected</Trans>
                   </p>
                 </div>
               )}

@@ -11,7 +11,8 @@ import {
 } from '@documenso/lib/client-only/providers/envelope-render-provider';
 import { formatDocumentsPath } from '@documenso/lib/utils/teams';
 import { trpc } from '@documenso/trpc/react';
-import PDFViewerKonvaLazy from '@documenso/ui/components/pdf-viewer/pdf-viewer-konva-lazy';
+import { EnvelopePdfViewer } from '@documenso/ui/components/pdf-viewer/envelope-pdf-viewer';
+import { PDFViewer } from '@documenso/ui/components/pdf-viewer/pdf-viewer';
 import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
@@ -21,7 +22,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@documenso/ui/primitives/dialog';
-import { PDFViewerLazy } from '@documenso/ui/primitives/pdf-viewer/lazy';
 
 import { EnvelopeDownloadDialog } from '~/components/dialogs/envelope-download-dialog';
 
@@ -105,6 +105,7 @@ export const DocumentCertificateQRView = ({
       {internalVersion === 2 ? (
         <EnvelopeRenderProvider
           envelope={{
+            id: envelopeItems[0].envelopeId,
             envelopeItems,
             status: DocumentStatus.COMPLETED,
             type: EnvelopeType.DOCUMENT,
@@ -149,11 +150,11 @@ export const DocumentCertificateQRView = ({
           </div>
 
           <div className="mt-12 w-full">
-            <PDFViewerLazy
+            <PDFViewer
               key={envelopeItems[0].id}
               envelopeItem={envelopeItems[0]}
               token={token}
-              version="signed"
+              version="current"
             />
           </div>
         </>
@@ -175,7 +176,7 @@ const DocumentCertificateQrV2 = ({
   formattedDate,
   token,
 }: DocumentCertificateQrV2Props) => {
-  const { currentEnvelopeItem, envelopeItems } = useCurrentEnvelopeRender();
+  const { envelopeItems } = useCurrentEnvelopeRender();
 
   return (
     <div className="flex min-h-screen flex-col items-start">
@@ -210,7 +211,7 @@ const DocumentCertificateQrV2 = ({
       <div className="mt-12 w-full">
         <EnvelopeRendererFileSelector className="mb-4 p-0" fields={[]} secondaryOverride={''} />
 
-        <PDFViewerKonvaLazy renderer="preview" customPageRenderer={EnvelopeGenericPageRenderer} />
+        <EnvelopePdfViewer renderer="preview" customPageRenderer={EnvelopeGenericPageRenderer} />
       </div>
     </div>
   );

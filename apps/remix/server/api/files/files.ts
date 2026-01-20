@@ -12,7 +12,11 @@ import { getPresignPostUrl } from '@documenso/lib/universal/upload/server-action
 import { prisma } from '@documenso/prisma';
 
 import type { HonoEnv } from '../../router';
-import { handleEnvelopeItemFileRequest } from './files.helpers';
+import {
+  handleEnvelopeItemFileRequest,
+  handleEnvelopeItemPageRequest,
+  handleEnvelopeItemsMetaRequest,
+} from './files.helpers';
 import {
   type TGetPresignedPostUrlResponse,
   ZGetEnvelopeItemFileDownloadRequestParamsSchema,
@@ -20,6 +24,12 @@ import {
   ZGetEnvelopeItemFileRequestQuerySchema,
   ZGetEnvelopeItemFileTokenDownloadRequestParamsSchema,
   ZGetEnvelopeItemFileTokenRequestParamsSchema,
+  ZGetEnvelopeItemPageRequestParamsSchema,
+  ZGetEnvelopeItemPageRequestQuerySchema,
+  ZGetEnvelopeItemPageTokenRequestParamsSchema,
+  ZGetEnvelopeMetaRequestParamsSchema,
+  ZGetEnvelopeMetaRequestQuerySchema,
+  ZGetEnvelopeMetaTokenRequestParamsSchema,
   ZGetPresignedPostUrlRequestSchema,
   ZUploadPdfRequestSchema,
 } from './files.types';
@@ -316,6 +326,242 @@ export const filesRoute = new Hono<HonoEnv>()
         version,
         isDownload: true,
         context: c,
+      });
+    },
+  )
+  // =============================================
+  // PDF Page Image Endpoints (PDF to Image Rendering)
+  // =============================================
+  /**
+   * GET /api/files/envelope/:envelopeId/meta
+   * Returns metadata for all envelope items including page counts and dimensions.
+   * Used for pre-rendering PDF pages as images.
+   */
+  .get(
+    '/envelope/:envelopeId/meta',
+    sValidator('param', ZGetEnvelopeMetaRequestParamsSchema),
+    sValidator('query', ZGetEnvelopeMetaRequestQuerySchema),
+    async (c) => {
+      const { envelopeId } = c.req.valid('param');
+      const { presignToken } = c.req.valid('query');
+
+      const session = await getOptionalSession(c);
+
+      // Dummy timeout.
+      await new Promise((resolve) => setTimeout(resolve, 250));
+
+      let userId = session.user?.id;
+
+      // Check presignToken if provided
+      if (presignToken) {
+        const verifiedToken = await verifyEmbeddingPresignToken({
+          token: presignToken,
+        }).catch(() => undefined);
+
+        userId = verifiedToken?.userId;
+      }
+
+      if (!userId) {
+        return c.json({ error: 'Unauthorized' }, 401);
+      }
+
+      const envelope = await prisma.envelope.findFirst({
+        where: { id: envelopeId },
+        include: {
+          envelopeItems: {
+            include: { documentData: true },
+          },
+        },
+      });
+
+      if (!envelope) {
+        return c.json({ error: 'Envelope not found' }, 404);
+      }
+
+      // Check team access
+      const team = await getTeamById({
+        userId,
+        teamId: envelope.teamId,
+      }).catch(() => null);
+
+      if (!team) {
+        return c.json({ error: 'Forbidden' }, 403);
+      }
+
+      return await handleEnvelopeItemsMetaRequest({
+        c,
+        envelopeItems: envelope.envelopeItems,
+      });
+    },
+  )
+  /**
+   * GET /api/files/token/:token/envelope/:envelopeId/meta
+   * Token-based meta endpoint for recipients.
+   */
+  .get(
+    '/token/:token/envelope/:envelopeId/meta',
+    sValidator('param', ZGetEnvelopeMetaTokenRequestParamsSchema),
+    async (c) => {
+      const { token, envelopeId } = c.req.valid('param');
+
+      // Validate token belongs to envelope
+      const recipient = await prisma.recipient.findFirst({
+        where: {
+          token,
+          envelope: { id: envelopeId },
+        },
+        select: {
+          envelope: {
+            include: {
+              envelopeItems: {
+                include: { documentData: true },
+              },
+            },
+          },
+        },
+      });
+
+      if (!recipient) {
+        return c.json({ error: 'Invalid token' }, 401);
+      }
+
+      return await handleEnvelopeItemsMetaRequest({
+        c,
+        envelopeItems: recipient.envelope.envelopeItems,
+      });
+    },
+  )
+  /**
+   * GET /api/files/envelope/:envelopeId/envelopeItem/:envelopeItemId/dataId/:documentDataId/:version/:pageIndex/image.jpeg
+   * Returns a single PDF page as a JPEG image.
+   */
+  .get(
+    '/envelope/:envelopeId/envelopeItem/:envelopeItemId/dataId/:documentDataId/:version/:pageIndex/image.jpeg',
+    sValidator('param', ZGetEnvelopeItemPageRequestParamsSchema),
+    sValidator('query', ZGetEnvelopeItemPageRequestQuerySchema),
+    async (c) => {
+      const {
+        envelopeId,
+        envelopeItemId,
+        documentDataId: _documentDataId,
+        version,
+        pageIndex,
+      } = c.req.valid('param');
+
+      const { presignToken } = c.req.valid('query');
+
+      const session = await getOptionalSession(c);
+
+      // // Dummy timeout.
+      // await new Promise((resolve) => setTimeout(resolve, 250));
+
+      let userId = session.user?.id;
+
+      // Check presignToken if provided
+      if (presignToken) {
+        const verifiedToken = await verifyEmbeddingPresignToken({
+          token: presignToken,
+        }).catch(() => undefined);
+
+        userId = verifiedToken?.userId;
+      }
+
+      if (!userId) {
+        return c.json({ error: 'Unauthorized' }, 401);
+      }
+
+      const envelope = await prisma.envelope.findFirst({
+        where: { id: envelopeId },
+        include: {
+          envelopeItems: {
+            where: { id: envelopeItemId },
+            include: { documentData: true },
+          },
+        },
+      });
+
+      if (!envelope) {
+        return c.json({ error: 'Envelope not found' }, 404);
+      }
+
+      const [envelopeItem] = envelope.envelopeItems;
+
+      if (!envelopeItem?.documentData) {
+        return c.json({ error: 'Envelope item not found' }, 404);
+      }
+
+      // Check team access
+      const team = await getTeamById({
+        userId,
+        teamId: envelope.teamId,
+      }).catch(() => null);
+
+      if (!team) {
+        return c.json({ error: 'Forbidden' }, 403);
+      }
+
+      return await handleEnvelopeItemPageRequest({
+        c,
+        envelopeItem,
+        version,
+        pageIndex,
+      });
+    },
+  )
+  /**
+   * GET /api/files/token/:token/envelope/:envelopeId/envelopeItem/:envelopeItemId/dataId/:documentDataId/:version/:pageIndex/image.jpeg
+   * Token-based page image endpoint for recipients.
+   */
+  .get(
+    '/token/:token/envelope/:envelopeId/envelopeItem/:envelopeItemId/dataId/:documentDataId/:version/:pageIndex/image.jpeg',
+    sValidator('param', ZGetEnvelopeItemPageTokenRequestParamsSchema),
+    async (c) => {
+      const {
+        token,
+        envelopeId,
+        envelopeItemId,
+        documentDataId: _documentDataId,
+        version,
+        pageIndex,
+      } = c.req.valid('param');
+
+      // Dummy timeout.
+      await new Promise((resolve) => setTimeout(resolve, 250));
+
+      // Validate token belongs to envelope
+      const recipient = await prisma.recipient.findFirst({
+        where: {
+          token,
+          envelope: { id: envelopeId },
+        },
+        include: {
+          envelope: {
+            include: {
+              envelopeItems: {
+                where: { id: envelopeItemId },
+                include: { documentData: true },
+              },
+            },
+          },
+        },
+      });
+
+      if (!recipient) {
+        return c.json({ error: 'Invalid token' }, 401);
+      }
+
+      const envelope = recipient.envelope;
+      const [envelopeItem] = envelope.envelopeItems;
+
+      if (!envelopeItem?.documentData) {
+        return c.json({ error: 'Envelope item not found' }, 404);
+      }
+
+      return await handleEnvelopeItemPageRequest({
+        c,
+        envelopeItem,
+        version,
+        pageIndex,
       });
     },
   );

@@ -16,12 +16,12 @@ import {
   DocumentReadOnlyFields,
   mapFieldsWithRecipients,
 } from '@documenso/ui/components/document/document-read-only-fields';
-import PDFViewerKonvaLazy from '@documenso/ui/components/pdf-viewer/pdf-viewer-konva-lazy';
+import { EnvelopePdfViewer } from '@documenso/ui/components/pdf-viewer/envelope-pdf-viewer';
+import { PDFViewer } from '@documenso/ui/components/pdf-viewer/pdf-viewer';
 import { cn } from '@documenso/ui/lib/utils';
 import { Badge } from '@documenso/ui/primitives/badge';
 import { Button } from '@documenso/ui/primitives/button';
 import { Card, CardContent } from '@documenso/ui/primitives/card';
-import { PDFViewerLazy } from '@documenso/ui/primitives/pdf-viewer/lazy';
 import { Spinner } from '@documenso/ui/primitives/spinner';
 
 import { DocumentPageViewButton } from '~/components/general/document/document-page-view-button';
@@ -169,7 +169,7 @@ export default function DocumentPage({ params }: Route.ComponentProps) {
 
               <Card className="rounded-xl before:rounded-xl" gradient>
                 <CardContent className="p-2">
-                  <PDFViewerKonvaLazy
+                  <EnvelopePdfViewer
                     renderer="preview"
                     customPageRenderer={EnvelopeGenericPageRenderer}
                   />
@@ -193,11 +193,11 @@ export default function DocumentPage({ params }: Route.ComponentProps) {
                 />
               )}
 
-              <PDFViewerLazy
+              <PDFViewer
                 envelopeItem={envelope.envelopeItems[0]}
                 token={undefined}
                 key={envelope.envelopeItems[0].id}
-                version="signed"
+                version="current"
               />
             </CardContent>
           </Card>

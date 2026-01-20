@@ -1,4 +1,4 @@
-import { lazy, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import type { MessageDescriptor } from '@lingui/core';
 import { msg } from '@lingui/core/macro';
@@ -29,7 +29,7 @@ import {
 } from '@documenso/lib/types/field-meta';
 import { canRecipientFieldsBeModified } from '@documenso/lib/utils/recipients';
 import { AnimateGenericFadeInOut } from '@documenso/ui/components/animate/animate-generic-fade-in-out';
-import PDFViewerKonvaLazy from '@documenso/ui/components/pdf-viewer/pdf-viewer-konva-lazy';
+import { EnvelopePdfViewer } from '@documenso/ui/components/pdf-viewer/envelope-pdf-viewer';
 import { Alert, AlertDescription, AlertTitle } from '@documenso/ui/primitives/alert';
 import { Button } from '@documenso/ui/primitives/button';
 import { Separator } from '@documenso/ui/primitives/separator';
@@ -49,12 +49,9 @@ import { EditorFieldTextForm } from '~/components/forms/editor/editor-field-text
 import { useCurrentTeam } from '~/providers/team';
 
 import { EnvelopeEditorFieldDragDrop } from './envelope-editor-fields-drag-drop';
+import EnvelopeEditorFieldsPageRenderer from './envelope-editor-fields-page-renderer';
 import { EnvelopeRendererFileSelector } from './envelope-file-selector';
 import { EnvelopeRecipientSelector } from './envelope-recipient-selector';
-
-const EnvelopeEditorFieldsPageRenderer = lazy(
-  async () => import('~/components/general/envelope-editor/envelope-editor-fields-page-renderer'),
-);
 
 const FieldSettingsTypeTranslations: Record<FieldType, MessageDescriptor> = {
   [FieldType.SIGNATURE]: msg`Signature Settings`,
@@ -74,6 +71,8 @@ export const EnvelopeEditorFieldsPage = () => {
   const [searchParams] = useSearchParams();
 
   const team = useCurrentTeam();
+
+  const scrollableContainerRef = useRef<HTMLDivElement>(null);
 
   const { envelope, editorFields, relativePath } = useCurrentEnvelopeEditor();
 
@@ -156,12 +155,12 @@ export const EnvelopeEditorFieldsPage = () => {
 
   return (
     <div className="relative flex h-full">
-      <div className="flex w-full flex-col overflow-y-auto">
+      <div className="flex h-full w-full flex-col overflow-y-auto" ref={scrollableContainerRef}>
         {/* Horizontal envelope item selector */}
         <EnvelopeRendererFileSelector fields={editorFields.localFields} />
 
         {/* Document View */}
-        <div className="mt-4 flex flex-col items-center justify-center">
+        <div className="mt-4 flex h-full flex-col items-center justify-center">
           {envelope.recipients.length === 0 && (
             <Alert
               variant="neutral"
@@ -185,9 +184,10 @@ export const EnvelopeEditorFieldsPage = () => {
           )}
 
           {currentEnvelopeItem !== null ? (
-            <PDFViewerKonvaLazy
+            <EnvelopePdfViewer
               renderer="editor"
               customPageRenderer={EnvelopeEditorFieldsPageRenderer}
+              scrollParentRef={scrollableContainerRef}
             />
           ) : (
             <div className="flex flex-col items-center justify-center py-32">

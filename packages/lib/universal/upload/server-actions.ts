@@ -91,13 +91,13 @@ export const getPresignGetUrl = async (key: string) => {
 /**
  * Uploads a file to S3.
  */
-export const uploadS3File = async (file: File) => {
+export const uploadS3File = async (file: File, keyOverride?: string) => {
   const client = getS3Client();
 
   // Get the basename and extension for the file
   const { name, ext } = path.parse(file.name);
 
-  const key = `${alphaid(12)}/${slugify(name)}${ext}`;
+  const key = keyOverride ?? `${alphaid(12)}/${slugify(name)}${ext}`;
 
   const fileBuffer = await file.arrayBuffer();
 
@@ -122,6 +122,19 @@ export const deleteS3File = async (key: string) => {
       Key: key,
     }),
   );
+};
+
+export const getS3File = async (key: string) => {
+  const client = getS3Client();
+
+  const response = await client.send(
+    new GetObjectCommand({
+      Bucket: env('NEXT_PRIVATE_UPLOAD_BUCKET'),
+      Key: key,
+    }),
+  );
+
+  return response.Body;
 };
 
 const getS3Client = () => {

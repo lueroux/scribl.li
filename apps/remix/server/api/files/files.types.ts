@@ -72,3 +72,76 @@ export const ZGetEnvelopeItemFileTokenDownloadRequestParamsSchema = z.object({
 export type TGetEnvelopeItemFileTokenDownloadRequestParams = z.infer<
   typeof ZGetEnvelopeItemFileTokenDownloadRequestParamsSchema
 >;
+
+export const ZGetEnvelopeMetaRequestParamsSchema = z.object({
+  envelopeId: z.string().min(1),
+});
+
+export type TGetEnvelopeMetaRequestParams = z.infer<typeof ZGetEnvelopeMetaRequestParamsSchema>;
+
+export const ZGetEnvelopeMetaTokenRequestParamsSchema = z.object({
+  token: z.string().min(1),
+  envelopeId: z.string().min(1),
+});
+
+export type TGetEnvelopeMetaTokenRequestParams = z.infer<
+  typeof ZGetEnvelopeMetaTokenRequestParamsSchema
+>;
+
+export const ZGetEnvelopeMetaItemSchema = z.object({
+  id: z.string(),
+  pages: z.object({
+    width: z.number(),
+    height: z.number(),
+    initialDocumentDataId: z.string(),
+    currentDocumentDataId: z.string(),
+  }).array(),
+});
+
+export type TGetEnvelopeMetaItem = z.infer<typeof ZGetEnvelopeMetaItemSchema>;
+
+export const ZGetEnvelopeMetaResponseSchema = z.object({
+  envelopeItems: z.array(ZGetEnvelopeMetaItemSchema),
+});
+
+export type TGetEnvelopeMetaResponse = z.infer<typeof ZGetEnvelopeMetaResponseSchema>;
+
+// Page image endpoint schemas
+export const ZGetEnvelopeItemPageRequestParamsSchema = z.object({
+  envelopeId: z.string().min(1),
+  envelopeItemId: z.string().min(1),
+  documentDataId: z.string().min(1),
+  version: z.enum(['initial', 'current']),
+  pageIndex: z.coerce.number().int().min(0),
+});
+
+export type TGetEnvelopeItemPageRequestParams = z.infer<
+  typeof ZGetEnvelopeItemPageRequestParamsSchema
+>;
+
+export const ZGetEnvelopeItemPageRequestQuerySchema = z.object({
+  presignToken: z.string().optional(),
+});
+
+export type TGetEnvelopeItemPageRequestQuery = z.infer<
+  typeof ZGetEnvelopeItemPageRequestQuerySchema
+>;
+
+export const ZGetEnvelopeMetaRequestQuerySchema = z.object({
+  presignToken: z.string().optional(),
+});
+
+export type TGetEnvelopeMetaRequestQuery = z.infer<typeof ZGetEnvelopeMetaRequestQuerySchema>;
+
+export const ZGetEnvelopeItemPageTokenRequestParamsSchema = z.object({
+  token: z.string().min(1),
+  envelopeId: z.string().min(1),
+  envelopeItemId: z.string().min(1),
+  documentDataId: z.string().min(1),
+  version: z.enum(['initial', 'current']),
+  pageIndex: z.coerce.number().int().min(0),
+});
+
+export type TGetEnvelopeItemPageTokenRequestParams = z.infer<
+  typeof ZGetEnvelopeItemPageTokenRequestParamsSchema
+>;

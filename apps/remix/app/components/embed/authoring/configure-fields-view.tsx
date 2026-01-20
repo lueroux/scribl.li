@@ -5,7 +5,6 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import type { EnvelopeItem, FieldType } from '@prisma/client';
 import { ReadStatus, type Recipient, SendStatus, SigningStatus } from '@prisma/client';
-import { base64 } from '@scure/base';
 import { ChevronsUpDown } from 'lucide-react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { useHotkeys } from 'react-hotkeys-hook';
@@ -16,6 +15,7 @@ import { PDF_VIEWER_PAGE_SELECTOR } from '@documenso/lib/constants/pdf-viewer';
 import { type TFieldMetaSchema, ZFieldMetaSchema } from '@documenso/lib/types/field-meta';
 import { nanoid } from '@documenso/lib/universal/id';
 import { ADVANCED_FIELD_TYPES_WITH_OPTIONAL_SETTING } from '@documenso/lib/utils/advanced-fields-helpers';
+import { PDFViewer } from '@documenso/ui/components/pdf-viewer/pdf-viewer';
 import { useRecipientColors } from '@documenso/ui/lib/recipient-colors';
 import { cn } from '@documenso/ui/lib/utils';
 import { Button } from '@documenso/ui/primitives/button';
@@ -24,7 +24,6 @@ import { FRIENDLY_FIELD_TYPE } from '@documenso/ui/primitives/document-flow/type
 import { ElementVisible } from '@documenso/ui/primitives/element-visible';
 import { FieldSelector } from '@documenso/ui/primitives/field-selector';
 import { Form } from '@documenso/ui/primitives/form/form';
-import { PDFViewerLazy } from '@documenso/ui/primitives/pdf-viewer/lazy';
 import { RecipientSelector } from '@documenso/ui/primitives/recipient-selector';
 import { Sheet, SheetContent, SheetTrigger } from '@documenso/ui/primitives/sheet';
 import { useToast } from '@documenso/ui/primitives/use-toast';
@@ -84,25 +83,9 @@ export const ConfigureFieldsView = ({
     };
   }, []);
 
-  const normalizedDocumentData = useMemo(() => {
-    if (envelopeItem) {
-      return undefined;
-    }
-
-    if (!configData.documentData) {
-      return undefined;
-    }
-
-    return base64.encode(configData.documentData.data);
-  }, [configData.documentData]);
-
-  const normalizedEnvelopeItem = useMemo(() => {
-    if (envelopeItem) {
-      return envelopeItem;
-    }
-
-    return { id: '', envelopeId: '' };
-  }, [envelopeItem]);
+  // Only use envelope item if it has valid IDs
+  // Client-side PDF preview is no longer supported - documents must be uploaded first
+  const hasValidEnvelopeItem = Boolean(envelopeItem?.id && envelopeItem?.envelopeId);
 
   const recipients = useMemo(() => {
     return configData.signers.map<Recipient>((signer, index) => ({
@@ -546,13 +529,20 @@ export const ConfigureFieldsView = ({
 
             <Form {...form}>
               <div>
-                <PDFViewerLazy
-                  presignToken={presignToken}
-                  overrideData={normalizedDocumentData}
-                  envelopeItem={normalizedEnvelopeItem}
-                  token={undefined}
-                  version="signed"
-                />
+                {hasValidEnvelopeItem && envelopeItem ? (
+                  <PDFViewer
+                    presignToken={presignToken}
+                    envelopeItem={envelopeItem}
+                    token={undefined}
+                    version="current"
+                  />
+                ) : (
+                  <div className="flex h-[80vh] max-h-[60rem] flex-col items-center justify-center rounded border border-dashed border-border bg-muted/20">
+                    <p className="text-sm text-muted-foreground">
+                      <Trans>Upload your document to see a preview</Trans>
+                    </p>
+                  </div>
+                )}
 
                 <ElementVisible
                   target={`${PDF_VIEWER_PAGE_SELECTOR}[data-page-number="${highestPageNumber}"]`}

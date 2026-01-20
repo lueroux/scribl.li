@@ -30,3 +30,5 @@ export const IS_AI_FEATURES_CONFIGURED = () =>
  */
 export const NEXT_PRIVATE_USE_PLAYWRIGHT_PDF = () =>
   env('NEXT_PRIVATE_USE_PLAYWRIGHT_PDF') === 'true';
+
+export const IS_STORAGE_TRANSPORT_S3 = () => env('NEXT_PUBLIC_UPLOAD_TRANSPORT') === 's3';

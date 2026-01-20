@@ -1,11 +1,16 @@
 import { PDFDocument } from '@cantoo/pdf-lib';
 import { DocumentDataType } from '@prisma/client';
 import { base64 } from '@scure/base';
+import pMap from 'p-map';
 import { match } from 'ts-pattern';
 
+import { IS_STORAGE_TRANSPORT_S3 } from '@documenso/lib/constants/app';
 import { env } from '@documenso/lib/utils/env';
+import { prisma } from '@documenso/prisma';
+import { getEnvelopeItemS3Key } from '@documenso/remix/server/api/files/files.helpers';
 
 import { AppError } from '../../errors/app-error';
+import { pdfToImages } from '../../server-only/ai/pdf-to-images';
 import { createDocumentData } from '../../server-only/document-data/create-document-data';
 import { normalizePdf } from '../../server-only/pdf/normalize-pdf';
 import { uploadS3File } from './server-actions';
@@ -41,7 +46,60 @@ export const putPdfFileServerSide = async (file: File) => {
 
   const { type, data } = await putFileServerSide(file);
 
-  return await createDocumentData({ type, data });
+  const newDocumentData = await createDocumentData({ type, data });
+
+  void extractAndStorePdfImages(arrayBuffer, newDocumentData.id);
+
+  return newDocumentData;
+};
+
+/**
+ * Extract and stores page images and metadata to S3.
+ */
+export const extractAndStorePdfImages = async (
+  arrayBuffer: ArrayBuffer,
+  documentDataId: string,
+) => {
+  const images = await pdfToImages(new Uint8Array(arrayBuffer));
+
+  const pageMetadata = images.map((image) => ({
+    width: image.width,
+    height: image.height,
+  }));
+
+  const updatedDocumentData = await prisma.documentData.update({
+    where: { id: documentDataId },
+    data: {
+      metadata: {
+        pages: pageMetadata,
+      },
+    },
+  });
+
+  // Store page images in S3 only if both the file and S3 is enabled.
+  if (IS_STORAGE_TRANSPORT_S3() && updatedDocumentData.type === DocumentDataType.S3_PATH) {
+    await pMap(
+      images,
+      async (image) => {
+        const imageBlob = new Blob([new Uint8Array(image.image)], { type: 'image/jpeg' });
+
+        const pageIndex = image.pageNumber - 1;
+
+        const s3Key = getEnvelopeItemS3Key(updatedDocumentData.data, pageIndex);
+
+        const imageFile = new File([imageBlob], `${pageIndex}.jpeg`, {
+          type: 'image/jpeg',
+        });
+
+        const { key } = await uploadS3File(imageFile, s3Key);
+
+        return key;
+      },
+      { concurrency: 100 },
+    );
+  }
+
+  return pageMetadata;
 };
 
 /**
@@ -60,10 +118,14 @@ export const putNormalizedPdfFileServerSide = async (file: File) => {
     arrayBuffer: async () => Promise.resolve(normalized),
   });
 
-  return await createDocumentData({
+  const newDocumentData = await createDocumentData({
     type: documentData.type,
     data: documentData.data,
   });
+
+  void extractAndStorePdfImages(normalized.buffer, newDocumentData.id);
+
+  return newDocumentData;
 };
 
 /**

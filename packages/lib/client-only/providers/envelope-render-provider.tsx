@@ -7,17 +7,38 @@ import type { TRecipientColor } from '@documenso/ui/lib/recipient-colors';
 import { AVAILABLE_RECIPIENT_COLORS } from '@documenso/ui/lib/recipient-colors';
 
 import type { TEnvelope } from '../../types/envelope';
+import type { TEnvelopeItemMeta } from '../../types/envelope-item-meta';
 import type { FieldRenderMode } from '../../universal/field-renderer/render-field';
-import { getEnvelopeItemPdfUrl } from '../../utils/envelope-download';
+import { getEnvelopeItemPageImageUrl, getEnvelopeMetaUrl } from '../../utils/envelope-download';
 
-type FileData =
-  | {
-      status: 'loading' | 'error';
-    }
-  | {
-      file: Uint8Array;
-      status: 'loaded';
-    };
+/**
+ * Extended envelope item meta that includes documentDataId fields from the API response.
+ */
+type TEnvelopeItemMetaWithDataId = Omit<TEnvelopeItemMeta, 'pages'> & {
+  id: string;
+  pages: (TEnvelopeItemMeta['pages'][number] & {
+    initialDocumentDataId: string;
+    currentDocumentDataId: string;
+  })[];
+};
+
+/**
+ * Number of pages to load eagerly on initial render.
+ * Pages beyond this threshold will be loaded lazily when they enter the viewport.
+ */
+export const EAGER_LOAD_PAGE_COUNT = 5;
+
+export type PageRenderData = {
+  pageNumber: number;
+  pageIndex: number;
+  pageWidth: number;
+  pageHeight: number;
+  scale: number;
+  pageImageUrl: string;
+  rotate: number;
+};
+
+export type ImageLoadingState = 'loading' | 'loaded' | 'error';
 
 type EnvelopeRenderOverrideSettings = {
   mode?: FieldRenderMode;
@@ -28,7 +49,11 @@ type EnvelopeRenderOverrideSettings = {
 type EnvelopeRenderItem = TEnvelope['envelopeItems'][number];
 
 type EnvelopeRenderProviderValue = {
-  getPdfBuffer: (envelopeItemId: string) => FileData | null;
+  envelopeItemsMeta: Record<string, TEnvelopeItemMetaWithDataId>;
+  loadingState: ImageLoadingState;
+  getPageImageUrl: (envelopeItemId: string, pageIndex: number) => string;
+  getPageData: (envelopeItemId: string, pageIndex: number) => PageRenderData;
+  // Existing API
   envelopeItems: EnvelopeRenderItem[];
   envelopeStatus: TEnvelope['status'];
   envelopeType: TEnvelope['type'];
@@ -46,7 +71,7 @@ type EnvelopeRenderProviderValue = {
 interface EnvelopeRenderProviderProps {
   children: React.ReactNode;
 
-  envelope: Pick<TEnvelope, 'envelopeItems' | 'status' | 'type'>;
+  envelope: Pick<TEnvelope, 'id' | 'envelopeItems' | 'status' | 'type'>;
 
   /**
    * Optional fields which are passed down to renderers for custom rendering needs.
@@ -89,7 +114,7 @@ export const useCurrentEnvelopeRender = () => {
 };
 
 /**
- * Manages fetching and storing PDF files to render on the client.
+ * Manages fetching envelope metadata and preloading page images.
  */
 export const EnvelopeRenderProvider = ({
   children,
@@ -99,11 +124,10 @@ export const EnvelopeRenderProvider = ({
   recipients = [],
   overrideSettings,
 }: EnvelopeRenderProviderProps) => {
-  // Indexed by documentDataId.
-  const [files, setFiles] = useState<Record<string, FileData>>({});
-
-  const [currentItem, setCurrentItem] = useState<EnvelopeRenderItem | null>(null);
-
+  const [envelopeItemsMeta, setEnvelopeItemsMeta] = useState<
+    Record<string, TEnvelopeItemMetaWithDataId>
+  >({});
+  const [loadingState, setLoadingState] = useState<ImageLoadingState>('loading');
   const [renderError, setRenderError] = useState<boolean>(false);
 
   const envelopeItems = useMemo(
@@ -111,56 +135,175 @@ export const EnvelopeRenderProvider = ({
     [envelope.envelopeItems],
   );
 
-  const loadEnvelopeItemPdfFile = async (envelopeItem: EnvelopeRenderItem) => {
-    if (files[envelopeItem.id]?.status === 'loading') {
+  const [currentItem, setCurrentItem] = useState<EnvelopeRenderItem | null>(
+    envelope.envelopeItems[0] ?? null,
+  );
+
+  /**
+   * Generate URL for a specific page image.
+   */
+  const getPageImageUrl = useCallback(
+    (envelopeItemId: string, pageIndex: number): string => {
+      const envelopeItem = envelope.envelopeItems.find((item) => item.id === envelopeItemId);
+      const envelopeItemMeta = envelopeItemsMeta[envelopeItemId];
+      const pageMeta = envelopeItemMeta?.pages[pageIndex];
+
+      if (!envelopeItem) {
+        console.error(`Envelope item not found: ${envelopeItemId}`);
+        return '';
+      }
+
+      if (!pageMeta) {
+        console.error(
+          `Page meta not found for envelope item: ${envelopeItemId}, page: ${pageIndex}`,
+        );
+        return '';
+      }
+
+      return getEnvelopeItemPageImageUrl({
+        envelopeItem: {
+          id: envelopeItem.id,
+          envelopeId: envelope.id,
+        },
+        documentDataId: pageMeta.currentDocumentDataId,
+        pageIndex,
+        token,
+        version: 'current',
+      });
+    },
+    [envelope.envelopeItems, envelope.id, envelopeItemsMeta, token],
+  );
+
+  const getPageData = useCallback(
+    (envelopeItemId: string, pageIndex: number): PageRenderData => {
+      const envelopeItemMeta = envelopeItemsMeta[envelopeItemId];
+      const pageMeta = envelopeItemMeta?.pages[pageIndex];
+      const pageImageUrl = getPageImageUrl(envelopeItemId, pageIndex);
+
+      if (!pageMeta || !envelopeItemMeta || !pageImageUrl) {
+        throw new Error('Page meta not found');
+      }
+
+      return {
+        pageNumber: pageIndex + 1,
+        pageIndex,
+        pageWidth: pageMeta.width,
+        pageHeight: pageMeta.height,
+        scale: 1, // Todo: Render
+        pageImageUrl,
+        rotate: 0, // Todo: Render
+      };
+    },
+    [envelope.envelopeItems, envelope.id],
+  );
+
+  /**
+   * Preload initial images (first EAGER_LOAD_PAGE_COUNT pages) for all envelope items.
+   * Returns a promise that resolves when initial images are loaded.
+   */
+  // const preloadInitialImages = useCallback(
+  //   async (meta: Record<string, TEnvelopeItemMeta>): Promise<void> => {
+  //     const imagePromises: Promise<void>[] = [];
+
+  //     // Initialize page loading states for all pages
+  //     const initialStates: PageLoadingStates = {};
+
+  //     for (const [envelopeItemId, itemMeta] of Object.entries(meta)) {
+  //       initialStates[envelopeItemId] = {};
+
+  //       for (let pageIndex = 0; pageIndex < itemMeta.pageCount; pageIndex++) {
+  //         // Mark first EAGER_LOAD_PAGE_COUNT pages as loading, rest as pending
+  //         initialStates[envelopeItemId][pageIndex] =
+  //           pageIndex < EAGER_LOAD_PAGE_COUNT ? 'loading' : 'pending';
+  //       }
+  //     }
+
+  //     setPageLoadingStates(initialStates);
+
+  //     // Only preload first EAGER_LOAD_PAGE_COUNT pages
+  //     for (const [envelopeItemId, itemMeta] of Object.entries(meta)) {
+  //       const pagesToLoad = Math.min(itemMeta.pageCount, EAGER_LOAD_PAGE_COUNT);
+
+  //       for (let pageIndex = 0; pageIndex < pagesToLoad; pageIndex++) {
+  //         const url = getPageImageUrl(envelopeItemId, pageIndex);
+
+  //         if (!url) {
+  //           continue;
+  //         }
+
+  //         const imagePromise = new Promise<void>((resolve) => {
+  //           const img = new Image();
+
+  //           img.onload = () => {
+  //             setPageLoadingState(envelopeItemId, pageIndex, 'loaded');
+  //             resolve();
+  //           };
+
+  //           img.onerror = () => {
+  //             setPageLoadingState(envelopeItemId, pageIndex, 'error');
+  //             // Don't reject - allow other images to continue loading
+  //             resolve();
+  //           };
+
+  //           img.src = url;
+  //         });
+
+  //         imagePromises.push(imagePromise);
+  //       }
+  //     }
+
+  //     await Promise.all(imagePromises);
+  //   },
+  //   [getPageImageUrl, setPageLoadingState],
+  // );
+
+  /**
+   * Fetch metadata and preload initial images when the envelope or token changes.
+   */
+  useEffect(() => {
+    void fetchEnvelopeRenderData();
+  }, [envelope.id, envelope.envelopeItems.length, token]);
+
+  const fetchEnvelopeRenderData = async () => {
+    if (!envelope.id || envelope.envelopeItems.length === 0) {
       return;
     }
 
-    if (!files[envelopeItem.id]) {
-      setFiles((prev) => ({
-        ...prev,
-        [envelopeItem.id]: {
-          status: 'loading',
-        },
-      }));
-    }
+    setLoadingState('loading');
 
     try {
-      const downloadUrl = getEnvelopeItemPdfUrl({
-        type: 'view',
-        envelopeItem: envelopeItem,
+      // Fetch metadata for all envelope items
+      const metaUrl = getEnvelopeMetaUrl({
+        envelopeId: envelope.id,
         token,
       });
 
-      const blob = await fetch(downloadUrl).then(async (res) => await res.blob());
+      const response = await fetch(metaUrl);
 
-      const file = await blob.arrayBuffer();
+      if (!response.ok) {
+        throw new Error(`Failed to fetch envelope meta: ${response.status}`);
+      }
 
-      setFiles((prev) => ({
-        ...prev,
-        [envelopeItem.id]: {
-          file: new Uint8Array(file),
-          status: 'loaded',
-        },
-      }));
+      const data = (await response.json()) as { envelopeItems: TEnvelopeItemMetaWithDataId[] };
+
+      // Build a map of envelope items by ID
+      const metaMap: Record<string, TEnvelopeItemMetaWithDataId> = {};
+
+      for (const item of data.envelopeItems) {
+        metaMap[item.id] = item;
+      }
+
+      setEnvelopeItemsMeta(metaMap);
+
+      // Preload initial images (first EAGER_LOAD_PAGE_COUNT pages)
+      // await preloadInitialImages(metaMap);
+
+      setLoadingState('loaded');
     } catch (error) {
-      console.error(error);
-
-      setFiles((prev) => ({
-        ...prev,
-        [envelopeItem.id]: {
-          status: 'error',
-        },
-      }));
+      console.error('Failed to load envelope data:', error);
+      setLoadingState('error');
     }
   };
-
-  const getPdfBuffer = useCallback(
-    (envelopeItemId: string) => {
-      return files[envelopeItemId] || null;
-    },
-    [files],
-  );
 
   const setCurrentEnvelopeItem = (envelopeItemId: string) => {
     const foundItem = envelope.envelopeItems.find((item) => item.id === envelopeItemId);
@@ -178,15 +321,6 @@ export const EnvelopeRenderProvider = ({
       setCurrentEnvelopeItem(envelopeItems[0].id);
     }
   }, [currentItem, envelopeItems]);
-
-  // Look for any missing pdf files and load them.
-  useEffect(() => {
-    const missingFiles = envelope.envelopeItems.filter((item) => !files[item.id]);
-
-    for (const item of missingFiles) {
-      void loadEnvelopeItemPdfFile(item);
-    }
-  }, [envelope.envelopeItems]);
 
   const recipientIds = useMemo(
     () => recipients.map((recipient) => recipient.id).sort(),
@@ -207,7 +341,10 @@ export const EnvelopeRenderProvider = ({
   return (
     <EnvelopeRenderContext.Provider
       value={{
-        getPdfBuffer,
+        envelopeItemsMeta,
+        loadingState,
+        getPageImageUrl,
+        getPageData,
         envelopeItems,
         envelopeStatus: envelope.status,
         envelopeType: envelope.type,

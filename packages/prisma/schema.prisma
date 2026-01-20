@@ -485,11 +485,13 @@ enum DocumentSigningOrder {
   SEQUENTIAL
 }
 
+/// @zod.import(["import { ZEnvelopeItemMetaSchema } from '@documenso/lib/types/envelope-item-meta';"])
 model DocumentData {
   id           String           @id @default(cuid())
   type         DocumentDataType
   data         String
   initialData  String
+  metadata     Json? /// [EnvelopeItemMeta] @zod.custom.use(ZEnvelopeItemMetaSchema)
   envelopeItem EnvelopeItem?
 }
 
