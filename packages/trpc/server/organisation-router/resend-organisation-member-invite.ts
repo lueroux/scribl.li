@@ -1,8 +1,8 @@
-import { ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP } from '@Scriblli/lib/constants/organisations';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { sendOrganisationMemberInviteEmail } from '@Scriblli/lib/server-only/organisation/create-organisation-member-invites';
-import { buildOrganisationWhereQuery } from '@Scriblli/lib/utils/organisations';
-import { prisma } from '@Scriblli/prisma';
+import { ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP } from '@documenso/lib/constants/organisations';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { sendOrganisationMemberInviteEmail } from '@documenso/lib/server-only/organisation/create-organisation-member-invites';
+import { buildOrganisationWhereQuery } from '@documenso/lib/utils/organisations';
+import { prisma } from '@documenso/prisma';
 
 import { authenticatedProcedure } from '../trpc';
 import {

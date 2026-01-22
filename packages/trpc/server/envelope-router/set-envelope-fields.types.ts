@@ -7,8 +7,8 @@ import {
   ZClampedFieldPositionYSchema,
   ZClampedFieldWidthSchema,
   ZEnvelopeFieldSchema,
-} from '@Scriblli/lib/types/field';
-import { ZFieldMetaSchema } from '@Scriblli/lib/types/field-meta';
+} from '@documenso/lib/types/field';
+import { ZFieldMetaSchema } from '@documenso/lib/types/field-meta';
 
 export const ZSetEnvelopeFieldsRequestSchema = z.object({
   envelopeId: z.string(),

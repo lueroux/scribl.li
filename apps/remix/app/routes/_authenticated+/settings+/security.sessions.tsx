@@ -6,15 +6,15 @@ import { useQuery } from '@tanstack/react-query';
 import { DateTime } from 'luxon';
 import { UAParser } from 'ua-parser-js';
 
-import { authClient } from '@Scriblli/auth/client';
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { Badge } from '@Scriblli/ui/primitives/badge';
-import { Button } from '@Scriblli/ui/primitives/button';
-import type { DataTableColumnDef } from '@Scriblli/ui/primitives/data-table';
-import { DataTable } from '@Scriblli/ui/primitives/data-table';
-import { Skeleton } from '@Scriblli/ui/primitives/skeleton';
-import { TableCell } from '@Scriblli/ui/primitives/table';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+import { authClient } from '@documenso/auth/client';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { Badge } from '@documenso/ui/primitives/badge';
+import { Button } from '@documenso/ui/primitives/button';
+import type { DataTableColumnDef } from '@documenso/ui/primitives/data-table';
+import { DataTable } from '@documenso/ui/primitives/data-table';
+import { Skeleton } from '@documenso/ui/primitives/skeleton';
+import { TableCell } from '@documenso/ui/primitives/table';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { SessionLogoutAllDialog } from '~/components/dialogs/session-logout-all-dialog';
 import { SettingsHeader } from '~/components/general/settings-header';

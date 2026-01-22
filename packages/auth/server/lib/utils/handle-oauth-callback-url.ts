@@ -3,10 +3,10 @@ import { OAuth2Client, decodeIdToken } from 'arctic';
 import type { Context } from 'hono';
 import { deleteCookie } from 'hono/cookie';
 
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { onCreateUserHook } from '@Scriblli/lib/server-only/user/create-user';
-import { isValidReturnTo, normalizeReturnTo } from '@Scriblli/lib/utils/is-valid-return-to';
-import { prisma } from '@Scriblli/prisma';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { onCreateUserHook } from '@documenso/lib/server-only/user/create-user';
+import { isValidReturnTo, normalizeReturnTo } from '@documenso/lib/utils/is-valid-return-to';
+import { prisma } from '@documenso/prisma';
 
 import type { OAuthClientOptions } from '../../config';
 import { AuthenticationErrorCode } from '../errors/error-codes';

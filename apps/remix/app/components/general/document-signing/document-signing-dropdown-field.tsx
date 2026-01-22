@@ -5,25 +5,25 @@ import { useLingui } from '@lingui/react';
 import { Loader } from 'lucide-react';
 import { useRevalidator } from 'react-router';
 
-import { DO_NOT_INVALIDATE_QUERY_ON_MUTATION } from '@Scriblli/lib/constants/trpc';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import type { TRecipientActionAuth } from '@Scriblli/lib/types/document-auth';
-import { ZDropdownFieldMeta } from '@Scriblli/lib/types/field-meta';
-import type { FieldWithSignatureAndFieldMeta } from '@Scriblli/prisma/types/field-with-signature-and-fieldmeta';
-import { trpc } from '@Scriblli/trpc/react';
+import { DO_NOT_INVALIDATE_QUERY_ON_MUTATION } from '@documenso/lib/constants/trpc';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import type { TRecipientActionAuth } from '@documenso/lib/types/document-auth';
+import { ZDropdownFieldMeta } from '@documenso/lib/types/field-meta';
+import type { FieldWithSignatureAndFieldMeta } from '@documenso/prisma/types/field-with-signature-and-fieldmeta';
+import { trpc } from '@documenso/trpc/react';
 import type {
   TRemovedSignedFieldWithTokenMutationSchema,
   TSignFieldWithTokenMutationSchema,
-} from '@Scriblli/trpc/server/field-router/schema';
-import { cn } from '@Scriblli/ui/lib/utils';
+} from '@documenso/trpc/server/field-router/schema';
+import { cn } from '@documenso/ui/lib/utils';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/select';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { useRequiredDocumentSigningAuthContext } from './document-signing-auth-provider';
 import { DocumentSigningFieldContainer } from './document-signing-field-container';

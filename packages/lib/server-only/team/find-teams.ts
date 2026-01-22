@@ -1,7 +1,7 @@
 import type { Team } from '@prisma/client';
 import { Prisma } from '@prisma/client';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import type { FindResultResponse } from '../../types/search-params';
 import { getHighestTeamRoleInGroup } from '../../utils/teams';

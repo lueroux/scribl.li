@@ -1,4 +1,4 @@
-import { NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
+import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
 
 export const appMetaTags = (title?: string) => {
   const description =
@@ -47,7 +47,7 @@ export const appMetaTags = (title?: string) => {
     },
     {
       name: 'twitter:site',
-      content: '@scriblli',
+      content: '@documenso',
     },
     {
       name: 'twitter:description',

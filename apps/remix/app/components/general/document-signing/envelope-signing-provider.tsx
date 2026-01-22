@@ -10,17 +10,17 @@ import {
 } from '@prisma/client';
 import { prop, sortBy } from 'remeda';
 
-import { isBase64Image } from '@Scriblli/lib/constants/signatures';
-import { DO_NOT_INVALIDATE_QUERY_ON_MUTATION } from '@Scriblli/lib/constants/trpc';
-import type { EnvelopeForSigningResponse } from '@Scriblli/lib/server-only/envelope/get-envelope-for-recipient-signing';
-import type { TRecipientActionAuth } from '@Scriblli/lib/types/document-auth';
+import { isBase64Image } from '@documenso/lib/constants/signatures';
+import { DO_NOT_INVALIDATE_QUERY_ON_MUTATION } from '@documenso/lib/constants/trpc';
+import type { EnvelopeForSigningResponse } from '@documenso/lib/server-only/envelope/get-envelope-for-recipient-signing';
+import type { TRecipientActionAuth } from '@documenso/lib/types/document-auth';
 import {
   isFieldUnsignedAndRequired,
   isRequiredField,
-} from '@Scriblli/lib/utils/advanced-fields-helpers';
-import { extractFieldInsertionValues } from '@Scriblli/lib/utils/envelope-signing';
-import { trpc } from '@Scriblli/trpc/react';
-import type { TSignEnvelopeFieldValue } from '@Scriblli/trpc/server/envelope-router/sign-envelope-field.types';
+} from '@documenso/lib/utils/advanced-fields-helpers';
+import { extractFieldInsertionValues } from '@documenso/lib/utils/envelope-signing';
+import { trpc } from '@documenso/trpc/react';
+import type { TSignEnvelopeFieldValue } from '@documenso/trpc/server/envelope-router/sign-envelope-field.types';
 
 export type EnvelopeSigningContextValue = {
   isDirectTemplate: boolean;

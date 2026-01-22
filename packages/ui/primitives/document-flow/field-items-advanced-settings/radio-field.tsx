@@ -5,13 +5,13 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { ChevronDown, ChevronUp, Trash } from 'lucide-react';
 
-import { validateRadioField } from '@Scriblli/lib/advanced-fields-validation/validate-radio';
-import { type TRadioFieldMeta as RadioFieldMeta } from '@Scriblli/lib/types/field-meta';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { Checkbox } from '@Scriblli/ui/primitives/checkbox';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { Label } from '@Scriblli/ui/primitives/label';
-import { Switch } from '@Scriblli/ui/primitives/switch';
+import { validateRadioField } from '@documenso/lib/advanced-fields-validation/validate-radio';
+import { type TRadioFieldMeta as RadioFieldMeta } from '@documenso/lib/types/field-meta';
+import { Button } from '@documenso/ui/primitives/button';
+import { Checkbox } from '@documenso/ui/primitives/checkbox';
+import { Input } from '@documenso/ui/primitives/input';
+import { Label } from '@documenso/ui/primitives/label';
+import { Switch } from '@documenso/ui/primitives/switch';
 
 export type RadioFieldAdvancedSettingsProps = {
   fieldState: RadioFieldMeta;

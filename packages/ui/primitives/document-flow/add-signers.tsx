@@ -13,19 +13,19 @@ import { GripVerticalIcon, HelpCircle, Plus, Trash } from 'lucide-react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { prop, sortBy } from 'remeda';
 
-import { useLimits } from '@Scriblli/ee/server-only/limits/provider/client';
-import { useAutoSave } from '@Scriblli/lib/client-only/hooks/use-autosave';
-import { useDebouncedValue } from '@Scriblli/lib/client-only/hooks/use-debounced-value';
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { ZRecipientAuthOptionsSchema } from '@Scriblli/lib/types/document-auth';
-import { nanoid } from '@Scriblli/lib/universal/id';
-import { canRecipientBeModified as utilCanRecipientBeModified } from '@Scriblli/lib/utils/recipients';
-import { trpc } from '@Scriblli/trpc/react';
-import { AnimateGenericFadeInOut } from '@Scriblli/ui/components/animate/animate-generic-fade-in-out';
-import { RecipientActionAuthSelect } from '@Scriblli/ui/components/recipient/recipient-action-auth-select';
-import { RecipientRoleSelect } from '@Scriblli/ui/components/recipient/recipient-role-select';
-import { cn } from '@Scriblli/ui/lib/utils';
+import { useLimits } from '@documenso/ee/server-only/limits/provider/client';
+import { useAutoSave } from '@documenso/lib/client-only/hooks/use-autosave';
+import { useDebouncedValue } from '@documenso/lib/client-only/hooks/use-debounced-value';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { ZRecipientAuthOptionsSchema } from '@documenso/lib/types/document-auth';
+import { nanoid } from '@documenso/lib/universal/id';
+import { canRecipientBeModified as utilCanRecipientBeModified } from '@documenso/lib/utils/recipients';
+import { trpc } from '@documenso/trpc/react';
+import { AnimateGenericFadeInOut } from '@documenso/ui/components/animate/animate-generic-fade-in-out';
+import { RecipientActionAuthSelect } from '@documenso/ui/components/recipient/recipient-action-auth-select';
+import { RecipientRoleSelect } from '@documenso/ui/components/recipient/recipient-role-select';
+import { cn } from '@documenso/ui/lib/utils';
 
 import {
   DocumentReadOnlyFields,

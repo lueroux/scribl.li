@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { ZDocumentMetaUpdateSchema } from '@Scriblli/lib/types/document-meta';
+import { ZDocumentMetaUpdateSchema } from '@documenso/lib/types/document-meta';
 
 import { ZSuccessResponseSchema } from '../schema';
 import type { TrpcRouteMeta } from '../trpc';

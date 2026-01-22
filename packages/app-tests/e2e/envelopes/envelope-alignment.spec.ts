@@ -8,10 +8,10 @@ import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import pixelMatch from 'pixelmatch';
 import { PNG } from 'pngjs';
 
-import { getEnvelopeItemPdfUrl } from '@Scriblli/lib/utils/envelope-download';
-import { prisma } from '@Scriblli/prisma';
-import { seedAlignmentTestDocument } from '@Scriblli/prisma/seed/initial-seed';
-import { seedUser } from '@Scriblli/prisma/seed/users';
+import { getEnvelopeItemPdfUrl } from '@documenso/lib/utils/envelope-download';
+import { prisma } from '@documenso/prisma';
+import { seedAlignmentTestDocument } from '@documenso/prisma/seed/initial-seed';
+import { seedUser } from '@documenso/prisma/seed/users';
 
 import { NEXT_PUBLIC_WEBAPP_URL } from '../../../lib/constants/app';
 import { isBase64Image } from '../../../lib/constants/signatures';
@@ -34,7 +34,7 @@ test.describe.configure({ mode: 'parallel', timeout: 60000 });
 test.skip('seed alignment test document', async ({ page }) => {
   const user = await prisma.user.findFirstOrThrow({
     where: {
-      email: 'example@Scriblli.com',
+      email: 'example@documenso.com',
     },
     include: {
       ownedOrganisations: {

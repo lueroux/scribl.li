@@ -6,8 +6,8 @@ import {
   NEXT_PRIVATE_USE_LEGACY_SIGNING_SUBFILTER,
   NEXT_PUBLIC_SIGNING_CONTACT_INFO,
   NEXT_PUBLIC_WEBAPP_URL,
-} from '@Scriblli/lib/constants/app';
-import { env } from '@Scriblli/lib/utils/env';
+} from '@documenso/lib/constants/app';
+import { env } from '@documenso/lib/utils/env';
 
 import { getTimestampAuthority } from './helpers/tsa';
 import { createGoogleCloudSigner } from './transports/google-cloud';

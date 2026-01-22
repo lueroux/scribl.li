@@ -5,20 +5,20 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { ChevronDown, ChevronUp, Trash } from 'lucide-react';
 
-import { validateCheckboxField } from '@Scriblli/lib/advanced-fields-validation/validate-checkbox';
-import { type TCheckboxFieldMeta as CheckboxFieldMeta } from '@Scriblli/lib/types/field-meta';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { Checkbox } from '@Scriblli/ui/primitives/checkbox';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { Label } from '@Scriblli/ui/primitives/label';
+import { validateCheckboxField } from '@documenso/lib/advanced-fields-validation/validate-checkbox';
+import { type TCheckboxFieldMeta as CheckboxFieldMeta } from '@documenso/lib/types/field-meta';
+import { Button } from '@documenso/ui/primitives/button';
+import { Checkbox } from '@documenso/ui/primitives/checkbox';
+import { Input } from '@documenso/ui/primitives/input';
+import { Label } from '@documenso/ui/primitives/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
-import { Switch } from '@Scriblli/ui/primitives/switch';
+} from '@documenso/ui/primitives/select';
+import { Switch } from '@documenso/ui/primitives/switch';
 
 import { checkboxValidationLength, checkboxValidationRules } from './constants';
 

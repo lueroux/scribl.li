@@ -1,6 +1,6 @@
 import type { DocumentDataType } from '@prisma/client';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 export type CreateDocumentDataOptions = {
   type: DocumentDataType;

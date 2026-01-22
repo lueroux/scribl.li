@@ -1,1 +1,1 @@
-module.exports = require('@Scriblli/prettier-config');
+module.exports = require('@documenso/prettier-config');

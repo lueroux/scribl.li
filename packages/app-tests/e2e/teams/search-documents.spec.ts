@@ -1,12 +1,12 @@
 import { expect, test } from '@playwright/test';
 import { DocumentStatus, OrganisationMemberRole, TeamMemberRole } from '@prisma/client';
 
-import { generateDatabaseId } from '@Scriblli/lib/universal/id';
-import { prisma } from '@Scriblli/prisma';
-import { seedDocuments, seedTeamDocuments } from '@Scriblli/prisma/seed/documents';
-import { seedOrganisationMembers } from '@Scriblli/prisma/seed/organisations';
-import { seedTeam, seedTeamMember } from '@Scriblli/prisma/seed/teams';
-import { seedUser } from '@Scriblli/prisma/seed/users';
+import { generateDatabaseId } from '@documenso/lib/universal/id';
+import { prisma } from '@documenso/prisma';
+import { seedDocuments, seedTeamDocuments } from '@documenso/prisma/seed/documents';
+import { seedOrganisationMembers } from '@documenso/prisma/seed/organisations';
+import { seedTeam, seedTeamMember } from '@documenso/prisma/seed/teams';
+import { seedUser } from '@documenso/prisma/seed/users';
 
 import { apiSignin, apiSignout } from '../fixtures/authentication';
 import { checkDocumentTabCount } from '../fixtures/documents';

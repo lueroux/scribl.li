@@ -8,9 +8,9 @@ import type { FileRejection } from 'react-dropzone';
 import { useDropzone } from 'react-dropzone';
 import { Link } from 'react-router';
 
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { APP_DOCUMENT_UPLOAD_SIZE_LIMIT, IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
-import { megabytesToBytes } from '@Scriblli/lib/universal/unit-convertions';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { APP_DOCUMENT_UPLOAD_SIZE_LIMIT, IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
+import { megabytesToBytes } from '@documenso/lib/universal/unit-convertions';
 
 import {
   DocumentDropzoneCardCenterVariants,

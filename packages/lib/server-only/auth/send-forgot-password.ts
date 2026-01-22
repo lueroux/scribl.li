@@ -2,9 +2,9 @@ import { createElement } from 'react';
 
 import { msg } from '@lingui/core/macro';
 
-import { mailer } from '@Scriblli/email/mailer';
-import { ForgotPasswordTemplate } from '@Scriblli/email/templates/forgot-password';
-import { prisma } from '@Scriblli/prisma';
+import { mailer } from '@documenso/email/mailer';
+import { ForgotPasswordTemplate } from '@documenso/email/templates/forgot-password';
+import { prisma } from '@documenso/prisma';
 
 import { getI18nInstance } from '../../client-only/providers/i18n-server';
 import { NEXT_PUBLIC_WEBAPP_URL } from '../../constants/app';
@@ -57,7 +57,7 @@ export const sendForgotPassword = async ({ userId }: SendForgotPasswordOptions) 
     },
     from: {
       name: env('NEXT_PRIVATE_SMTP_FROM_NAME') || 'Scriblli',
-      address: env('NEXT_PRIVATE_SMTP_FROM_ADDRESS') || 'noreply@Scriblli.com',
+      address: env('NEXT_PRIVATE_SMTP_FROM_ADDRESS') || 'noreply@documenso.com',
     },
     subject: i18n._(msg`Forgot Password?`),
     html,

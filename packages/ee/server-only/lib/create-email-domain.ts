@@ -3,13 +3,13 @@ import { EmailDomainStatus } from '@prisma/client';
 import { generateKeyPair } from 'crypto';
 import { promisify } from 'util';
 
-import { Scriblli_ENCRYPTION_KEY } from '@Scriblli/lib/constants/crypto';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { symmetricEncrypt } from '@Scriblli/lib/universal/crypto';
-import { generateDatabaseId } from '@Scriblli/lib/universal/id';
-import { generateEmailDomainRecords } from '@Scriblli/lib/utils/email-domains';
-import { env } from '@Scriblli/lib/utils/env';
-import { prisma } from '@Scriblli/prisma';
+import { Scriblli_ENCRYPTION_KEY } from '@documenso/lib/constants/crypto';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { symmetricEncrypt } from '@documenso/lib/universal/crypto';
+import { generateDatabaseId } from '@documenso/lib/universal/id';
+import { generateEmailDomainRecords } from '@documenso/lib/utils/email-domains';
+import { env } from '@documenso/lib/utils/env';
+import { prisma } from '@documenso/prisma';
 
 export const getSesClient = () => {
   const accessKeyId = env('NEXT_PRIVATE_SES_ACCESS_KEY_ID');

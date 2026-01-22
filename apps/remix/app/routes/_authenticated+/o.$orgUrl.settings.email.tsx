@@ -1,9 +1,9 @@
 import { useLingui } from '@lingui/react/macro';
 
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { trpc } from '@Scriblli/trpc/react';
-import { SpinnerBox } from '@Scriblli/ui/primitives/spinner';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { trpc } from '@documenso/trpc/react';
+import { SpinnerBox } from '@documenso/ui/primitives/spinner';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import {
   EmailPreferencesForm,

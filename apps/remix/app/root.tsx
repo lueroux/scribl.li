@@ -11,15 +11,15 @@ import {
 } from 'react-router';
 import { PreventFlashOnWrongTheme, Theme, ThemeProvider, useTheme } from 'remix-themes';
 
-import { getOptionalSession } from '@Scriblli/auth/server/lib/utils/get-session';
-import { SessionProvider } from '@Scriblli/lib/client-only/providers/session';
-import { APP_I18N_OPTIONS, type SupportedLanguageCodes } from '@Scriblli/lib/constants/i18n';
-import { createPublicEnv } from '@Scriblli/lib/utils/env';
-import { extractLocaleData } from '@Scriblli/lib/utils/i18n';
-import { TrpcProvider } from '@Scriblli/trpc/react';
-import { getOrganisationSession } from '@Scriblli/trpc/server/organisation-router/get-organisation-session';
-import { Toaster } from '@Scriblli/ui/primitives/toaster';
-import { TooltipProvider } from '@Scriblli/ui/primitives/tooltip';
+import { getOptionalSession } from '@documenso/auth/server/lib/utils/get-session';
+import { SessionProvider } from '@documenso/lib/client-only/providers/session';
+import { APP_I18N_OPTIONS, type SupportedLanguageCodes } from '@documenso/lib/constants/i18n';
+import { createPublicEnv } from '@documenso/lib/utils/env';
+import { extractLocaleData } from '@documenso/lib/utils/i18n';
+import { TrpcProvider } from '@documenso/trpc/react';
+import { getOrganisationSession } from '@documenso/trpc/server/organisation-router/get-organisation-session';
+import { Toaster } from '@documenso/ui/primitives/toaster';
+import { TooltipProvider } from '@documenso/ui/primitives/tooltip';
 
 import type { Route } from './+types/root';
 import stylesheet from './app.css?url';

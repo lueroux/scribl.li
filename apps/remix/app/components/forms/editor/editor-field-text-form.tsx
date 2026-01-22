@@ -13,7 +13,7 @@ import {
   FIELD_DEFAULT_LINE_HEIGHT,
   type TTextFieldMeta as TextFieldMeta,
   ZTextFieldMeta,
-} from '@Scriblli/lib/types/field-meta';
+} from '@documenso/lib/types/field-meta';
 import {
   Form,
   FormControl,
@@ -21,9 +21,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { Textarea } from '@Scriblli/ui/primitives/textarea';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { Textarea } from '@documenso/ui/primitives/textarea';
 
 import {
   EditorGenericFontSizeField,

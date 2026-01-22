@@ -1,9 +1,9 @@
-import { createWebhook } from '@Scriblli/lib/server-only/webhooks/create-webhook';
-import { deleteWebhookById } from '@Scriblli/lib/server-only/webhooks/delete-webhook-by-id';
-import { editWebhook } from '@Scriblli/lib/server-only/webhooks/edit-webhook';
-import { getWebhookById } from '@Scriblli/lib/server-only/webhooks/get-webhook-by-id';
-import { getWebhooksByTeamId } from '@Scriblli/lib/server-only/webhooks/get-webhooks-by-team-id';
-import { triggerTestWebhook } from '@Scriblli/lib/server-only/webhooks/trigger-test-webhook';
+import { createWebhook } from '@documenso/lib/server-only/webhooks/create-webhook';
+import { deleteWebhookById } from '@documenso/lib/server-only/webhooks/delete-webhook-by-id';
+import { editWebhook } from '@documenso/lib/server-only/webhooks/edit-webhook';
+import { getWebhookById } from '@documenso/lib/server-only/webhooks/get-webhook-by-id';
+import { getWebhooksByTeamId } from '@documenso/lib/server-only/webhooks/get-webhooks-by-team-id';
+import { triggerTestWebhook } from '@documenso/lib/server-only/webhooks/trigger-test-webhook';
 
 import { authenticatedProcedure, router } from '../trpc';
 import { findWebhookCallsRoute } from './find-webhook-calls';

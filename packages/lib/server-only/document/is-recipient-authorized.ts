@@ -3,7 +3,7 @@ import { verifyAuthenticationResponse } from '@simplewebauthn/server';
 import { isoBase64URL } from '@simplewebauthn/server/helpers';
 import { match } from 'ts-pattern';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import { validateTwoFactorTokenFromEmail } from '../2fa/email/validate-2fa-token-from-email';
 import { verifyTwoFactorAuthenticationToken } from '../2fa/verify-2fa-token';

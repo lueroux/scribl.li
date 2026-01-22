@@ -7,11 +7,11 @@ import type * as DialogPrimitive from '@radix-ui/react-dialog';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { trpc } from '@Scriblli/trpc/react';
-import type { TFolderWithSubfolders } from '@Scriblli/trpc/server/folder-router/schema';
-import { Alert, AlertDescription } from '@Scriblli/ui/primitives/alert';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { trpc } from '@documenso/trpc/react';
+import type { TFolderWithSubfolders } from '@documenso/trpc/server/folder-router/schema';
+import { Alert, AlertDescription } from '@documenso/ui/primitives/alert';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -19,7 +19,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@Scriblli/ui/primitives/dialog';
+} from '@documenso/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -27,9 +27,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 export type FolderDeleteDialogProps = {
   folder: TFolderWithSubfolders;

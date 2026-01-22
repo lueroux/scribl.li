@@ -1,4 +1,4 @@
-import { updateUser } from '@Scriblli/lib/server-only/admin/update-user';
+import { updateUser } from '@documenso/lib/server-only/admin/update-user';
 
 import { adminProcedure } from '../trpc';
 import { ZUpdateUserRequestSchema, ZUpdateUserResponseSchema } from './update-user.types';

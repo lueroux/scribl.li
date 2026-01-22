@@ -1,6 +1,6 @@
 import type { Role } from '@prisma/client';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 export type UpdateUserOptions = {
   id: number;

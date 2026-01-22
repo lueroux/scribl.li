@@ -7,11 +7,11 @@ import { ArrowLeftIcon, BanIcon, DownloadCloudIcon, PaperclipIcon } from 'lucide
 import { Link } from 'react-router';
 import { match } from 'ts-pattern';
 
-import { useCurrentEnvelopeRender } from '@Scriblli/lib/client-only/providers/envelope-render-provider';
-import { mapSecondaryIdToDocumentId } from '@Scriblli/lib/utils/envelope';
-import PDFViewerKonvaLazy from '@Scriblli/ui/components/pdf-viewer/pdf-viewer-konva-lazy';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { Separator } from '@Scriblli/ui/primitives/separator';
+import { useCurrentEnvelopeRender } from '@documenso/lib/client-only/providers/envelope-render-provider';
+import { mapSecondaryIdToDocumentId } from '@documenso/lib/utils/envelope';
+import PDFViewerKonvaLazy from '@documenso/ui/components/pdf-viewer/pdf-viewer-konva-lazy';
+import { Button } from '@documenso/ui/primitives/button';
+import { Separator } from '@documenso/ui/primitives/separator';
 
 import { EnvelopeDownloadDialog } from '~/components/dialogs/envelope-download-dialog';
 import { SignFieldCheckboxDialog } from '~/components/dialogs/sign-field-checkbox-dialog';

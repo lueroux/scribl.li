@@ -1,9 +1,9 @@
-import { IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
-import { Scriblli_ENCRYPTION_KEY } from '@Scriblli/lib/constants/crypto';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { symmetricDecrypt } from '@Scriblli/lib/universal/crypto';
-import { formatOrganisationCallbackUrl } from '@Scriblli/lib/utils/organisation-authentication-portal';
-import { prisma } from '@Scriblli/prisma';
+import { IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
+import { Scriblli_ENCRYPTION_KEY } from '@documenso/lib/constants/crypto';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { symmetricDecrypt } from '@documenso/lib/universal/crypto';
+import { formatOrganisationCallbackUrl } from '@documenso/lib/utils/organisation-authentication-portal';
+import { prisma } from '@documenso/prisma';
 
 type GetOrganisationAuthenticationPortalOptions =
   | {

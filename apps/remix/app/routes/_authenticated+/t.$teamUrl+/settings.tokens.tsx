@@ -3,10 +3,10 @@ import { Trans } from '@lingui/react/macro';
 import { TeamMemberRole } from '@prisma/client';
 import { DateTime } from 'luxon';
 
-import { trpc } from '@Scriblli/trpc/react';
-import { Alert, AlertDescription } from '@Scriblli/ui/primitives/alert';
-import { AlertTitle } from '@Scriblli/ui/primitives/alert';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { trpc } from '@documenso/trpc/react';
+import { Alert, AlertDescription } from '@documenso/ui/primitives/alert';
+import { AlertTitle } from '@documenso/ui/primitives/alert';
+import { Button } from '@documenso/ui/primitives/button';
 
 import TokenDeleteDialog from '~/components/dialogs/token-delete-dialog';
 import { ApiTokenForm } from '~/components/forms/token';

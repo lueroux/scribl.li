@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { ZClaimFlagsSchema } from '@Scriblli/lib/types/subscription';
+import { ZClaimFlagsSchema } from '@documenso/lib/types/subscription';
 
 export const ZCreateSubscriptionClaimRequestSchema = z.object({
   name: z.string().min(1),

@@ -4,12 +4,12 @@ import { ReadStatus } from '@prisma/client';
 import { InboxIcon, MenuIcon, SearchIcon } from 'lucide-react';
 import { Link, useParams } from 'react-router';
 
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { isPersonalLayout } from '@Scriblli/lib/utils/organisations';
-import { getRootHref } from '@Scriblli/lib/utils/params';
-import { trpc } from '@Scriblli/trpc/react';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { isPersonalLayout } from '@documenso/lib/utils/organisations';
+import { getRootHref } from '@documenso/lib/utils/params';
+import { trpc } from '@documenso/trpc/react';
+import { cn } from '@documenso/ui/lib/utils';
+import { Button } from '@documenso/ui/primitives/button';
 
 import { BrandingLogo } from '~/components/general/branding-logo';
 

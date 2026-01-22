@@ -4,11 +4,11 @@ import { verifyAuthenticationResponse } from '@simplewebauthn/server';
 import { isoBase64URL } from '@simplewebauthn/server/helpers';
 import { Hono } from 'hono';
 
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import type { TAuthenticationResponseJSONSchema } from '@Scriblli/lib/types/webauthn';
-import { ZAuthenticationResponseJSONSchema } from '@Scriblli/lib/types/webauthn';
-import { getAuthenticatorOptions } from '@Scriblli/lib/utils/authenticator';
-import { prisma } from '@Scriblli/prisma';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import type { TAuthenticationResponseJSONSchema } from '@documenso/lib/types/webauthn';
+import { ZAuthenticationResponseJSONSchema } from '@documenso/lib/types/webauthn';
+import { getAuthenticatorOptions } from '@documenso/lib/utils/authenticator';
+import { prisma } from '@documenso/prisma';
 
 import { onAuthorize } from '../lib/utils/authorizer';
 import type { HonoAuthContext } from '../types/context';

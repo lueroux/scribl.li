@@ -9,15 +9,15 @@ import {
   DocumentAuth,
   type TRecipientActionAuth,
   type TRecipientActionAuthTypes,
-} from '@Scriblli/lib/types/document-auth';
-import { Button } from '@Scriblli/ui/primitives/button';
+} from '@documenso/lib/types/document-auth';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from '@Scriblli/ui/primitives/dialog';
+} from '@documenso/ui/primitives/dialog';
 
 import { DocumentSigningAuth2FA } from './document-signing-auth-2fa';
 import { DocumentSigningAuthAccount } from './document-signing-auth-account';

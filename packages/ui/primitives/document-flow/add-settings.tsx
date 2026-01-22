@@ -14,37 +14,37 @@ import { InfoIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { match } from 'ts-pattern';
 
-import { useAutoSave } from '@Scriblli/lib/client-only/hooks/use-autosave';
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { DATE_FORMATS, DEFAULT_DOCUMENT_DATE_FORMAT } from '@Scriblli/lib/constants/date-formats';
-import { DOCUMENT_SIGNATURE_TYPES } from '@Scriblli/lib/constants/document';
-import { SUPPORTED_LANGUAGES } from '@Scriblli/lib/constants/i18n';
-import { DEFAULT_DOCUMENT_TIME_ZONE, TIME_ZONES } from '@Scriblli/lib/constants/time-zones';
-import type { TDocument } from '@Scriblli/lib/types/document';
-import { extractDocumentAuthMethods } from '@Scriblli/lib/utils/document-auth';
-import { extractTeamSignatureSettings } from '@Scriblli/lib/utils/teams';
+import { useAutoSave } from '@documenso/lib/client-only/hooks/use-autosave';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { DATE_FORMATS, DEFAULT_DOCUMENT_DATE_FORMAT } from '@documenso/lib/constants/date-formats';
+import { DOCUMENT_SIGNATURE_TYPES } from '@documenso/lib/constants/document';
+import { SUPPORTED_LANGUAGES } from '@documenso/lib/constants/i18n';
+import { DEFAULT_DOCUMENT_TIME_ZONE, TIME_ZONES } from '@documenso/lib/constants/time-zones';
+import type { TDocument } from '@documenso/lib/types/document';
+import { extractDocumentAuthMethods } from '@documenso/lib/utils/document-auth';
+import { extractTeamSignatureSettings } from '@documenso/lib/utils/teams';
 import {
   DocumentGlobalAuthAccessSelect,
   DocumentGlobalAuthAccessTooltip,
-} from '@Scriblli/ui/components/document/document-global-auth-access-select';
+} from '@documenso/ui/components/document/document-global-auth-access-select';
 import {
   DocumentGlobalAuthActionSelect,
   DocumentGlobalAuthActionTooltip,
-} from '@Scriblli/ui/components/document/document-global-auth-action-select';
+} from '@documenso/ui/components/document/document-global-auth-action-select';
 import {
   DocumentReadOnlyFields,
   mapFieldsWithRecipients,
-} from '@Scriblli/ui/components/document/document-read-only-fields';
+} from '@documenso/ui/components/document/document-read-only-fields';
 import {
   DocumentVisibilitySelect,
   DocumentVisibilityTooltip,
-} from '@Scriblli/ui/components/document/document-visibility-select';
+} from '@documenso/ui/components/document/document-visibility-select';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@Scriblli/ui/primitives/accordion';
+} from '@documenso/ui/primitives/accordion';
 import {
   Form,
   FormControl,
@@ -52,8 +52,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { MultiSelectCombobox } from '@Scriblli/ui/primitives/multi-select-combobox';
+} from '@documenso/ui/primitives/form/form';
+import { MultiSelectCombobox } from '@documenso/ui/primitives/multi-select-combobox';
 
 import { DocumentSignatureSettingsTooltip } from '../../components/document/document-signature-settings-tooltip';
 import { Combobox } from '../combobox';

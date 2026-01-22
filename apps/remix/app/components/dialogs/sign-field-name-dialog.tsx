@@ -5,7 +5,7 @@ import { createCallable } from 'react-call';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { Button } from '@Scriblli/ui/primitives/button';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -13,15 +13,15 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@Scriblli/ui/primitives/dialog';
+} from '@documenso/ui/primitives/dialog';
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
 
 const ZSignFieldNameFormSchema = z.object({
   name: z.string().min(1, { message: msg`Name is required`.id }),

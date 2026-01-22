@@ -1,10 +1,10 @@
 import { FieldType } from '@prisma/client';
 
-import { toCheckboxCustomText } from '@Scriblli/lib/utils/fields';
+import { toCheckboxCustomText } from '@documenso/lib/utils/fields';
 import {
   CheckboxValidationRules,
   numberFormatValues,
-} from '@Scriblli/ui/primitives/document-flow/field-items-advanced-settings/constants';
+} from '@documenso/ui/primitives/document-flow/field-items-advanced-settings/constants';
 
 import type { FieldTestData } from './field-alignment-pdf';
 import { signatureBase64Demo } from './field-alignment-pdf';

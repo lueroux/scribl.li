@@ -1,6 +1,6 @@
 import { env } from '../utils/env';
 
-export const FROM_ADDRESS = env('NEXT_PRIVATE_SMTP_FROM_ADDRESS') || 'noreply@Scriblli.com';
+export const FROM_ADDRESS = env('NEXT_PRIVATE_SMTP_FROM_ADDRESS') || 'noreply@documenso.com';
 export const FROM_NAME = env('NEXT_PRIVATE_SMTP_FROM_NAME') || 'Scriblli';
 
 export const Scriblli_INTERNAL_EMAIL = {
@@ -8,7 +8,7 @@ export const Scriblli_INTERNAL_EMAIL = {
   address: FROM_ADDRESS,
 };
 
-export const SERVICE_USER_EMAIL = 'serviceaccount@Scriblli.com';
+export const SERVICE_USER_EMAIL = 'serviceaccount@documenso.com';
 
 export const EMAIL_VERIFICATION_STATE = {
   NOT_FOUND: 'NOT_FOUND',

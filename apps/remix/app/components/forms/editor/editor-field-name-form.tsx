@@ -9,8 +9,8 @@ import {
   FIELD_DEFAULT_GENERIC_ALIGN,
   type TNameFieldMeta as NameFieldMeta,
   ZNameFieldMeta,
-} from '@Scriblli/lib/types/field-meta';
-import { Form } from '@Scriblli/ui/primitives/form/form';
+} from '@documenso/lib/types/field-meta';
+import { Form } from '@documenso/ui/primitives/form/form';
 
 import {
   EditorGenericFontSizeField,

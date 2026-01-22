@@ -1,7 +1,7 @@
 import type { User } from '@prisma/client';
 import { UserSecurityAuditLogType } from '@prisma/client';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import { AppError, AppErrorCode } from '../../errors/app-error';
 import type { RequestMetadata } from '../../universal/extract-request-metadata';

@@ -1,4 +1,4 @@
-/// <reference types="@Scriblli/tsconfig/process-env.d.ts" />
+/// <reference types="@documenso/tsconfig/process-env.d.ts" />
 
 export const getDatabaseUrl = () => {
   if (process.env.NEXT_PRIVATE_DATABASE_URL) {

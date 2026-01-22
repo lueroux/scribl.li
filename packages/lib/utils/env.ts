@@ -1,4 +1,4 @@
-/// <reference types="@Scriblli/tsconfig/process-env.d.ts" />
+/// <reference types="@documenso/tsconfig/process-env.d.ts" />
 
 declare global {
   interface Window {

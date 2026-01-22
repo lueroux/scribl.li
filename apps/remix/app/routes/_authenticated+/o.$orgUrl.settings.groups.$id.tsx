@@ -10,16 +10,16 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import { z } from 'zod';
 
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { ORGANISATION_MEMBER_ROLE_HIERARCHY } from '@Scriblli/lib/constants/organisations';
-import { EXTENDED_ORGANISATION_MEMBER_ROLE_MAP } from '@Scriblli/lib/constants/organisations-translations';
-import { TEAM_MEMBER_ROLE_MAP } from '@Scriblli/lib/constants/teams-translations';
-import { AppError } from '@Scriblli/lib/errors/app-error';
-import { trpc } from '@Scriblli/trpc/react';
-import type { TFindOrganisationGroupsResponse } from '@Scriblli/trpc/server/organisation-router/find-organisation-groups.types';
-import type { TFindOrganisationMembersResponse } from '@Scriblli/trpc/server/organisation-router/find-organisation-members.types';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { DataTable, type DataTableColumnDef } from '@Scriblli/ui/primitives/data-table';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { ORGANISATION_MEMBER_ROLE_HIERARCHY } from '@documenso/lib/constants/organisations';
+import { EXTENDED_ORGANISATION_MEMBER_ROLE_MAP } from '@documenso/lib/constants/organisations-translations';
+import { TEAM_MEMBER_ROLE_MAP } from '@documenso/lib/constants/teams-translations';
+import { AppError } from '@documenso/lib/errors/app-error';
+import { trpc } from '@documenso/trpc/react';
+import type { TFindOrganisationGroupsResponse } from '@documenso/trpc/server/organisation-router/find-organisation-groups.types';
+import type { TFindOrganisationMembersResponse } from '@documenso/trpc/server/organisation-router/find-organisation-members.types';
+import { Button } from '@documenso/ui/primitives/button';
+import { DataTable, type DataTableColumnDef } from '@documenso/ui/primitives/data-table';
 import {
   Form,
   FormControl,
@@ -28,17 +28,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { MultiSelectCombobox } from '@Scriblli/ui/primitives/multi-select-combobox';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { MultiSelectCombobox } from '@documenso/ui/primitives/multi-select-combobox';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/select';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { OrganisationGroupDeleteDialog } from '~/components/dialogs/organisation-group-delete-dialog';
 import { GenericErrorLayout } from '~/components/general/generic-error-layout';

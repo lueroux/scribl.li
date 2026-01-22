@@ -1,7 +1,7 @@
 import { EnvelopeType, Prisma } from '@prisma/client';
 
-import { buildTeamWhereQuery } from '@Scriblli/lib/utils/teams';
-import { prisma } from '@Scriblli/prisma';
+import { buildTeamWhereQuery } from '@documenso/lib/utils/teams';
+import { prisma } from '@documenso/prisma';
 
 export type GetRecipientSuggestionsOptions = {
   userId: number;

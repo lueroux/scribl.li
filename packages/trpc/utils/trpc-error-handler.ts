@@ -1,7 +1,7 @@
 import type { ErrorHandlerOptions } from '@trpc/server/unstable-core-do-not-import';
 
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { logger } from '@Scriblli/lib/utils/logger';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { logger } from '@documenso/lib/utils/logger';
 
 import type { TrpcContext } from '../server/context';
 

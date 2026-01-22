@@ -6,37 +6,37 @@ import { FieldType } from '@prisma/client';
 import { DateTime } from 'luxon';
 import { match } from 'ts-pattern';
 
-import { DEFAULT_DOCUMENT_DATE_FORMAT } from '@Scriblli/lib/constants/date-formats';
-import { PDF_VIEWER_PAGE_SELECTOR } from '@Scriblli/lib/constants/pdf-viewer';
-import { DEFAULT_DOCUMENT_TIME_ZONE } from '@Scriblli/lib/constants/time-zones';
+import { DEFAULT_DOCUMENT_DATE_FORMAT } from '@documenso/lib/constants/date-formats';
+import { PDF_VIEWER_PAGE_SELECTOR } from '@documenso/lib/constants/pdf-viewer';
+import { DEFAULT_DOCUMENT_TIME_ZONE } from '@documenso/lib/constants/time-zones';
 import {
   ZCheckboxFieldMeta,
   ZDropdownFieldMeta,
   ZNumberFieldMeta,
   ZRadioFieldMeta,
   ZTextFieldMeta,
-} from '@Scriblli/lib/types/field-meta';
-import type { TTemplate } from '@Scriblli/lib/types/template';
-import { isFieldUnsignedAndRequired } from '@Scriblli/lib/utils/advanced-fields-helpers';
-import { sortFieldsByPosition, validateFieldsInserted } from '@Scriblli/lib/utils/fields';
+} from '@documenso/lib/types/field-meta';
+import type { TTemplate } from '@documenso/lib/types/template';
+import { isFieldUnsignedAndRequired } from '@documenso/lib/utils/advanced-fields-helpers';
+import { sortFieldsByPosition, validateFieldsInserted } from '@documenso/lib/utils/fields';
 import type {
   TRemovedSignedFieldWithTokenMutationSchema,
   TSignFieldWithTokenMutationSchema,
-} from '@Scriblli/trpc/server/field-router/schema';
-import { FieldToolTip } from '@Scriblli/ui/components/field/field-tooltip';
-import { Button } from '@Scriblli/ui/primitives/button';
+} from '@documenso/trpc/server/field-router/schema';
+import { FieldToolTip } from '@documenso/ui/components/field/field-tooltip';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   DocumentFlowFormContainerContent,
   DocumentFlowFormContainerFooter,
   DocumentFlowFormContainerHeader,
   DocumentFlowFormContainerStep,
-} from '@Scriblli/ui/primitives/document-flow/document-flow-root';
-import type { DocumentFlowStep } from '@Scriblli/ui/primitives/document-flow/types';
-import { ElementVisible } from '@Scriblli/ui/primitives/element-visible';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { Label } from '@Scriblli/ui/primitives/label';
-import { SignaturePadDialog } from '@Scriblli/ui/primitives/signature-pad/signature-pad-dialog';
-import { useStep } from '@Scriblli/ui/primitives/stepper';
+} from '@documenso/ui/primitives/document-flow/document-flow-root';
+import type { DocumentFlowStep } from '@documenso/ui/primitives/document-flow/types';
+import { ElementVisible } from '@documenso/ui/primitives/element-visible';
+import { Input } from '@documenso/ui/primitives/input';
+import { Label } from '@documenso/ui/primitives/label';
+import { SignaturePadDialog } from '@documenso/ui/primitives/signature-pad/signature-pad-dialog';
+import { useStep } from '@documenso/ui/primitives/stepper';
 
 import { DocumentSigningCheckboxField } from '~/components/general/document-signing/document-signing-checkbox-field';
 import { DocumentSigningCompleteDialog } from '~/components/general/document-signing/document-signing-complete-dialog';

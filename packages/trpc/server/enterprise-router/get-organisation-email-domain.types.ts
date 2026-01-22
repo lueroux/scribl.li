@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { ZEmailDomainSchema } from '@Scriblli/lib/types/email-domain';
+import { ZEmailDomainSchema } from '@documenso/lib/types/email-domain';
 
 export const ZGetOrganisationEmailDomainRequestSchema = z.object({
   emailDomainId: z.string(),

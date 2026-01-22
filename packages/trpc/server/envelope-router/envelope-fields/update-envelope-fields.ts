@@ -1,4 +1,4 @@
-import { updateEnvelopeFields } from '@Scriblli/lib/server-only/field/update-envelope-fields';
+import { updateEnvelopeFields } from '@documenso/lib/server-only/field/update-envelope-fields';
 
 import { authenticatedProcedure } from '../../trpc';
 import {

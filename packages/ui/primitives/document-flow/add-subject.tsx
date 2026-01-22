@@ -10,14 +10,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { InfoIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
-import { useAutoSave } from '@Scriblli/lib/client-only/hooks/use-autosave';
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { RECIPIENT_ROLES_DESCRIPTION } from '@Scriblli/lib/constants/recipient-roles';
-import type { TDocument } from '@Scriblli/lib/types/document';
-import { ZDocumentEmailSettingsSchema } from '@Scriblli/lib/types/document-email';
-import { formatSigningLink } from '@Scriblli/lib/utils/recipients';
-import { trpc } from '@Scriblli/trpc/react';
-import { DocumentSendEmailMessageHelper } from '@Scriblli/ui/components/document/document-send-email-message-helper';
+import { useAutoSave } from '@documenso/lib/client-only/hooks/use-autosave';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { RECIPIENT_ROLES_DESCRIPTION } from '@documenso/lib/constants/recipient-roles';
+import type { TDocument } from '@documenso/lib/types/document';
+import { ZDocumentEmailSettingsSchema } from '@documenso/lib/types/document-email';
+import { formatSigningLink } from '@documenso/lib/utils/recipients';
+import { trpc } from '@documenso/trpc/react';
+import { DocumentSendEmailMessageHelper } from '@documenso/ui/components/document/document-send-email-message-helper';
 import {
   Form,
   FormControl,
@@ -25,15 +25,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
+} from '@documenso/ui/primitives/form/form';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
-import { Tabs, TabsList, TabsTrigger } from '@Scriblli/ui/primitives/tabs';
+} from '@documenso/ui/primitives/select';
+import { Tabs, TabsList, TabsTrigger } from '@documenso/ui/primitives/tabs';
 
 import { CopyTextButton } from '../../components/common/copy-text-button';
 import { DocumentEmailCheckboxes } from '../../components/document/document-email-checkboxes';

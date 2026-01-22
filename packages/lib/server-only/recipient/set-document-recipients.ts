@@ -6,22 +6,22 @@ import { EnvelopeType, RecipientRole } from '@prisma/client';
 import { SendStatus, SigningStatus } from '@prisma/client';
 import { isDeepEqual } from 'remeda';
 
-import { mailer } from '@Scriblli/email/mailer';
-import RecipientRemovedFromDocumentTemplate from '@Scriblli/email/templates/recipient-removed-from-document';
-import { DOCUMENT_AUDIT_LOG_TYPE } from '@Scriblli/lib/types/document-audit-logs';
-import type { TRecipientAccessAuthTypes } from '@Scriblli/lib/types/document-auth';
+import { mailer } from '@documenso/email/mailer';
+import RecipientRemovedFromDocumentTemplate from '@documenso/email/templates/recipient-removed-from-document';
+import { DOCUMENT_AUDIT_LOG_TYPE } from '@documenso/lib/types/document-audit-logs';
+import type { TRecipientAccessAuthTypes } from '@documenso/lib/types/document-auth';
 import {
   type TRecipientActionAuthTypes,
   ZRecipientAuthOptionsSchema,
-} from '@Scriblli/lib/types/document-auth';
-import type { ApiRequestMetadata } from '@Scriblli/lib/universal/extract-request-metadata';
-import { nanoid } from '@Scriblli/lib/universal/id';
+} from '@documenso/lib/types/document-auth';
+import type { ApiRequestMetadata } from '@documenso/lib/universal/extract-request-metadata';
+import { nanoid } from '@documenso/lib/universal/id';
 import {
   createDocumentAuditLogData,
   diffRecipientChanges,
-} from '@Scriblli/lib/utils/document-audit-logs';
-import { createRecipientAuthOptions } from '@Scriblli/lib/utils/document-auth';
-import { prisma } from '@Scriblli/prisma';
+} from '@documenso/lib/utils/document-audit-logs';
+import { createRecipientAuthOptions } from '@documenso/lib/utils/document-auth';
+import { prisma } from '@documenso/prisma';
 
 import { getI18nInstance } from '../../client-only/providers/i18n-server';
 import { NEXT_PUBLIC_WEBAPP_URL } from '../../constants/app';

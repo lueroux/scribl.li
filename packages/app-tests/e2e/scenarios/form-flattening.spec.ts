@@ -3,17 +3,17 @@ import { expect, test } from '@playwright/test';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
-import { createApiToken } from '@Scriblli/lib/server-only/public-api/create-api-token';
-import { getFileServerSide } from '@Scriblli/lib/universal/upload/get-file.server';
-import { mapSecondaryIdToTemplateId } from '@Scriblli/lib/utils/envelope';
-import { prisma } from '@Scriblli/prisma';
-import { EnvelopeType, RecipientRole } from '@Scriblli/prisma/client';
-import { seedUser } from '@Scriblli/prisma/seed/users';
+import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
+import { createApiToken } from '@documenso/lib/server-only/public-api/create-api-token';
+import { getFileServerSide } from '@documenso/lib/universal/upload/get-file.server';
+import { mapSecondaryIdToTemplateId } from '@documenso/lib/utils/envelope';
+import { prisma } from '@documenso/prisma';
+import { EnvelopeType, RecipientRole } from '@documenso/prisma/client';
+import { seedUser } from '@documenso/prisma/seed/users';
 import type {
   TCreateEnvelopePayload,
   TCreateEnvelopeResponse,
-} from '@Scriblli/trpc/server/envelope-router/create-envelope.types';
+} from '@documenso/trpc/server/envelope-router/create-envelope.types';
 
 const WEBAPP_BASE_URL = NEXT_PUBLIC_WEBAPP_URL();
 const baseUrl = `${WEBAPP_BASE_URL}/api/v2-beta`;

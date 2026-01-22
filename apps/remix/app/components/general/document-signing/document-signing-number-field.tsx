@@ -5,22 +5,22 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { useRevalidator } from 'react-router';
 
-import { validateNumberField } from '@Scriblli/lib/advanced-fields-validation/validate-number';
-import { DO_NOT_INVALIDATE_QUERY_ON_MUTATION } from '@Scriblli/lib/constants/trpc';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import type { TRecipientActionAuth } from '@Scriblli/lib/types/document-auth';
-import { ZNumberFieldMeta } from '@Scriblli/lib/types/field-meta';
-import type { FieldWithSignature } from '@Scriblli/prisma/types/field-with-signature';
-import { trpc } from '@Scriblli/trpc/react';
+import { validateNumberField } from '@documenso/lib/advanced-fields-validation/validate-number';
+import { DO_NOT_INVALIDATE_QUERY_ON_MUTATION } from '@documenso/lib/constants/trpc';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import type { TRecipientActionAuth } from '@documenso/lib/types/document-auth';
+import { ZNumberFieldMeta } from '@documenso/lib/types/field-meta';
+import type { FieldWithSignature } from '@documenso/prisma/types/field-with-signature';
+import { trpc } from '@documenso/trpc/react';
 import type {
   TRemovedSignedFieldWithTokenMutationSchema,
   TSignFieldWithTokenMutationSchema,
-} from '@Scriblli/trpc/server/field-router/schema';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { Dialog, DialogContent, DialogFooter, DialogTitle } from '@Scriblli/ui/primitives/dialog';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/trpc/server/field-router/schema';
+import { cn } from '@documenso/ui/lib/utils';
+import { Button } from '@documenso/ui/primitives/button';
+import { Dialog, DialogContent, DialogFooter, DialogTitle } from '@documenso/ui/primitives/dialog';
+import { Input } from '@documenso/ui/primitives/input';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { useRequiredDocumentSigningAuthContext } from './document-signing-auth-provider';
 import { DocumentSigningFieldContainer } from './document-signing-field-container';

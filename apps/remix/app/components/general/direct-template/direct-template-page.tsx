@@ -6,16 +6,16 @@ import type { Field } from '@prisma/client';
 import { type Recipient } from '@prisma/client';
 import { useNavigate, useSearchParams } from 'react-router';
 
-import { RECIPIENT_ROLES_DESCRIPTION } from '@Scriblli/lib/constants/recipient-roles';
-import type { TTemplate } from '@Scriblli/lib/types/template';
-import { isRequiredField } from '@Scriblli/lib/utils/advanced-fields-helpers';
-import { trpc } from '@Scriblli/trpc/react';
-import { Card, CardContent } from '@Scriblli/ui/primitives/card';
-import { DocumentFlowFormContainer } from '@Scriblli/ui/primitives/document-flow/document-flow-root';
-import type { DocumentFlowStep } from '@Scriblli/ui/primitives/document-flow/types';
-import { PDFViewerLazy } from '@Scriblli/ui/primitives/pdf-viewer/lazy';
-import { Stepper } from '@Scriblli/ui/primitives/stepper';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+import { RECIPIENT_ROLES_DESCRIPTION } from '@documenso/lib/constants/recipient-roles';
+import type { TTemplate } from '@documenso/lib/types/template';
+import { isRequiredField } from '@documenso/lib/utils/advanced-fields-helpers';
+import { trpc } from '@documenso/trpc/react';
+import { Card, CardContent } from '@documenso/ui/primitives/card';
+import { DocumentFlowFormContainer } from '@documenso/ui/primitives/document-flow/document-flow-root';
+import type { DocumentFlowStep } from '@documenso/ui/primitives/document-flow/types';
+import { PDFViewerLazy } from '@documenso/ui/primitives/pdf-viewer/lazy';
+import { Stepper } from '@documenso/ui/primitives/stepper';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { useRequiredDocumentSigningAuthContext } from '~/components/general/document-signing/document-signing-auth-provider';
 import { useRequiredDocumentSigningContext } from '~/components/general/document-signing/document-signing-provider';

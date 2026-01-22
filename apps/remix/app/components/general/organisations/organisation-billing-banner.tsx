@@ -8,13 +8,13 @@ import { AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router';
 import { match } from 'ts-pattern';
 
-import { useOptionalCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { SUPPORT_EMAIL } from '@Scriblli/lib/constants/app';
-import { canExecuteOrganisationAction } from '@Scriblli/lib/utils/organisations';
-import { trpc } from '@Scriblli/trpc/react';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Alert, AlertDescription } from '@Scriblli/ui/primitives/alert';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { useOptionalCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { SUPPORT_EMAIL } from '@documenso/lib/constants/app';
+import { canExecuteOrganisationAction } from '@documenso/lib/utils/organisations';
+import { trpc } from '@documenso/trpc/react';
+import { cn } from '@documenso/ui/lib/utils';
+import { Alert, AlertDescription } from '@documenso/ui/primitives/alert';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogClose,
@@ -23,8 +23,8 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@Scriblli/ui/primitives/dialog';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/dialog';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 export const OrganisationBillingBanner = () => {
   const { _ } = useLingui();

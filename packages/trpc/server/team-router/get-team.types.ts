@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
-import { TeamMemberRole } from '@Scriblli/prisma/generated/types';
-import OrganisationGlobalSettingsSchema from '@Scriblli/prisma/generated/zod/modelSchema/OrganisationGlobalSettingsSchema';
-import TeamGlobalSettingsSchema from '@Scriblli/prisma/generated/zod/modelSchema/TeamGlobalSettingsSchema';
-import TeamSchema from '@Scriblli/prisma/generated/zod/modelSchema/TeamSchema';
+import { TeamMemberRole } from '@documenso/prisma/generated/types';
+import OrganisationGlobalSettingsSchema from '@documenso/prisma/generated/zod/modelSchema/OrganisationGlobalSettingsSchema';
+import TeamGlobalSettingsSchema from '@documenso/prisma/generated/zod/modelSchema/TeamGlobalSettingsSchema';
+import TeamSchema from '@documenso/prisma/generated/zod/modelSchema/TeamSchema';
 
 // export const getTeamMeta: TrpcOpenApiMeta = {
 //   openapi: {

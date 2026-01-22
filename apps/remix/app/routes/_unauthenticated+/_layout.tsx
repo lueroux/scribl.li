@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 
-import backgroundPattern from '@Scriblli/assets/images/background-pattern.png';
+import backgroundPattern from '@documenso/assets/images/background-pattern.png';
 
 export default function Layout() {
   return (

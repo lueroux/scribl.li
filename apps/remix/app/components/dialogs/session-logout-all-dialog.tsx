@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import { Trans, useLingui } from '@lingui/react/macro';
 
-import { authClient } from '@Scriblli/auth/client';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { authClient } from '@documenso/auth/client';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogClose,
@@ -13,8 +13,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@Scriblli/ui/primitives/dialog';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/dialog';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 type SessionLogoutAllDialogProps = {
   onSuccess?: () => Promise<unknown>;

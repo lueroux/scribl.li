@@ -1,16 +1,16 @@
 import { Trans, useLingui } from '@lingui/react/macro';
 
-import { validateFields as validateEmailFields } from '@Scriblli/lib/advanced-fields-validation/validate-fields';
-import { type TEmailFieldMeta as EmailFieldMeta } from '@Scriblli/lib/types/field-meta';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { Label } from '@Scriblli/ui/primitives/label';
+import { validateFields as validateEmailFields } from '@documenso/lib/advanced-fields-validation/validate-fields';
+import { type TEmailFieldMeta as EmailFieldMeta } from '@documenso/lib/types/field-meta';
+import { Input } from '@documenso/ui/primitives/input';
+import { Label } from '@documenso/ui/primitives/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
+} from '@documenso/ui/primitives/select';
 
 type EmailFieldAdvancedSettingsProps = {
   fieldState: EmailFieldMeta;

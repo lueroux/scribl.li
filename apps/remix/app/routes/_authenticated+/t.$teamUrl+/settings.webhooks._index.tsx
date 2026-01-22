@@ -16,22 +16,22 @@ import {
 import { DateTime } from 'luxon';
 import { Link } from 'react-router';
 
-import { toFriendlyWebhookEventName } from '@Scriblli/lib/universal/webhook/to-friendly-webhook-event-name';
-import { trpc } from '@Scriblli/trpc/react';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Badge } from '@Scriblli/ui/primitives/badge';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { DataTable, type DataTableColumnDef } from '@Scriblli/ui/primitives/data-table';
-import { DataTablePagination } from '@Scriblli/ui/primitives/data-table-pagination';
+import { toFriendlyWebhookEventName } from '@documenso/lib/universal/webhook/to-friendly-webhook-event-name';
+import { trpc } from '@documenso/trpc/react';
+import { cn } from '@documenso/ui/lib/utils';
+import { Badge } from '@documenso/ui/primitives/badge';
+import { Button } from '@documenso/ui/primitives/button';
+import { DataTable, type DataTableColumnDef } from '@documenso/ui/primitives/data-table';
+import { DataTablePagination } from '@documenso/ui/primitives/data-table-pagination';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-} from '@Scriblli/ui/primitives/dropdown-menu';
-import { Skeleton } from '@Scriblli/ui/primitives/skeleton';
-import { TableCell } from '@Scriblli/ui/primitives/table';
+} from '@documenso/ui/primitives/dropdown-menu';
+import { Skeleton } from '@documenso/ui/primitives/skeleton';
+import { TableCell } from '@documenso/ui/primitives/table';
 
 import { WebhookCreateDialog } from '~/components/dialogs/webhook-create-dialog';
 import { WebhookDeleteDialog } from '~/components/dialogs/webhook-delete-dialog';

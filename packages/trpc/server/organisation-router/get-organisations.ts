@@ -1,5 +1,5 @@
-import { getHighestOrganisationRoleInGroup } from '@Scriblli/lib/utils/organisations';
-import { prisma } from '@Scriblli/prisma';
+import { getHighestOrganisationRoleInGroup } from '@documenso/lib/utils/organisations';
+import { prisma } from '@documenso/prisma';
 
 import { authenticatedProcedure } from '../trpc';
 import {

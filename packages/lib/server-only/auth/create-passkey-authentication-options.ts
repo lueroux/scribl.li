@@ -4,7 +4,7 @@ import type { AuthenticatorTransportFuture } from '@simplewebauthn/server';
 import { isoBase64URL } from '@simplewebauthn/server/helpers';
 import { DateTime } from 'luxon';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import { AppError, AppErrorCode } from '../../errors/app-error';
 import { getAuthenticatorOptions } from '../../utils/authenticator';

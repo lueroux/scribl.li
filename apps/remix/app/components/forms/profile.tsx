@@ -5,10 +5,10 @@ import { Trans } from '@lingui/react/macro';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { trpc } from '@Scriblli/trpc/react';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { trpc } from '@documenso/trpc/react';
+import { cn } from '@documenso/ui/lib/utils';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Form,
   FormControl,
@@ -16,11 +16,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { Label } from '@Scriblli/ui/primitives/label';
-import { SignaturePadDialog } from '@Scriblli/ui/primitives/signature-pad/signature-pad-dialog';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { Label } from '@documenso/ui/primitives/label';
+import { SignaturePadDialog } from '@documenso/ui/primitives/signature-pad/signature-pad-dialog';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 export const ZProfileFormSchema = z.object({
   name: z

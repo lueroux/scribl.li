@@ -1,4 +1,4 @@
-import { getFieldById } from '@Scriblli/lib/server-only/field/get-field-by-id';
+import { getFieldById } from '@documenso/lib/server-only/field/get-field-by-id';
 
 import { authenticatedProcedure } from '../../trpc';
 import {

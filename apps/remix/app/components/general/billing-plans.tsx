@@ -7,15 +7,15 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Building2Icon, PlusIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
-import type { InternalClaimPlans } from '@Scriblli/ee/server-only/stripe/get-internal-claim-plans';
-import { useIsMounted } from '@Scriblli/lib/client-only/hooks/use-is-mounted';
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { INTERNAL_CLAIM_ID } from '@Scriblli/lib/types/subscription';
-import { isPersonalLayout } from '@Scriblli/lib/utils/organisations';
-import { trpc } from '@Scriblli/trpc/react';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { Card, CardContent, CardTitle } from '@Scriblli/ui/primitives/card';
+import type { InternalClaimPlans } from '@documenso/ee/server-only/stripe/get-internal-claim-plans';
+import { useIsMounted } from '@documenso/lib/client-only/hooks/use-is-mounted';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { INTERNAL_CLAIM_ID } from '@documenso/lib/types/subscription';
+import { isPersonalLayout } from '@documenso/lib/utils/organisations';
+import { trpc } from '@documenso/trpc/react';
+import { Button } from '@documenso/ui/primitives/button';
+import { Card, CardContent, CardTitle } from '@documenso/ui/primitives/card';
 import {
   Dialog,
   DialogClose,
@@ -25,7 +25,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@Scriblli/ui/primitives/dialog';
+} from '@documenso/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -33,12 +33,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { Label } from '@Scriblli/ui/primitives/label';
-import { RadioGroup, RadioGroupItem } from '@Scriblli/ui/primitives/radio-group';
-import { Tabs, TabsList, TabsTrigger } from '@Scriblli/ui/primitives/tabs';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { Label } from '@documenso/ui/primitives/label';
+import { RadioGroup, RadioGroupItem } from '@documenso/ui/primitives/radio-group';
+import { Tabs, TabsList, TabsTrigger } from '@documenso/ui/primitives/tabs';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { ZCreateOrganisationFormSchema } from '../dialogs/organisation-create-dialog';
 

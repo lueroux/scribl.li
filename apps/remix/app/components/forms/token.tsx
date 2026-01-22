@@ -10,13 +10,13 @@ import { useForm } from 'react-hook-form';
 import { match } from 'ts-pattern';
 import type { z } from 'zod';
 
-import { useCopyToClipboard } from '@Scriblli/lib/client-only/hooks/use-copy-to-clipboard';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { trpc } from '@Scriblli/trpc/react';
-import { ZCreateApiTokenRequestSchema } from '@Scriblli/trpc/server/api-token-router/create-api-token.types';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { Card, CardContent } from '@Scriblli/ui/primitives/card';
+import { useCopyToClipboard } from '@documenso/lib/client-only/hooks/use-copy-to-clipboard';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { trpc } from '@documenso/trpc/react';
+import { ZCreateApiTokenRequestSchema } from '@documenso/trpc/server/api-token-router/create-api-token.types';
+import { cn } from '@documenso/ui/lib/utils';
+import { Button } from '@documenso/ui/primitives/button';
+import { Card, CardContent } from '@documenso/ui/primitives/card';
 import {
   Form,
   FormControl,
@@ -25,17 +25,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
-import { Switch } from '@Scriblli/ui/primitives/switch';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/select';
+import { Switch } from '@documenso/ui/primitives/switch';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { useCurrentTeam } from '~/providers/team';
 

@@ -3,11 +3,11 @@ import { createElement } from 'react';
 import { msg } from '@lingui/core/macro';
 import { EnvelopeType, SendStatus, SigningStatus } from '@prisma/client';
 
-import { mailer } from '@Scriblli/email/mailer';
-import DocumentRejectedEmail from '@Scriblli/email/templates/document-rejected';
-import DocumentRejectionConfirmedEmail from '@Scriblli/email/templates/document-rejection-confirmed';
-import { isRecipientEmailValidForSending } from '@Scriblli/lib/utils/recipients';
-import { prisma } from '@Scriblli/prisma';
+import { mailer } from '@documenso/email/mailer';
+import DocumentRejectedEmail from '@documenso/email/templates/document-rejected';
+import DocumentRejectionConfirmedEmail from '@documenso/email/templates/document-rejection-confirmed';
+import { isRecipientEmailValidForSending } from '@documenso/lib/utils/recipients';
+import { prisma } from '@documenso/prisma';
 
 import { getI18nInstance } from '../../../client-only/providers/i18n-server';
 import { NEXT_PUBLIC_WEBAPP_URL } from '../../../constants/app';

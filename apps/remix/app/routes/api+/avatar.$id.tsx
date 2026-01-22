@@ -1,4 +1,4 @@
-import { getAvatarImage } from '@Scriblli/lib/server-only/profile/get-avatar-image';
+import { getAvatarImage } from '@documenso/lib/server-only/profile/get-avatar-image';
 
 import type { Route } from './+types/avatar.$id';
 

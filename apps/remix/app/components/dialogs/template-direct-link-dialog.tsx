@@ -15,17 +15,17 @@ import {
 import { Link, useRevalidator } from 'react-router';
 import { P, match } from 'ts-pattern';
 
-import { useLimits } from '@Scriblli/ee/server-only/limits/provider/client';
-import { useCopyToClipboard } from '@Scriblli/lib/client-only/hooks/use-copy-to-clipboard';
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { DIRECT_TEMPLATE_RECIPIENT_EMAIL } from '@Scriblli/lib/constants/direct-templates';
-import { RECIPIENT_ROLES_DESCRIPTION } from '@Scriblli/lib/constants/recipient-roles';
-import { DIRECT_TEMPLATE_DOCUMENTATION } from '@Scriblli/lib/constants/template';
-import { formatDirectTemplatePath } from '@Scriblli/lib/utils/templates';
-import { trpc as trpcReact } from '@Scriblli/trpc/react';
-import { AnimateGenericFadeInOut } from '@Scriblli/ui/components/animate/animate-generic-fade-in-out';
-import { Alert, AlertDescription, AlertTitle } from '@Scriblli/ui/primitives/alert';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { useLimits } from '@documenso/ee/server-only/limits/provider/client';
+import { useCopyToClipboard } from '@documenso/lib/client-only/hooks/use-copy-to-clipboard';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { DIRECT_TEMPLATE_RECIPIENT_EMAIL } from '@documenso/lib/constants/direct-templates';
+import { RECIPIENT_ROLES_DESCRIPTION } from '@documenso/lib/constants/recipient-roles';
+import { DIRECT_TEMPLATE_DOCUMENTATION } from '@documenso/lib/constants/template';
+import { formatDirectTemplatePath } from '@documenso/lib/utils/templates';
+import { trpc as trpcReact } from '@documenso/trpc/react';
+import { AnimateGenericFadeInOut } from '@documenso/ui/components/animate/animate-generic-fade-in-out';
+import { Alert, AlertDescription, AlertTitle } from '@documenso/ui/primitives/alert';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -34,10 +34,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@Scriblli/ui/primitives/dialog';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { Label } from '@Scriblli/ui/primitives/label';
-import { Switch } from '@Scriblli/ui/primitives/switch';
+} from '@documenso/ui/primitives/dialog';
+import { Input } from '@documenso/ui/primitives/input';
+import { Label } from '@documenso/ui/primitives/label';
+import { Switch } from '@documenso/ui/primitives/switch';
 import {
   Table,
   TableBody,
@@ -45,9 +45,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@Scriblli/ui/primitives/table';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@Scriblli/ui/primitives/tooltip';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/table';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@documenso/ui/primitives/tooltip';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 type TemplateDirectLinkDialogProps = {
   templateId: number;

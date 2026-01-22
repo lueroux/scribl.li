@@ -1,9 +1,9 @@
 import satori from 'satori';
 import { P, match } from 'ts-pattern';
 
-import { NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
-import { getRecipientOrSenderByShareLinkSlug } from '@Scriblli/lib/server-only/document/get-recipient-or-sender-by-share-link-slug';
-import { svgToPng } from '@Scriblli/lib/utils/images/svg-to-png';
+import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
+import { getRecipientOrSenderByShareLinkSlug } from '@documenso/lib/server-only/document/get-recipient-or-sender-by-share-link-slug';
+import { svgToPng } from '@documenso/lib/utils/images/svg-to-png';
 
 import type { Route } from './+types/share.$slug.opengraph';
 

@@ -15,11 +15,11 @@ import {
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router';
 
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
-import { canExecuteOrganisationAction, isPersonalLayout } from '@Scriblli/lib/utils/organisations';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
+import { canExecuteOrganisationAction, isPersonalLayout } from '@documenso/lib/utils/organisations';
+import { cn } from '@documenso/ui/lib/utils';
+import { Button } from '@documenso/ui/primitives/button';
 
 export type SettingsMobileNavProps = HTMLAttributes<HTMLDivElement>;
 

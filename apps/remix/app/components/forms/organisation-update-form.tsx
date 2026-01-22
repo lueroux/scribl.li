@@ -7,13 +7,13 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import type { z } from 'zod';
 
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { trpc } from '@Scriblli/trpc/react';
-import { ZUpdateOrganisationRequestSchema } from '@Scriblli/trpc/server/organisation-router/update-organisation.types';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { trpc } from '@documenso/trpc/react';
+import { ZUpdateOrganisationRequestSchema } from '@documenso/trpc/server/organisation-router/update-organisation.types';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Form,
   FormControl,
@@ -21,9 +21,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 const ZOrganisationUpdateFormSchema = ZUpdateOrganisationRequestSchema.shape.data.pick({
   name: true,

@@ -1,13 +1,13 @@
 import { EnvelopeType } from '@prisma/client';
 
-import { completeDocumentWithToken } from '@Scriblli/lib/server-only/document/complete-document-with-token';
-import { rejectDocumentWithToken } from '@Scriblli/lib/server-only/document/reject-document-with-token';
-import { createEnvelopeRecipients } from '@Scriblli/lib/server-only/recipient/create-envelope-recipients';
-import { deleteEnvelopeRecipient } from '@Scriblli/lib/server-only/recipient/delete-envelope-recipient';
-import { getRecipientById } from '@Scriblli/lib/server-only/recipient/get-recipient-by-id';
-import { setDocumentRecipients } from '@Scriblli/lib/server-only/recipient/set-document-recipients';
-import { setTemplateRecipients } from '@Scriblli/lib/server-only/recipient/set-template-recipients';
-import { updateEnvelopeRecipients } from '@Scriblli/lib/server-only/recipient/update-envelope-recipients';
+import { completeDocumentWithToken } from '@documenso/lib/server-only/document/complete-document-with-token';
+import { rejectDocumentWithToken } from '@documenso/lib/server-only/document/reject-document-with-token';
+import { createEnvelopeRecipients } from '@documenso/lib/server-only/recipient/create-envelope-recipients';
+import { deleteEnvelopeRecipient } from '@documenso/lib/server-only/recipient/delete-envelope-recipient';
+import { getRecipientById } from '@documenso/lib/server-only/recipient/get-recipient-by-id';
+import { setDocumentRecipients } from '@documenso/lib/server-only/recipient/set-document-recipients';
+import { setTemplateRecipients } from '@documenso/lib/server-only/recipient/set-template-recipients';
+import { updateEnvelopeRecipients } from '@documenso/lib/server-only/recipient/update-envelope-recipients';
 
 import { ZGenericSuccessResponse, ZSuccessResponseSchema } from '../schema';
 import { authenticatedProcedure, procedure, router } from '../trpc';

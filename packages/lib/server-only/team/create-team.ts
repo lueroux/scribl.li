@@ -6,8 +6,8 @@ import {
 } from '@prisma/client';
 import { match } from 'ts-pattern';
 
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { prisma } from '@Scriblli/prisma';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { prisma } from '@documenso/prisma';
 
 import { IS_BILLING_ENABLED } from '../../constants/app';
 import {

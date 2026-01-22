@@ -1,13 +1,13 @@
 import { EnvelopeType, type FieldType } from '@prisma/client';
 
-import { DOCUMENT_AUDIT_LOG_TYPE } from '@Scriblli/lib/types/document-audit-logs';
-import type { TFieldMetaSchema } from '@Scriblli/lib/types/field-meta';
-import type { ApiRequestMetadata } from '@Scriblli/lib/universal/extract-request-metadata';
+import { DOCUMENT_AUDIT_LOG_TYPE } from '@documenso/lib/types/document-audit-logs';
+import type { TFieldMetaSchema } from '@documenso/lib/types/field-meta';
+import type { ApiRequestMetadata } from '@documenso/lib/universal/extract-request-metadata';
 import {
   createDocumentAuditLogData,
   diffFieldChanges,
-} from '@Scriblli/lib/utils/document-audit-logs';
-import { prisma } from '@Scriblli/prisma';
+} from '@documenso/lib/utils/document-audit-logs';
+import { prisma } from '@documenso/prisma';
 
 import { AppError, AppErrorCode } from '../../errors/app-error';
 import { type EnvelopeIdOptions } from '../../utils/envelope';

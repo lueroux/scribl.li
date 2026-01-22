@@ -10,27 +10,27 @@ import { X } from 'lucide-react';
 import { ErrorCode as DropzoneErrorCode, type FileRejection } from 'react-dropzone';
 import { Link } from 'react-router';
 
-import { useLimits } from '@Scriblli/ee/server-only/limits/provider/client';
+import { useLimits } from '@documenso/ee/server-only/limits/provider/client';
 import {
   useCurrentEnvelopeEditor,
   useDebounceFunction,
-} from '@Scriblli/lib/client-only/providers/envelope-editor-provider';
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { APP_DOCUMENT_UPLOAD_SIZE_LIMIT } from '@Scriblli/lib/constants/app';
-import { nanoid } from '@Scriblli/lib/universal/id';
-import { canEnvelopeItemsBeModified } from '@Scriblli/lib/utils/envelope';
-import { trpc } from '@Scriblli/trpc/react';
-import type { TCreateEnvelopeItemsPayload } from '@Scriblli/trpc/server/envelope-router/create-envelope-items.types';
-import { Button } from '@Scriblli/ui/primitives/button';
+} from '@documenso/lib/client-only/providers/envelope-editor-provider';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { APP_DOCUMENT_UPLOAD_SIZE_LIMIT } from '@documenso/lib/constants/app';
+import { nanoid } from '@documenso/lib/universal/id';
+import { canEnvelopeItemsBeModified } from '@documenso/lib/utils/envelope';
+import { trpc } from '@documenso/trpc/react';
+import type { TCreateEnvelopeItemsPayload } from '@documenso/trpc/server/envelope-router/create-envelope-items.types';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@Scriblli/ui/primitives/card';
-import { DocumentDropzone } from '@Scriblli/ui/primitives/document-dropzone';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/card';
+import { DocumentDropzone } from '@documenso/ui/primitives/document-dropzone';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { EnvelopeItemDeleteDialog } from '~/components/dialogs/envelope-item-delete-dialog';
 

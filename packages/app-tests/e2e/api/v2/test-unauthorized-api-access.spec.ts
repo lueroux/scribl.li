@@ -3,14 +3,14 @@ import type { Team, User } from '@prisma/client';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
-import { createApiToken } from '@Scriblli/lib/server-only/public-api/create-api-token';
-import { nanoid } from '@Scriblli/lib/universal/id';
+import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
+import { createApiToken } from '@documenso/lib/server-only/public-api/create-api-token';
+import { nanoid } from '@documenso/lib/universal/id';
 import {
   mapSecondaryIdToDocumentId,
   mapSecondaryIdToTemplateId,
-} from '@Scriblli/lib/utils/envelope';
-import { prisma } from '@Scriblli/prisma';
+} from '@documenso/lib/utils/envelope';
+import { prisma } from '@documenso/prisma';
 import {
   DocumentStatus,
   DocumentVisibility,
@@ -23,23 +23,23 @@ import {
   SendStatus,
   SigningStatus,
   TeamMemberRole,
-} from '@Scriblli/prisma/client';
+} from '@documenso/prisma/client';
 import {
   seedBlankDocument,
   seedCompletedDocument,
   seedDraftDocument,
   seedPendingDocument,
-} from '@Scriblli/prisma/seed/documents';
-import { seedBlankFolder } from '@Scriblli/prisma/seed/folders';
-import { seedTeamMember } from '@Scriblli/prisma/seed/teams';
-import { seedBlankTemplate, seedTemplate } from '@Scriblli/prisma/seed/templates';
-import { seedUser } from '@Scriblli/prisma/seed/users';
-import type { TCreateEnvelopeItemsPayload } from '@Scriblli/trpc/server/envelope-router/create-envelope-items.types';
-import type { TFindEnvelopesResponse } from '@Scriblli/trpc/server/envelope-router/find-envelopes.types';
+} from '@documenso/prisma/seed/documents';
+import { seedBlankFolder } from '@documenso/prisma/seed/folders';
+import { seedTeamMember } from '@documenso/prisma/seed/teams';
+import { seedBlankTemplate, seedTemplate } from '@documenso/prisma/seed/templates';
+import { seedUser } from '@documenso/prisma/seed/users';
+import type { TCreateEnvelopeItemsPayload } from '@documenso/trpc/server/envelope-router/create-envelope-items.types';
+import type { TFindEnvelopesResponse } from '@documenso/trpc/server/envelope-router/find-envelopes.types';
 import type {
   TUseEnvelopePayload,
   TUseEnvelopeResponse,
-} from '@Scriblli/trpc/server/envelope-router/use-envelope.types';
+} from '@documenso/trpc/server/envelope-router/use-envelope.types';
 
 import { apiSignin } from '../../fixtures/authentication';
 

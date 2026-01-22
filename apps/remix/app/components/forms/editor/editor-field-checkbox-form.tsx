@@ -7,19 +7,19 @@ import { PlusIcon, Trash } from 'lucide-react';
 import { useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 
-import { validateCheckboxLength } from '@Scriblli/lib/advanced-fields-validation/validate-checkbox';
+import { validateCheckboxLength } from '@documenso/lib/advanced-fields-validation/validate-checkbox';
 import {
   type TCheckboxFieldMeta as CheckboxFieldMeta,
   DEFAULT_FIELD_FONT_SIZE,
   ZCheckboxFieldMeta,
-} from '@Scriblli/lib/types/field-meta';
-import { Alert, AlertDescription } from '@Scriblli/ui/primitives/alert';
-import { Checkbox } from '@Scriblli/ui/primitives/checkbox';
+} from '@documenso/lib/types/field-meta';
+import { Alert, AlertDescription } from '@documenso/ui/primitives/alert';
+import { Checkbox } from '@documenso/ui/primitives/checkbox';
 import {
   checkboxValidationLength,
   checkboxValidationRules,
   checkboxValidationSigns,
-} from '@Scriblli/ui/primitives/document-flow/field-items-advanced-settings/constants';
+} from '@documenso/ui/primitives/document-flow/field-items-advanced-settings/constants';
 import {
   Form,
   FormControl,
@@ -27,16 +27,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
-import { Separator } from '@Scriblli/ui/primitives/separator';
+} from '@documenso/ui/primitives/select';
+import { Separator } from '@documenso/ui/primitives/separator';
 
 import {
   EditorGenericFontSizeField,

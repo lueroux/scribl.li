@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 
-import { NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
-import { seedBlankTemplate } from '@Scriblli/prisma/seed/templates';
-import { seedUser } from '@Scriblli/prisma/seed/users';
+import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
+import { seedBlankTemplate } from '@documenso/prisma/seed/templates';
+import { seedUser } from '@documenso/prisma/seed/users';
 
 import { apiSignin } from '../fixtures/authentication';
 

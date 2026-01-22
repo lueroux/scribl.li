@@ -1,7 +1,7 @@
 import type { JWTPayload } from 'jose';
 import { decodeJwt, jwtVerify } from 'jose';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import { AppError, AppErrorCode } from '../../errors/app-error';
 

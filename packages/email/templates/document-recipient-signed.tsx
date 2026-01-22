@@ -16,7 +16,7 @@ export interface DocumentRecipientSignedEmailTemplateProps {
 export const DocumentRecipientSignedEmailTemplate = ({
   documentName = 'Open Source Pledge.pdf',
   recipientName = 'John Doe',
-  recipientEmail = 'lucas@Scriblli.com',
+  recipientEmail = 'lucas@documenso.com',
   assetBaseUrl = 'https://scribl.li',
 }: DocumentRecipientSignedEmailTemplateProps) => {
   const { _ } = useLingui();

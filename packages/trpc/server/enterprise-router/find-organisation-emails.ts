@@ -1,9 +1,9 @@
 import { Prisma } from '@prisma/client';
 
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import type { FindResultResponse } from '@Scriblli/lib/types/search-params';
-import { buildOrganisationWhereQuery } from '@Scriblli/lib/utils/organisations';
-import { prisma } from '@Scriblli/prisma';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import type { FindResultResponse } from '@documenso/lib/types/search-params';
+import { buildOrganisationWhereQuery } from '@documenso/lib/utils/organisations';
+import { prisma } from '@documenso/prisma';
 
 import { authenticatedProcedure } from '../trpc';
 import {

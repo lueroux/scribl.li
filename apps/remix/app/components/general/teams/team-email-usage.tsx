@@ -5,9 +5,9 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import type { TeamEmail } from '@prisma/client';
 
-import { trpc } from '@Scriblli/trpc/react';
-import { Alert, AlertDescription, AlertTitle } from '@Scriblli/ui/primitives/alert';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { trpc } from '@documenso/trpc/react';
+import { Alert, AlertDescription, AlertTitle } from '@documenso/ui/primitives/alert';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -16,8 +16,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@Scriblli/ui/primitives/dialog';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/dialog';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 export type TeamEmailUsageProps = {
   teamEmail: TeamEmail & { team: { name: string; url: string } };

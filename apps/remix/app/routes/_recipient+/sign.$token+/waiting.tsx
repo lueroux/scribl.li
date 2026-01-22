@@ -3,13 +3,13 @@ import type { Team } from '@prisma/client';
 import { DocumentStatus, EnvelopeType } from '@prisma/client';
 import { Link, redirect } from 'react-router';
 
-import { getOptionalSession } from '@Scriblli/auth/server/lib/utils/get-session';
-import { getDocumentAndSenderByToken } from '@Scriblli/lib/server-only/document/get-document-by-token';
-import { getEnvelopeById } from '@Scriblli/lib/server-only/envelope/get-envelope-by-id';
-import { getRecipientByToken } from '@Scriblli/lib/server-only/recipient/get-recipient-by-token';
-import { getTeamById } from '@Scriblli/lib/server-only/team/get-team';
-import { formatDocumentsPath } from '@Scriblli/lib/utils/teams';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { getOptionalSession } from '@documenso/auth/server/lib/utils/get-session';
+import { getDocumentAndSenderByToken } from '@documenso/lib/server-only/document/get-document-by-token';
+import { getEnvelopeById } from '@documenso/lib/server-only/envelope/get-envelope-by-id';
+import { getRecipientByToken } from '@documenso/lib/server-only/recipient/get-recipient-by-token';
+import { getTeamById } from '@documenso/lib/server-only/team/get-team';
+import { formatDocumentsPath } from '@documenso/lib/utils/teams';
+import { Button } from '@documenso/ui/primitives/button';
 
 import type { Route } from './+types/waiting';
 

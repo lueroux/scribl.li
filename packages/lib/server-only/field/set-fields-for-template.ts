@@ -1,10 +1,10 @@
 import { EnvelopeType, FieldType } from '@prisma/client';
 
-import { validateCheckboxField } from '@Scriblli/lib/advanced-fields-validation/validate-checkbox';
-import { validateDropdownField } from '@Scriblli/lib/advanced-fields-validation/validate-dropdown';
-import { validateNumberField } from '@Scriblli/lib/advanced-fields-validation/validate-number';
-import { validateRadioField } from '@Scriblli/lib/advanced-fields-validation/validate-radio';
-import { validateTextField } from '@Scriblli/lib/advanced-fields-validation/validate-text';
+import { validateCheckboxField } from '@documenso/lib/advanced-fields-validation/validate-checkbox';
+import { validateDropdownField } from '@documenso/lib/advanced-fields-validation/validate-dropdown';
+import { validateNumberField } from '@documenso/lib/advanced-fields-validation/validate-number';
+import { validateRadioField } from '@documenso/lib/advanced-fields-validation/validate-radio';
+import { validateTextField } from '@documenso/lib/advanced-fields-validation/validate-text';
 import {
   type TFieldMetaSchema as FieldMeta,
   ZCheckboxFieldMeta,
@@ -13,8 +13,8 @@ import {
   ZNumberFieldMeta,
   ZRadioFieldMeta,
   ZTextFieldMeta,
-} from '@Scriblli/lib/types/field-meta';
-import { prisma } from '@Scriblli/prisma';
+} from '@documenso/lib/types/field-meta';
+import { prisma } from '@documenso/prisma';
 
 import { AppError, AppErrorCode } from '../../errors/app-error';
 import type { EnvelopeIdOptions } from '../../utils/envelope';

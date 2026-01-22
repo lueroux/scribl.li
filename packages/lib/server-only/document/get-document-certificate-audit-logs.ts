@@ -1,4 +1,4 @@
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import { DOCUMENT_AUDIT_LOG_TYPE, DOCUMENT_EMAIL_TYPE } from '../../types/document-audit-logs';
 import { parseDocumentAuditLogData } from '../../utils/document-audit-logs';

@@ -13,8 +13,8 @@ import {
   FIELD_DEFAULT_LINE_HEIGHT,
   type TNumberFieldMeta as NumberFieldMeta,
   ZNumberFieldMeta,
-} from '@Scriblli/lib/types/field-meta';
-import { numberFormatValues } from '@Scriblli/ui/primitives/document-flow/field-items-advanced-settings/constants';
+} from '@documenso/lib/types/field-meta';
+import { numberFormatValues } from '@documenso/ui/primitives/document-flow/field-items-advanced-settings/constants';
 import {
   Form,
   FormControl,
@@ -22,16 +22,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
-import { Separator } from '@Scriblli/ui/primitives/separator';
+} from '@documenso/ui/primitives/select';
+import { Separator } from '@documenso/ui/primitives/separator';
 
 import {
   EditorGenericFontSizeField,

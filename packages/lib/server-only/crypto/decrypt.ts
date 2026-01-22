@@ -1,6 +1,6 @@
-import { Scriblli_ENCRYPTION_SECONDARY_KEY } from '@Scriblli/lib/constants/crypto';
-import { ZEncryptedDataSchema } from '@Scriblli/lib/server-only/crypto/encrypt';
-import { symmetricDecrypt } from '@Scriblli/lib/universal/crypto';
+import { Scriblli_ENCRYPTION_SECONDARY_KEY } from '@documenso/lib/constants/crypto';
+import { ZEncryptedDataSchema } from '@documenso/lib/server-only/crypto/encrypt';
+import { symmetricDecrypt } from '@documenso/lib/universal/crypto';
 
 /**
  * Decrypt the passed in data. This uses the secondary encrypt key for miscellaneous data.

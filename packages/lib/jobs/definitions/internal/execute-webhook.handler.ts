@@ -1,6 +1,6 @@
 import { Prisma, WebhookCallStatus } from '@prisma/client';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import type { JobRunIO } from '../../client/_internal/job';
 import type { TExecuteWebhookJobDefinition } from './execute-webhook';

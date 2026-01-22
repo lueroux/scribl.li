@@ -6,22 +6,22 @@ import { Trans } from '@lingui/react/macro';
 import { EditIcon, MoreHorizontalIcon, Trash2Icon } from 'lucide-react';
 import { Link } from 'react-router';
 
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
-import { generateEmailDomainRecords } from '@Scriblli/lib/utils/email-domains';
-import { trpc } from '@Scriblli/trpc/react';
-import type { TGetOrganisationEmailDomainResponse } from '@Scriblli/trpc/server/enterprise-router/get-organisation-email-domain.types';
-import { Alert, AlertDescription, AlertTitle } from '@Scriblli/ui/primitives/alert';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { DataTable, type DataTableColumnDef } from '@Scriblli/ui/primitives/data-table';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
+import { generateEmailDomainRecords } from '@documenso/lib/utils/email-domains';
+import { trpc } from '@documenso/trpc/react';
+import type { TGetOrganisationEmailDomainResponse } from '@documenso/trpc/server/enterprise-router/get-organisation-email-domain.types';
+import { Alert, AlertDescription, AlertTitle } from '@documenso/ui/primitives/alert';
+import { Button } from '@documenso/ui/primitives/button';
+import { DataTable, type DataTableColumnDef } from '@documenso/ui/primitives/data-table';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-} from '@Scriblli/ui/primitives/dropdown-menu';
-import { SpinnerBox } from '@Scriblli/ui/primitives/spinner';
+} from '@documenso/ui/primitives/dropdown-menu';
+import { SpinnerBox } from '@documenso/ui/primitives/spinner';
 
 import { OrganisationEmailCreateDialog } from '~/components/dialogs/organisation-email-create-dialog';
 import { OrganisationEmailDeleteDialog } from '~/components/dialogs/organisation-email-delete-dialog';

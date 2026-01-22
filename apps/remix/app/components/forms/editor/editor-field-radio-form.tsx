@@ -10,8 +10,8 @@ import {
   DEFAULT_FIELD_FONT_SIZE,
   type TRadioFieldMeta as RadioFieldMeta,
   ZRadioFieldMeta,
-} from '@Scriblli/lib/types/field-meta';
-import { Checkbox } from '@Scriblli/ui/primitives/checkbox';
+} from '@documenso/lib/types/field-meta';
+import { Checkbox } from '@documenso/ui/primitives/checkbox';
 import {
   Form,
   FormControl,
@@ -19,16 +19,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
-import { Separator } from '@Scriblli/ui/primitives/separator';
+} from '@documenso/ui/primitives/select';
+import { Separator } from '@documenso/ui/primitives/separator';
 
 import {
   EditorGenericFontSizeField,

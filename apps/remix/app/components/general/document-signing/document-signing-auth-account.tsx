@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { Trans, useLingui } from '@lingui/react/macro';
 import { RecipientRole } from '@prisma/client';
 
-import { authClient } from '@Scriblli/auth/client';
-import { Alert, AlertDescription } from '@Scriblli/ui/primitives/alert';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { DialogFooter } from '@Scriblli/ui/primitives/dialog';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+import { authClient } from '@documenso/auth/client';
+import { Alert, AlertDescription } from '@documenso/ui/primitives/alert';
+import { Button } from '@documenso/ui/primitives/button';
+import { DialogFooter } from '@documenso/ui/primitives/dialog';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { useRequiredDocumentSigningAuthContext } from './document-signing-auth-provider';
 

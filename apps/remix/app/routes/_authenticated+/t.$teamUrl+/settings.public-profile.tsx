@@ -4,17 +4,17 @@ import { useLingui } from '@lingui/react/macro';
 import { Trans } from '@lingui/react/macro';
 import { type TemplateDirectLink, TemplateType } from '@prisma/client';
 
-import { getSession } from '@Scriblli/auth/server/lib/utils/get-session';
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { getTeamByUrl } from '@Scriblli/lib/server-only/team/get-team';
-import { getTeamPublicProfile } from '@Scriblli/lib/server-only/team/get-team-public-profile';
-import { trpc } from '@Scriblli/trpc/react';
-import type { FindTemplateRow } from '@Scriblli/trpc/server/template-router/schema';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { Switch } from '@Scriblli/ui/primitives/switch';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@Scriblli/ui/primitives/tooltip';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+import { getSession } from '@documenso/auth/server/lib/utils/get-session';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { getTeamByUrl } from '@documenso/lib/server-only/team/get-team';
+import { getTeamPublicProfile } from '@documenso/lib/server-only/team/get-team-public-profile';
+import { trpc } from '@documenso/trpc/react';
+import type { FindTemplateRow } from '@documenso/trpc/server/template-router/schema';
+import { cn } from '@documenso/ui/lib/utils';
+import { Button } from '@documenso/ui/primitives/button';
+import { Switch } from '@documenso/ui/primitives/switch';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@documenso/ui/primitives/tooltip';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { ManagePublicTemplateDialog } from '~/components/dialogs/public-profile-template-manage-dialog';
 import type { TPublicProfileFormSchema } from '~/components/forms/public-profile-form';

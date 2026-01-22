@@ -4,11 +4,11 @@ import { z } from 'zod';
 import {
   ZRecipientAccessAuthTypesSchema,
   ZRecipientActionAuthTypesSchema,
-} from '@Scriblli/lib/types/document-auth';
+} from '@documenso/lib/types/document-auth';
 import {
   ZEnvelopeRecipientLiteSchema,
   ZRecipientEmailSchema,
-} from '@Scriblli/lib/types/recipient';
+} from '@documenso/lib/types/recipient';
 
 import type { TrpcRouteMeta } from '../../trpc';
 

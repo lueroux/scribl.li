@@ -1,6 +1,6 @@
 import type { Context } from 'hono';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import { getSession } from './get-session';
 

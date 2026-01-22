@@ -6,14 +6,14 @@ import { useForm } from 'react-hook-form';
 import { useRevalidator } from 'react-router';
 import type { z } from 'zod';
 
-import { getSiteSettings } from '@Scriblli/lib/server-only/site-settings/get-site-settings';
+import { getSiteSettings } from '@documenso/lib/server-only/site-settings/get-site-settings';
 import {
   SITE_SETTINGS_BANNER_ID,
   ZSiteSettingsBannerSchema,
-} from '@Scriblli/lib/server-only/site-settings/schemas/banner';
-import { trpc as trpcReact } from '@Scriblli/trpc/react';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { ColorPicker } from '@Scriblli/ui/primitives/color-picker';
+} from '@documenso/lib/server-only/site-settings/schemas/banner';
+import { trpc as trpcReact } from '@documenso/trpc/react';
+import { Button } from '@documenso/ui/primitives/button';
+import { ColorPicker } from '@documenso/ui/primitives/color-picker';
 import {
   Form,
   FormControl,
@@ -22,10 +22,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Switch } from '@Scriblli/ui/primitives/switch';
-import { Textarea } from '@Scriblli/ui/primitives/textarea';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/form/form';
+import { Switch } from '@documenso/ui/primitives/switch';
+import { Textarea } from '@documenso/ui/primitives/textarea';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { SettingsHeader } from '~/components/general/settings-header';
 

@@ -8,10 +8,10 @@ import { useForm } from 'react-hook-form';
 import { useRevalidator } from 'react-router';
 import { z } from 'zod';
 
-import { trpc } from '@Scriblli/trpc/react';
-import { Button } from '@Scriblli/ui/primitives/button';
-import type { DataTableColumnDef } from '@Scriblli/ui/primitives/data-table';
-import { DataTable } from '@Scriblli/ui/primitives/data-table';
+import { trpc } from '@documenso/trpc/react';
+import { Button } from '@documenso/ui/primitives/button';
+import type { DataTableColumnDef } from '@documenso/ui/primitives/data-table';
+import { DataTable } from '@documenso/ui/primitives/data-table';
 import {
   Form,
   FormControl,
@@ -19,9 +19,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 const ZAdminUpdateRecipientFormSchema = z.object({
   name: z.string().min(1),

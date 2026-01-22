@@ -4,10 +4,10 @@ import { Trans } from '@lingui/react/macro';
 import { BookIcon, HelpCircleIcon, Link2Icon } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router';
 
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
+import { Button } from '@documenso/ui/primitives/button';
 
 import { SupportTicketForm } from '~/components/forms/support-ticket-form';
 import { appMetaTags } from '~/utils/meta';

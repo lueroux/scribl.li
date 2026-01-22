@@ -1,8 +1,8 @@
 import { createElement } from 'react';
 
-import { mailer } from '@Scriblli/email/mailer';
-import { ResetPasswordTemplate } from '@Scriblli/email/templates/reset-password';
-import { prisma } from '@Scriblli/prisma';
+import { mailer } from '@documenso/email/mailer';
+import { ResetPasswordTemplate } from '@documenso/email/templates/reset-password';
+import { prisma } from '@documenso/prisma';
 
 import { NEXT_PUBLIC_WEBAPP_URL } from '../../constants/app';
 import { env } from '../../utils/env';
@@ -39,7 +39,7 @@ export const sendResetPassword = async ({ userId }: SendResetPasswordOptions) =>
     },
     from: {
       name: env('NEXT_PRIVATE_SMTP_FROM_NAME') || 'Scriblli',
-      address: env('NEXT_PRIVATE_SMTP_FROM_ADDRESS') || 'noreply@Scriblli.com',
+      address: env('NEXT_PRIVATE_SMTP_FROM_ADDRESS') || 'noreply@documenso.com',
     },
     subject: 'Password Reset Success!',
     html,

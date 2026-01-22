@@ -1,8 +1,8 @@
 import { Trans } from '@lingui/react/macro';
 import { Link } from 'react-router';
 
-import { SUPPORT_EMAIL } from '@Scriblli/lib/constants/app';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { SUPPORT_EMAIL } from '@documenso/lib/constants/app';
+import { Button } from '@documenso/ui/primitives/button';
 
 export default function SignatureDisclosure() {
   return (

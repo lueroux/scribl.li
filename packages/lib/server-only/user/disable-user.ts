@@ -1,5 +1,5 @@
-import { AppError } from '@Scriblli/lib/errors/app-error';
-import { prisma } from '@Scriblli/prisma';
+import { AppError } from '@documenso/lib/errors/app-error';
+import { prisma } from '@documenso/prisma';
 
 export type DisableUserOptions = {
   id: number;

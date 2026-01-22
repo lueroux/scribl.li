@@ -7,11 +7,11 @@ import { useNavigate } from 'react-router';
 import { match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { authClient } from '@Scriblli/auth/client';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { ZPasswordSchema } from '@Scriblli/trpc/server/auth-router/schema';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { authClient } from '@documenso/auth/client';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { ZPasswordSchema } from '@documenso/trpc/server/auth-router/schema';
+import { cn } from '@documenso/ui/lib/utils';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Form,
   FormControl,
@@ -19,9 +19,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { PasswordInput } from '@Scriblli/ui/primitives/password-input';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/form/form';
+import { PasswordInput } from '@documenso/ui/primitives/password-input';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 export const ZResetPasswordFormSchema = z
   .object({

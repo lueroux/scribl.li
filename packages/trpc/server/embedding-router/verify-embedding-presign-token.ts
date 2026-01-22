@@ -1,5 +1,5 @@
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { verifyEmbeddingPresignToken } from '@Scriblli/lib/server-only/embedding-presign/verify-embedding-presign-token';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { verifyEmbeddingPresignToken } from '@documenso/lib/server-only/embedding-presign/verify-embedding-presign-token';
 
 import { procedure } from '../trpc';
 import {

@@ -5,20 +5,20 @@ import type { Field } from '@prisma/client';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { useOptionalSession } from '@Scriblli/lib/client-only/providers/session';
-import type { TTemplate } from '@Scriblli/lib/types/template';
+import { useOptionalSession } from '@documenso/lib/client-only/providers/session';
+import type { TTemplate } from '@documenso/lib/types/template';
 import {
   DocumentReadOnlyFields,
   mapFieldsWithRecipients,
-} from '@Scriblli/ui/components/document/document-read-only-fields';
+} from '@documenso/ui/components/document/document-read-only-fields';
 import {
   DocumentFlowFormContainerActions,
   DocumentFlowFormContainerContent,
   DocumentFlowFormContainerFooter,
   DocumentFlowFormContainerHeader,
   DocumentFlowFormContainerStep,
-} from '@Scriblli/ui/primitives/document-flow/document-flow-root';
-import type { DocumentFlowStep } from '@Scriblli/ui/primitives/document-flow/types';
+} from '@documenso/ui/primitives/document-flow/document-flow-root';
+import type { DocumentFlowStep } from '@documenso/ui/primitives/document-flow/types';
 import {
   Form,
   FormControl,
@@ -26,9 +26,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { useStep } from '@Scriblli/ui/primitives/stepper';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { useStep } from '@documenso/ui/primitives/stepper';
 
 import { useRequiredDocumentSigningAuthContext } from '~/components/general/document-signing/document-signing-auth-provider';
 
@@ -119,7 +119,7 @@ export const DirectTemplateConfigureForm = ({
                         derivedRecipientAccessAuth.length > 0 ||
                         user?.email !== undefined
                       }
-                      placeholder="recipient@Scriblli.com"
+                      placeholder="recipient@documenso.com"
                     />
                   </FormControl>
 

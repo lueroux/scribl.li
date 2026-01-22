@@ -1,5 +1,5 @@
-import { RecipientStatusType } from '@Scriblli/lib/client-only/recipient-type';
-import { Avatar, AvatarFallback } from '@Scriblli/ui/primitives/avatar';
+import { RecipientStatusType } from '@documenso/lib/client-only/recipient-type';
+import { Avatar, AvatarFallback } from '@documenso/ui/primitives/avatar';
 
 const ZIndexes: { [key: string]: string } = {
   '10': 'z-10',

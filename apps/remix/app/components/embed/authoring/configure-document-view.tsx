@@ -4,10 +4,10 @@ import { DocumentDistributionMethod, DocumentSigningOrder, RecipientRole } from 
 import { nanoid } from 'nanoid';
 import { useForm } from 'react-hook-form';
 
-import { DEFAULT_DOCUMENT_DATE_FORMAT } from '@Scriblli/lib/constants/date-formats';
-import { DEFAULT_DOCUMENT_TIME_ZONE } from '@Scriblli/lib/constants/time-zones';
-import { ZDocumentEmailSettingsSchema } from '@Scriblli/lib/types/document-email';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { DEFAULT_DOCUMENT_DATE_FORMAT } from '@documenso/lib/constants/date-formats';
+import { DEFAULT_DOCUMENT_TIME_ZONE } from '@documenso/lib/constants/time-zones';
+import { ZDocumentEmailSettingsSchema } from '@documenso/lib/types/document-email';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Form,
   FormControl,
@@ -15,8 +15,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
 
 import { ConfigureDocumentAdvancedSettings } from './configure-document-advanced-settings';
 import { useConfigureDocument } from './configure-document-context';

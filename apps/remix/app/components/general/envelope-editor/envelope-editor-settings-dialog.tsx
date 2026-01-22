@@ -15,57 +15,57 @@ import { useForm } from 'react-hook-form';
 import { match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { useCurrentEnvelopeEditor } from '@Scriblli/lib/client-only/providers/envelope-editor-provider';
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { DATE_FORMATS, DEFAULT_DOCUMENT_DATE_FORMAT } from '@Scriblli/lib/constants/date-formats';
+import { useCurrentEnvelopeEditor } from '@documenso/lib/client-only/providers/envelope-editor-provider';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { DATE_FORMATS, DEFAULT_DOCUMENT_DATE_FORMAT } from '@documenso/lib/constants/date-formats';
 import {
   DOCUMENT_DISTRIBUTION_METHODS,
   DOCUMENT_SIGNATURE_TYPES,
-} from '@Scriblli/lib/constants/document';
+} from '@documenso/lib/constants/document';
 import {
   SUPPORTED_LANGUAGES,
   SUPPORTED_LANGUAGE_CODES,
   isValidLanguageCode,
-} from '@Scriblli/lib/constants/i18n';
-import { DEFAULT_DOCUMENT_TIME_ZONE, TIME_ZONES } from '@Scriblli/lib/constants/time-zones';
-import { AppError } from '@Scriblli/lib/errors/app-error';
+} from '@documenso/lib/constants/i18n';
+import { DEFAULT_DOCUMENT_TIME_ZONE, TIME_ZONES } from '@documenso/lib/constants/time-zones';
+import { AppError } from '@documenso/lib/errors/app-error';
 import {
   ZDocumentAccessAuthTypesSchema,
   ZDocumentActionAuthTypesSchema,
-} from '@Scriblli/lib/types/document-auth';
-import { ZDocumentEmailSettingsSchema } from '@Scriblli/lib/types/document-email';
+} from '@documenso/lib/types/document-auth';
+import { ZDocumentEmailSettingsSchema } from '@documenso/lib/types/document-email';
 import {
   type TDocumentMetaDateFormat,
   ZDocumentMetaDateFormatSchema,
   ZDocumentMetaTimezoneSchema,
-} from '@Scriblli/lib/types/document-meta';
-import { extractDocumentAuthMethods } from '@Scriblli/lib/utils/document-auth';
-import { isValidRedirectUrl } from '@Scriblli/lib/utils/is-valid-redirect-url';
+} from '@documenso/lib/types/document-meta';
+import { extractDocumentAuthMethods } from '@documenso/lib/utils/document-auth';
+import { isValidRedirectUrl } from '@documenso/lib/utils/is-valid-redirect-url';
 import {
   DocumentSignatureType,
   canAccessTeamDocument,
   extractTeamSignatureSettings,
-} from '@Scriblli/lib/utils/teams';
-import { trpc } from '@Scriblli/trpc/react';
-import { DocumentEmailCheckboxes } from '@Scriblli/ui/components/document/document-email-checkboxes';
+} from '@documenso/lib/utils/teams';
+import { trpc } from '@documenso/trpc/react';
+import { DocumentEmailCheckboxes } from '@documenso/ui/components/document/document-email-checkboxes';
 import {
   DocumentGlobalAuthAccessSelect,
   DocumentGlobalAuthAccessTooltip,
-} from '@Scriblli/ui/components/document/document-global-auth-access-select';
+} from '@documenso/ui/components/document/document-global-auth-access-select';
 import {
   DocumentGlobalAuthActionSelect,
   DocumentGlobalAuthActionTooltip,
-} from '@Scriblli/ui/components/document/document-global-auth-action-select';
-import { DocumentSendEmailMessageHelper } from '@Scriblli/ui/components/document/document-send-email-message-helper';
-import { DocumentSignatureSettingsTooltip } from '@Scriblli/ui/components/document/document-signature-settings-tooltip';
+} from '@documenso/ui/components/document/document-global-auth-action-select';
+import { DocumentSendEmailMessageHelper } from '@documenso/ui/components/document/document-send-email-message-helper';
+import { DocumentSignatureSettingsTooltip } from '@documenso/ui/components/document/document-signature-settings-tooltip';
 import {
   DocumentVisibilitySelect,
   DocumentVisibilityTooltip,
-} from '@Scriblli/ui/components/document/document-visibility-select';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { CardDescription, CardHeader, CardTitle } from '@Scriblli/ui/primitives/card';
-import { Combobox } from '@Scriblli/ui/primitives/combobox';
+} from '@documenso/ui/components/document/document-visibility-select';
+import { cn } from '@documenso/ui/lib/utils';
+import { Button } from '@documenso/ui/primitives/button';
+import { CardDescription, CardHeader, CardTitle } from '@documenso/ui/primitives/card';
+import { Combobox } from '@documenso/ui/primitives/combobox';
 import {
   Dialog,
   DialogClose,
@@ -73,7 +73,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@Scriblli/ui/primitives/dialog';
+} from '@documenso/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -81,19 +81,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { MultiSelectCombobox } from '@Scriblli/ui/primitives/multi-select-combobox';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { MultiSelectCombobox } from '@documenso/ui/primitives/multi-select-combobox';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
-import { Textarea } from '@Scriblli/ui/primitives/textarea';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@Scriblli/ui/primitives/tooltip';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/select';
+import { Textarea } from '@documenso/ui/primitives/textarea';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@documenso/ui/primitives/tooltip';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { useCurrentTeam } from '~/providers/team';
 

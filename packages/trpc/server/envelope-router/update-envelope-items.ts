@@ -1,7 +1,7 @@
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { getEnvelopeWhereInput } from '@Scriblli/lib/server-only/envelope/get-envelope-by-id';
-import { canEnvelopeItemsBeModified } from '@Scriblli/lib/utils/envelope';
-import { prisma } from '@Scriblli/prisma';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { getEnvelopeWhereInput } from '@documenso/lib/server-only/envelope/get-envelope-by-id';
+import { canEnvelopeItemsBeModified } from '@documenso/lib/utils/envelope';
+import { prisma } from '@documenso/prisma';
 
 import { authenticatedProcedure } from '../trpc';
 import {

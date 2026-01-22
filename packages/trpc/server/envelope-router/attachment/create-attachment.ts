@@ -1,4 +1,4 @@
-import { createAttachment } from '@Scriblli/lib/server-only/envelope-attachment/create-attachment';
+import { createAttachment } from '@documenso/lib/server-only/envelope-attachment/create-attachment';
 
 import { authenticatedProcedure } from '../../trpc';
 import {

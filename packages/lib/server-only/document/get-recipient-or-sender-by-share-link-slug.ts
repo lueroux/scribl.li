@@ -1,4 +1,4 @@
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 export type GetRecipientOrSenderByShareLinkSlugOptions = {
   slug: string;

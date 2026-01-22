@@ -4,17 +4,17 @@ import { msg } from '@lingui/core/macro';
 import crypto from 'crypto';
 import { DateTime } from 'luxon';
 
-import { mailer } from '@Scriblli/email/mailer';
-import { OrganisationAccountLinkConfirmationTemplate } from '@Scriblli/email/templates/organisation-account-link-confirmation';
-import { getI18nInstance } from '@Scriblli/lib/client-only/providers/i18n-server';
-import { NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
-import { Scriblli_INTERNAL_EMAIL } from '@Scriblli/lib/constants/email';
-import { ORGANISATION_ACCOUNT_LINK_VERIFICATION_TOKEN_IDENTIFIER } from '@Scriblli/lib/constants/organisations';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { getEmailContext } from '@Scriblli/lib/server-only/email/get-email-context';
-import type { TOrganisationAccountLinkMetadata } from '@Scriblli/lib/types/organisation';
-import { renderEmailWithI18N } from '@Scriblli/lib/utils/render-email-with-i18n';
-import { prisma } from '@Scriblli/prisma';
+import { mailer } from '@documenso/email/mailer';
+import { OrganisationAccountLinkConfirmationTemplate } from '@documenso/email/templates/organisation-account-link-confirmation';
+import { getI18nInstance } from '@documenso/lib/client-only/providers/i18n-server';
+import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
+import { Scriblli_INTERNAL_EMAIL } from '@documenso/lib/constants/email';
+import { ORGANISATION_ACCOUNT_LINK_VERIFICATION_TOKEN_IDENTIFIER } from '@documenso/lib/constants/organisations';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { getEmailContext } from '@documenso/lib/server-only/email/get-email-context';
+import type { TOrganisationAccountLinkMetadata } from '@documenso/lib/types/organisation';
+import { renderEmailWithI18N } from '@documenso/lib/utils/render-email-with-i18n';
+import { prisma } from '@documenso/prisma';
 
 export type SendOrganisationAccountLinkConfirmationEmailProps = TOrganisationAccountLinkMetadata & {
   organisationName: string;

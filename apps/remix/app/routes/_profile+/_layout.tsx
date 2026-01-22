@@ -6,10 +6,10 @@ import { PlusIcon } from 'lucide-react';
 import { ChevronLeft } from 'lucide-react';
 import { Link, Outlet, isRouteErrorResponse } from 'react-router';
 
-import LogoIcon from '@Scriblli/assets/logo_icon.png';
-import { useOptionalSession } from '@Scriblli/lib/client-only/providers/session';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Button } from '@Scriblli/ui/primitives/button';
+import LogoIcon from '@documenso/assets/logo_icon.png';
+import { useOptionalSession } from '@documenso/lib/client-only/providers/session';
+import { cn } from '@documenso/ui/lib/utils';
+import { Button } from '@documenso/ui/primitives/button';
 
 import { Header as AuthenticatedHeader } from '~/components/general/app-header';
 import { BrandingLogo } from '~/components/general/branding-logo';

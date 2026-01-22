@@ -1,7 +1,7 @@
 import { DocumentStatus, EnvelopeType } from '@prisma/client';
 import { match } from 'ts-pattern';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import { AppError, AppErrorCode } from '../../errors/app-error';
 import { DocumentAccessAuth, type TDocumentAuthMethods } from '../../types/document-auth';

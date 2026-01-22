@@ -3,11 +3,11 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { Link } from 'react-router';
 
-import { getSession } from '@Scriblli/auth/server/lib/utils/get-session';
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { prisma } from '@Scriblli/prisma';
-import { Alert, AlertDescription, AlertTitle } from '@Scriblli/ui/primitives/alert';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { getSession } from '@documenso/auth/server/lib/utils/get-session';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { prisma } from '@documenso/prisma';
+import { Alert, AlertDescription, AlertTitle } from '@documenso/ui/primitives/alert';
+import { Button } from '@documenso/ui/primitives/button';
 
 import { DisableAuthenticatorAppDialog } from '~/components/forms/2fa/disable-authenticator-app-dialog';
 import { EnableAuthenticatorAppDialog } from '~/components/forms/2fa/enable-authenticator-app-dialog';

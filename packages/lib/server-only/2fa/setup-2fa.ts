@@ -3,7 +3,7 @@ import { base32 } from '@scure/base';
 import crypto from 'crypto';
 import { createTOTPKeyURI } from 'oslo/otp';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import { Scriblli_ENCRYPTION_KEY } from '../../constants/crypto';
 import { symmetricEncrypt } from '../../universal/crypto';

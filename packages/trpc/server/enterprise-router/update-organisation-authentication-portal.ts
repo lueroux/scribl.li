@@ -1,10 +1,10 @@
-import { IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
-import { Scriblli_ENCRYPTION_KEY } from '@Scriblli/lib/constants/crypto';
-import { ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP } from '@Scriblli/lib/constants/organisations';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { symmetricEncrypt } from '@Scriblli/lib/universal/crypto';
-import { buildOrganisationWhereQuery } from '@Scriblli/lib/utils/organisations';
-import { prisma } from '@Scriblli/prisma';
+import { IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
+import { Scriblli_ENCRYPTION_KEY } from '@documenso/lib/constants/crypto';
+import { ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP } from '@documenso/lib/constants/organisations';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { symmetricEncrypt } from '@documenso/lib/universal/crypto';
+import { buildOrganisationWhereQuery } from '@documenso/lib/utils/organisations';
+import { prisma } from '@documenso/prisma';
 
 import { authenticatedProcedure } from '../trpc';
 import {

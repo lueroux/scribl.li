@@ -3,7 +3,7 @@ import type { AuthenticatorTransportFuture } from '@simplewebauthn/server';
 import { isoBase64URL } from '@simplewebauthn/server/helpers';
 import { DateTime } from 'luxon';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import { PASSKEY_TIMEOUT } from '../../constants/auth';
 import { getAuthenticatorOptions } from '../../utils/authenticator';

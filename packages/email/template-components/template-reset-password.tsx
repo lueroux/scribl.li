@@ -1,6 +1,6 @@
 import { Trans } from '@lingui/react/macro';
 
-import { env } from '@Scriblli/lib/utils/env';
+import { env } from '@documenso/lib/utils/env';
 
 import { Button, Section, Text } from '../components';
 import { TemplateDocumentImage } from './template-document-image';

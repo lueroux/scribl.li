@@ -7,7 +7,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@Scriblli/ui/primitives/alert-dialog';
+} from '@documenso/ui/primitives/alert-dialog';
 
 export type SigningOrderConfirmationProps = {
   open: boolean;

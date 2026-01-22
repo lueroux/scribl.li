@@ -8,9 +8,9 @@ import type * as DialogPrimitive from '@radix-ui/react-dialog';
 import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
 
-import { trpc } from '@Scriblli/trpc/react';
-import { ZEditWebhookRequestSchema } from '@Scriblli/trpc/server/webhook-router/schema';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { trpc } from '@documenso/trpc/react';
+import { ZEditWebhookRequestSchema } from '@documenso/trpc/server/webhook-router/schema';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogClose,
@@ -20,7 +20,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@Scriblli/ui/primitives/dialog';
+} from '@documenso/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -29,11 +29,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { PasswordInput } from '@Scriblli/ui/primitives/password-input';
-import { Switch } from '@Scriblli/ui/primitives/switch';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { PasswordInput } from '@documenso/ui/primitives/password-input';
+import { Switch } from '@documenso/ui/primitives/switch';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { WebhookMultiSelectCombobox } from '../general/webhook-multiselect-combobox';
 

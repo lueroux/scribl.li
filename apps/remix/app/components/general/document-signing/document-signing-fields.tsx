@@ -1,6 +1,6 @@
 import { Loader } from 'lucide-react';
 
-import { cn } from '@Scriblli/ui/lib/utils';
+import { cn } from '@documenso/ui/lib/utils';
 
 export const DocumentSigningFieldsLoader = () => {
   return (

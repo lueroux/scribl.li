@@ -1,19 +1,19 @@
 import { P, match } from 'ts-pattern';
 
-import type { BrandingSettings } from '@Scriblli/email/providers/branding';
-import { prisma } from '@Scriblli/prisma';
+import type { BrandingSettings } from '@documenso/email/providers/branding';
+import { prisma } from '@documenso/prisma';
 import type {
   DocumentMeta,
   EmailDomain,
   Organisation,
   OrganisationEmail,
   OrganisationType,
-} from '@Scriblli/prisma/client';
+} from '@documenso/prisma/client';
 import {
   EmailDomainStatus,
   type OrganisationClaim,
   type OrganisationGlobalSettings,
-} from '@Scriblli/prisma/client';
+} from '@documenso/prisma/client';
 
 import { Scriblli_INTERNAL_EMAIL } from '../../constants/email';
 import { AppError, AppErrorCode } from '../../errors/app-error';

@@ -1,10 +1,10 @@
-import { syncMemberCountWithStripeSeatPlan } from '@Scriblli/ee/server-only/stripe/update-subscription-item-quantity';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { jobs } from '@Scriblli/lib/jobs/client';
-import { validateIfSubscriptionIsRequired } from '@Scriblli/lib/utils/billing';
-import { buildOrganisationWhereQuery } from '@Scriblli/lib/utils/organisations';
-import { prisma } from '@Scriblli/prisma';
-import { OrganisationMemberInviteStatus } from '@Scriblli/prisma/client';
+import { syncMemberCountWithStripeSeatPlan } from '@documenso/ee/server-only/stripe/update-subscription-item-quantity';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { jobs } from '@documenso/lib/jobs/client';
+import { validateIfSubscriptionIsRequired } from '@documenso/lib/utils/billing';
+import { buildOrganisationWhereQuery } from '@documenso/lib/utils/organisations';
+import { prisma } from '@documenso/prisma';
+import { OrganisationMemberInviteStatus } from '@documenso/prisma/client';
 
 import { authenticatedProcedure } from '../trpc';
 import {

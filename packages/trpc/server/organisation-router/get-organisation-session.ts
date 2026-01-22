@@ -1,10 +1,10 @@
-import { getHighestOrganisationRoleInGroup } from '@Scriblli/lib/utils/organisations';
+import { getHighestOrganisationRoleInGroup } from '@documenso/lib/utils/organisations';
 import {
   buildTeamWhereQuery,
   extractDerivedTeamSettings,
   getHighestTeamRoleInGroup,
-} from '@Scriblli/lib/utils/teams';
-import { prisma } from '@Scriblli/prisma';
+} from '@documenso/lib/utils/teams';
+import { prisma } from '@documenso/prisma';
 
 import { authenticatedProcedure } from '../trpc';
 import type { TGetOrganisationSessionResponse } from './get-organisation-session.types';

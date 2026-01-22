@@ -1,12 +1,12 @@
 import { expect, test } from '@playwright/test';
 import path from 'node:path';
 
-import { prisma } from '@Scriblli/prisma';
-import { DocumentVisibility, FolderType, TeamMemberRole } from '@Scriblli/prisma/client';
-import { seedBlankDocument, seedTeamDocuments } from '@Scriblli/prisma/seed/documents';
-import { seedBlankFolder } from '@Scriblli/prisma/seed/folders';
-import { seedTeamMember } from '@Scriblli/prisma/seed/teams';
-import { seedBlankTemplate } from '@Scriblli/prisma/seed/templates';
+import { prisma } from '@documenso/prisma';
+import { DocumentVisibility, FolderType, TeamMemberRole } from '@documenso/prisma/client';
+import { seedBlankDocument, seedTeamDocuments } from '@documenso/prisma/seed/documents';
+import { seedBlankFolder } from '@documenso/prisma/seed/folders';
+import { seedTeamMember } from '@documenso/prisma/seed/teams';
+import { seedBlankTemplate } from '@documenso/prisma/seed/templates';
 
 import { apiSignin } from '../fixtures/authentication';
 import { expectTextToBeVisible, openDropdownMenu } from '../fixtures/generic';

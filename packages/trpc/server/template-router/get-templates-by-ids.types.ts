@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { ZTemplateManySchema } from '@Scriblli/lib/types/template';
+import { ZTemplateManySchema } from '@documenso/lib/types/template';
 
 import type { TrpcRouteMeta } from '../trpc';
 

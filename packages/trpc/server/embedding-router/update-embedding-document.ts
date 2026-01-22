@@ -1,9 +1,9 @@
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { verifyEmbeddingPresignToken } from '@Scriblli/lib/server-only/embedding-presign/verify-embedding-presign-token';
-import { updateEnvelope } from '@Scriblli/lib/server-only/envelope/update-envelope';
-import { setFieldsForDocument } from '@Scriblli/lib/server-only/field/set-fields-for-document';
-import { setDocumentRecipients } from '@Scriblli/lib/server-only/recipient/set-document-recipients';
-import { nanoid } from '@Scriblli/lib/universal/id';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { verifyEmbeddingPresignToken } from '@documenso/lib/server-only/embedding-presign/verify-embedding-presign-token';
+import { updateEnvelope } from '@documenso/lib/server-only/envelope/update-envelope';
+import { setFieldsForDocument } from '@documenso/lib/server-only/field/set-fields-for-document';
+import { setDocumentRecipients } from '@documenso/lib/server-only/recipient/set-document-recipients';
+import { nanoid } from '@documenso/lib/universal/id';
 
 import { procedure } from '../trpc';
 import {

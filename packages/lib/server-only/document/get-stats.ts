@@ -3,10 +3,10 @@ import { DocumentVisibility, EnvelopeType, SigningStatus, TeamMemberRole } from 
 import { DateTime } from 'luxon';
 import { match } from 'ts-pattern';
 
-import type { PeriodSelectorValue } from '@Scriblli/lib/server-only/document/find-documents';
-import { prisma } from '@Scriblli/prisma';
-import { isExtendedDocumentStatus } from '@Scriblli/prisma/guards/is-extended-document-status';
-import { ExtendedDocumentStatus } from '@Scriblli/prisma/types/extended-document-status';
+import type { PeriodSelectorValue } from '@documenso/lib/server-only/document/find-documents';
+import { prisma } from '@documenso/prisma';
+import { isExtendedDocumentStatus } from '@documenso/prisma/guards/is-extended-document-status';
+import { ExtendedDocumentStatus } from '@documenso/prisma/types/extended-document-status';
 
 export type GetStatsInput = {
   user: Pick<User, 'id' | 'email'>;

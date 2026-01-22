@@ -21,41 +21,41 @@ import {
 import { useFieldArray, useForm } from 'react-hook-form';
 import { useHotkeys } from 'react-hotkeys-hook';
 
-import { getBoundingClientRect } from '@Scriblli/lib/client-only/get-bounding-client-rect';
-import { useAutoSave } from '@Scriblli/lib/client-only/hooks/use-autosave';
-import { useDocumentElement } from '@Scriblli/lib/client-only/hooks/use-document-element';
-import { PDF_VIEWER_PAGE_SELECTOR } from '@Scriblli/lib/constants/pdf-viewer';
-import { RECIPIENT_ROLES_DESCRIPTION } from '@Scriblli/lib/constants/recipient-roles';
-import { isTemplateRecipientEmailPlaceholder } from '@Scriblli/lib/constants/template';
+import { getBoundingClientRect } from '@documenso/lib/client-only/get-bounding-client-rect';
+import { useAutoSave } from '@documenso/lib/client-only/hooks/use-autosave';
+import { useDocumentElement } from '@documenso/lib/client-only/hooks/use-document-element';
+import { PDF_VIEWER_PAGE_SELECTOR } from '@documenso/lib/constants/pdf-viewer';
+import { RECIPIENT_ROLES_DESCRIPTION } from '@documenso/lib/constants/recipient-roles';
+import { isTemplateRecipientEmailPlaceholder } from '@documenso/lib/constants/template';
 import {
   type TFieldMetaSchema as FieldMeta,
   ZFieldMetaSchema,
-} from '@Scriblli/lib/types/field-meta';
-import { nanoid } from '@Scriblli/lib/universal/id';
-import { ADVANCED_FIELD_TYPES_WITH_OPTIONAL_SETTING } from '@Scriblli/lib/utils/advanced-fields-helpers';
-import { parseMessageDescriptor } from '@Scriblli/lib/utils/i18n';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { Card, CardContent } from '@Scriblli/ui/primitives/card';
+} from '@documenso/lib/types/field-meta';
+import { nanoid } from '@documenso/lib/universal/id';
+import { ADVANCED_FIELD_TYPES_WITH_OPTIONAL_SETTING } from '@documenso/lib/utils/advanced-fields-helpers';
+import { parseMessageDescriptor } from '@documenso/lib/utils/i18n';
+import { cn } from '@documenso/ui/lib/utils';
+import { Button } from '@documenso/ui/primitives/button';
+import { Card, CardContent } from '@documenso/ui/primitives/card';
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-} from '@Scriblli/ui/primitives/command';
+} from '@documenso/ui/primitives/command';
 import {
   DocumentFlowFormContainerActions,
   DocumentFlowFormContainerContent,
   DocumentFlowFormContainerFooter,
   DocumentFlowFormContainerHeader,
   DocumentFlowFormContainerStep,
-} from '@Scriblli/ui/primitives/document-flow/document-flow-root';
-import { FieldItem } from '@Scriblli/ui/primitives/document-flow/field-item';
-import type { DocumentFlowStep } from '@Scriblli/ui/primitives/document-flow/types';
-import { FRIENDLY_FIELD_TYPE } from '@Scriblli/ui/primitives/document-flow/types';
-import { Popover, PopoverContent, PopoverTrigger } from '@Scriblli/ui/primitives/popover';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/document-flow/document-flow-root';
+import { FieldItem } from '@documenso/ui/primitives/document-flow/field-item';
+import type { DocumentFlowStep } from '@documenso/ui/primitives/document-flow/types';
+import { FRIENDLY_FIELD_TYPE } from '@documenso/ui/primitives/document-flow/types';
+import { Popover, PopoverContent, PopoverTrigger } from '@documenso/ui/primitives/popover';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { getRecipientColorStyles, useRecipientColors } from '../../lib/recipient-colors';
 import type { FieldFormType } from '../document-flow/add-fields';

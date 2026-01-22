@@ -3,18 +3,18 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { useNavigate } from 'react-router';
 
-import { formatDocumentsPath } from '@Scriblli/lib/utils/teams';
-import { trpc as trpcReact } from '@Scriblli/trpc/react';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { formatDocumentsPath } from '@documenso/lib/utils/teams';
+import { trpc as trpcReact } from '@documenso/trpc/react';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@Scriblli/ui/primitives/dialog';
-import { PDFViewerLazy } from '@Scriblli/ui/primitives/pdf-viewer/lazy';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/dialog';
+import { PDFViewerLazy } from '@documenso/ui/primitives/pdf-viewer/lazy';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { useCurrentTeam } from '~/providers/team';
 

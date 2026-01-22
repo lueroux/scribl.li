@@ -17,14 +17,14 @@ import { useNavigate } from 'react-router';
 import { match } from 'ts-pattern';
 import * as z from 'zod';
 
-import { useCurrentEnvelopeEditor } from '@Scriblli/lib/client-only/providers/envelope-editor-provider';
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { extractDocumentAuthMethods } from '@Scriblli/lib/utils/document-auth';
-import { trpc, trpc as trpcReact } from '@Scriblli/trpc/react';
-import { DocumentSendEmailMessageHelper } from '@Scriblli/ui/components/document/document-send-email-message-helper';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Alert, AlertDescription } from '@Scriblli/ui/primitives/alert';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { useCurrentEnvelopeEditor } from '@documenso/lib/client-only/providers/envelope-editor-provider';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { extractDocumentAuthMethods } from '@documenso/lib/utils/document-auth';
+import { trpc, trpc as trpcReact } from '@documenso/trpc/react';
+import { DocumentSendEmailMessageHelper } from '@documenso/ui/components/document/document-send-email-message-helper';
+import { cn } from '@documenso/ui/lib/utils';
+import { Alert, AlertDescription } from '@documenso/ui/primitives/alert';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogClose,
@@ -34,7 +34,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@Scriblli/ui/primitives/dialog';
+} from '@documenso/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -42,20 +42,20 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
-import { SpinnerBox } from '@Scriblli/ui/primitives/spinner';
-import { Tabs, TabsList, TabsTrigger } from '@Scriblli/ui/primitives/tabs';
-import { Textarea } from '@Scriblli/ui/primitives/textarea';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@Scriblli/ui/primitives/tooltip';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/select';
+import { SpinnerBox } from '@documenso/ui/primitives/spinner';
+import { Tabs, TabsList, TabsTrigger } from '@documenso/ui/primitives/tabs';
+import { Textarea } from '@documenso/ui/primitives/textarea';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@documenso/ui/primitives/tooltip';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 export type EnvelopeDistributeDialogProps = {
   onDistribute?: () => Promise<void>;

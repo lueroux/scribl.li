@@ -1,4 +1,4 @@
-import { stripe } from '@Scriblli/lib/server-only/stripe';
+import { stripe } from '@documenso/lib/server-only/stripe';
 
 export type GetInvoicesOptions = {
   customerId: string;

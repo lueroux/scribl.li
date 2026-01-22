@@ -1,6 +1,6 @@
 import { generateOpenApi } from '@ts-rest/open-api';
 
-import { NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
+import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
 
 import { ApiContractV1 } from './contract';
 

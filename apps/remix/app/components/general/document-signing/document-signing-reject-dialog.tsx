@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router';
 import { useSearchParams } from 'react-router';
 import { z } from 'zod';
 
-import { trpc } from '@Scriblli/trpc/react';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { trpc } from '@documenso/trpc/react';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -18,16 +18,16 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@Scriblli/ui/primitives/dialog';
+} from '@documenso/ui/primitives/dialog';
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Textarea } from '@Scriblli/ui/primitives/textarea';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/form/form';
+import { Textarea } from '@documenso/ui/primitives/textarea';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 const ZRejectDocumentFormSchema = z.object({
   reason: z.string().max(500, msg`Reason must be less than 500 characters`),

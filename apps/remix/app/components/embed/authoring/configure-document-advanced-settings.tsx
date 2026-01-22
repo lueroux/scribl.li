@@ -4,13 +4,13 @@ import { InfoIcon } from 'lucide-react';
 import type { Control } from 'react-hook-form';
 import { useFormContext } from 'react-hook-form';
 
-import { DATE_FORMATS } from '@Scriblli/lib/constants/date-formats';
-import { DOCUMENT_SIGNATURE_TYPES } from '@Scriblli/lib/constants/document';
-import { SUPPORTED_LANGUAGES } from '@Scriblli/lib/constants/i18n';
-import { TIME_ZONES } from '@Scriblli/lib/constants/time-zones';
-import { DocumentEmailCheckboxes } from '@Scriblli/ui/components/document/document-email-checkboxes';
-import { DocumentSendEmailMessageHelper } from '@Scriblli/ui/components/document/document-send-email-message-helper';
-import { Combobox } from '@Scriblli/ui/primitives/combobox';
+import { DATE_FORMATS } from '@documenso/lib/constants/date-formats';
+import { DOCUMENT_SIGNATURE_TYPES } from '@documenso/lib/constants/document';
+import { SUPPORTED_LANGUAGES } from '@documenso/lib/constants/i18n';
+import { TIME_ZONES } from '@documenso/lib/constants/time-zones';
+import { DocumentEmailCheckboxes } from '@documenso/ui/components/document/document-email-checkboxes';
+import { DocumentSendEmailMessageHelper } from '@documenso/ui/components/document/document-send-email-message-helper';
+import { Combobox } from '@documenso/ui/primitives/combobox';
 import {
   FormControl,
   FormDescription,
@@ -18,19 +18,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { MultiSelectCombobox } from '@Scriblli/ui/primitives/multi-select-combobox';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { MultiSelectCombobox } from '@documenso/ui/primitives/multi-select-combobox';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@Scriblli/ui/primitives/tabs';
-import { Textarea } from '@Scriblli/ui/primitives/textarea';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@Scriblli/ui/primitives/tooltip';
+} from '@documenso/ui/primitives/select';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@documenso/ui/primitives/tabs';
+import { Textarea } from '@documenso/ui/primitives/textarea';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@documenso/ui/primitives/tooltip';
 
 import { useConfigureDocument } from './configure-document-context';
 import type { TConfigureEmbedFormSchema } from './configure-document-view.types';

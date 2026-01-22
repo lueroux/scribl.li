@@ -1,4 +1,4 @@
-import { createOrGetShareLink } from '@Scriblli/lib/server-only/share/create-or-get-share-link';
+import { createOrGetShareLink } from '@documenso/lib/server-only/share/create-or-get-share-link';
 
 import { procedure } from '../trpc';
 import { ZShareDocumentRequestSchema, ZShareDocumentResponseSchema } from './share-document.types';

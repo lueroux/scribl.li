@@ -2,15 +2,15 @@ import { Trans, useLingui } from '@lingui/react/macro';
 import { Loader } from 'lucide-react';
 import { Link } from 'react-router';
 
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
-import { putFile } from '@Scriblli/lib/universal/upload/put-file';
-import { canExecuteOrganisationAction, isPersonalLayout } from '@Scriblli/lib/utils/organisations';
-import { trpc } from '@Scriblli/trpc/react';
-import { Alert, AlertDescription, AlertTitle } from '@Scriblli/ui/primitives/alert';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
+import { putFile } from '@documenso/lib/universal/upload/put-file';
+import { canExecuteOrganisationAction, isPersonalLayout } from '@documenso/lib/utils/organisations';
+import { trpc } from '@documenso/trpc/react';
+import { Alert, AlertDescription, AlertTitle } from '@documenso/ui/primitives/alert';
+import { Button } from '@documenso/ui/primitives/button';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import {
   BrandingPreferencesForm,

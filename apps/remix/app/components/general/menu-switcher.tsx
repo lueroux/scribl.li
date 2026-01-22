@@ -6,22 +6,22 @@ import { Trans } from '@lingui/react/macro';
 import { ChevronsUpDown, Plus } from 'lucide-react';
 import { Link } from 'react-router';
 
-import { authClient } from '@Scriblli/auth/client';
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { formatAvatarUrl } from '@Scriblli/lib/utils/avatars';
-import { isAdmin } from '@Scriblli/lib/utils/is-admin';
-import { extractInitials } from '@Scriblli/lib/utils/recipient-formatter';
-import { LanguageSwitcherDialog } from '@Scriblli/ui/components/common/language-switcher-dialog';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { AvatarWithText } from '@Scriblli/ui/primitives/avatar';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { authClient } from '@documenso/auth/client';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { formatAvatarUrl } from '@documenso/lib/utils/avatars';
+import { isAdmin } from '@documenso/lib/utils/is-admin';
+import { extractInitials } from '@documenso/lib/utils/recipient-formatter';
+import { LanguageSwitcherDialog } from '@documenso/ui/components/common/language-switcher-dialog';
+import { cn } from '@documenso/ui/lib/utils';
+import { AvatarWithText } from '@documenso/ui/primitives/avatar';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@Scriblli/ui/primitives/dropdown-menu';
+} from '@documenso/ui/primitives/dropdown-menu';
 
 export const MenuSwitcher = () => {
   const { _ } = useLingui();

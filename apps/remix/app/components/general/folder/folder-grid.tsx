@@ -5,11 +5,11 @@ import { FolderType } from '@prisma/client';
 import { FolderIcon, HomeIcon } from 'lucide-react';
 import { Link } from 'react-router';
 
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
-import { formatDocumentsPath, formatTemplatesPath } from '@Scriblli/lib/utils/teams';
-import { trpc } from '@Scriblli/trpc/react';
-import { type TFolderWithSubfolders } from '@Scriblli/trpc/server/folder-router/schema';
-import { Skeleton } from '@Scriblli/ui/primitives/skeleton';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
+import { formatDocumentsPath, formatTemplatesPath } from '@documenso/lib/utils/teams';
+import { trpc } from '@documenso/trpc/react';
+import { type TFolderWithSubfolders } from '@documenso/trpc/server/folder-router/schema';
+import { Skeleton } from '@documenso/ui/primitives/skeleton';
 
 import { FolderCreateDialog } from '~/components/dialogs/folder-create-dialog';
 import { FolderDeleteDialog } from '~/components/dialogs/folder-delete-dialog';

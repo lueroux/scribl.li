@@ -15,15 +15,15 @@ import {
   Users,
 } from 'lucide-react';
 
-import { getDocumentStats } from '@Scriblli/lib/server-only/admin/get-documents-stats';
-import { getRecipientsStats } from '@Scriblli/lib/server-only/admin/get-recipients-stats';
+import { getDocumentStats } from '@documenso/lib/server-only/admin/get-documents-stats';
+import { getRecipientsStats } from '@documenso/lib/server-only/admin/get-recipients-stats';
 import {
   getMonthlyActiveUsers,
   getOrganisationsWithSubscriptionsCount,
   getUserWithSignedDocumentMonthlyGrowth,
   getUsersCount,
-} from '@Scriblli/lib/server-only/admin/get-users-stats';
-import { getSignerConversionMonthly } from '@Scriblli/lib/server-only/user/get-signer-conversion';
+} from '@documenso/lib/server-only/admin/get-users-stats';
+import { getSignerConversionMonthly } from '@documenso/lib/server-only/user/get-signer-conversion';
 
 import { MonthlyActiveUsersChart } from '~/components/general/admin-monthly-active-user-charts';
 import { AdminStatsSignerConversionChart } from '~/components/general/admin-stats-signer-conversion-chart';

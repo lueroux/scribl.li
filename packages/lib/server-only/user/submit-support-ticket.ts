@@ -1,5 +1,5 @@
-import { plainClient } from '@Scriblli/lib/plain/client';
-import { prisma } from '@Scriblli/prisma';
+import { plainClient } from '@documenso/lib/plain/client';
+import { prisma } from '@documenso/prisma';
 
 import { AppError, AppErrorCode } from '../../errors/app-error';
 import { buildOrganisationWhereQuery } from '../../utils/organisations';

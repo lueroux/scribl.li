@@ -7,9 +7,9 @@ import { ChevronDown } from 'lucide-react';
 import {
   DEFAULT_DOCUMENT_DATE_FORMAT,
   convertToLocalSystemFormat,
-} from '@Scriblli/lib/constants/date-formats';
-import type { TFieldMetaSchema } from '@Scriblli/lib/types/field-meta';
-import { fromCheckboxValue } from '@Scriblli/lib/universal/field-checkbox';
+} from '@documenso/lib/constants/date-formats';
+import type { TFieldMetaSchema } from '@documenso/lib/types/field-meta';
+import { fromCheckboxValue } from '@documenso/lib/universal/field-checkbox';
 
 import { cn } from '../../lib/utils';
 import { Checkbox } from '../checkbox';

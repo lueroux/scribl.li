@@ -3,18 +3,18 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { useRevalidator } from 'react-router';
 
-import { DO_NOT_INVALIDATE_QUERY_ON_MUTATION } from '@Scriblli/lib/constants/trpc';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import type { TRecipientActionAuth } from '@Scriblli/lib/types/document-auth';
-import { ZInitialsFieldMeta } from '@Scriblli/lib/types/field-meta';
-import { extractInitials } from '@Scriblli/lib/utils/recipient-formatter';
-import type { FieldWithSignature } from '@Scriblli/prisma/types/field-with-signature';
-import { trpc } from '@Scriblli/trpc/react';
+import { DO_NOT_INVALIDATE_QUERY_ON_MUTATION } from '@documenso/lib/constants/trpc';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import type { TRecipientActionAuth } from '@documenso/lib/types/document-auth';
+import { ZInitialsFieldMeta } from '@documenso/lib/types/field-meta';
+import { extractInitials } from '@documenso/lib/utils/recipient-formatter';
+import type { FieldWithSignature } from '@documenso/prisma/types/field-with-signature';
+import { trpc } from '@documenso/trpc/react';
 import type {
   TRemovedSignedFieldWithTokenMutationSchema,
   TSignFieldWithTokenMutationSchema,
-} from '@Scriblli/trpc/server/field-router/schema';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/trpc/server/field-router/schema';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { DocumentSigningFieldContainer } from './document-signing-field-container';
 import {

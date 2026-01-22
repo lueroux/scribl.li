@@ -1,10 +1,10 @@
 import { expect, test } from '@playwright/test';
 
-import { getTeamSettings } from '@Scriblli/lib/server-only/team/get-team-settings';
-import { prisma } from '@Scriblli/prisma';
-import { DocumentVisibility } from '@Scriblli/prisma/client';
-import { seedTeamDocumentWithMeta } from '@Scriblli/prisma/seed/documents';
-import { seedUser } from '@Scriblli/prisma/seed/users';
+import { getTeamSettings } from '@documenso/lib/server-only/team/get-team-settings';
+import { prisma } from '@documenso/prisma';
+import { DocumentVisibility } from '@documenso/prisma/client';
+import { seedTeamDocumentWithMeta } from '@documenso/prisma/seed/documents';
+import { seedUser } from '@documenso/prisma/seed/users';
 
 import { apiSignin } from '../fixtures/authentication';
 
@@ -202,7 +202,7 @@ test('[ORGANISATIONS]: manage email preferences', async ({ page }) => {
   // Update email preferences at organisation level.
   // Set reply to email
   await page.getByRole('textbox', { name: 'Reply to email' }).click();
-  await page.getByRole('textbox', { name: 'Reply to email' }).fill('organisation@Scriblli.com');
+  await page.getByRole('textbox', { name: 'Reply to email' }).fill('organisation@documenso.com');
 
   // Update email document settings by enabling/disabling some checkboxes
   await page.getByRole('checkbox', { name: 'Send recipient signed email' }).uncheck();
@@ -217,7 +217,7 @@ test('[ORGANISATIONS]: manage email preferences', async ({ page }) => {
   });
 
   // Check that the team settings have inherited these values.
-  expect(teamSettings.emailReplyTo).toEqual('organisation@Scriblli.com');
+  expect(teamSettings.emailReplyTo).toEqual('organisation@documenso.com');
   expect(teamSettings.emailDocumentSettings).toEqual({
     recipientSigningRequest: true,
     recipientRemoved: true,
@@ -301,7 +301,7 @@ test('[ORGANISATIONS]: manage email preferences', async ({ page }) => {
   });
 
   // Check that the team settings now inherit from organisation again.
-  expect(inheritedTeamSettings.emailReplyTo).toEqual('organisation@Scriblli.com');
+  expect(inheritedTeamSettings.emailReplyTo).toEqual('organisation@documenso.com');
   expect(inheritedTeamSettings.emailDocumentSettings).toEqual({
     recipientSigningRequest: true,
     recipientRemoved: true,
@@ -321,7 +321,7 @@ test('[ORGANISATIONS]: manage email preferences', async ({ page }) => {
     },
   });
 
-  expect(documentMeta.emailReplyTo).toEqual('organisation@Scriblli.com');
+  expect(documentMeta.emailReplyTo).toEqual('organisation@documenso.com');
   expect(documentMeta.emailSettings).toEqual({
     recipientSigningRequest: true,
     recipientRemoved: true,

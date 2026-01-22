@@ -1,10 +1,10 @@
 import { EnvelopeType } from '@prisma/client';
 
-import { getMultipleEnvelopeWhereInput } from '@Scriblli/lib/server-only/envelope/get-envelopes-by-ids';
-import { mapSecondaryIdToTemplateId } from '@Scriblli/lib/utils/envelope';
-import { mapFieldToLegacyField } from '@Scriblli/lib/utils/fields';
-import { mapRecipientToLegacyRecipient } from '@Scriblli/lib/utils/recipients';
-import { prisma } from '@Scriblli/prisma';
+import { getMultipleEnvelopeWhereInput } from '@documenso/lib/server-only/envelope/get-envelopes-by-ids';
+import { mapSecondaryIdToTemplateId } from '@documenso/lib/utils/envelope';
+import { mapFieldToLegacyField } from '@documenso/lib/utils/fields';
+import { mapRecipientToLegacyRecipient } from '@documenso/lib/utils/recipients';
+import { prisma } from '@documenso/prisma';
 
 import { authenticatedProcedure } from '../trpc';
 import {

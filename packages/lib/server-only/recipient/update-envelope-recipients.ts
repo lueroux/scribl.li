@@ -1,18 +1,18 @@
 import { EnvelopeType, RecipientRole, SendStatus, SigningStatus } from '@prisma/client';
 
-import { DOCUMENT_AUDIT_LOG_TYPE } from '@Scriblli/lib/types/document-audit-logs';
-import type { TRecipientAccessAuthTypes } from '@Scriblli/lib/types/document-auth';
+import { DOCUMENT_AUDIT_LOG_TYPE } from '@documenso/lib/types/document-audit-logs';
+import type { TRecipientAccessAuthTypes } from '@documenso/lib/types/document-auth';
 import {
   type TRecipientActionAuthTypes,
   ZRecipientAuthOptionsSchema,
-} from '@Scriblli/lib/types/document-auth';
-import type { ApiRequestMetadata } from '@Scriblli/lib/universal/extract-request-metadata';
+} from '@documenso/lib/types/document-auth';
+import type { ApiRequestMetadata } from '@documenso/lib/universal/extract-request-metadata';
 import {
   createDocumentAuditLogData,
   diffRecipientChanges,
-} from '@Scriblli/lib/utils/document-audit-logs';
-import { createRecipientAuthOptions } from '@Scriblli/lib/utils/document-auth';
-import { prisma } from '@Scriblli/prisma';
+} from '@documenso/lib/utils/document-audit-logs';
+import { createRecipientAuthOptions } from '@documenso/lib/utils/document-auth';
+import { prisma } from '@documenso/prisma';
 
 import { AppError, AppErrorCode } from '../../errors/app-error';
 import { extractLegacyIds } from '../../universal/id';

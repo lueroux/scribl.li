@@ -9,12 +9,12 @@ import {
 import { DateTime } from 'luxon';
 import path from 'node:path';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 import {
   seedBlankDocument,
   seedPendingDocumentWithFullFields,
-} from '@Scriblli/prisma/seed/documents';
-import { seedUser } from '@Scriblli/prisma/seed/users';
+} from '@documenso/prisma/seed/documents';
+import { seedUser } from '@documenso/prisma/seed/users';
 
 import { apiSignin } from '../fixtures/authentication';
 import { signSignaturePad } from '../fixtures/signature';
@@ -347,14 +347,14 @@ test('[DOCUMENT_FLOW]: should be able to approve a document', async ({ page }) =
   const { recipients } = await seedPendingDocumentWithFullFields({
     owner: user,
     teamId: team.id,
-    recipients: ['user@Scriblli.com', 'approver@Scriblli.com'],
+    recipients: ['user@documenso.com', 'approver@documenso.com'],
     recipientsCreateOptions: [
       {
-        email: 'user@Scriblli.com',
+        email: 'user@documenso.com',
         role: RecipientRole.SIGNER,
       },
       {
-        email: 'approver@Scriblli.com',
+        email: 'approver@documenso.com',
         role: RecipientRole.APPROVER,
       },
     ],

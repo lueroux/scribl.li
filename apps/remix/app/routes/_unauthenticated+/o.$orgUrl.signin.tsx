@@ -5,13 +5,13 @@ import { Trans, useLingui } from '@lingui/react/macro';
 import { MailsIcon } from 'lucide-react';
 import { Link, redirect, useSearchParams } from 'react-router';
 
-import { authClient } from '@Scriblli/auth/client';
-import { getOptionalSession } from '@Scriblli/auth/server/lib/utils/get-session';
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { prisma } from '@Scriblli/prisma';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { Checkbox } from '@Scriblli/ui/primitives/checkbox';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+import { authClient } from '@documenso/auth/client';
+import { getOptionalSession } from '@documenso/auth/server/lib/utils/get-session';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { prisma } from '@documenso/prisma';
+import { Button } from '@documenso/ui/primitives/button';
+import { Checkbox } from '@documenso/ui/primitives/checkbox';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { GenericErrorLayout } from '~/components/general/generic-error-layout';
 import { appMetaTags } from '~/utils/meta';

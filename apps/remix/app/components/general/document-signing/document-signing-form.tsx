@@ -7,18 +7,18 @@ import { type Field, FieldType, type Recipient, RecipientRole } from '@prisma/cl
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 
-import type { DocumentAndSender } from '@Scriblli/lib/server-only/document/get-document-by-token';
-import type { TRecipientAccessAuth } from '@Scriblli/lib/types/document-auth';
-import { isFieldUnsignedAndRequired } from '@Scriblli/lib/utils/advanced-fields-helpers';
-import { sortFieldsByPosition } from '@Scriblli/lib/utils/fields';
-import type { RecipientWithFields } from '@Scriblli/prisma/types/recipient-with-fields';
-import { FieldToolTip } from '@Scriblli/ui/components/field/field-tooltip';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { Label } from '@Scriblli/ui/primitives/label';
-import { RadioGroup, RadioGroupItem } from '@Scriblli/ui/primitives/radio-group';
-import { SignaturePadDialog } from '@Scriblli/ui/primitives/signature-pad/signature-pad-dialog';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+import type { DocumentAndSender } from '@documenso/lib/server-only/document/get-document-by-token';
+import type { TRecipientAccessAuth } from '@documenso/lib/types/document-auth';
+import { isFieldUnsignedAndRequired } from '@documenso/lib/utils/advanced-fields-helpers';
+import { sortFieldsByPosition } from '@documenso/lib/utils/fields';
+import type { RecipientWithFields } from '@documenso/prisma/types/recipient-with-fields';
+import { FieldToolTip } from '@documenso/ui/components/field/field-tooltip';
+import { Button } from '@documenso/ui/primitives/button';
+import { Input } from '@documenso/ui/primitives/input';
+import { Label } from '@documenso/ui/primitives/label';
+import { RadioGroup, RadioGroupItem } from '@documenso/ui/primitives/radio-group';
+import { SignaturePadDialog } from '@documenso/ui/primitives/signature-pad/signature-pad-dialog';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import {
   AssistantConfirmationDialog,

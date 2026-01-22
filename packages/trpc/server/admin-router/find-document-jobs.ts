@@ -1,12 +1,12 @@
 import { EnvelopeType } from '@prisma/client';
 
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import type { FindResultResponse } from '@Scriblli/lib/types/search-params';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import type { FindResultResponse } from '@documenso/lib/types/search-params';
 import {
   mapSecondaryIdToDocumentId,
   unsafeBuildEnvelopeIdQuery,
-} from '@Scriblli/lib/utils/envelope';
-import { prisma } from '@Scriblli/prisma';
+} from '@documenso/lib/utils/envelope';
+import { prisma } from '@documenso/prisma';
 
 import { adminProcedure } from '../trpc';
 import {

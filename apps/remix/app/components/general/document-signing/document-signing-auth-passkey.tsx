@@ -10,12 +10,12 @@ import { Loader } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { AppError } from '@Scriblli/lib/errors/app-error';
-import { DocumentAuth, type TRecipientActionAuth } from '@Scriblli/lib/types/document-auth';
-import { trpc } from '@Scriblli/trpc/react';
-import { Alert, AlertDescription, AlertTitle } from '@Scriblli/ui/primitives/alert';
-import { Button } from '@Scriblli/ui/primitives/button';
-import { DialogFooter } from '@Scriblli/ui/primitives/dialog';
+import { AppError } from '@documenso/lib/errors/app-error';
+import { DocumentAuth, type TRecipientActionAuth } from '@documenso/lib/types/document-auth';
+import { trpc } from '@documenso/trpc/react';
+import { Alert, AlertDescription, AlertTitle } from '@documenso/ui/primitives/alert';
+import { Button } from '@documenso/ui/primitives/button';
+import { DialogFooter } from '@documenso/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -23,14 +23,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
+} from '@documenso/ui/primitives/form/form';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@Scriblli/ui/primitives/select';
+} from '@documenso/ui/primitives/select';
 
 import { PasskeyCreateDialog } from '~/components/dialogs/passkey-create-dialog';
 

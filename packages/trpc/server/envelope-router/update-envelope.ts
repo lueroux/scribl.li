@@ -1,4 +1,4 @@
-import { updateEnvelope } from '@Scriblli/lib/server-only/envelope/update-envelope';
+import { updateEnvelope } from '@documenso/lib/server-only/envelope/update-envelope';
 
 import { authenticatedProcedure } from '../trpc';
 import {

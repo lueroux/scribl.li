@@ -12,19 +12,19 @@ import { Link, useSearchParams } from 'react-router';
 import { match } from 'ts-pattern';
 import type { z } from 'zod';
 
-import type { InternalClaimPlans } from '@Scriblli/ee/server-only/stripe/get-internal-claim-plans';
-import { useUpdateSearchParams } from '@Scriblli/lib/client-only/hooks/use-update-search-params';
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
-import { AppError } from '@Scriblli/lib/errors/app-error';
-import { INTERNAL_CLAIM_ID } from '@Scriblli/lib/types/subscription';
-import { parseMessageDescriptorMacro } from '@Scriblli/lib/utils/i18n';
-import { isPersonalLayout } from '@Scriblli/lib/utils/organisations';
-import { trpc } from '@Scriblli/trpc/react';
-import { ZCreateOrganisationRequestSchema } from '@Scriblli/trpc/server/organisation-router/create-organisation.types';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Badge } from '@Scriblli/ui/primitives/badge';
-import { Button } from '@Scriblli/ui/primitives/button';
+import type { InternalClaimPlans } from '@documenso/ee/server-only/stripe/get-internal-claim-plans';
+import { useUpdateSearchParams } from '@documenso/lib/client-only/hooks/use-update-search-params';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
+import { AppError } from '@documenso/lib/errors/app-error';
+import { INTERNAL_CLAIM_ID } from '@documenso/lib/types/subscription';
+import { parseMessageDescriptorMacro } from '@documenso/lib/utils/i18n';
+import { isPersonalLayout } from '@documenso/lib/utils/organisations';
+import { trpc } from '@documenso/trpc/react';
+import { ZCreateOrganisationRequestSchema } from '@documenso/trpc/server/organisation-router/create-organisation.types';
+import { cn } from '@documenso/ui/lib/utils';
+import { Badge } from '@documenso/ui/primitives/badge';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -33,7 +33,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@Scriblli/ui/primitives/dialog';
+} from '@documenso/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -41,11 +41,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { Input } from '@Scriblli/ui/primitives/input';
-import { SpinnerBox } from '@Scriblli/ui/primitives/spinner';
-import { Tabs, TabsList, TabsTrigger } from '@Scriblli/ui/primitives/tabs';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/form/form';
+import { Input } from '@documenso/ui/primitives/input';
+import { SpinnerBox } from '@documenso/ui/primitives/spinner';
+import { Tabs, TabsList, TabsTrigger } from '@documenso/ui/primitives/tabs';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { IndividualPersonalLayoutCheckoutButton } from '../general/billing-plans';
 

@@ -1,9 +1,9 @@
 import { expect, test } from '@playwright/test';
 
-import { createTeam } from '@Scriblli/lib/server-only/team/create-team';
-import { nanoid } from '@Scriblli/lib/universal/id';
-import { seedOrganisationMembers } from '@Scriblli/prisma/seed/organisations';
-import { seedUser } from '@Scriblli/prisma/seed/users';
+import { createTeam } from '@documenso/lib/server-only/team/create-team';
+import { nanoid } from '@documenso/lib/universal/id';
+import { seedOrganisationMembers } from '@documenso/prisma/seed/organisations';
+import { seedUser } from '@documenso/prisma/seed/users';
 
 import { apiSignin, apiSignout } from '../fixtures/authentication';
 import {

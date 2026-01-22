@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-import { Scriblli_ENCRYPTION_SECONDARY_KEY } from '@Scriblli/lib/constants/crypto';
-import { symmetricEncrypt } from '@Scriblli/lib/universal/crypto';
+import { Scriblli_ENCRYPTION_SECONDARY_KEY } from '@documenso/lib/constants/crypto';
+import { symmetricEncrypt } from '@documenso/lib/universal/crypto';
 
 export const ZEncryptedDataSchema = z.object({
   data: z.string(),

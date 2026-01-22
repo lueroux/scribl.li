@@ -1,4 +1,4 @@
-import { createApiToken } from '@Scriblli/lib/server-only/public-api/create-api-token';
+import { createApiToken } from '@documenso/lib/server-only/public-api/create-api-token';
 
 import { authenticatedProcedure } from '../trpc';
 import {

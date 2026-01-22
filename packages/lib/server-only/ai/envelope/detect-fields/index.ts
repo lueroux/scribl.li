@@ -3,7 +3,7 @@ import { DocumentStatus, type Field, RecipientRole } from '@prisma/client';
 import { generateObject } from 'ai';
 import pMap from 'p-map';
 
-import { prisma } from '@Scriblli/prisma';
+import { prisma } from '@documenso/prisma';
 
 import { AppError, AppErrorCode } from '../../../../errors/app-error';
 import { getFileServerSide } from '../../../../universal/upload/get-file.server';

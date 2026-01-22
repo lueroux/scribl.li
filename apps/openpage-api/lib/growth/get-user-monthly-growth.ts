@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 
-import { kyselyPrisma, sql } from '@Scriblli/prisma';
+import { kyselyPrisma, sql } from '@documenso/prisma';
 
 import { addZeroMonth } from '../add-zero-month';
 

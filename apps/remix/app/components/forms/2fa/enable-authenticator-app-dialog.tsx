@@ -8,10 +8,10 @@ import { useForm } from 'react-hook-form';
 import { renderSVG } from 'uqr';
 import { z } from 'zod';
 
-import { authClient } from '@Scriblli/auth/client';
-import { downloadFile } from '@Scriblli/lib/client-only/download-file';
-import { useSession } from '@Scriblli/lib/client-only/providers/session';
-import { Button } from '@Scriblli/ui/primitives/button';
+import { authClient } from '@documenso/auth/client';
+import { downloadFile } from '@documenso/lib/client-only/download-file';
+import { useSession } from '@documenso/lib/client-only/providers/session';
+import { Button } from '@documenso/ui/primitives/button';
 import {
   Dialog,
   DialogClose,
@@ -21,7 +21,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@Scriblli/ui/primitives/dialog';
+} from '@documenso/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -29,9 +29,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@Scriblli/ui/primitives/form/form';
-import { PinInput, PinInputGroup, PinInputSlot } from '@Scriblli/ui/primitives/pin-input';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/ui/primitives/form/form';
+import { PinInput, PinInputGroup, PinInputSlot } from '@documenso/ui/primitives/pin-input';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { RecoveryCodeList } from './recovery-code-list';
 

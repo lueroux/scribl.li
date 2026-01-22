@@ -1,7 +1,7 @@
 import { EnvelopeType, SigningStatus } from '@prisma/client';
 
-import { jobs } from '@Scriblli/lib/jobs/client';
-import { prisma } from '@Scriblli/prisma';
+import { jobs } from '@documenso/lib/jobs/client';
+import { prisma } from '@documenso/prisma';
 
 import { AppError, AppErrorCode } from '../../errors/app-error';
 import { DOCUMENT_AUDIT_LOG_TYPE } from '../../types/document-audit-logs';

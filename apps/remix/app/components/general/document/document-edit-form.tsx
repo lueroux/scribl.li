@@ -6,30 +6,30 @@ import { DocumentDistributionMethod, DocumentStatus } from '@prisma/client';
 import { useNavigate, useSearchParams } from 'react-router';
 import { z } from 'zod';
 
-import { DocumentSignatureType } from '@Scriblli/lib/constants/document';
-import { isValidLanguageCode } from '@Scriblli/lib/constants/i18n';
+import { DocumentSignatureType } from '@documenso/lib/constants/document';
+import { isValidLanguageCode } from '@documenso/lib/constants/i18n';
 import {
   DO_NOT_INVALIDATE_QUERY_ON_MUTATION,
   SKIP_QUERY_BATCH_META,
-} from '@Scriblli/lib/constants/trpc';
-import type { TDocument } from '@Scriblli/lib/types/document';
-import { ZDocumentAccessAuthTypesSchema } from '@Scriblli/lib/types/document-auth';
-import { trpc } from '@Scriblli/trpc/react';
-import { cn } from '@Scriblli/ui/lib/utils';
-import { Card, CardContent } from '@Scriblli/ui/primitives/card';
-import { AddFieldsFormPartial } from '@Scriblli/ui/primitives/document-flow/add-fields';
-import type { TAddFieldsFormSchema } from '@Scriblli/ui/primitives/document-flow/add-fields.types';
-import { AddSettingsFormPartial } from '@Scriblli/ui/primitives/document-flow/add-settings';
-import type { TAddSettingsFormSchema } from '@Scriblli/ui/primitives/document-flow/add-settings.types';
-import { AddSignersFormPartial } from '@Scriblli/ui/primitives/document-flow/add-signers';
-import type { TAddSignersFormSchema } from '@Scriblli/ui/primitives/document-flow/add-signers.types';
-import { AddSubjectFormPartial } from '@Scriblli/ui/primitives/document-flow/add-subject';
-import type { TAddSubjectFormSchema } from '@Scriblli/ui/primitives/document-flow/add-subject.types';
-import { DocumentFlowFormContainer } from '@Scriblli/ui/primitives/document-flow/document-flow-root';
-import type { DocumentFlowStep } from '@Scriblli/ui/primitives/document-flow/types';
-import { PDFViewerLazy } from '@Scriblli/ui/primitives/pdf-viewer/lazy';
-import { Stepper } from '@Scriblli/ui/primitives/stepper';
-import { useToast } from '@Scriblli/ui/primitives/use-toast';
+} from '@documenso/lib/constants/trpc';
+import type { TDocument } from '@documenso/lib/types/document';
+import { ZDocumentAccessAuthTypesSchema } from '@documenso/lib/types/document-auth';
+import { trpc } from '@documenso/trpc/react';
+import { cn } from '@documenso/ui/lib/utils';
+import { Card, CardContent } from '@documenso/ui/primitives/card';
+import { AddFieldsFormPartial } from '@documenso/ui/primitives/document-flow/add-fields';
+import type { TAddFieldsFormSchema } from '@documenso/ui/primitives/document-flow/add-fields.types';
+import { AddSettingsFormPartial } from '@documenso/ui/primitives/document-flow/add-settings';
+import type { TAddSettingsFormSchema } from '@documenso/ui/primitives/document-flow/add-settings.types';
+import { AddSignersFormPartial } from '@documenso/ui/primitives/document-flow/add-signers';
+import type { TAddSignersFormSchema } from '@documenso/ui/primitives/document-flow/add-signers.types';
+import { AddSubjectFormPartial } from '@documenso/ui/primitives/document-flow/add-subject';
+import type { TAddSubjectFormSchema } from '@documenso/ui/primitives/document-flow/add-subject.types';
+import { DocumentFlowFormContainer } from '@documenso/ui/primitives/document-flow/document-flow-root';
+import type { DocumentFlowStep } from '@documenso/ui/primitives/document-flow/types';
+import { PDFViewerLazy } from '@documenso/ui/primitives/pdf-viewer/lazy';
+import { Stepper } from '@documenso/ui/primitives/stepper';
+import { useToast } from '@documenso/ui/primitives/use-toast';
 
 import { useCurrentTeam } from '~/providers/team';
 

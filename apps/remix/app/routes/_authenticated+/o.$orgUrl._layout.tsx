@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 
-import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
 
 export default function Layout() {
   const currentOrganisation = useCurrentOrganisation();

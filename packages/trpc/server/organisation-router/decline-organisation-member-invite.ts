@@ -1,7 +1,7 @@
 import { OrganisationMemberInviteStatus } from '@prisma/client';
 
-import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
-import { prisma } from '@Scriblli/prisma';
+import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { prisma } from '@documenso/prisma';
 
 import { maybeAuthenticatedProcedure } from '../trpc';
 import {
