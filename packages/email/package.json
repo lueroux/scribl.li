@@ -1,5 +1,5 @@
 {
-  "name": "@Scriblli/email",
+  "name": "@scriblli/email",
   "version": "0.0.0",
   "main": "./index.ts",
   "types": "./index.ts",
@@ -16,8 +16,8 @@
     "clean": "rimraf node_modules"
   },
   "dependencies": {
-    "@Scriblli/tailwind-config": "*",
-    "@Scriblli/nodemailer-resend": "4.0.0",
+    "@scriblli/tailwind-config": "*",
+    "@scriblli/nodemailer-resend": "4.0.0",
     "@react-email/body": "0.2.0",
     "@react-email/button": "0.2.0",
     "@react-email/code-block": "0.2.0",
@@ -42,7 +42,7 @@
     "resend": "^6.5.2"
   },
   "devDependencies": {
-    "@Scriblli/tsconfig": "*",
+    "@scriblli/tsconfig": "*",
     "@types/nodemailer": "^7.0.4"
   }
 }

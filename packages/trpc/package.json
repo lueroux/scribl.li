@@ -1,5 +1,5 @@
 {
-  "name": "@Scriblli/trpc",
+  "name": "@scriblli/trpc",
   "version": "0.0.0",
   "main": "./index.ts",
   "types": "./index.ts",
@@ -10,8 +10,8 @@
     "clean": "rimraf node_modules"
   },
   "dependencies": {
-    "@Scriblli/lib": "*",
-    "@Scriblli/prisma": "*",
+    "@scriblli/lib": "*",
+    "@scriblli/prisma": "*",
     "@simplewebauthn/server": "^13.2.2",
     "@tanstack/react-query": "5.90.10",
     "@trpc/client": "11.8.1",

@@ -1,5 +1,5 @@
 {
-  "name": "@Scriblli/documentation",
+  "name": "@scriblli/documentation",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,11 +10,11 @@
     "clean": "rimraf .next && rimraf node_modules"
   },
   "dependencies": {
-    "@Scriblli/assets": "*",
-    "@Scriblli/lib": "*",
-    "@Scriblli/tailwind-config": "*",
-    "@Scriblli/trpc": "*",
-    "@Scriblli/ui": "*",
+    "@scriblli/assets": "*",
+    "@scriblli/lib": "*",
+    "@scriblli/tailwind-config": "*",
+    "@scriblli/trpc": "*",
+    "@scriblli/ui": "*",
     "next": "15.5.9",
     "next-plausible": "^3.12.5",
     "nextra": "^3",

@@ -1,5 +1,5 @@
 {
-  "name": "@Scriblli/prettier-config",
+  "name": "@scriblli/prettier-config",
   "version": "0.0.0",
   "main": "./index.cjs",
   "license": "MIT",
