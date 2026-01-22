@@ -1,7 +1,7 @@
 {
-  "extends": "@Scriblli/tsconfig/react-library.json",
+  "extends": "@documenso/tsconfig/react-library.json",
   "compilerOptions": {
-    "types": ["@Scriblli/tsconfig/process-env.d.ts"]
+    "types": ["@documenso/tsconfig/process-env.d.ts"]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
   "exclude": ["dist", "build", "node_modules"]
