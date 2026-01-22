@@ -249,7 +249,7 @@ model Subscription {
   @@index([organisationId])
 }
 
-/// @zod.import(["import { ZClaimFlagsSchema } from '@Scriblli/lib/types/subscription';"])
+/// @zod.import(["import { ZClaimFlagsSchema } from '@documenso/lib/types/subscription';"])
 model SubscriptionClaim {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
@@ -265,7 +265,7 @@ model SubscriptionClaim {
   flags Json /// [ClaimFlags] @zod.custom.use(ZClaimFlagsSchema)
 }
 
-/// @zod.import(["import { ZClaimFlagsSchema } from '@Scriblli/lib/types/subscription';"])
+/// @zod.import(["import { ZClaimFlagsSchema } from '@documenso/lib/types/subscription';"])
 model OrganisationClaim {
   id        String   @id
   createdAt DateTime @default(now())
@@ -376,7 +376,7 @@ enum EnvelopeType {
   TEMPLATE
 }
 
-/// @zod.import(["import { ZDocumentAuthOptionsSchema } from '@Scriblli/lib/types/document-auth';", "import { ZDocumentFormValuesSchema } from '@Scriblli/lib/types/document-form-values';"])
+/// @zod.import(["import { ZDocumentAuthOptionsSchema } from '@documenso/lib/types/document-auth';", "import { ZDocumentFormValuesSchema } from '@documenso/lib/types/document-form-values';"])
 model Envelope {
   id          String  @id
   secondaryId String  @unique
@@ -500,7 +500,7 @@ enum DocumentDistributionMethod {
   NONE
 }
 
-/// @zod.import(["import { ZDocumentEmailSettingsSchema } from '@Scriblli/lib/types/document-email';"])
+/// @zod.import(["import { ZDocumentEmailSettingsSchema } from '@documenso/lib/types/document-email';"])
 model DocumentMeta {
   id                     String               @id @default(cuid())
   subject                String?
@@ -525,7 +525,7 @@ model DocumentMeta {
   envelope Envelope?
 }
 
-/// @zod.import(["import { ZEnvelopeAttachmentTypeSchema } from '@Scriblli/lib/types/envelope-attachment';"])
+/// @zod.import(["import { ZEnvelopeAttachmentTypeSchema } from '@documenso/lib/types/envelope-attachment';"])
 model EnvelopeAttachment {
   id String @id @default(cuid())
 
@@ -567,7 +567,7 @@ enum RecipientRole {
   ASSISTANT
 }
 
-/// @zod.import(["import { ZRecipientAuthOptionsSchema } from '@Scriblli/lib/types/document-auth';"])
+/// @zod.import(["import { ZRecipientAuthOptionsSchema } from '@documenso/lib/types/document-auth';"])
 model Recipient {
   id                Int           @id @default(autoincrement())
   envelopeId        String
@@ -608,7 +608,7 @@ enum FieldType {
   DROPDOWN
 }
 
-/// @zod.import(["import { ZFieldMetaNotOptionalSchema } from '@Scriblli/lib/types/field-meta';"])
+/// @zod.import(["import { ZFieldMetaNotOptionalSchema } from '@documenso/lib/types/field-meta';"])
 model Field {
   id             Int          @id @default(autoincrement())
   secondaryId    String       @unique @default(cuid())
@@ -808,7 +808,7 @@ enum OrganisationMemberInviteStatus {
   DECLINED
 }
 
-/// @zod.import(["import { ZDocumentEmailSettingsSchema } from '@Scriblli/lib/types/document-email';", "import { ZDefaultRecipientsSchema } from '@Scriblli/lib/types/default-recipients';"])
+/// @zod.import(["import { ZDocumentEmailSettingsSchema } from '@documenso/lib/types/document-email';", "import { ZDefaultRecipientsSchema } from '@documenso/lib/types/default-recipients';"])
 model OrganisationGlobalSettings {
   id           String        @id
   organisation Organisation?
@@ -844,7 +844,7 @@ model OrganisationGlobalSettings {
   aiFeaturesEnabled Boolean @default(false)
 }
 
-/// @zod.import(["import { ZDocumentEmailSettingsSchema } from '@Scriblli/lib/types/document-email';", "import { ZDefaultRecipientsSchema } from '@Scriblli/lib/types/default-recipients';"])
+/// @zod.import(["import { ZDocumentEmailSettingsSchema } from '@documenso/lib/types/document-email';", "import { ZDefaultRecipientsSchema } from '@documenso/lib/types/default-recipients';"])
 model TeamGlobalSettings {
   id   String @id
   team Team?
