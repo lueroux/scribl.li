@@ -7,20 +7,20 @@
     <a href="https://documenso.com"><strong>Learn more »</strong></a>
     <br />
     <br />
-    <a href="https://documen.so/discord">Discord</a>
+    <a href="https://scribl.li/discord">Discord</a>
     ·
     <a href="https://documenso.com">Website</a>
     ·
     <a href="https://github.com/documenso/documenso/issues">Issues</a>
     ·
-    <a href="https://documen.so/live">Upcoming Releases</a>
+    <a href="https://scribl.li/live">Upcoming Releases</a>
     ·
-    <a href="https://documen.so/roadmap">Roadmap</a>
+    <a href="https://scribl.li/roadmap">Roadmap</a>
   </p>
 </p>
 
 <p align="center">
-   <a href="https://documen.so/discord"><img src="https://img.shields.io/badge/Discord-documen.so/discord-%235865F2" alt="Join Documenso on Discord"></a>
+   <a href="https://scribl.li/discord"><img src="https://img.shields.io/badge/Discord-scribl.li/discord-%235865F2" alt="Join Documenso on Discord"></a>
    <a href="https://github.com/documenso/documenso/stargazers"><img src="https://img.shields.io/github/stars/documenso/documenso" alt="Github Stars"></a>
    <a href="https://github.com/documenso/documenso/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-AGPLv3-purple" alt="License"></a>
    <a href="https://github.com/documenso/documenso/pulse"><img src="https://img.shields.io/github/commit-activity/m/documenso/documenso" alt="Commits-per-month"></a>
@@ -51,7 +51,7 @@ Join us in creating the next generation of open trust infrastructure.
 
 - Check out the first source code release in this repository and test it.
 - Tell us what you think in the [Discussions](https://github.com/documenso/documenso/discussions).
-- Join the [Discord server](https://documen.so/discord) for any questions and getting to know to other community members.
+- Join the [Discord server](https://scribl.li/discord) for any questions and getting to know to other community members.
 - ⭐ the repository to help us raise awareness.
 - Spread the word on Twitter that Documenso is working towards a more open signing tool.
 - Fix or create [issues](https://github.com/documenso/documenso/issues), that are needed for the first production release.

@@ -208,16 +208,7 @@ export const SignUpForm = ({
         <div className="bg-background/50 absolute -inset-8 -z-[1] backdrop-blur-[2px]" />
 
         <div className="relative flex h-full w-full flex-col items-center justify-evenly">
-          <div className="bg-background rounded-2xl border px-4 py-1 text-sm font-medium">
-            <Trans>User profiles are here!</Trans>
-          </div>
-
-          <div className="w-full max-w-md">
-            <UserProfileTimur
-              rows={2}
-              className="bg-background border-border rounded-2xl border shadow-md"
-            />
-          </div>
+          
 
           <div />
         </div>
@@ -231,8 +222,7 @@ export const SignUpForm = ({
 
           <p className="text-muted-foreground mt-2 text-xs md:text-sm">
             <Trans>
-              Create your account and start using state-of-the-art document signing. Open and
-              beautiful signing is within your grasp.
+              Create an account and get your client's scribbles on your documents.
             </Trans>
           </p>
         </div>
@@ -410,7 +400,7 @@ export const SignUpForm = ({
           <Trans>
             By proceeding, you agree to our{' '}
             <Link
-              to="https://documen.so/terms"
+              to="https://scribl.li/terms"
               target="_blank"
               className="text-scriblli-700 duration-200 hover:opacity-70"
             >
@@ -418,7 +408,7 @@ export const SignUpForm = ({
             </Link>{' '}
             and{' '}
             <Link
-              to="https://documen.so/privacy"
+              to="https://scribl.li/privacy"
               target="_blank"
               className="text-scriblli-700 duration-200 hover:opacity-70"
             >

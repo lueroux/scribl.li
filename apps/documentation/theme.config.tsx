@@ -40,17 +40,17 @@ const themeConfig: DocsThemeConfig = {
     );
   },
   project: {
-    link: 'https://documen.so/github',
+    link: 'https://scribl.li/github',
   },
   chat: {
-    link: 'https://documen.so/discord',
+    link: 'https://scribl.li/discord',
   },
   docsRepositoryBase: 'https://github.com/documenso/documenso/tree/main/apps/documentation',
   footer: {
     content: (
       <span>
         {new Date().getFullYear()} ©{' '}
-        <a href="https://documen.so" target="_blank">
+        <a href="https://scribl.li" target="_blank">
           Documenso
         </a>
         .
