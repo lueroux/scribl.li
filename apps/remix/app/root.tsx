@@ -90,7 +90,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
 
   return (
-    <ThemeProvider specifiedTheme={theme} themeAction="/api/theme">
+    <ThemeProvider specifiedTheme={theme} themeAction="/api/theme" defaultTheme="light">
       <LayoutContent>{children}</LayoutContent>
     </ThemeProvider>
   );
