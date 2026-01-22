@@ -23,7 +23,7 @@ RUN npm install -g "turbo@^1.9.3"
 
 # Outputs to the /out folder
 # source: https://turbo.build/repo/docs/reference/command-line-reference/prune#--docker
-RUN turbo prune --scope=@scriblli/remix --docker
+RUN turbo prune --scope=@documenso/remix --docker
 
 ###########################
 #   INSTALLER CONTAINER   #
@@ -83,7 +83,7 @@ RUN npm install -g "turbo@^1.9.3"
 
 RUN chmod +x ./apps/remix/.bin/build.sh
 
-RUN turbo run build --filter=@scriblli/remix...
+RUN turbo run build --filter=@documenso/remix...
 
 ###########################
 #     RUNNER CONTAINER    #
