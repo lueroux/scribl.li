@@ -30,7 +30,7 @@ export type ConfirmTeamEmailProps = {
 };
 
 export const ConfirmTeamEmailTemplate = ({
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://scribl.li',
   baseUrl = 'https://documenso.com',
   teamName = 'Team Name',
   teamUrl = 'demo',

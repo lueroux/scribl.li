@@ -15,7 +15,7 @@ export type TeamDeleteEmailProps = {
 };
 
 export const TeamDeleteEmailTemplate = ({
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://scribl.li',
   baseUrl = 'https://documenso.com',
   teamUrl = 'demo',
 }: TeamDeleteEmailProps) => {

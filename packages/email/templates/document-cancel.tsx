@@ -13,7 +13,7 @@ export const DocumentCancelTemplate = ({
   inviterName = 'Lucas Smith',
   inviterEmail = 'lucas@documenso.com',
   documentName = 'Open Source Pledge.pdf',
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://scribl.li',
   cancellationReason,
 }: DocumentCancelEmailTemplateProps) => {
   const { _ } = useLingui();

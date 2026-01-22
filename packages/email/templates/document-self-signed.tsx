@@ -11,7 +11,7 @@ export type DocumentSelfSignedTemplateProps = TemplateDocumentSelfSignedProps;
 
 export const DocumentSelfSignedEmailTemplate = ({
   documentName = 'Open Source Pledge.pdf',
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://scribl.li',
 }: DocumentSelfSignedTemplateProps) => {
   const { _ } = useLingui();
   const branding = useBranding();

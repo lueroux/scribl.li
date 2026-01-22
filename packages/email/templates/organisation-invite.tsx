@@ -27,7 +27,7 @@ export type OrganisationInviteEmailProps = {
 };
 
 export const OrganisationInviteEmailTemplate = ({
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://scribl.li',
   baseUrl = 'https://documenso.com',
   senderName = 'John Doe',
   organisationName = 'Organisation Name',

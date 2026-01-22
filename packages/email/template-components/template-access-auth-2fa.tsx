@@ -16,7 +16,7 @@ export const TemplateAccessAuth2FA = ({
   code,
   userName,
   expiresInMinutes,
-  assetBaseUrl = 'http://localhost:3002',
+  assetBaseUrl = 'https://scribl.li',
 }: TemplateAccessAuth2FAProps) => {
   const getAssetUrl = (path: string) => {
     return new URL(path, assetBaseUrl).toString();
