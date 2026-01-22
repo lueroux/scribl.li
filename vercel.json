@@ -1,7 +1,0 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run translate:compile && cd apps/remix && npm run build:app",
-  "outputDirectory": "apps/remix/build/client",
-  "installCommand": "npm ci && npm run prisma:generate",
-  "framework": null
-}
