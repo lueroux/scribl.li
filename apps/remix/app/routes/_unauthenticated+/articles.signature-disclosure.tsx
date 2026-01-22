@@ -17,7 +17,7 @@ export default function SignatureDisclosure() {
         </h2>
         <p>
           <Trans>
-            Thank you for using Documenso to perform your electronic document signing. The purpose
+            Thank you for using Scriblli to perform your electronic document signing. The purpose
             of this disclosure is to inform you about the process, legality, and your rights
             regarding the use of electronic signatures on our platform. By opting to use an
             electronic signature, you are agreeing to the terms and conditions outlined below.

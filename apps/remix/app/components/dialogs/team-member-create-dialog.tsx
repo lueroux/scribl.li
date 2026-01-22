@@ -157,7 +157,7 @@ export const TeamMemberCreateDialog = ({ trigger, ...props }: TeamMemberCreateDi
                         to="https://docs.documenso.com/users/organisations/members"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-documenso-700 hover:text-documenso-600 hover:underline"
+                        className="text-scriblli-700 hover:text-scriblli-600 hover:underline"
                       >
                         documentation
                       </Link>
