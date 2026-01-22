@@ -36,14 +36,6 @@ export const TemplateFooter = ({ isDocument = true }: TemplateFooterProps) => {
           })}
         </Text>
       )}
-
-      {!branding.brandingEnabled && (
-        <Text className="my-8 text-sm text-slate-400">
-          Documenso, Inc.
-          <br />
-          2261 Market Street, #5211, San Francisco, CA 94114, USA
-        </Text>
-      )}
     </Section>
   );
 };
