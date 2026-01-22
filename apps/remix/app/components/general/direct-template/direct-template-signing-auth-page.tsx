@@ -4,9 +4,9 @@ import { msg } from '@lingui/core/macro';
 import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 
-import { authClient } from '@documenso/auth/client';
-import { Button } from '@documenso/ui/primitives/button';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+import { authClient } from '@Scriblli/auth/client';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 export const DirectTemplateAuthPageView = () => {
   const { _ } = useLingui();

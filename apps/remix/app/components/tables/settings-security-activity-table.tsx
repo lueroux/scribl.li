@@ -7,15 +7,15 @@ import { DateTime } from 'luxon';
 import { useLocation, useNavigate, useSearchParams } from 'react-router';
 import { UAParser } from 'ua-parser-js';
 
-import { useUpdateSearchParams } from '@documenso/lib/client-only/hooks/use-update-search-params';
-import { USER_SECURITY_AUDIT_LOG_MAP } from '@documenso/lib/constants/auth';
-import { ZUrlSearchParamsSchema } from '@documenso/lib/types/search-params';
-import { trpc } from '@documenso/trpc/react';
-import type { DataTableColumnDef } from '@documenso/ui/primitives/data-table';
-import { DataTable } from '@documenso/ui/primitives/data-table';
-import { DataTablePagination } from '@documenso/ui/primitives/data-table-pagination';
-import { Skeleton } from '@documenso/ui/primitives/skeleton';
-import { TableCell } from '@documenso/ui/primitives/table';
+import { useUpdateSearchParams } from '@Scriblli/lib/client-only/hooks/use-update-search-params';
+import { USER_SECURITY_AUDIT_LOG_MAP } from '@Scriblli/lib/constants/auth';
+import { ZUrlSearchParamsSchema } from '@Scriblli/lib/types/search-params';
+import { trpc } from '@Scriblli/trpc/react';
+import type { DataTableColumnDef } from '@Scriblli/ui/primitives/data-table';
+import { DataTable } from '@Scriblli/ui/primitives/data-table';
+import { DataTablePagination } from '@Scriblli/ui/primitives/data-table-pagination';
+import { Skeleton } from '@Scriblli/ui/primitives/skeleton';
+import { TableCell } from '@Scriblli/ui/primitives/table';
 
 const dateFormat: DateTimeFormatOptions = {
   ...DateTime.DATETIME_SHORT,

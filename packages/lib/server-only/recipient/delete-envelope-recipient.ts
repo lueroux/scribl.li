@@ -3,11 +3,11 @@ import { createElement } from 'react';
 import { msg } from '@lingui/core/macro';
 import { EnvelopeType, SendStatus } from '@prisma/client';
 
-import { mailer } from '@documenso/email/mailer';
-import RecipientRemovedFromDocumentTemplate from '@documenso/email/templates/recipient-removed-from-document';
-import { DOCUMENT_AUDIT_LOG_TYPE } from '@documenso/lib/types/document-audit-logs';
-import type { ApiRequestMetadata } from '@documenso/lib/universal/extract-request-metadata';
-import { prisma } from '@documenso/prisma';
+import { mailer } from '@Scriblli/email/mailer';
+import RecipientRemovedFromDocumentTemplate from '@Scriblli/email/templates/recipient-removed-from-document';
+import { DOCUMENT_AUDIT_LOG_TYPE } from '@Scriblli/lib/types/document-audit-logs';
+import type { ApiRequestMetadata } from '@Scriblli/lib/universal/extract-request-metadata';
+import { prisma } from '@Scriblli/prisma';
 
 import { getI18nInstance } from '../../client-only/providers/i18n-server';
 import { NEXT_PUBLIC_WEBAPP_URL } from '../../constants/app';

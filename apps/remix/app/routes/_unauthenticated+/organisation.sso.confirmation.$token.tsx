@@ -8,17 +8,17 @@ import { data, isRouteErrorResponse } from 'react-router';
 import { useNavigate } from 'react-router';
 import { match } from 'ts-pattern';
 
-import { ORGANISATION_ACCOUNT_LINK_VERIFICATION_TOKEN_IDENTIFIER } from '@documenso/lib/constants/organisations';
-import { ZOrganisationAccountLinkMetadataSchema } from '@documenso/lib/types/organisation';
-import { formatAvatarUrl } from '@documenso/lib/utils/avatars';
-import { formatOrganisationLoginPath } from '@documenso/lib/utils/organisation-authentication-portal';
-import { extractInitials } from '@documenso/lib/utils/recipient-formatter';
-import { prisma } from '@documenso/prisma';
-import { trpc } from '@documenso/trpc/react';
-import { Alert, AlertDescription } from '@documenso/ui/primitives/alert';
-import { AvatarWithText } from '@documenso/ui/primitives/avatar';
-import { Badge } from '@documenso/ui/primitives/badge';
-import { Button } from '@documenso/ui/primitives/button';
+import { ORGANISATION_ACCOUNT_LINK_VERIFICATION_TOKEN_IDENTIFIER } from '@Scriblli/lib/constants/organisations';
+import { ZOrganisationAccountLinkMetadataSchema } from '@Scriblli/lib/types/organisation';
+import { formatAvatarUrl } from '@Scriblli/lib/utils/avatars';
+import { formatOrganisationLoginPath } from '@Scriblli/lib/utils/organisation-authentication-portal';
+import { extractInitials } from '@Scriblli/lib/utils/recipient-formatter';
+import { prisma } from '@Scriblli/prisma';
+import { trpc } from '@Scriblli/trpc/react';
+import { Alert, AlertDescription } from '@Scriblli/ui/primitives/alert';
+import { AvatarWithText } from '@Scriblli/ui/primitives/avatar';
+import { Badge } from '@Scriblli/ui/primitives/badge';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Card,
   CardContent,
@@ -26,10 +26,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@documenso/ui/primitives/card';
-import { Checkbox } from '@documenso/ui/primitives/checkbox';
-import { Separator } from '@documenso/ui/primitives/separator';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/card';
+import { Checkbox } from '@Scriblli/ui/primitives/checkbox';
+import { Separator } from '@Scriblli/ui/primitives/separator';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { GenericErrorLayout, defaultErrorCodeMap } from '~/components/general/generic-error-layout';
 

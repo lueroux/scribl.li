@@ -1,7 +1,7 @@
 import { Plural } from '@lingui/react/macro';
 
-import { useCurrentEnvelopeRender } from '@documenso/lib/client-only/providers/envelope-render-provider';
-import { cn } from '@documenso/ui/lib/utils';
+import { useCurrentEnvelopeRender } from '@Scriblli/lib/client-only/providers/envelope-render-provider';
+import { cn } from '@Scriblli/ui/lib/utils';
 
 type EnvelopeItemSelectorProps = {
   number: number;

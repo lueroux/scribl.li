@@ -1,12 +1,12 @@
 import { EnvelopeType } from '@prisma/client';
 
-import { getServerLimits } from '@documenso/ee/server-only/limits/server';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { sendDocument } from '@documenso/lib/server-only/document/send-document';
-import { getEnvelopeById } from '@documenso/lib/server-only/envelope/get-envelope-by-id';
-import { createDocumentFromTemplate } from '@documenso/lib/server-only/template/create-document-from-template';
-import { putNormalizedPdfFileServerSide } from '@documenso/lib/universal/upload/put-file.server';
-import { formatSigningLink } from '@documenso/lib/utils/recipients';
+import { getServerLimits } from '@Scriblli/ee/server-only/limits/server';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { sendDocument } from '@Scriblli/lib/server-only/document/send-document';
+import { getEnvelopeById } from '@Scriblli/lib/server-only/envelope/get-envelope-by-id';
+import { createDocumentFromTemplate } from '@Scriblli/lib/server-only/template/create-document-from-template';
+import { putNormalizedPdfFileServerSide } from '@Scriblli/lib/universal/upload/put-file.server';
+import { formatSigningLink } from '@Scriblli/lib/utils/recipients';
 
 import { authenticatedProcedure } from '../trpc';
 import {

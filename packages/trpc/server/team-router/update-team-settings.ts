@@ -1,12 +1,12 @@
 import { Prisma } from '@prisma/client';
 import { OrganisationType } from '@prisma/client';
 
-import { ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP } from '@documenso/lib/constants/organisations';
-import { TEAM_MEMBER_ROLE_PERMISSIONS_MAP } from '@documenso/lib/constants/teams';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { buildOrganisationWhereQuery } from '@documenso/lib/utils/organisations';
-import { buildTeamWhereQuery } from '@documenso/lib/utils/teams';
-import { prisma } from '@documenso/prisma';
+import { ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP } from '@Scriblli/lib/constants/organisations';
+import { TEAM_MEMBER_ROLE_PERMISSIONS_MAP } from '@Scriblli/lib/constants/teams';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { buildOrganisationWhereQuery } from '@Scriblli/lib/utils/organisations';
+import { buildTeamWhereQuery } from '@Scriblli/lib/utils/teams';
+import { prisma } from '@Scriblli/prisma';
 
 import { authenticatedProcedure } from '../trpc';
 import {

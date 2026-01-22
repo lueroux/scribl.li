@@ -1,16 +1,16 @@
 import { expect, test } from '@playwright/test';
 import { FieldType } from '@prisma/client';
 
-import { ZRecipientAuthOptionsSchema } from '@documenso/lib/types/document-auth';
+import { ZRecipientAuthOptionsSchema } from '@Scriblli/lib/types/document-auth';
 import {
   createDocumentAuthOptions,
   createRecipientAuthOptions,
-} from '@documenso/lib/utils/document-auth';
+} from '@Scriblli/lib/utils/document-auth';
 import {
   seedPendingDocumentNoFields,
   seedPendingDocumentWithFullFields,
-} from '@documenso/prisma/seed/documents';
-import { seedTestEmail, seedUser } from '@documenso/prisma/seed/users';
+} from '@Scriblli/prisma/seed/documents';
+import { seedTestEmail, seedUser } from '@Scriblli/prisma/seed/users';
 
 import { apiSignin, apiSignout } from '../fixtures/authentication';
 import { signSignaturePad } from '../fixtures/signature';

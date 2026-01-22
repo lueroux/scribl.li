@@ -7,8 +7,8 @@ import {
   buildTeamWhereQuery,
   formatDocumentsPath,
   getHighestTeamRoleInGroup,
-} from '@documenso/lib/utils/teams';
-import { prisma } from '@documenso/prisma';
+} from '@Scriblli/lib/utils/teams';
+import { prisma } from '@Scriblli/prisma';
 
 import { mapSecondaryIdToDocumentId } from '../../utils/envelope';
 

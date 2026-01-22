@@ -1,4 +1,4 @@
-import { linkOrganisationAccount } from '@documenso/ee/server-only/lib/link-organisation-account';
+import { linkOrganisationAccount } from '@Scriblli/ee/server-only/lib/link-organisation-account';
 
 import { procedure } from '../trpc';
 import {

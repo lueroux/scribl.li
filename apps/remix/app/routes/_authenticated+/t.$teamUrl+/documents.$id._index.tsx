@@ -7,22 +7,22 @@ import { ChevronLeft, Users2 } from 'lucide-react';
 import { Link } from 'react-router';
 import { match } from 'ts-pattern';
 
-import { EnvelopeRenderProvider } from '@documenso/lib/client-only/providers/envelope-render-provider';
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import { mapSecondaryIdToDocumentId } from '@documenso/lib/utils/envelope';
-import { formatDocumentsPath } from '@documenso/lib/utils/teams';
-import { trpc } from '@documenso/trpc/react';
+import { EnvelopeRenderProvider } from '@Scriblli/lib/client-only/providers/envelope-render-provider';
+import { useSession } from '@Scriblli/lib/client-only/providers/session';
+import { mapSecondaryIdToDocumentId } from '@Scriblli/lib/utils/envelope';
+import { formatDocumentsPath } from '@Scriblli/lib/utils/teams';
+import { trpc } from '@Scriblli/trpc/react';
 import {
   DocumentReadOnlyFields,
   mapFieldsWithRecipients,
-} from '@documenso/ui/components/document/document-read-only-fields';
-import PDFViewerKonvaLazy from '@documenso/ui/components/pdf-viewer/pdf-viewer-konva-lazy';
-import { cn } from '@documenso/ui/lib/utils';
-import { Badge } from '@documenso/ui/primitives/badge';
-import { Button } from '@documenso/ui/primitives/button';
-import { Card, CardContent } from '@documenso/ui/primitives/card';
-import { PDFViewerLazy } from '@documenso/ui/primitives/pdf-viewer/lazy';
-import { Spinner } from '@documenso/ui/primitives/spinner';
+} from '@Scriblli/ui/components/document/document-read-only-fields';
+import PDFViewerKonvaLazy from '@Scriblli/ui/components/pdf-viewer/pdf-viewer-konva-lazy';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Badge } from '@Scriblli/ui/primitives/badge';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Card, CardContent } from '@Scriblli/ui/primitives/card';
+import { PDFViewerLazy } from '@Scriblli/ui/primitives/pdf-viewer/lazy';
+import { Spinner } from '@Scriblli/ui/primitives/spinner';
 
 import { DocumentPageViewButton } from '~/components/general/document/document-page-view-button';
 import { DocumentPageViewDropdown } from '~/components/general/document/document-page-view-dropdown';

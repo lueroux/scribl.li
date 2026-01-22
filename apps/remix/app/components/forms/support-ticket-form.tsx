@@ -3,8 +3,8 @@ import { Trans, useLingui } from '@lingui/react/macro';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { trpc } from '@documenso/trpc/react';
-import { Button } from '@documenso/ui/primitives/button';
+import { trpc } from '@Scriblli/trpc/react';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Form,
   FormControl,
@@ -12,10 +12,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
-import { Input } from '@documenso/ui/primitives/input';
-import { Textarea } from '@documenso/ui/primitives/textarea';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/form/form';
+import { Input } from '@Scriblli/ui/primitives/input';
+import { Textarea } from '@Scriblli/ui/primitives/textarea';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 const ZSupportTicketSchema = z.object({
   subject: z.string().min(3, 'Subject is required'),

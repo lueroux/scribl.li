@@ -14,19 +14,19 @@ import {
 import { Link, useNavigate, useParams } from 'react-router';
 import { match } from 'ts-pattern';
 
-import { useLimits } from '@documenso/ee/server-only/limits/provider/client';
-import { useAnalytics } from '@documenso/lib/client-only/hooks/use-analytics';
-import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import { APP_DOCUMENT_UPLOAD_SIZE_LIMIT, IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
-import { DEFAULT_DOCUMENT_TIME_ZONE, TIME_ZONES } from '@documenso/lib/constants/time-zones';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { megabytesToBytes } from '@documenso/lib/universal/unit-convertions';
-import { formatDocumentsPath, formatTemplatesPath } from '@documenso/lib/utils/teams';
-import { trpc } from '@documenso/trpc/react';
-import type { TCreateEnvelopePayload } from '@documenso/trpc/server/envelope-router/create-envelope.types';
-import { cn } from '@documenso/ui/lib/utils';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+import { useLimits } from '@Scriblli/ee/server-only/limits/provider/client';
+import { useAnalytics } from '@Scriblli/lib/client-only/hooks/use-analytics';
+import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { useSession } from '@Scriblli/lib/client-only/providers/session';
+import { APP_DOCUMENT_UPLOAD_SIZE_LIMIT, IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
+import { DEFAULT_DOCUMENT_TIME_ZONE, TIME_ZONES } from '@Scriblli/lib/constants/time-zones';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { megabytesToBytes } from '@Scriblli/lib/universal/unit-convertions';
+import { formatDocumentsPath, formatTemplatesPath } from '@Scriblli/lib/utils/teams';
+import { trpc } from '@Scriblli/trpc/react';
+import type { TCreateEnvelopePayload } from '@Scriblli/trpc/server/envelope-router/create-envelope.types';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { useCurrentTeam } from '~/providers/team';
 

@@ -1,9 +1,9 @@
 import { Trans } from '@lingui/react/macro';
 import { ExternalLink, PaperclipIcon } from 'lucide-react';
 
-import { trpc } from '@documenso/trpc/react';
-import { Button } from '@documenso/ui/primitives/button';
-import { Popover, PopoverContent, PopoverTrigger } from '@documenso/ui/primitives/popover';
+import { trpc } from '@Scriblli/trpc/react';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Popover, PopoverContent, PopoverTrigger } from '@Scriblli/ui/primitives/popover';
 
 export type DocumentSigningAttachmentsPopoverProps = {
   envelopeId: string;

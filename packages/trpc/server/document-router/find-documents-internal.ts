@@ -1,8 +1,8 @@
-import { findDocuments } from '@documenso/lib/server-only/document/find-documents';
-import type { GetStatsInput } from '@documenso/lib/server-only/document/get-stats';
-import { getStats } from '@documenso/lib/server-only/document/get-stats';
-import { getTeamById } from '@documenso/lib/server-only/team/get-team';
-import { mapEnvelopesToDocumentMany } from '@documenso/lib/utils/document';
+import { findDocuments } from '@Scriblli/lib/server-only/document/find-documents';
+import type { GetStatsInput } from '@Scriblli/lib/server-only/document/get-stats';
+import { getStats } from '@Scriblli/lib/server-only/document/get-stats';
+import { getTeamById } from '@Scriblli/lib/server-only/team/get-team';
+import { mapEnvelopesToDocumentMany } from '@Scriblli/lib/utils/document';
 
 import { authenticatedProcedure } from '../trpc';
 import {

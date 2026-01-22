@@ -10,10 +10,10 @@ import { useNavigate } from 'react-router';
 import { match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { getHighestOrganisationRoleInGroup } from '@documenso/lib/utils/organisations';
-import { trpc } from '@documenso/trpc/react';
-import type { TGetAdminOrganisationResponse } from '@documenso/trpc/server/admin-router/get-admin-organisation.types';
-import { Button } from '@documenso/ui/primitives/button';
+import { getHighestOrganisationRoleInGroup } from '@Scriblli/lib/utils/organisations';
+import { trpc } from '@Scriblli/trpc/react';
+import type { TGetAdminOrganisationResponse } from '@Scriblli/trpc/server/admin-router/get-admin-organisation.types';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -22,7 +22,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@documenso/ui/primitives/dialog';
+} from '@Scriblli/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -30,15 +30,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
+} from '@Scriblli/ui/primitives/form/form';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@documenso/ui/primitives/select';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/select';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 export type AdminOrganisationMemberUpdateDialogProps = {
   trigger?: React.ReactNode;

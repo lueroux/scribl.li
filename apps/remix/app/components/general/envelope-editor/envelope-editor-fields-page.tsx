@@ -10,9 +10,9 @@ import { Link, useRevalidator, useSearchParams } from 'react-router';
 import { isDeepEqual } from 'remeda';
 import { match } from 'ts-pattern';
 
-import { useCurrentEnvelopeEditor } from '@documenso/lib/client-only/providers/envelope-editor-provider';
-import { useCurrentEnvelopeRender } from '@documenso/lib/client-only/providers/envelope-render-provider';
-import type { NormalizedFieldWithContext } from '@documenso/lib/server-only/ai/envelope/detect-fields/types';
+import { useCurrentEnvelopeEditor } from '@Scriblli/lib/client-only/providers/envelope-editor-provider';
+import { useCurrentEnvelopeRender } from '@Scriblli/lib/client-only/providers/envelope-render-provider';
+import type { NormalizedFieldWithContext } from '@Scriblli/lib/server-only/ai/envelope/detect-fields/types';
 import {
   FIELD_META_DEFAULT_VALUES,
   type TCheckboxFieldMeta,
@@ -26,13 +26,13 @@ import {
   type TRadioFieldMeta,
   type TSignatureFieldMeta,
   type TTextFieldMeta,
-} from '@documenso/lib/types/field-meta';
-import { canRecipientFieldsBeModified } from '@documenso/lib/utils/recipients';
-import { AnimateGenericFadeInOut } from '@documenso/ui/components/animate/animate-generic-fade-in-out';
-import PDFViewerKonvaLazy from '@documenso/ui/components/pdf-viewer/pdf-viewer-konva-lazy';
-import { Alert, AlertDescription, AlertTitle } from '@documenso/ui/primitives/alert';
-import { Button } from '@documenso/ui/primitives/button';
-import { Separator } from '@documenso/ui/primitives/separator';
+} from '@Scriblli/lib/types/field-meta';
+import { canRecipientFieldsBeModified } from '@Scriblli/lib/utils/recipients';
+import { AnimateGenericFadeInOut } from '@Scriblli/ui/components/animate/animate-generic-fade-in-out';
+import PDFViewerKonvaLazy from '@Scriblli/ui/components/pdf-viewer/pdf-viewer-konva-lazy';
+import { Alert, AlertDescription, AlertTitle } from '@Scriblli/ui/primitives/alert';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Separator } from '@Scriblli/ui/primitives/separator';
 
 import { AiFeaturesEnableDialog } from '~/components/dialogs/ai-features-enable-dialog';
 import { AiFieldDetectionDialog } from '~/components/dialogs/ai-field-detection-dialog';

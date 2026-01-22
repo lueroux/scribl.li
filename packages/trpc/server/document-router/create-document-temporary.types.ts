@@ -1,21 +1,21 @@
 import { z } from 'zod';
 
-import { ZDocumentSchema } from '@documenso/lib/types/document';
+import { ZDocumentSchema } from '@Scriblli/lib/types/document';
 import {
   ZDocumentAccessAuthTypesSchema,
   ZDocumentActionAuthTypesSchema,
-} from '@documenso/lib/types/document-auth';
-import { ZDocumentFormValuesSchema } from '@documenso/lib/types/document-form-values';
-import { ZDocumentMetaCreateSchema } from '@documenso/lib/types/document-meta';
-import { ZEnvelopeAttachmentTypeSchema } from '@documenso/lib/types/envelope-attachment';
+} from '@Scriblli/lib/types/document-auth';
+import { ZDocumentFormValuesSchema } from '@Scriblli/lib/types/document-form-values';
+import { ZDocumentMetaCreateSchema } from '@Scriblli/lib/types/document-meta';
+import { ZEnvelopeAttachmentTypeSchema } from '@Scriblli/lib/types/envelope-attachment';
 import {
   ZFieldHeightSchema,
   ZFieldPageNumberSchema,
   ZFieldPageXSchema,
   ZFieldPageYSchema,
   ZFieldWidthSchema,
-} from '@documenso/lib/types/field';
-import { ZFieldAndMetaSchema } from '@documenso/lib/types/field-meta';
+} from '@Scriblli/lib/types/field';
+import { ZFieldAndMetaSchema } from '@Scriblli/lib/types/field-meta';
 
 import { ZCreateRecipientSchema } from '../recipient-router/schema';
 import type { TrpcRouteMeta } from '../trpc';

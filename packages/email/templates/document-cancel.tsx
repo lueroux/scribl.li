@@ -11,7 +11,7 @@ export type DocumentCancelEmailTemplateProps = Partial<TemplateDocumentCancelPro
 
 export const DocumentCancelTemplate = ({
   inviterName = 'Lucas Smith',
-  inviterEmail = 'lucas@documenso.com',
+  inviterEmail = 'lucas@Scriblli.com',
   documentName = 'Open Source Pledge.pdf',
   assetBaseUrl = 'https://scribl.li',
   cancellationReason,

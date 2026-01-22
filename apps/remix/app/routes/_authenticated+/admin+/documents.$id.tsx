@@ -5,24 +5,24 @@ import { EnvelopeType, RecipientRole, SigningStatus } from '@prisma/client';
 import { DateTime } from 'luxon';
 import { Link, redirect } from 'react-router';
 
-import { unsafeGetEntireEnvelope } from '@documenso/lib/server-only/admin/get-entire-document';
-import { mapSecondaryIdToDocumentId } from '@documenso/lib/utils/envelope';
-import { trpc } from '@documenso/trpc/react';
+import { unsafeGetEntireEnvelope } from '@Scriblli/lib/server-only/admin/get-entire-document';
+import { mapSecondaryIdToDocumentId } from '@Scriblli/lib/utils/envelope';
+import { trpc } from '@Scriblli/trpc/react';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@documenso/ui/primitives/accordion';
-import { Badge } from '@documenso/ui/primitives/badge';
-import { Button } from '@documenso/ui/primitives/button';
+} from '@Scriblli/ui/primitives/accordion';
+import { Badge } from '@Scriblli/ui/primitives/badge';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@documenso/ui/primitives/tooltip';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/tooltip';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { AdminDocumentDeleteDialog } from '~/components/dialogs/admin-document-delete-dialog';
 import { DocumentStatus } from '~/components/general/document/document-status';

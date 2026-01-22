@@ -5,13 +5,13 @@ import { Trans } from '@lingui/react/macro';
 import { ReadStatus } from '@prisma/client';
 import { Link } from 'react-router';
 
-import LogoImage from '@documenso/assets/logo.png';
-import { authClient } from '@documenso/auth/client';
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import { isPersonalLayout } from '@documenso/lib/utils/organisations';
-import { trpc } from '@documenso/trpc/react';
-import { Sheet, SheetContent } from '@documenso/ui/primitives/sheet';
-import { ThemeSwitcher } from '@documenso/ui/primitives/theme-switcher';
+import LogoImage from '@Scriblli/assets/logo.png';
+import { authClient } from '@Scriblli/auth/client';
+import { useSession } from '@Scriblli/lib/client-only/providers/session';
+import { isPersonalLayout } from '@Scriblli/lib/utils/organisations';
+import { trpc } from '@Scriblli/trpc/react';
+import { Sheet, SheetContent } from '@Scriblli/ui/primitives/sheet';
+import { ThemeSwitcher } from '@Scriblli/ui/primitives/theme-switcher';
 
 import { useOptionalCurrentTeam } from '~/providers/team';
 
@@ -124,7 +124,7 @@ export const AppNavMobile = ({ isMenuOpen, onMenuOpenChange }: AppNavMobileProps
           </div>
 
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Documenso, Inc. <br /> All rights reserved.
+            © {new Date().getFullYear()} Scriblli, Inc. <br /> All rights reserved.
           </p>
         </div>
       </SheetContent>

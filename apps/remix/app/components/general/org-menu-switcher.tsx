@@ -13,27 +13,27 @@ import {
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router';
 
-import { authClient } from '@documenso/auth/client';
-import { useOptionalCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import { EXTENDED_ORGANISATION_MEMBER_ROLE_MAP } from '@documenso/lib/constants/organisations-translations';
-import { EXTENDED_TEAM_MEMBER_ROLE_MAP } from '@documenso/lib/constants/teams-translations';
-import { formatAvatarUrl } from '@documenso/lib/utils/avatars';
-import { isAdmin } from '@documenso/lib/utils/is-admin';
-import { canExecuteOrganisationAction } from '@documenso/lib/utils/organisations';
-import { extractInitials } from '@documenso/lib/utils/recipient-formatter';
-import { canExecuteTeamAction } from '@documenso/lib/utils/teams';
-import { AnimateGenericFadeInOut } from '@documenso/ui/components/animate/animate-generic-fade-in-out';
-import { LanguageSwitcherDialog } from '@documenso/ui/components/common/language-switcher-dialog';
-import { cn } from '@documenso/ui/lib/utils';
-import { AvatarWithText } from '@documenso/ui/primitives/avatar';
-import { Button } from '@documenso/ui/primitives/button';
+import { authClient } from '@Scriblli/auth/client';
+import { useOptionalCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { useSession } from '@Scriblli/lib/client-only/providers/session';
+import { EXTENDED_ORGANISATION_MEMBER_ROLE_MAP } from '@Scriblli/lib/constants/organisations-translations';
+import { EXTENDED_TEAM_MEMBER_ROLE_MAP } from '@Scriblli/lib/constants/teams-translations';
+import { formatAvatarUrl } from '@Scriblli/lib/utils/avatars';
+import { isAdmin } from '@Scriblli/lib/utils/is-admin';
+import { canExecuteOrganisationAction } from '@Scriblli/lib/utils/organisations';
+import { extractInitials } from '@Scriblli/lib/utils/recipient-formatter';
+import { canExecuteTeamAction } from '@Scriblli/lib/utils/teams';
+import { AnimateGenericFadeInOut } from '@Scriblli/ui/components/animate/animate-generic-fade-in-out';
+import { LanguageSwitcherDialog } from '@Scriblli/ui/components/common/language-switcher-dialog';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { AvatarWithText } from '@Scriblli/ui/primitives/avatar';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@documenso/ui/primitives/dropdown-menu';
+} from '@Scriblli/ui/primitives/dropdown-menu';
 
 import { useOptionalCurrentTeam } from '~/providers/team';
 

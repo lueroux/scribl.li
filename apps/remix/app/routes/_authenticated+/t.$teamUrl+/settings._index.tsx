@@ -2,13 +2,13 @@ import { Trans } from '@lingui/react/macro';
 import { CheckCircle2, Clock } from 'lucide-react';
 import { P, match } from 'ts-pattern';
 
-import { getSession } from '@documenso/auth/server/lib/utils/get-session';
-import { getTeamWithEmail } from '@documenso/lib/server-only/team/get-team-email-by-email';
-import { formatAvatarUrl } from '@documenso/lib/utils/avatars';
-import { extractInitials } from '@documenso/lib/utils/recipient-formatter';
-import { canExecuteTeamAction } from '@documenso/lib/utils/teams';
-import { Alert, AlertDescription, AlertTitle } from '@documenso/ui/primitives/alert';
-import { AvatarWithText } from '@documenso/ui/primitives/avatar';
+import { getSession } from '@Scriblli/auth/server/lib/utils/get-session';
+import { getTeamWithEmail } from '@Scriblli/lib/server-only/team/get-team-email-by-email';
+import { formatAvatarUrl } from '@Scriblli/lib/utils/avatars';
+import { extractInitials } from '@Scriblli/lib/utils/recipient-formatter';
+import { canExecuteTeamAction } from '@Scriblli/lib/utils/teams';
+import { Alert, AlertDescription, AlertTitle } from '@Scriblli/ui/primitives/alert';
+import { AvatarWithText } from '@Scriblli/ui/primitives/avatar';
 
 import { TeamDeleteDialog } from '~/components/dialogs/team-delete-dialog';
 import { TeamEmailAddDialog } from '~/components/dialogs/team-email-add-dialog';

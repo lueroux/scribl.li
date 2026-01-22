@@ -8,24 +8,24 @@ import { ErrorCode as DropzoneErrorCode, type FileRejection } from 'react-dropzo
 import { useNavigate } from 'react-router';
 import { match } from 'ts-pattern';
 
-import { useLimits } from '@documenso/ee/server-only/limits/provider/client';
-import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import { APP_DOCUMENT_UPLOAD_SIZE_LIMIT } from '@documenso/lib/constants/app';
-import { TIME_ZONES } from '@documenso/lib/constants/time-zones';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { formatDocumentsPath, formatTemplatesPath } from '@documenso/lib/utils/teams';
-import { trpc } from '@documenso/trpc/react';
-import type { TCreateEnvelopePayload } from '@documenso/trpc/server/envelope-router/create-envelope.types';
-import { cn } from '@documenso/ui/lib/utils';
-import { DocumentUploadButton } from '@documenso/ui/primitives/document-upload-button';
+import { useLimits } from '@Scriblli/ee/server-only/limits/provider/client';
+import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { useSession } from '@Scriblli/lib/client-only/providers/session';
+import { APP_DOCUMENT_UPLOAD_SIZE_LIMIT } from '@Scriblli/lib/constants/app';
+import { TIME_ZONES } from '@Scriblli/lib/constants/time-zones';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { formatDocumentsPath, formatTemplatesPath } from '@Scriblli/lib/utils/teams';
+import { trpc } from '@Scriblli/trpc/react';
+import type { TCreateEnvelopePayload } from '@Scriblli/trpc/server/envelope-router/create-envelope.types';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { DocumentUploadButton } from '@Scriblli/ui/primitives/document-upload-button';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@documenso/ui/primitives/tooltip';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/tooltip';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { useCurrentTeam } from '~/providers/team';
 

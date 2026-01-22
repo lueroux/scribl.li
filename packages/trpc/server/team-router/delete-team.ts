@@ -1,10 +1,10 @@
 import { TeamMemberRole } from '@prisma/client';
 
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { orphanEnvelopes } from '@documenso/lib/server-only/envelope/orphan-envelopes';
-import { transferTeamEnvelopes } from '@documenso/lib/server-only/envelope/transfer-team-envelopes';
-import { deleteTeam } from '@documenso/lib/server-only/team/delete-team';
-import { getTeamById } from '@documenso/lib/server-only/team/get-team';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { orphanEnvelopes } from '@Scriblli/lib/server-only/envelope/orphan-envelopes';
+import { transferTeamEnvelopes } from '@Scriblli/lib/server-only/envelope/transfer-team-envelopes';
+import { deleteTeam } from '@Scriblli/lib/server-only/team/delete-team';
+import { getTeamById } from '@Scriblli/lib/server-only/team/get-team';
 
 import { authenticatedProcedure } from '../trpc';
 import { ZDeleteTeamRequestSchema, ZDeleteTeamResponseSchema } from './delete-team.types';

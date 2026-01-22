@@ -1,6 +1,6 @@
-import { getFileServerSide } from '@documenso/lib/universal/upload/get-file.server';
-import { loadLogo } from '@documenso/lib/utils/images/logo';
-import { prisma } from '@documenso/prisma';
+import { getFileServerSide } from '@Scriblli/lib/universal/upload/get-file.server';
+import { loadLogo } from '@Scriblli/lib/utils/images/logo';
+import { prisma } from '@Scriblli/prisma';
 
 import type { Route } from './+types/branding.logo.organisation.$orgId';
 

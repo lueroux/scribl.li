@@ -9,14 +9,14 @@ import {
   WebhookTriggerEvents,
 } from '@prisma/client';
 
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { normalizePdf as makeNormalizedPdf } from '@documenso/lib/server-only/pdf/normalize-pdf';
-import { ZDefaultRecipientsSchema } from '@documenso/lib/types/default-recipients';
-import { DOCUMENT_AUDIT_LOG_TYPE } from '@documenso/lib/types/document-audit-logs';
-import type { ApiRequestMetadata } from '@documenso/lib/universal/extract-request-metadata';
-import { nanoid, prefixedId } from '@documenso/lib/universal/id';
-import { createDocumentAuditLogData } from '@documenso/lib/utils/document-audit-logs';
-import { prisma } from '@documenso/prisma';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { normalizePdf as makeNormalizedPdf } from '@Scriblli/lib/server-only/pdf/normalize-pdf';
+import { ZDefaultRecipientsSchema } from '@Scriblli/lib/types/default-recipients';
+import { DOCUMENT_AUDIT_LOG_TYPE } from '@Scriblli/lib/types/document-audit-logs';
+import type { ApiRequestMetadata } from '@Scriblli/lib/universal/extract-request-metadata';
+import { nanoid, prefixedId } from '@Scriblli/lib/universal/id';
+import { createDocumentAuditLogData } from '@Scriblli/lib/utils/document-audit-logs';
+import { prisma } from '@Scriblli/prisma';
 
 import type {
   TDocumentAccessAuthTypes,

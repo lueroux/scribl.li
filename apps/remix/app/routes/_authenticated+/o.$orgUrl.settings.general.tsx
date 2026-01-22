@@ -2,9 +2,9 @@ import { msg } from '@lingui/core/macro';
 import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 
-import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { canExecuteOrganisationAction } from '@documenso/lib/utils/organisations';
-import { Alert, AlertDescription, AlertTitle } from '@documenso/ui/primitives/alert';
+import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { canExecuteOrganisationAction } from '@Scriblli/lib/utils/organisations';
+import { Alert, AlertDescription, AlertTitle } from '@Scriblli/ui/primitives/alert';
 
 import { OrganisationDeleteDialog } from '~/components/dialogs/organisation-delete-dialog';
 import { AvatarImageForm } from '~/components/forms/avatar-image';

@@ -12,7 +12,7 @@ export type DocumentCompletedEmailTemplateProps = Partial<TemplateDocumentComple
 };
 
 export const DocumentCompletedEmailTemplate = ({
-  downloadLink = 'https://documenso.com',
+  downloadLink = 'https://Scriblli.com',
   documentName = 'Open Source Pledge.pdf',
   assetBaseUrl = 'https://scribl.li',
   customBody,

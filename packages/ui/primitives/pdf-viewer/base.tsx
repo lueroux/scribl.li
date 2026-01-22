@@ -9,9 +9,9 @@ import { Loader } from 'lucide-react';
 import { type PDFDocumentProxy } from 'pdfjs-dist';
 import { Document as PDFDocument, Page as PDFPage, pdfjs } from 'react-pdf';
 
-import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
-import { PDF_VIEWER_PAGE_SELECTOR } from '@documenso/lib/constants/pdf-viewer';
-import { getEnvelopeItemPdfUrl } from '@documenso/lib/utils/envelope-download';
+import { NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
+import { PDF_VIEWER_PAGE_SELECTOR } from '@Scriblli/lib/constants/pdf-viewer';
+import { getEnvelopeItemPdfUrl } from '@Scriblli/lib/utils/envelope-download';
 
 import { cn } from '../../lib/utils';
 import { useToast } from '../use-toast';

@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 import { TeamMemberRole } from '@prisma/client';
 
-import { seedTeam, seedTeamMember } from '@documenso/prisma/seed/teams';
-import { seedTemplate } from '@documenso/prisma/seed/templates';
+import { seedTeam, seedTeamMember } from '@Scriblli/prisma/seed/teams';
+import { seedTemplate } from '@Scriblli/prisma/seed/templates';
 
 import { apiSignin } from '../fixtures/authentication';
 import { openDropdownMenu } from '../fixtures/generic';

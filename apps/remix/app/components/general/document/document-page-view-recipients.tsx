@@ -18,22 +18,22 @@ import {
 import { Link, useSearchParams } from 'react-router';
 import { match } from 'ts-pattern';
 
-import { RECIPIENT_ROLES_DESCRIPTION } from '@documenso/lib/constants/recipient-roles';
-import type { TEnvelope } from '@documenso/lib/types/envelope';
-import { isDocumentCompleted } from '@documenso/lib/utils/document';
-import { formatSigningLink } from '@documenso/lib/utils/recipients';
-import { CopyTextButton } from '@documenso/ui/components/common/copy-text-button';
-import { SignatureIcon } from '@documenso/ui/icons/signature';
-import { AvatarWithText } from '@documenso/ui/primitives/avatar';
-import { Badge } from '@documenso/ui/primitives/badge';
-import { PopoverHover } from '@documenso/ui/primitives/popover';
+import { RECIPIENT_ROLES_DESCRIPTION } from '@Scriblli/lib/constants/recipient-roles';
+import type { TEnvelope } from '@Scriblli/lib/types/envelope';
+import { isDocumentCompleted } from '@Scriblli/lib/utils/document';
+import { formatSigningLink } from '@Scriblli/lib/utils/recipients';
+import { CopyTextButton } from '@Scriblli/ui/components/common/copy-text-button';
+import { SignatureIcon } from '@Scriblli/ui/icons/signature';
+import { AvatarWithText } from '@Scriblli/ui/primitives/avatar';
+import { Badge } from '@Scriblli/ui/primitives/badge';
+import { PopoverHover } from '@Scriblli/ui/primitives/popover';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@documenso/ui/primitives/tooltip';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/tooltip';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 export type DocumentPageViewRecipientsProps = {
   envelope: TEnvelope;

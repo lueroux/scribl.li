@@ -2,13 +2,13 @@ import { DocumentSigningOrder, DocumentVisibility, TemplateType } from '@prisma/
 import { z } from 'zod';
 import { zfd } from 'zod-form-data';
 
-import { ZDocumentSchema } from '@documenso/lib/types/document';
+import { ZDocumentSchema } from '@Scriblli/lib/types/document';
 import {
   ZDocumentAccessAuthTypesSchema,
   ZDocumentActionAuthTypesSchema,
-} from '@documenso/lib/types/document-auth';
-import { ZDocumentEmailSettingsSchema } from '@documenso/lib/types/document-email';
-import { ZDocumentFormValuesSchema } from '@documenso/lib/types/document-form-values';
+} from '@Scriblli/lib/types/document-auth';
+import { ZDocumentEmailSettingsSchema } from '@Scriblli/lib/types/document-email';
+import { ZDocumentFormValuesSchema } from '@Scriblli/lib/types/document-form-values';
 import {
   ZDocumentMetaDateFormatSchema,
   ZDocumentMetaDistributionMethodSchema,
@@ -20,18 +20,18 @@ import {
   ZDocumentMetaTimezoneSchema,
   ZDocumentMetaTypedSignatureEnabledSchema,
   ZDocumentMetaUploadSignatureEnabledSchema,
-} from '@documenso/lib/types/document-meta';
-import { ZEnvelopeAttachmentTypeSchema } from '@documenso/lib/types/envelope-attachment';
-import { ZFieldMetaPrefillFieldsSchema } from '@documenso/lib/types/field-meta';
-import { ZRecipientEmailSchema } from '@documenso/lib/types/recipient';
-import { ZFindResultResponse, ZFindSearchParamsSchema } from '@documenso/lib/types/search-params';
+} from '@Scriblli/lib/types/document-meta';
+import { ZEnvelopeAttachmentTypeSchema } from '@Scriblli/lib/types/envelope-attachment';
+import { ZFieldMetaPrefillFieldsSchema } from '@Scriblli/lib/types/field-meta';
+import { ZRecipientEmailSchema } from '@Scriblli/lib/types/recipient';
+import { ZFindResultResponse, ZFindSearchParamsSchema } from '@Scriblli/lib/types/search-params';
 import {
   ZTemplateLiteSchema,
   ZTemplateManySchema,
   ZTemplateSchema,
-} from '@documenso/lib/types/template';
-import { LegacyTemplateDirectLinkSchema } from '@documenso/prisma/types/template-legacy-schema';
-import { ZDocumentExternalIdSchema } from '@documenso/trpc/server/document-router/schema';
+} from '@Scriblli/lib/types/template';
+import { LegacyTemplateDirectLinkSchema } from '@Scriblli/prisma/types/template-legacy-schema';
+import { ZDocumentExternalIdSchema } from '@Scriblli/trpc/server/document-router/schema';
 
 import { zodFormData } from '../../utils/zod-form-data';
 import { ZSignFieldWithTokenMutationSchema } from '../field-router/schema';

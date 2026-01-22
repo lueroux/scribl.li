@@ -9,11 +9,11 @@ Webhooks are HTTP callbacks triggered by specific events. When you subscribe to 
 
 Some of the common use cases for webhooks include:
 
-1. **Real-time Data Syncing**: Webhooks provide a way to keep data in sync across different platforms. For example, you can keep your system up-to-date with your Documenso documents by subscribing to events like document creation or signing.
+1. **Real-time Data Syncing**: Webhooks provide a way to keep data in sync across different platforms. For example, you can keep your system up-to-date with your Scriblli documents by subscribing to events like document creation or signing.
 2. **Automating Workflows**: They can trigger automated workflows that start when an event occurs. For example, the webhook could trigger an email when a document is signed.
-3. **Integrating Third-Party Services**: Webhooks can be used to integrate Documenso with third-party services. For example, you could use a webhook to send data to a CRM system when a document is signed.
+3. **Integrating Third-Party Services**: Webhooks can be used to integrate Scriblli with third-party services. For example, you could use a webhook to send data to a CRM system when a document is signed.
 
-Documenso supports Webhooks and allows you to subscribe to the following events:
+Scriblli supports Webhooks and allows you to subscribe to the following events:
 
 - `document.created`
 - `document.sent`
@@ -27,11 +27,11 @@ Documenso supports Webhooks and allows you to subscribe to the following events:
 
 You can create a webhook subscription from the team settings page. Click your avatar in the top right corner of the dashboard and select "Team settings" from the dropdown menu.
 
-![A screenshot of the Documenso's dashboard that shows the dropdown menu when you click on your user avatar](/webhook-images/documenso-main-page.webp)
+![A screenshot of the Scriblli's dashboard that shows the dropdown menu when you click on your user avatar](/webhook-images/Scriblli-main-page.webp)
 
 Then, navigate to the "Webhooks" tab, which takes you to the webhooks main page.
 
-![A screenshot of the Documenso's team settings page that shows the Webhooks tab and the Create Webhook button](/webhook-images/webhooks-main-page.webp)
+![A screenshot of the Scriblli's team settings page that shows the Webhooks tab and the Create Webhook button](/webhook-images/webhooks-main-page.webp)
 
 Clicking on the "**Create Webhook**" button opens a modal to create a new webhook subscription.
 
@@ -39,7 +39,7 @@ To create a new webhook subscription, you need to provide the following informat
 
 - Enter the webhook URL that will receive the event payload.
 - Select the event(s) you want to subscribe to: `document.created`, `document.sent`, `document.opened`, `document.signed`, `document.completed`, `document.rejected`, `document.cancelled`.
-- Optionally, you can provide a secret key that will be used to sign the payload. This key will be included in the `X-Documenso-Secret` header of the request.
+- Optionally, you can provide a secret key that will be used to sign the payload. This key will be included in the `X-Scriblli-Secret` header of the request.
 
 ![A screenshot of the Create Webhook modal that shows the URL input field and the event checkboxes](/webhook-images/create-webhook-dialog.webp)
 
@@ -47,15 +47,15 @@ After you have filled in the required information, click on the "**Create Webhoo
 
 The screenshot below illustrates a newly created webhook subscription.
 
-![A screenshot of the Documenso's user settings page that shows the newly created webhook subscription](/webhook-images/webhooks-page.webp)
+![A screenshot of the Scriblli's user settings page that shows the newly created webhook subscription](/webhook-images/webhooks-page.webp)
 
 You can edit, view the logs, or delete your webhook subscriptions by clicking the three dots (...) under the "Action" column. You can also access the webhook logs by clicking on the webhook subscription directly.
 
-![A screenshot of the Documenso's team settings page that shows the webhook logs](/webhook-images/webhook-detail-page.webp)
+![A screenshot of the Scriblli's team settings page that shows the webhook logs](/webhook-images/webhook-detail-page.webp)
 
 You can go even further and check the execution details of each call by clicking on a specific webhook call.
 
-![A screenshot of the Documenso's team settings page that shows the webhook call details](/webhook-images/webhook-run-page.webp)
+![A screenshot of the Scriblli's team settings page that shows the webhook call details](/webhook-images/webhook-run-page.webp)
 
 This page shows the details of the webhook call such as:
 
@@ -136,7 +136,7 @@ Example payload for the `document.created` event:
     "authOptions": null,
     "formValues": null,
     "visibility": "EVERYONE",
-    "title": "documenso.pdf",
+    "title": "Scriblli.pdf",
     "status": "DRAFT",
     "documentDataId": "hs8qz1ktr9204jn7mg6c5dxy0",
     "createdAt": "2024-04-22T11:44:43.341Z",
@@ -165,7 +165,7 @@ Example payload for the `document.created` event:
         "id": 52,
         "documentId": 10,
         "templateId": null,
-        "email": "signer@documenso.com",
+        "email": "signer@Scriblli.com",
         "name": "John Doe",
         "token": "vbT8hi3jKQmrFP_LN1WcS",
         "documentDeletedAt": null,
@@ -198,7 +198,7 @@ Example payload for the `document.sent` event:
     "authOptions": null,
     "formValues": null,
     "visibility": "EVERYONE",
-    "title": "documenso.pdf",
+    "title": "Scriblli.pdf",
     "status": "PENDING",
     "documentDataId": "hs8qz1ktr9204jn7mg6c5dxy0",
     "createdAt": "2024-04-22T11:44:43.341Z",
@@ -227,7 +227,7 @@ Example payload for the `document.sent` event:
         "id": 52,
         "documentId": 10,
         "templateId": null,
-        "email": "signer2@documenso.com",
+        "email": "signer2@Scriblli.com",
         "name": "Signer 2",
         "token": "vbT8hi3jKQmrFP_LN1WcS",
         "documentDeletedAt": null,
@@ -245,7 +245,7 @@ Example payload for the `document.sent` event:
         "id": 53,
         "documentId": 10,
         "templateId": null,
-        "email": "signer1@documenso.com",
+        "email": "signer1@Scriblli.com",
         "name": "Signer 1",
         "token": "HkrptwS42ZBXdRKj1TyUo",
         "documentDeletedAt": null,
@@ -278,7 +278,7 @@ Example payload for the `document.opened` event:
     "authOptions": null,
     "formValues": null,
     "visibility": "EVERYONE",
-    "title": "documenso.pdf",
+    "title": "Scriblli.pdf",
     "status": "PENDING",
     "documentDataId": "hs8qz1ktr9204jn7mg6c5dxy0",
     "createdAt": "2024-04-22T11:44:43.341Z",
@@ -307,7 +307,7 @@ Example payload for the `document.opened` event:
         "id": 52,
         "documentId": 10,
         "templateId": null,
-        "email": "signer2@documenso.com",
+        "email": "signer2@Scriblli.com",
         "name": "Signer 2",
         "token": "vbT8hi3jKQmrFP_LN1WcS",
         "documentDeletedAt": null,
@@ -340,7 +340,7 @@ Example payload for the `document.signed` event:
     "authOptions": null,
     "formValues": null,
     "visibility": "EVERYONE",
-    "title": "documenso.pdf",
+    "title": "Scriblli.pdf",
     "status": "COMPLETED",
     "documentDataId": "hs8qz1ktr9204jn7mg6c5dxy0",
     "createdAt": "2024-04-22T11:44:43.341Z",
@@ -369,7 +369,7 @@ Example payload for the `document.signed` event:
         "id": 51,
         "documentId": 10,
         "templateId": null,
-        "email": "signer1@documenso.com",
+        "email": "signer1@Scriblli.com",
         "name": "Signer 1",
         "token": "HkrptwS42ZBXdRKj1TyUo",
         "documentDeletedAt": null,
@@ -405,7 +405,7 @@ Example payload for the `document.completed` event:
     "authOptions": null,
     "formValues": null,
     "visibility": "EVERYONE",
-    "title": "documenso.pdf",
+    "title": "Scriblli.pdf",
     "status": "COMPLETED",
     "documentDataId": "hs8qz1ktr9204jn7mg6c5dxy0",
     "createdAt": "2024-04-22T11:44:43.341Z",
@@ -434,7 +434,7 @@ Example payload for the `document.completed` event:
         "id": 50,
         "documentId": 10,
         "templateId": null,
-        "email": "signer2@documenso.com",
+        "email": "signer2@Scriblli.com",
         "name": "Signer 2",
         "token": "vbT8hi3jKQmrFP_LN1WcS",
         "documentDeletedAt": null,
@@ -455,7 +455,7 @@ Example payload for the `document.completed` event:
         "id": 51,
         "documentId": 10,
         "templateId": null,
-        "email": "signer1@documenso.com",
+        "email": "signer1@Scriblli.com",
         "name": "Signer 1",
         "token": "HkrptwS42ZBXdRKj1TyUo",
         "documentDeletedAt": null,
@@ -491,7 +491,7 @@ Example payload for the `document.rejected` event:
     "authOptions": null,
     "formValues": null,
     "visibility": "EVERYONE",
-    "title": "documenso.pdf",
+    "title": "Scriblli.pdf",
     "status": "PENDING",
     "documentDataId": "hs8qz1ktr9204jn7mg6c5dxy0",
     "createdAt": "2024-04-22T11:44:43.341Z",
@@ -520,7 +520,7 @@ Example payload for the `document.rejected` event:
         "id": 52,
         "documentId": 10,
         "templateId": null,
-        "email": "signer@documenso.com",
+        "email": "signer@Scriblli.com",
         "name": "Signer",
         "token": "vbT8hi3jKQmrFP_LN1WcS",
         "documentDeletedAt": null,
@@ -556,7 +556,7 @@ Example payload for the `document.rejected` event:
     "authOptions": null,
     "formValues": null,
     "visibility": "EVERYONE",
-    "title": "documenso.pdf",
+    "title": "Scriblli.pdf",
     "status": "PENDING",
     "documentDataId": "cm6exvn93006hi02ru90a265a",
     "createdAt": "2025-01-27T11:02:14.393Z",
@@ -613,7 +613,7 @@ Example payload for the `document.rejected` event:
         "id": 7,
         "documentId": 7,
         "templateId": null,
-        "email": "signer@documenso.com",
+        "email": "signer@Scriblli.com",
         "name": "Signer",
         "token": "XkKx1HCs6Znm2UBJA2j6o",
         "documentDeletedAt": null,
@@ -638,19 +638,19 @@ Example payload for the `document.rejected` event:
 
 You can trigger test webhook events to test the webhook functionality. To do so, navigate to the webhook subscription details page and click the "Test" button.
 
-![A screenshot of the Documenso's team settings page that shows the webhook logs](/webhook-images/webhook-detail-page.webp)
+![A screenshot of the Scriblli's team settings page that shows the webhook logs](/webhook-images/webhook-detail-page.webp)
 
 This opens a dialog where you can select the event type to test.
 
-![Documenso's individual webhook page](/webhook-images/webhook-test-trigger.webp)
+![Scriblli's individual webhook page](/webhook-images/webhook-test-trigger.webp)
 
-Choose the event you want to test and click "Send". You’ll then receive a test payload from Documenso with sample data.
+Choose the event you want to test and click "Send". You’ll then receive a test payload from Scriblli with sample data.
 
 ## Webhook events resending
 
 To resend a webhook call, you need to navigate to the webhook call page and click the "Resend" button.
 
-![A screenshot of the Documenso's team settings page that shows the webhook call details](/webhook-images/webhook-run-page.webp)
+![A screenshot of the Scriblli's team settings page that shows the webhook call details](/webhook-images/webhook-run-page.webp)
 
 This will send the webhook event to the webhook URL again.
 

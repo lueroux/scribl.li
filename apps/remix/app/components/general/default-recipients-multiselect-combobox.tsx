@@ -2,9 +2,9 @@ import { msg } from '@lingui/core/macro';
 import { useLingui } from '@lingui/react';
 import { RecipientRole } from '@prisma/client';
 
-import type { TDefaultRecipient } from '@documenso/lib/types/default-recipients';
-import { trpc } from '@documenso/trpc/react';
-import { MultiSelect, type Option } from '@documenso/ui/primitives/multiselect';
+import type { TDefaultRecipient } from '@Scriblli/lib/types/default-recipients';
+import { trpc } from '@Scriblli/trpc/react';
+import { MultiSelect, type Option } from '@Scriblli/ui/primitives/multiselect';
 
 type DefaultRecipientsMultiSelectComboboxProps = {
   listValues: TDefaultRecipient[];

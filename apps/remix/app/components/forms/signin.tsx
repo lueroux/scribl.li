@@ -14,20 +14,20 @@ import { Link, useNavigate } from 'react-router';
 import { match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { authClient } from '@documenso/auth/client';
-import { AuthenticationErrorCode } from '@documenso/auth/server/lib/errors/error-codes';
-import { AppError } from '@documenso/lib/errors/app-error';
-import { trpc } from '@documenso/trpc/react';
-import { ZCurrentPasswordSchema } from '@documenso/trpc/server/auth-router/schema';
-import { cn } from '@documenso/ui/lib/utils';
-import { Button } from '@documenso/ui/primitives/button';
+import { authClient } from '@Scriblli/auth/client';
+import { AuthenticationErrorCode } from '@Scriblli/auth/server/lib/errors/error-codes';
+import { AppError } from '@Scriblli/lib/errors/app-error';
+import { trpc } from '@Scriblli/trpc/react';
+import { ZCurrentPasswordSchema } from '@Scriblli/trpc/server/auth-router/schema';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@documenso/ui/primitives/dialog';
+} from '@Scriblli/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -35,11 +35,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
-import { Input } from '@documenso/ui/primitives/input';
-import { PasswordInput } from '@documenso/ui/primitives/password-input';
-import { PinInput, PinInputGroup, PinInputSlot } from '@documenso/ui/primitives/pin-input';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/form/form';
+import { Input } from '@Scriblli/ui/primitives/input';
+import { PasswordInput } from '@Scriblli/ui/primitives/password-input';
+import { PinInput, PinInputGroup, PinInputSlot } from '@Scriblli/ui/primitives/pin-input';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 const CommonErrorMessages: Record<string, MessageDescriptor> = {
   [AuthenticationErrorCode.AccountDisabled]: msg`This account has been disabled. Please contact support.`,

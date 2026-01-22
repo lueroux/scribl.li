@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { getBoundingClientRect } from '@documenso/lib/client-only/get-bounding-client-rect';
+import { getBoundingClientRect } from '@Scriblli/lib/client-only/get-bounding-client-rect';
 
 export const useDocumentElement = () => {
   /**

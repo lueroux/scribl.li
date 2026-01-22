@@ -1,5 +1,5 @@
-import { updateEnvelope } from '@documenso/lib/server-only/envelope/update-envelope';
-import { mapSecondaryIdToDocumentId } from '@documenso/lib/utils/envelope';
+import { updateEnvelope } from '@Scriblli/lib/server-only/envelope/update-envelope';
+import { mapSecondaryIdToDocumentId } from '@Scriblli/lib/utils/envelope';
 
 import { authenticatedProcedure } from '../trpc';
 import {

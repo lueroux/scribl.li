@@ -1,9 +1,9 @@
-import { deleteEmailDomain } from '@documenso/ee/server-only/lib/delete-email-domain';
-import { IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
-import { ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP } from '@documenso/lib/constants/organisations';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { buildOrganisationWhereQuery } from '@documenso/lib/utils/organisations';
-import { prisma } from '@documenso/prisma';
+import { deleteEmailDomain } from '@Scriblli/ee/server-only/lib/delete-email-domain';
+import { IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
+import { ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP } from '@Scriblli/lib/constants/organisations';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { buildOrganisationWhereQuery } from '@Scriblli/lib/utils/organisations';
+import { prisma } from '@Scriblli/prisma';
 
 import { authenticatedProcedure } from '../trpc';
 import {

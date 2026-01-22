@@ -10,11 +10,11 @@ import {
   WebhookTriggerEvents,
 } from '@prisma/client';
 
-import { DOCUMENT_AUDIT_LOG_TYPE } from '@documenso/lib/types/document-audit-logs';
-import type { ApiRequestMetadata } from '@documenso/lib/universal/extract-request-metadata';
-import { createDocumentAuditLogData } from '@documenso/lib/utils/document-audit-logs';
-import { prisma } from '@documenso/prisma';
-import { checkboxValidationSigns } from '@documenso/ui/primitives/document-flow/field-items-advanced-settings/constants';
+import { DOCUMENT_AUDIT_LOG_TYPE } from '@Scriblli/lib/types/document-audit-logs';
+import type { ApiRequestMetadata } from '@Scriblli/lib/universal/extract-request-metadata';
+import { createDocumentAuditLogData } from '@Scriblli/lib/utils/document-audit-logs';
+import { prisma } from '@Scriblli/prisma';
+import { checkboxValidationSigns } from '@Scriblli/ui/primitives/document-flow/field-items-advanced-settings/constants';
 
 import { validateCheckboxLength } from '../../advanced-fields-validation/validate-checkbox';
 import { AppError, AppErrorCode } from '../../errors/app-error';

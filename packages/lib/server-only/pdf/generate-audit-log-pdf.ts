@@ -1,7 +1,7 @@
 import { PDF } from '@libpdf/core';
 import { i18n } from '@lingui/core';
 
-import { prisma } from '@documenso/prisma';
+import { prisma } from '@Scriblli/prisma';
 
 import { ZSupportedLanguageCodeSchema } from '../../constants/i18n';
 import { parseDocumentAuditLogData } from '../../utils/document-audit-logs';

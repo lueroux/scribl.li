@@ -6,10 +6,10 @@ import type * as DialogPrimitive from '@radix-ui/react-dialog';
 import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
 
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { trpc } from '@documenso/trpc/react';
-import { ZCreateOrganisationEmailRequestSchema } from '@documenso/trpc/server/enterprise-router/create-organisation-email.types';
-import { Button } from '@documenso/ui/primitives/button';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { trpc } from '@Scriblli/trpc/react';
+import { ZCreateOrganisationEmailRequestSchema } from '@Scriblli/trpc/server/enterprise-router/create-organisation-email.types';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -18,7 +18,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@documenso/ui/primitives/dialog';
+} from '@Scriblli/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -27,9 +27,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
-import { Input } from '@documenso/ui/primitives/input';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/form/form';
+import { Input } from '@Scriblli/ui/primitives/input';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 type EmailDomain = {
   id: string;

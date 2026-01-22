@@ -6,9 +6,9 @@ import { File as FileIcon, Upload, X } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { trpc } from '@documenso/trpc/react';
-import { Button } from '@documenso/ui/primitives/button';
-import { Checkbox } from '@documenso/ui/primitives/checkbox';
+import { trpc } from '@Scriblli/trpc/react';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Checkbox } from '@Scriblli/ui/primitives/checkbox';
 import {
   Dialog,
   DialogContent,
@@ -17,9 +17,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@documenso/ui/primitives/dialog';
-import { Form, FormControl, FormField, FormItem } from '@documenso/ui/primitives/form/form';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/dialog';
+import { Form, FormControl, FormField, FormItem } from '@Scriblli/ui/primitives/form/form';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { useCurrentTeam } from '~/providers/team';
 

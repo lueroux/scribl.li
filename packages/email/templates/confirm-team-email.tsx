@@ -2,7 +2,7 @@ import { msg } from '@lingui/core/macro';
 import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 
-import { formatTeamUrl } from '@documenso/lib/utils/teams';
+import { formatTeamUrl } from '@Scriblli/lib/utils/teams';
 
 import {
   Body,
@@ -31,7 +31,7 @@ export type ConfirmTeamEmailProps = {
 
 export const ConfirmTeamEmailTemplate = ({
   assetBaseUrl = 'https://scribl.li',
-  baseUrl = 'https://documenso.com',
+  baseUrl = 'https://Scriblli.com',
   teamName = 'Team Name',
   teamUrl = 'demo',
   token = '',

@@ -5,9 +5,9 @@ import {
   seedBlankDocument,
   seedDocuments,
   seedTeamDocuments,
-} from '@documenso/prisma/seed/documents';
-import { seedTeam, seedTeamEmail, seedTeamMember } from '@documenso/prisma/seed/teams';
-import { seedUser } from '@documenso/prisma/seed/users';
+} from '@Scriblli/prisma/seed/documents';
+import { seedTeam, seedTeamEmail, seedTeamMember } from '@Scriblli/prisma/seed/teams';
+import { seedUser } from '@Scriblli/prisma/seed/users';
 
 import { apiSignin, apiSignout } from '../fixtures/authentication';
 import { checkDocumentTabCount } from '../fixtures/documents';
@@ -155,7 +155,7 @@ test('[TEAMS]: check team documents count with external team email', async ({ pa
 
   const { team: team2, teamMember2: team2Member2 } = await seedTeamDocuments();
 
-  const teamEmail = `external-team-email-${team.id}@test.documenso.com`;
+  const teamEmail = `external-team-email-${team.id}@test.Scriblli.com`;
 
   await seedTeamEmail({
     email: teamEmail,
@@ -248,7 +248,7 @@ test('[TEAMS]: resend pending team document', async ({ page }) => {
   await openDropdownMenu(page, actionBtn);
   await expect(page.getByRole('menuitem', { name: 'Resend' })).toBeVisible();
   await page.getByRole('menuitem', { name: 'Resend' }).click();
-  await page.getByLabel('test.documenso.com').first().click();
+  await page.getByLabel('test.Scriblli.com').first().click();
   await page.getByRole('button', { name: 'Send reminder' }).click();
 
   await expectToastTextToBeVisible(page, 'Document re-sent');

@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'react';
 import { Trans } from '@lingui/react/macro';
 import { Link } from 'react-router';
 
-import { cn } from '@documenso/ui/lib/utils';
+import { cn } from '@Scriblli/ui/lib/utils';
 
 export type DocumentSigningDisclosureProps = HTMLAttributes<HTMLParagraphElement>;
 

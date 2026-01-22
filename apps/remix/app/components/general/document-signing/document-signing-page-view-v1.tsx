@@ -7,30 +7,30 @@ import { LucideChevronDown, LucideChevronUp } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { P, match } from 'ts-pattern';
 
-import { useAnalytics } from '@documenso/lib/client-only/hooks/use-analytics';
-import { DEFAULT_DOCUMENT_DATE_FORMAT } from '@documenso/lib/constants/date-formats';
-import { PDF_VIEWER_PAGE_SELECTOR } from '@documenso/lib/constants/pdf-viewer';
-import { DEFAULT_DOCUMENT_TIME_ZONE } from '@documenso/lib/constants/time-zones';
-import type { DocumentAndSender } from '@documenso/lib/server-only/document/get-document-by-token';
-import type { TRecipientAccessAuth } from '@documenso/lib/types/document-auth';
+import { useAnalytics } from '@Scriblli/lib/client-only/hooks/use-analytics';
+import { DEFAULT_DOCUMENT_DATE_FORMAT } from '@Scriblli/lib/constants/date-formats';
+import { PDF_VIEWER_PAGE_SELECTOR } from '@Scriblli/lib/constants/pdf-viewer';
+import { DEFAULT_DOCUMENT_TIME_ZONE } from '@Scriblli/lib/constants/time-zones';
+import type { DocumentAndSender } from '@Scriblli/lib/server-only/document/get-document-by-token';
+import type { TRecipientAccessAuth } from '@Scriblli/lib/types/document-auth';
 import {
   ZCheckboxFieldMeta,
   ZDropdownFieldMeta,
   ZNumberFieldMeta,
   ZRadioFieldMeta,
   ZTextFieldMeta,
-} from '@documenso/lib/types/field-meta';
-import type { CompletedField } from '@documenso/lib/types/fields';
-import { isFieldUnsignedAndRequired } from '@documenso/lib/utils/advanced-fields-helpers';
-import { validateFieldsInserted } from '@documenso/lib/utils/fields';
-import type { FieldWithSignatureAndFieldMeta } from '@documenso/prisma/types/field-with-signature-and-fieldmeta';
-import type { RecipientWithFields } from '@documenso/prisma/types/recipient-with-fields';
-import { trpc } from '@documenso/trpc/react';
-import { DocumentReadOnlyFields } from '@documenso/ui/components/document/document-read-only-fields';
-import { Button } from '@documenso/ui/primitives/button';
-import { Card, CardContent } from '@documenso/ui/primitives/card';
-import { ElementVisible } from '@documenso/ui/primitives/element-visible';
-import { PDFViewerLazy } from '@documenso/ui/primitives/pdf-viewer/lazy';
+} from '@Scriblli/lib/types/field-meta';
+import type { CompletedField } from '@Scriblli/lib/types/fields';
+import { isFieldUnsignedAndRequired } from '@Scriblli/lib/utils/advanced-fields-helpers';
+import { validateFieldsInserted } from '@Scriblli/lib/utils/fields';
+import type { FieldWithSignatureAndFieldMeta } from '@Scriblli/prisma/types/field-with-signature-and-fieldmeta';
+import type { RecipientWithFields } from '@Scriblli/prisma/types/recipient-with-fields';
+import { trpc } from '@Scriblli/trpc/react';
+import { DocumentReadOnlyFields } from '@Scriblli/ui/components/document/document-read-only-fields';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Card, CardContent } from '@Scriblli/ui/primitives/card';
+import { ElementVisible } from '@Scriblli/ui/primitives/element-visible';
+import { PDFViewerLazy } from '@Scriblli/ui/primitives/pdf-viewer/lazy';
 
 import { DocumentSigningAttachmentsPopover } from '~/components/general/document-signing/document-signing-attachments-popover';
 import { DocumentSigningAutoSign } from '~/components/general/document-signing/document-signing-auto-sign';

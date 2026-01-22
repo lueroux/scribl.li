@@ -1,1 +1,1 @@
-# @documenso/openpage-api
+# @Scriblli/openpage-api

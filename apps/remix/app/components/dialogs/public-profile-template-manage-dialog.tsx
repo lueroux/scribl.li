@@ -11,14 +11,14 @@ import { useForm } from 'react-hook-form';
 import { P, match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { type Template } from '@documenso/prisma/types/template-legacy-schema';
-import { trpc } from '@documenso/trpc/react';
+import { type Template } from '@Scriblli/prisma/types/template-legacy-schema';
+import { trpc } from '@Scriblli/trpc/react';
 import {
   MAX_TEMPLATE_PUBLIC_DESCRIPTION_LENGTH,
   MAX_TEMPLATE_PUBLIC_TITLE_LENGTH,
-} from '@documenso/trpc/server/template-router/schema';
-import { AnimateGenericFadeInOut } from '@documenso/ui/components/animate/animate-generic-fade-in-out';
-import { Button } from '@documenso/ui/primitives/button';
+} from '@Scriblli/trpc/server/template-router/schema';
+import { AnimateGenericFadeInOut } from '@Scriblli/ui/components/animate/animate-generic-fade-in-out';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Dialog,
   DialogClose,
@@ -28,7 +28,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@documenso/ui/primitives/dialog';
+} from '@Scriblli/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -36,8 +36,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
-import { Input } from '@documenso/ui/primitives/input';
+} from '@Scriblli/ui/primitives/form/form';
+import { Input } from '@Scriblli/ui/primitives/input';
 import {
   Table,
   TableBody,
@@ -45,9 +45,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@documenso/ui/primitives/table';
-import { Textarea } from '@documenso/ui/primitives/textarea';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/table';
+import { Textarea } from '@Scriblli/ui/primitives/textarea';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { useCurrentTeam } from '~/providers/team';
 

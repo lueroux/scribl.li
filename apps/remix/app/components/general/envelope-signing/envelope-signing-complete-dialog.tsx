@@ -4,14 +4,14 @@ import { useLingui } from '@lingui/react/macro';
 import { FieldType } from '@prisma/client';
 import { useNavigate, useRevalidator, useSearchParams } from 'react-router';
 
-import { useAnalytics } from '@documenso/lib/client-only/hooks/use-analytics';
-import { useCurrentEnvelopeRender } from '@documenso/lib/client-only/providers/envelope-render-provider';
-import { isBase64Image } from '@documenso/lib/constants/signatures';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import type { TRecipientAccessAuth } from '@documenso/lib/types/document-auth';
-import { mapSecondaryIdToDocumentId } from '@documenso/lib/utils/envelope';
-import { trpc } from '@documenso/trpc/react';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+import { useAnalytics } from '@Scriblli/lib/client-only/hooks/use-analytics';
+import { useCurrentEnvelopeRender } from '@Scriblli/lib/client-only/providers/envelope-render-provider';
+import { isBase64Image } from '@Scriblli/lib/constants/signatures';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import type { TRecipientAccessAuth } from '@Scriblli/lib/types/document-auth';
+import { mapSecondaryIdToDocumentId } from '@Scriblli/lib/utils/envelope';
+import { trpc } from '@Scriblli/trpc/react';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { useEmbedSigningContext } from '~/components/embed/embed-signing-context';
 

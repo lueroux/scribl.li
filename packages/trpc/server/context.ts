@@ -3,14 +3,14 @@ import type { Context } from 'hono';
 import type { Logger } from 'pino';
 import { z } from 'zod';
 
-import type { SessionUser } from '@documenso/auth/server/lib/session/session';
-import { getOptionalSession } from '@documenso/auth/server/lib/utils/get-session';
-import type { RootApiLog } from '@documenso/lib/types/api-logs';
-import type { ApiRequestMetadata } from '@documenso/lib/universal/extract-request-metadata';
-import { alphaid } from '@documenso/lib/universal/id';
-import { logger } from '@documenso/lib/utils/logger';
+import type { SessionUser } from '@Scriblli/auth/server/lib/session/session';
+import { getOptionalSession } from '@Scriblli/auth/server/lib/utils/get-session';
+import type { RootApiLog } from '@Scriblli/lib/types/api-logs';
+import type { ApiRequestMetadata } from '@Scriblli/lib/universal/extract-request-metadata';
+import { alphaid } from '@Scriblli/lib/universal/id';
+import { logger } from '@Scriblli/lib/utils/logger';
 // This is a bit nasty. Todo: Extract
-import type { HonoEnv } from '@documenso/remix/server/router';
+import type { HonoEnv } from '@Scriblli/remix/server/router';
 
 type CreateTrpcContextOptions = {
   c: Context<HonoEnv>;

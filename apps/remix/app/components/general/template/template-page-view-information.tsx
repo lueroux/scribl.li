@@ -6,8 +6,8 @@ import { Trans } from '@lingui/react/macro';
 import type { User } from '@prisma/client';
 import { DateTime } from 'luxon';
 
-import { useIsMounted } from '@documenso/lib/client-only/hooks/use-is-mounted';
-import { mapSecondaryIdToTemplateId } from '@documenso/lib/utils/envelope';
+import { useIsMounted } from '@Scriblli/lib/client-only/hooks/use-is-mounted';
+import { mapSecondaryIdToTemplateId } from '@Scriblli/lib/utils/envelope';
 
 export type TemplatePageViewInformationProps = {
   userId: number;

@@ -18,9 +18,9 @@ export type OrganisationJoinEmailProps = {
 
 export const OrganisationJoinEmailTemplate = ({
   assetBaseUrl = 'https://scribl.li',
-  baseUrl = 'https://documenso.com',
+  baseUrl = 'https://Scriblli.com',
   memberName = 'John Doe',
-  memberEmail = 'johndoe@documenso.com',
+  memberEmail = 'johndoe@Scriblli.com',
   organisationName = 'Organisation Name',
   organisationUrl = 'demo',
 }: OrganisationJoinEmailProps) => {

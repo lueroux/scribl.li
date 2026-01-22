@@ -1,9 +1,9 @@
 import { DocumentSource, EnvelopeType, SubscriptionStatus } from '@prisma/client';
 import { DateTime } from 'luxon';
 
-import { IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
-import { INTERNAL_CLAIM_ID } from '@documenso/lib/types/subscription';
-import { prisma } from '@documenso/prisma';
+import { IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
+import { INTERNAL_CLAIM_ID } from '@Scriblli/lib/types/subscription';
+import { prisma } from '@Scriblli/prisma';
 
 import {
   FREE_PLAN_LIMITS,

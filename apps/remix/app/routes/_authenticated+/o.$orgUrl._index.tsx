@@ -11,22 +11,22 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router';
 
-import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { TEAM_MEMBER_ROLE_MAP } from '@documenso/lib/constants/teams-translations';
-import { formatAvatarUrl } from '@documenso/lib/utils/avatars';
-import { canExecuteOrganisationAction } from '@documenso/lib/utils/organisations';
-import { canExecuteTeamAction, formatTeamUrl } from '@documenso/lib/utils/teams';
-import type { TGetOrganisationSessionResponse } from '@documenso/trpc/server/organisation-router/get-organisation-session.types';
-import { Avatar, AvatarFallback, AvatarImage } from '@documenso/ui/primitives/avatar';
-import { Button } from '@documenso/ui/primitives/button';
-import { Card, CardContent } from '@documenso/ui/primitives/card';
+import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { TEAM_MEMBER_ROLE_MAP } from '@Scriblli/lib/constants/teams-translations';
+import { formatAvatarUrl } from '@Scriblli/lib/utils/avatars';
+import { canExecuteOrganisationAction } from '@Scriblli/lib/utils/organisations';
+import { canExecuteTeamAction, formatTeamUrl } from '@Scriblli/lib/utils/teams';
+import type { TGetOrganisationSessionResponse } from '@Scriblli/trpc/server/organisation-router/get-organisation-session.types';
+import { Avatar, AvatarFallback, AvatarImage } from '@Scriblli/ui/primitives/avatar';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Card, CardContent } from '@Scriblli/ui/primitives/card';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@documenso/ui/primitives/dropdown-menu';
+} from '@Scriblli/ui/primitives/dropdown-menu';
 
 import { TeamCreateDialog } from '~/components/dialogs/team-create-dialog';
 import { TeamDeleteDialog } from '~/components/dialogs/team-delete-dialog';

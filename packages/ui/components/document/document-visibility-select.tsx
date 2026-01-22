@@ -7,16 +7,16 @@ import { TeamMemberRole } from '@prisma/client';
 import type { SelectProps } from '@radix-ui/react-select';
 import { InfoIcon } from 'lucide-react';
 
-import { DOCUMENT_VISIBILITY } from '@documenso/lib/constants/document-visibility';
-import { DocumentVisibility } from '@documenso/lib/types/document-visibility';
+import { DOCUMENT_VISIBILITY } from '@Scriblli/lib/constants/document-visibility';
+import { DocumentVisibility } from '@Scriblli/lib/types/document-visibility';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@documenso/ui/primitives/select';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@documenso/ui/primitives/tooltip';
+} from '@Scriblli/ui/primitives/select';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@Scriblli/ui/primitives/tooltip';
 
 export type DocumentVisibilitySelectType = SelectProps & {
   currentTeamMemberRole?: string;

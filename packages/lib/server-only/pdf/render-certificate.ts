@@ -562,7 +562,7 @@ const renderBranding = async ({ qrToken, i18n }: { qrToken: string | null; i18n:
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   const img = new SkiaImage(logo) as unknown as HTMLImageElement;
 
-  const documensoImage = new Konva.Image({
+  const ScriblliImage = new Konva.Image({
     image: img,
     height: brandingHeight,
     width: brandingHeight * (img.width / img.height),
@@ -575,7 +575,7 @@ const renderBranding = async ({ qrToken, i18n }: { qrToken: string | null; i18n:
     y: qrSize + 16,
   });
   logoGroup.add(text);
-  logoGroup.add(documensoImage);
+  logoGroup.add(ScriblliImage);
 
   branding.add(logoGroup);
 

@@ -1,10 +1,10 @@
 import { redirect } from 'react-router';
 
-import { extractCookieFromHeaders } from '@documenso/auth/server/lib/utils/cookies';
-import { getOptionalSession } from '@documenso/auth/server/lib/utils/get-session';
-import { getTeams } from '@documenso/lib/server-only/team/get-teams';
-import { formatDocumentsPath } from '@documenso/lib/utils/teams';
-import { ZTeamUrlSchema } from '@documenso/trpc/server/team-router/schema';
+import { extractCookieFromHeaders } from '@Scriblli/auth/server/lib/utils/cookies';
+import { getOptionalSession } from '@Scriblli/auth/server/lib/utils/get-session';
+import { getTeams } from '@Scriblli/lib/server-only/team/get-teams';
+import { formatDocumentsPath } from '@Scriblli/lib/utils/teams';
+import { ZTeamUrlSchema } from '@Scriblli/trpc/server/team-router/schema';
 
 import type { Route } from './+types/_index';
 

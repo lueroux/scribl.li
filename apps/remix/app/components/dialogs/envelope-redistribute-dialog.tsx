@@ -8,13 +8,13 @@ import { DocumentStatus, EnvelopeType, type Recipient, SigningStatus } from '@pr
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-import { getRecipientType } from '@documenso/lib/client-only/recipient-type';
-import type { TEnvelope } from '@documenso/lib/types/envelope';
-import { recipientAbbreviation } from '@documenso/lib/utils/recipient-formatter';
-import { trpc as trpcReact } from '@documenso/trpc/react';
-import { cn } from '@documenso/ui/lib/utils';
-import { Button } from '@documenso/ui/primitives/button';
-import { Checkbox } from '@documenso/ui/primitives/checkbox';
+import { getRecipientType } from '@Scriblli/lib/client-only/recipient-type';
+import type { TEnvelope } from '@Scriblli/lib/types/envelope';
+import { recipientAbbreviation } from '@Scriblli/lib/utils/recipient-formatter';
+import { trpc as trpcReact } from '@Scriblli/trpc/react';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Checkbox } from '@Scriblli/ui/primitives/checkbox';
 import {
   Dialog,
   DialogClose,
@@ -24,15 +24,15 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@documenso/ui/primitives/dialog';
+} from '@Scriblli/ui/primitives/dialog';
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-} from '@documenso/ui/primitives/form/form';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/form/form';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { StackAvatar } from '../general/stack-avatar';
 

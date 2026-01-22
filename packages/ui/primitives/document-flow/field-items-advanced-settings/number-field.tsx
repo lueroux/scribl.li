@@ -3,19 +3,19 @@ import { useState } from 'react';
 import { Trans, useLingui } from '@lingui/react/macro';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
-import { validateNumberField } from '@documenso/lib/advanced-fields-validation/validate-number';
-import { type TNumberFieldMeta as NumberFieldMeta } from '@documenso/lib/types/field-meta';
-import { Button } from '@documenso/ui/primitives/button';
-import { Input } from '@documenso/ui/primitives/input';
-import { Label } from '@documenso/ui/primitives/label';
+import { validateNumberField } from '@Scriblli/lib/advanced-fields-validation/validate-number';
+import { type TNumberFieldMeta as NumberFieldMeta } from '@Scriblli/lib/types/field-meta';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Input } from '@Scriblli/ui/primitives/input';
+import { Label } from '@Scriblli/ui/primitives/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@documenso/ui/primitives/select';
-import { Switch } from '@documenso/ui/primitives/switch';
+} from '@Scriblli/ui/primitives/select';
+import { Switch } from '@Scriblli/ui/primitives/switch';
 
 import { numberFormatValues } from './constants';
 

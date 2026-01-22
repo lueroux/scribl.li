@@ -5,9 +5,9 @@ import { createCallable } from 'react-call';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import type { TNumberFieldMeta } from '@documenso/lib/types/field-meta';
-import { cn } from '@documenso/ui/lib/utils';
-import { Button } from '@documenso/ui/primitives/button';
+import type { TNumberFieldMeta } from '@Scriblli/lib/types/field-meta';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -15,16 +15,16 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@documenso/ui/primitives/dialog';
-import { numberFormatValues } from '@documenso/ui/primitives/document-flow/field-items-advanced-settings/constants';
+} from '@Scriblli/ui/primitives/dialog';
+import { numberFormatValues } from '@Scriblli/ui/primitives/document-flow/field-items-advanced-settings/constants';
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
-import { Input } from '@documenso/ui/primitives/input';
+} from '@Scriblli/ui/primitives/form/form';
+import { Input } from '@Scriblli/ui/primitives/input';
 
 export type SignFieldNumberDialogProps = {
   fieldMeta: TNumberFieldMeta;

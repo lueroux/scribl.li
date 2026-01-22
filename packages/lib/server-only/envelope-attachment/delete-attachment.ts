@@ -1,7 +1,7 @@
 import { DocumentStatus } from '@prisma/client';
 
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { prisma } from '@documenso/prisma';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { prisma } from '@Scriblli/prisma';
 
 import { buildTeamWhereQuery } from '../../utils/teams';
 

@@ -5,10 +5,10 @@ import { Trans } from '@lingui/react/macro';
 import { useQuery } from '@tanstack/react-query';
 import { DateTime } from 'luxon';
 
-import { authClient } from '@documenso/auth/client';
-import { Button } from '@documenso/ui/primitives/button';
-import type { DataTableColumnDef } from '@documenso/ui/primitives/data-table';
-import { DataTable } from '@documenso/ui/primitives/data-table';
+import { authClient } from '@Scriblli/auth/client';
+import { Button } from '@Scriblli/ui/primitives/button';
+import type { DataTableColumnDef } from '@Scriblli/ui/primitives/data-table';
+import { DataTable } from '@Scriblli/ui/primitives/data-table';
 import {
   Dialog,
   DialogContent,
@@ -17,10 +17,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@documenso/ui/primitives/dialog';
-import { Skeleton } from '@documenso/ui/primitives/skeleton';
-import { TableCell } from '@documenso/ui/primitives/table';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/dialog';
+import { Skeleton } from '@Scriblli/ui/primitives/skeleton';
+import { TableCell } from '@Scriblli/ui/primitives/table';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { SettingsHeader } from '~/components/general/settings-header';
 import { appMetaTags } from '~/utils/meta';

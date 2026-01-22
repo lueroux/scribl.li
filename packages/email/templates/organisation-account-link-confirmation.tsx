@@ -82,7 +82,7 @@ export const OrganisationAccountLinkConfirmationTemplate = ({
                 ) : (
                   <Trans>
                     <span className="font-bold">{organisationName}</span> has requested to link your
-                    current Documenso account to their organisation.
+                    current Scriblli account to their organisation.
                   </Trans>
                 )}
               </Text>

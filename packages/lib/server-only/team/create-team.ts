@@ -6,8 +6,8 @@ import {
 } from '@prisma/client';
 import { match } from 'ts-pattern';
 
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { prisma } from '@documenso/prisma';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { prisma } from '@Scriblli/prisma';
 
 import { IS_BILLING_ENABLED } from '../../constants/app';
 import {
@@ -33,7 +33,7 @@ export type CreateTeamOptions = {
   /**
    * Unique URL of the team.
    *
-   * Used as the URL path, example: https://documenso.com/t/{teamUrl}/settings
+   * Used as the URL path, example: https://Scriblli.com/t/{teamUrl}/settings
    */
   teamUrl: string;
 

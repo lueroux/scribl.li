@@ -47,21 +47,21 @@ jobs:
             --progress=plain \
             --build-arg NEXT_PRIVATE_TELEMETRY_KEY="${NEXT_PRIVATE_TELEMETRY_KEY:-}" \
             --build-arg NEXT_PRIVATE_TELEMETRY_HOST="${NEXT_PRIVATE_TELEMETRY_HOST:-}" \
-            -t "documenso/documenso-$BUILD_PLATFORM:latest" \
-            -t "documenso/documenso-$BUILD_PLATFORM:$GIT_SHA" \
-            -t "documenso/documenso-$BUILD_PLATFORM:$APP_VERSION" \
-            -t "ghcr.io/documenso/documenso-$BUILD_PLATFORM:latest" \
-            -t "ghcr.io/documenso/documenso-$BUILD_PLATFORM:$GIT_SHA" \
-            -t "ghcr.io/documenso/documenso-$BUILD_PLATFORM:$APP_VERSION" \
+            -t "Scriblli/Scriblli-$BUILD_PLATFORM:latest" \
+            -t "Scriblli/Scriblli-$BUILD_PLATFORM:$GIT_SHA" \
+            -t "Scriblli/Scriblli-$BUILD_PLATFORM:$APP_VERSION" \
+            -t "ghcr.io/Scriblli/Scriblli-$BUILD_PLATFORM:latest" \
+            -t "ghcr.io/Scriblli/Scriblli-$BUILD_PLATFORM:$GIT_SHA" \
+            -t "ghcr.io/Scriblli/Scriblli-$BUILD_PLATFORM:$APP_VERSION" \
             .
 
       - name: Push the docker image to DockerHub
-        run: docker push --all-tags "documenso/documenso-$BUILD_PLATFORM"
+        run: docker push --all-tags "Scriblli/Scriblli-$BUILD_PLATFORM"
         env:
           BUILD_PLATFORM: ${{ matrix.os == 'warp-ubuntu-latest-arm64-4x' && 'arm64' || 'amd64' }}
 
       - name: Push the docker image to GitHub Container Registry
-        run: docker push --all-tags "ghcr.io/documenso/documenso-$BUILD_PLATFORM"
+        run: docker push --all-tags "ghcr.io/Scriblli/Scriblli-$BUILD_PLATFORM"
         env:
           BUILD_PLATFORM: ${{ matrix.os == 'warp-ubuntu-latest-arm64-4x' && 'arm64' || 'amd64' }}
 
@@ -76,12 +76,12 @@ jobs:
             -f ./docker/Dockerfile.chromium \
             --progress=plain \
             --build-arg TAG="$GIT_SHA" \
-            -t "documenso/documenso-$BUILD_PLATFORM:latest-chromium" \
-            -t "documenso/documenso-$BUILD_PLATFORM:$GIT_SHA-chromium" \
-            -t "documenso/documenso-$BUILD_PLATFORM:$APP_VERSION-chromium" \
-            -t "ghcr.io/documenso/documenso-$BUILD_PLATFORM:latest-chromium" \
-            -t "ghcr.io/documenso/documenso-$BUILD_PLATFORM:$GIT_SHA-chromium" \
-            -t "ghcr.io/documenso/documenso-$BUILD_PLATFORM:$APP_VERSION-chromium" \
+            -t "Scriblli/Scriblli-$BUILD_PLATFORM:latest-chromium" \
+            -t "Scriblli/Scriblli-$BUILD_PLATFORM:$GIT_SHA-chromium" \
+            -t "Scriblli/Scriblli-$BUILD_PLATFORM:$APP_VERSION-chromium" \
+            -t "ghcr.io/Scriblli/Scriblli-$BUILD_PLATFORM:latest-chromium" \
+            -t "ghcr.io/Scriblli/Scriblli-$BUILD_PLATFORM:$GIT_SHA-chromium" \
+            -t "ghcr.io/Scriblli/Scriblli-$BUILD_PLATFORM:$APP_VERSION-chromium" \
             .
 
       - name: Push the chromium docker image to DockerHub
@@ -91,9 +91,9 @@ jobs:
           APP_VERSION="$(git name-rev --tags --name-only $(git rev-parse HEAD) | head -n 1 | sed 's/\^0//')"
           GIT_SHA="$(git rev-parse HEAD)"
 
-          docker push "documenso/documenso-$BUILD_PLATFORM:latest-chromium"
-          docker push "documenso/documenso-$BUILD_PLATFORM:$GIT_SHA-chromium"
-          docker push "documenso/documenso-$BUILD_PLATFORM:$APP_VERSION-chromium" \
+          docker push "Scriblli/Scriblli-$BUILD_PLATFORM:latest-chromium"
+          docker push "Scriblli/Scriblli-$BUILD_PLATFORM:$GIT_SHA-chromium"
+          docker push "Scriblli/Scriblli-$BUILD_PLATFORM:$APP_VERSION-chromium" \
 
       - name: Push the chromium docker image to GitHub Container Registry
         env:
@@ -102,9 +102,9 @@ jobs:
           APP_VERSION="$(git name-rev --tags --name-only $(git rev-parse HEAD) | head -n 1 | sed 's/\^0//')"
           GIT_SHA="$(git rev-parse HEAD)"
 
-          docker push "ghcr.io/documenso/documenso-$BUILD_PLATFORM:latest-chromium"
-          docker push "ghcr.io/documenso/documenso-$BUILD_PLATFORM:$GIT_SHA-chromium"
-          docker push "ghcr.io/documenso/documenso-$BUILD_PLATFORM:$APP_VERSION-chromium"
+          docker push "ghcr.io/Scriblli/Scriblli-$BUILD_PLATFORM:latest-chromium"
+          docker push "ghcr.io/Scriblli/Scriblli-$BUILD_PLATFORM:$GIT_SHA-chromium"
+          docker push "ghcr.io/Scriblli/Scriblli-$BUILD_PLATFORM:$APP_VERSION-chromium"
 
   create_and_publish_manifest:
     name: Create and publish manifest
@@ -137,34 +137,34 @@ jobs:
           # Check if the version is stable (no rc or beta in the version)
           if [[ "$APP_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             docker manifest create \
-              documenso/documenso:latest \
-              --amend documenso/documenso-amd64:latest \
-              --amend documenso/documenso-arm64:latest
+              Scriblli/Scriblli:latest \
+              --amend Scriblli/Scriblli-amd64:latest \
+              --amend Scriblli/Scriblli-arm64:latest
 
-            docker manifest push documenso/documenso:latest
+            docker manifest push Scriblli/Scriblli:latest
           fi
 
           if [[ "$APP_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-rc\.[0-9]+$ ]]; then
             docker manifest create \
-              documenso/documenso:rc \
-              --amend documenso/documenso-amd64:rc \
-              --amend documenso/documenso-arm64:rc
+              Scriblli/Scriblli:rc \
+              --amend Scriblli/Scriblli-amd64:rc \
+              --amend Scriblli/Scriblli-arm64:rc
 
-            docker manifest push documenso/documenso:rc
+            docker manifest push Scriblli/Scriblli:rc
           fi
 
           docker manifest create \
-            documenso/documenso:$GIT_SHA \
-            --amend documenso/documenso-amd64:$GIT_SHA \
-            --amend documenso/documenso-arm64:$GIT_SHA
+            Scriblli/Scriblli:$GIT_SHA \
+            --amend Scriblli/Scriblli-amd64:$GIT_SHA \
+            --amend Scriblli/Scriblli-arm64:$GIT_SHA
 
           docker manifest create \
-            documenso/documenso:$APP_VERSION \
-            --amend documenso/documenso-amd64:$APP_VERSION \
-            --amend documenso/documenso-arm64:$APP_VERSION
+            Scriblli/Scriblli:$APP_VERSION \
+            --amend Scriblli/Scriblli-amd64:$APP_VERSION \
+            --amend Scriblli/Scriblli-arm64:$APP_VERSION
 
-          docker manifest push documenso/documenso:$GIT_SHA
-          docker manifest push documenso/documenso:$APP_VERSION
+          docker manifest push Scriblli/Scriblli:$GIT_SHA
+          docker manifest push Scriblli/Scriblli:$APP_VERSION
 
       - name: Create and push DockerHub chromium manifest
         run: |
@@ -174,34 +174,34 @@ jobs:
           # Check if the version is stable (no rc or beta in the version)
           if [[ "$APP_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             docker manifest create \
-              documenso/documenso:latest-chromium \
-              --amend documenso/documenso-amd64:latest-chromium \
-              --amend documenso/documenso-arm64:latest-chromium
+              Scriblli/Scriblli:latest-chromium \
+              --amend Scriblli/Scriblli-amd64:latest-chromium \
+              --amend Scriblli/Scriblli-arm64:latest-chromium
 
-            docker manifest push documenso/documenso:latest-chromium
+            docker manifest push Scriblli/Scriblli:latest-chromium
           fi
 
           if [[ "$APP_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-rc\.[0-9]+$ ]]; then
             docker manifest create \
-              documenso/documenso:rc-chromium \
-              --amend documenso/documenso-amd64:rc-chromium \
-              --amend documenso/documenso-arm64:rc-chromium
+              Scriblli/Scriblli:rc-chromium \
+              --amend Scriblli/Scriblli-amd64:rc-chromium \
+              --amend Scriblli/Scriblli-arm64:rc-chromium
 
-            docker manifest push documenso/documenso:rc-chromium
+            docker manifest push Scriblli/Scriblli:rc-chromium
           fi
 
           docker manifest create \
-            documenso/documenso:$GIT_SHA-chromium \
-            --amend documenso/documenso-amd64:$GIT_SHA-chromium \
-            --amend documenso/documenso-arm64:$GIT_SHA-chromium
+            Scriblli/Scriblli:$GIT_SHA-chromium \
+            --amend Scriblli/Scriblli-amd64:$GIT_SHA-chromium \
+            --amend Scriblli/Scriblli-arm64:$GIT_SHA-chromium
 
           docker manifest create \
-            documenso/documenso:$APP_VERSION-chromium \
-            --amend documenso/documenso-amd64:$APP_VERSION-chromium \
-            --amend documenso/documenso-arm64:$APP_VERSION-chromium
+            Scriblli/Scriblli:$APP_VERSION-chromium \
+            --amend Scriblli/Scriblli-amd64:$APP_VERSION-chromium \
+            --amend Scriblli/Scriblli-arm64:$APP_VERSION-chromium
 
-          docker manifest push documenso/documenso:$GIT_SHA-chromium
-          docker manifest push documenso/documenso:$APP_VERSION-chromium
+          docker manifest push Scriblli/Scriblli:$GIT_SHA-chromium
+          docker manifest push Scriblli/Scriblli:$APP_VERSION-chromium
 
       - name: Create and push Github Container Registry manifest
         run: |
@@ -211,34 +211,34 @@ jobs:
           # Check if the version is stable (no rc or beta in the version)
           if [[ "$APP_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             docker manifest create \
-              ghcr.io/documenso/documenso:latest \
-              --amend ghcr.io/documenso/documenso-amd64:latest \
-              --amend ghcr.io/documenso/documenso-arm64:latest
+              ghcr.io/Scriblli/Scriblli:latest \
+              --amend ghcr.io/Scriblli/Scriblli-amd64:latest \
+              --amend ghcr.io/Scriblli/Scriblli-arm64:latest
 
-            docker manifest push ghcr.io/documenso/documenso:latest
+            docker manifest push ghcr.io/Scriblli/Scriblli:latest
           fi
 
           if [[ "$APP_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-rc\.[0-9]+$ ]]; then
             docker manifest create \
-              ghcr.io/documenso/documenso:rc \
-              --amend ghcr.io/documenso/documenso-amd64:rc \
-              --amend ghcr.io/documenso/documenso-arm64:rc
+              ghcr.io/Scriblli/Scriblli:rc \
+              --amend ghcr.io/Scriblli/Scriblli-amd64:rc \
+              --amend ghcr.io/Scriblli/Scriblli-arm64:rc
 
-            docker manifest push ghcr.io/documenso/documenso:rc
+            docker manifest push ghcr.io/Scriblli/Scriblli:rc
           fi
 
           docker manifest create \
-            ghcr.io/documenso/documenso:$GIT_SHA \
-            --amend ghcr.io/documenso/documenso-amd64:$GIT_SHA \
-            --amend ghcr.io/documenso/documenso-arm64:$GIT_SHA
+            ghcr.io/Scriblli/Scriblli:$GIT_SHA \
+            --amend ghcr.io/Scriblli/Scriblli-amd64:$GIT_SHA \
+            --amend ghcr.io/Scriblli/Scriblli-arm64:$GIT_SHA
 
           docker manifest create \
-            ghcr.io/documenso/documenso:$APP_VERSION \
-            --amend ghcr.io/documenso/documenso-amd64:$APP_VERSION \
-            --amend ghcr.io/documenso/documenso-arm64:$APP_VERSION
+            ghcr.io/Scriblli/Scriblli:$APP_VERSION \
+            --amend ghcr.io/Scriblli/Scriblli-amd64:$APP_VERSION \
+            --amend ghcr.io/Scriblli/Scriblli-arm64:$APP_VERSION
 
-          docker manifest push ghcr.io/documenso/documenso:$GIT_SHA
-          docker manifest push ghcr.io/documenso/documenso:$APP_VERSION
+          docker manifest push ghcr.io/Scriblli/Scriblli:$GIT_SHA
+          docker manifest push ghcr.io/Scriblli/Scriblli:$APP_VERSION
 
       - name: Create and push Github Container Registry chromium manifest
         run: |
@@ -248,31 +248,31 @@ jobs:
           # Check if the version is stable (no rc or beta in the version)
           if [[ "$APP_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             docker manifest create \
-              ghcr.io/documenso/documenso:latest-chromium \
-              --amend ghcr.io/documenso/documenso-amd64:latest-chromium \
-              --amend ghcr.io/documenso/documenso-arm64:latest-chromium
+              ghcr.io/Scriblli/Scriblli:latest-chromium \
+              --amend ghcr.io/Scriblli/Scriblli-amd64:latest-chromium \
+              --amend ghcr.io/Scriblli/Scriblli-arm64:latest-chromium
 
-            docker manifest push ghcr.io/documenso/documenso:latest-chromium
+            docker manifest push ghcr.io/Scriblli/Scriblli:latest-chromium
           fi
 
           if [[ "$APP_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-rc\.[0-9]+$ ]]; then
             docker manifest create \
-              ghcr.io/documenso/documenso:rc-chromium \
-              --amend ghcr.io/documenso/documenso-amd64:rc-chromium \
-              --amend ghcr.io/documenso/documenso-arm64:rc-chromium
+              ghcr.io/Scriblli/Scriblli:rc-chromium \
+              --amend ghcr.io/Scriblli/Scriblli-amd64:rc-chromium \
+              --amend ghcr.io/Scriblli/Scriblli-arm64:rc-chromium
 
-            docker manifest push ghcr.io/documenso/documenso:rc-chromium
+            docker manifest push ghcr.io/Scriblli/Scriblli:rc-chromium
           fi
 
           docker manifest create \
-            ghcr.io/documenso/documenso:$GIT_SHA-chromium \
-            --amend ghcr.io/documenso/documenso-amd64:$GIT_SHA-chromium \
-            --amend ghcr.io/documenso/documenso-arm64:$GIT_SHA-chromium
+            ghcr.io/Scriblli/Scriblli:$GIT_SHA-chromium \
+            --amend ghcr.io/Scriblli/Scriblli-amd64:$GIT_SHA-chromium \
+            --amend ghcr.io/Scriblli/Scriblli-arm64:$GIT_SHA-chromium
 
           docker manifest create \
-            ghcr.io/documenso/documenso:$APP_VERSION-chromium \
-            --amend ghcr.io/documenso/documenso-amd64:$APP_VERSION-chromium \
-            --amend ghcr.io/documenso/documenso-arm64:$APP_VERSION-chromium
+            ghcr.io/Scriblli/Scriblli:$APP_VERSION-chromium \
+            --amend ghcr.io/Scriblli/Scriblli-amd64:$APP_VERSION-chromium \
+            --amend ghcr.io/Scriblli/Scriblli-arm64:$APP_VERSION-chromium
 
-          docker manifest push ghcr.io/documenso/documenso:$GIT_SHA-chromium
-          docker manifest push ghcr.io/documenso/documenso:$APP_VERSION-chromium
+          docker manifest push ghcr.io/Scriblli/Scriblli:$GIT_SHA-chromium
+          docker manifest push ghcr.io/Scriblli/Scriblli:$APP_VERSION-chromium

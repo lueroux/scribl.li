@@ -10,7 +10,7 @@ import { TemplateForgotPassword } from '../template-components/template-forgot-p
 export type ForgotPasswordTemplateProps = Partial<TemplateForgotPasswordProps>;
 
 export const ForgotPasswordTemplate = ({
-  resetPasswordLink = 'https://documenso.com',
+  resetPasswordLink = 'https://Scriblli.com',
   assetBaseUrl = 'https://scribl.li',
 }: ForgotPasswordTemplateProps) => {
   const { _ } = useLingui();

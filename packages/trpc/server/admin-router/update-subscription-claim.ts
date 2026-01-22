@@ -1,7 +1,7 @@
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { jobsClient } from '@documenso/lib/jobs/client';
-import type { TClaimFlags } from '@documenso/lib/types/subscription';
-import { prisma } from '@documenso/prisma';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { jobsClient } from '@Scriblli/lib/jobs/client';
+import type { TClaimFlags } from '@Scriblli/lib/types/subscription';
+import { prisma } from '@Scriblli/prisma';
 
 import { adminProcedure } from '../trpc';
 import {

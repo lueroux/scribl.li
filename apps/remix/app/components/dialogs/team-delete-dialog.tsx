@@ -8,11 +8,11 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import { z } from 'zod';
 
-import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import { AppError } from '@documenso/lib/errors/app-error';
-import { trpc } from '@documenso/trpc/react';
-import { Button } from '@documenso/ui/primitives/button';
+import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { useSession } from '@Scriblli/lib/client-only/providers/session';
+import { AppError } from '@Scriblli/lib/errors/app-error';
+import { trpc } from '@Scriblli/trpc/react';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -21,7 +21,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@documenso/ui/primitives/dialog';
+} from '@Scriblli/ui/primitives/dialog';
 import {
   Form,
   FormControl,
@@ -29,17 +29,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
-import { Input } from '@documenso/ui/primitives/input';
+} from '@Scriblli/ui/primitives/form/form';
+import { Input } from '@Scriblli/ui/primitives/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@documenso/ui/primitives/select';
-import type { Toast } from '@documenso/ui/primitives/use-toast';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/select';
+import type { Toast } from '@Scriblli/ui/primitives/use-toast';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 export type TeamDeleteDialogProps = {
   teamId: number;

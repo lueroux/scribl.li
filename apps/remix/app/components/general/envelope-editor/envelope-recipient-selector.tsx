@@ -9,20 +9,20 @@ import { RecipientRole, SendStatus } from '@prisma/client';
 import { Check, ChevronsUpDown, Info } from 'lucide-react';
 import { sortBy } from 'remeda';
 
-import { RECIPIENT_ROLES_DESCRIPTION } from '@documenso/lib/constants/recipient-roles';
-import { canRecipientFieldsBeModified } from '@documenso/lib/utils/recipients';
-import { getRecipientColorStyles } from '@documenso/ui/lib/recipient-colors';
-import { cn } from '@documenso/ui/lib/utils';
-import { Button } from '@documenso/ui/primitives/button';
+import { RECIPIENT_ROLES_DESCRIPTION } from '@Scriblli/lib/constants/recipient-roles';
+import { canRecipientFieldsBeModified } from '@Scriblli/lib/utils/recipients';
+import { getRecipientColorStyles } from '@Scriblli/ui/lib/recipient-colors';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-} from '@documenso/ui/primitives/command';
-import { Popover, PopoverContent, PopoverTrigger } from '@documenso/ui/primitives/popover';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@documenso/ui/primitives/tooltip';
+} from '@Scriblli/ui/primitives/command';
+import { Popover, PopoverContent, PopoverTrigger } from '@Scriblli/ui/primitives/popover';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@Scriblli/ui/primitives/tooltip';
 
 export interface EnvelopeRecipientSelectorProps {
   className?: string;

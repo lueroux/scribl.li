@@ -1,12 +1,12 @@
 import { match } from 'ts-pattern';
 
-import { TEAM_MEMBER_ROLE_PERMISSIONS_MAP } from '@documenso/lib/constants/teams';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { getMemberRoles } from '@documenso/lib/server-only/team/get-member-roles';
-import { generateDatabaseId } from '@documenso/lib/universal/id';
-import { buildTeamWhereQuery, isTeamRoleWithinUserHierarchy } from '@documenso/lib/utils/teams';
-import { prisma } from '@documenso/prisma';
-import { OrganisationGroupType, TeamMemberRole } from '@documenso/prisma/generated/types';
+import { TEAM_MEMBER_ROLE_PERMISSIONS_MAP } from '@Scriblli/lib/constants/teams';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { getMemberRoles } from '@Scriblli/lib/server-only/team/get-member-roles';
+import { generateDatabaseId } from '@Scriblli/lib/universal/id';
+import { buildTeamWhereQuery, isTeamRoleWithinUserHierarchy } from '@Scriblli/lib/utils/teams';
+import { prisma } from '@Scriblli/prisma';
+import { OrganisationGroupType, TeamMemberRole } from '@Scriblli/prisma/generated/types';
 
 import { authenticatedProcedure } from '../trpc';
 import {

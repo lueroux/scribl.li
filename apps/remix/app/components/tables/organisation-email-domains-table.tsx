@@ -6,20 +6,20 @@ import { CheckCircle2Icon, ClockIcon } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router';
 import { match } from 'ts-pattern';
 
-import { useUpdateSearchParams } from '@documenso/lib/client-only/hooks/use-update-search-params';
-import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { ZUrlSearchParamsSchema } from '@documenso/lib/types/search-params';
-import { trpc } from '@documenso/trpc/react';
-import { AnimateGenericFadeInOut } from '@documenso/ui/components/animate/animate-generic-fade-in-out';
-import { Alert, AlertDescription, AlertTitle } from '@documenso/ui/primitives/alert';
-import { Badge } from '@documenso/ui/primitives/badge';
-import { Button } from '@documenso/ui/primitives/button';
-import type { DataTableColumnDef } from '@documenso/ui/primitives/data-table';
-import { DataTable } from '@documenso/ui/primitives/data-table';
-import { DataTablePagination } from '@documenso/ui/primitives/data-table-pagination';
-import { Skeleton } from '@documenso/ui/primitives/skeleton';
-import { TableCell } from '@documenso/ui/primitives/table';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+import { useUpdateSearchParams } from '@Scriblli/lib/client-only/hooks/use-update-search-params';
+import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { ZUrlSearchParamsSchema } from '@Scriblli/lib/types/search-params';
+import { trpc } from '@Scriblli/trpc/react';
+import { AnimateGenericFadeInOut } from '@Scriblli/ui/components/animate/animate-generic-fade-in-out';
+import { Alert, AlertDescription, AlertTitle } from '@Scriblli/ui/primitives/alert';
+import { Badge } from '@Scriblli/ui/primitives/badge';
+import { Button } from '@Scriblli/ui/primitives/button';
+import type { DataTableColumnDef } from '@Scriblli/ui/primitives/data-table';
+import { DataTable } from '@Scriblli/ui/primitives/data-table';
+import { DataTablePagination } from '@Scriblli/ui/primitives/data-table-pagination';
+import { Skeleton } from '@Scriblli/ui/primitives/skeleton';
+import { TableCell } from '@Scriblli/ui/primitives/table';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { OrganisationEmailDomainDeleteDialog } from '../dialogs/organisation-email-domain-delete-dialog';
 

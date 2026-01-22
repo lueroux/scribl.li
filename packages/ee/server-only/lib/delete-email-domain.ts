@@ -1,7 +1,7 @@
 import { DeleteEmailIdentityCommand } from '@aws-sdk/client-sesv2';
 
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { prisma } from '@documenso/prisma';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { prisma } from '@Scriblli/prisma';
 
 import { getSesClient } from './create-email-domain';
 

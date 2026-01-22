@@ -2,11 +2,11 @@ import { EnvelopeType } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 import { DateTime } from 'luxon';
 
-import { TWO_FACTOR_EMAIL_EXPIRATION_MINUTES } from '@documenso/lib/server-only/2fa/email/constants';
-import { send2FATokenEmail } from '@documenso/lib/server-only/2fa/email/send-2fa-token-email';
-import { DocumentAuth } from '@documenso/lib/types/document-auth';
-import { extractDocumentAuthMethods } from '@documenso/lib/utils/document-auth';
-import { prisma } from '@documenso/prisma';
+import { TWO_FACTOR_EMAIL_EXPIRATION_MINUTES } from '@Scriblli/lib/server-only/2fa/email/constants';
+import { send2FATokenEmail } from '@Scriblli/lib/server-only/2fa/email/send-2fa-token-email';
+import { DocumentAuth } from '@Scriblli/lib/types/document-auth';
+import { extractDocumentAuthMethods } from '@Scriblli/lib/utils/document-auth';
+import { prisma } from '@Scriblli/prisma';
 
 import { procedure } from '../trpc';
 import {

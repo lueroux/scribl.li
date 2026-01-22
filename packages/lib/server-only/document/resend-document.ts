@@ -9,17 +9,17 @@ import {
   SigningStatus,
 } from '@prisma/client';
 
-import { mailer } from '@documenso/email/mailer';
-import { DocumentInviteEmailTemplate } from '@documenso/email/templates/document-invite';
+import { mailer } from '@Scriblli/email/mailer';
+import { DocumentInviteEmailTemplate } from '@Scriblli/email/templates/document-invite';
 import {
   RECIPIENT_ROLES_DESCRIPTION,
   RECIPIENT_ROLE_TO_EMAIL_TYPE,
-} from '@documenso/lib/constants/recipient-roles';
-import { DOCUMENT_AUDIT_LOG_TYPE } from '@documenso/lib/types/document-audit-logs';
-import type { ApiRequestMetadata } from '@documenso/lib/universal/extract-request-metadata';
-import { createDocumentAuditLogData } from '@documenso/lib/utils/document-audit-logs';
-import { renderCustomEmailTemplate } from '@documenso/lib/utils/render-custom-email-template';
-import { prisma } from '@documenso/prisma';
+} from '@Scriblli/lib/constants/recipient-roles';
+import { DOCUMENT_AUDIT_LOG_TYPE } from '@Scriblli/lib/types/document-audit-logs';
+import type { ApiRequestMetadata } from '@Scriblli/lib/universal/extract-request-metadata';
+import { createDocumentAuditLogData } from '@Scriblli/lib/utils/document-audit-logs';
+import { renderCustomEmailTemplate } from '@Scriblli/lib/utils/render-custom-email-template';
+import { prisma } from '@Scriblli/prisma';
 
 import { getI18nInstance } from '../../client-only/providers/i18n-server';
 import { NEXT_PUBLIC_WEBAPP_URL } from '../../constants/app';

@@ -7,23 +7,23 @@ import { DocumentStatus, FieldType, SigningStatus } from '@prisma/client';
 import { Loader, LucideChevronDown, LucideChevronUp, X } from 'lucide-react';
 import { P, match } from 'ts-pattern';
 
-import { PDF_VIEWER_PAGE_SELECTOR } from '@documenso/lib/constants/pdf-viewer';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { trpc } from '@documenso/trpc/react';
+import { PDF_VIEWER_PAGE_SELECTOR } from '@Scriblli/lib/constants/pdf-viewer';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { trpc } from '@Scriblli/trpc/react';
 import type {
   TRemovedSignedFieldWithTokenMutationSchema,
   TSignFieldWithTokenMutationSchema,
-} from '@documenso/trpc/server/field-router/schema';
-import { DocumentReadOnlyFields } from '@documenso/ui/components/document/document-read-only-fields';
-import { FieldToolTip } from '@documenso/ui/components/field/field-tooltip';
-import { cn } from '@documenso/ui/lib/utils';
-import { Button } from '@documenso/ui/primitives/button';
-import { ElementVisible } from '@documenso/ui/primitives/element-visible';
-import { Input } from '@documenso/ui/primitives/input';
-import { Label } from '@documenso/ui/primitives/label';
-import { PDFViewerLazy } from '@documenso/ui/primitives/pdf-viewer/lazy';
-import { SignaturePadDialog } from '@documenso/ui/primitives/signature-pad/signature-pad-dialog';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/trpc/server/field-router/schema';
+import { DocumentReadOnlyFields } from '@Scriblli/ui/components/document/document-read-only-fields';
+import { FieldToolTip } from '@Scriblli/ui/components/field/field-tooltip';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { ElementVisible } from '@Scriblli/ui/primitives/element-visible';
+import { Input } from '@Scriblli/ui/primitives/input';
+import { Label } from '@Scriblli/ui/primitives/label';
+import { PDFViewerLazy } from '@Scriblli/ui/primitives/pdf-viewer/lazy';
+import { SignaturePadDialog } from '@Scriblli/ui/primitives/signature-pad/signature-pad-dialog';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { useRequiredDocumentSigningContext } from '../../general/document-signing/document-signing-provider';
 import { DocumentSigningRejectDialog } from '../../general/document-signing/document-signing-reject-dialog';

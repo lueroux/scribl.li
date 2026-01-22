@@ -12,11 +12,11 @@ import { nanoid } from 'nanoid';
 import path from 'node:path';
 import { groupBy } from 'remeda';
 
-import { addRejectionStampToPdf } from '@documenso/lib/server-only/pdf/add-rejection-stamp-to-pdf';
-import { generateAuditLogPdf } from '@documenso/lib/server-only/pdf/generate-audit-log-pdf';
-import { generateCertificatePdf } from '@documenso/lib/server-only/pdf/generate-certificate-pdf';
-import { prisma } from '@documenso/prisma';
-import { signPdf } from '@documenso/signing';
+import { addRejectionStampToPdf } from '@Scriblli/lib/server-only/pdf/add-rejection-stamp-to-pdf';
+import { generateAuditLogPdf } from '@Scriblli/lib/server-only/pdf/generate-audit-log-pdf';
+import { generateCertificatePdf } from '@Scriblli/lib/server-only/pdf/generate-certificate-pdf';
+import { prisma } from '@Scriblli/prisma';
+import { signPdf } from '@Scriblli/signing';
 
 import { NEXT_PRIVATE_USE_PLAYWRIGHT_PDF } from '../../../constants/app';
 import { PDF_SIZE_A4_72PPI } from '../../../constants/pdf';

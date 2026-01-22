@@ -1,6 +1,6 @@
 import type { LucideIcon } from 'lucide-react/dist/lucide-react';
 
-import { cn } from '@documenso/ui/lib/utils';
+import { cn } from '@Scriblli/ui/lib/utils';
 
 export type CardMetricProps = {
   icon?: LucideIcon;

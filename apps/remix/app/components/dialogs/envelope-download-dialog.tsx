@@ -5,9 +5,9 @@ import { Trans } from '@lingui/react/macro';
 import { DocumentStatus, type EnvelopeItem } from '@prisma/client';
 import { DownloadIcon, FileTextIcon } from 'lucide-react';
 
-import { downloadPDF } from '@documenso/lib/client-only/download-pdf';
-import { trpc } from '@documenso/trpc/react';
-import { Button } from '@documenso/ui/primitives/button';
+import { downloadPDF } from '@Scriblli/lib/client-only/download-pdf';
+import { trpc } from '@Scriblli/trpc/react';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -15,9 +15,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@documenso/ui/primitives/dialog';
-import { Skeleton } from '@documenso/ui/primitives/skeleton';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/dialog';
+import { Skeleton } from '@Scriblli/ui/primitives/skeleton';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 type EnvelopeItemToDownload = Pick<EnvelopeItem, 'id' | 'envelopeId' | 'title' | 'order'>;
 

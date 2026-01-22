@@ -3,15 +3,15 @@ import { useEffect, useState } from 'react';
 import { Trans } from '@lingui/react/macro';
 import { Link, redirect } from 'react-router';
 
-import { getOptionalSession } from '@documenso/auth/server/lib/utils/get-session';
+import { getOptionalSession } from '@Scriblli/auth/server/lib/utils/get-session';
 import {
   IS_GOOGLE_SSO_ENABLED,
   IS_MICROSOFT_SSO_ENABLED,
   IS_OIDC_SSO_ENABLED,
   OIDC_PROVIDER_LABEL,
-} from '@documenso/lib/constants/auth';
-import { env } from '@documenso/lib/utils/env';
-import { isValidReturnTo, normalizeReturnTo } from '@documenso/lib/utils/is-valid-return-to';
+} from '@Scriblli/lib/constants/auth';
+import { env } from '@Scriblli/lib/utils/env';
+import { isValidReturnTo, normalizeReturnTo } from '@Scriblli/lib/utils/is-valid-return-to';
 
 import { SignInForm } from '~/components/forms/signin';
 import { appMetaTags } from '~/utils/meta';

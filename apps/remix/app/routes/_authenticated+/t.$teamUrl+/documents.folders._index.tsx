@@ -4,12 +4,12 @@ import { Trans, useLingui } from '@lingui/react/macro';
 import { HomeIcon, Loader2, SearchIcon } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
-import { FolderType } from '@documenso/lib/types/folder-type';
-import { formatDocumentsPath } from '@documenso/lib/utils/teams';
-import { trpc } from '@documenso/trpc/react';
-import { type TFolderWithSubfolders } from '@documenso/trpc/server/folder-router/schema';
-import { Button } from '@documenso/ui/primitives/button';
-import { Input } from '@documenso/ui/primitives/input';
+import { FolderType } from '@Scriblli/lib/types/folder-type';
+import { formatDocumentsPath } from '@Scriblli/lib/utils/teams';
+import { trpc } from '@Scriblli/trpc/react';
+import { type TFolderWithSubfolders } from '@Scriblli/trpc/server/folder-router/schema';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Input } from '@Scriblli/ui/primitives/input';
 
 import { FolderCreateDialog } from '~/components/dialogs/folder-create-dialog';
 import { FolderDeleteDialog } from '~/components/dialogs/folder-delete-dialog';

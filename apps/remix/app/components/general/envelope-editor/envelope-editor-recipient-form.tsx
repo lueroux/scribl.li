@@ -16,35 +16,35 @@ import { useFieldArray, useWatch } from 'react-hook-form';
 import { useRevalidator, useSearchParams } from 'react-router';
 import { isDeepEqual } from 'remeda';
 
-import { useLimits } from '@documenso/ee/server-only/limits/provider/client';
-import { useDebouncedValue } from '@documenso/lib/client-only/hooks/use-debounced-value';
-import { ZEditorRecipientsFormSchema } from '@documenso/lib/client-only/hooks/use-editor-recipients';
-import { useCurrentEnvelopeEditor } from '@documenso/lib/client-only/providers/envelope-editor-provider';
-import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import type { TDetectedRecipientSchema } from '@documenso/lib/server-only/ai/envelope/detect-recipients/schema';
-import { ZRecipientAuthOptionsSchema } from '@documenso/lib/types/document-auth';
-import { nanoid } from '@documenso/lib/universal/id';
-import { canRecipientBeModified as utilCanRecipientBeModified } from '@documenso/lib/utils/recipients';
-import { trpc } from '@documenso/trpc/react';
-import { AnimateGenericFadeInOut } from '@documenso/ui/components/animate/animate-generic-fade-in-out';
-import { RecipientActionAuthSelect } from '@documenso/ui/components/recipient/recipient-action-auth-select';
+import { useLimits } from '@Scriblli/ee/server-only/limits/provider/client';
+import { useDebouncedValue } from '@Scriblli/lib/client-only/hooks/use-debounced-value';
+import { ZEditorRecipientsFormSchema } from '@Scriblli/lib/client-only/hooks/use-editor-recipients';
+import { useCurrentEnvelopeEditor } from '@Scriblli/lib/client-only/providers/envelope-editor-provider';
+import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { useSession } from '@Scriblli/lib/client-only/providers/session';
+import type { TDetectedRecipientSchema } from '@Scriblli/lib/server-only/ai/envelope/detect-recipients/schema';
+import { ZRecipientAuthOptionsSchema } from '@Scriblli/lib/types/document-auth';
+import { nanoid } from '@Scriblli/lib/universal/id';
+import { canRecipientBeModified as utilCanRecipientBeModified } from '@Scriblli/lib/utils/recipients';
+import { trpc } from '@Scriblli/trpc/react';
+import { AnimateGenericFadeInOut } from '@Scriblli/ui/components/animate/animate-generic-fade-in-out';
+import { RecipientActionAuthSelect } from '@Scriblli/ui/components/recipient/recipient-action-auth-select';
 import {
   RecipientAutoCompleteInput,
   type RecipientAutoCompleteOption,
-} from '@documenso/ui/components/recipient/recipient-autocomplete-input';
-import { RecipientRoleSelect } from '@documenso/ui/components/recipient/recipient-role-select';
-import { cn } from '@documenso/ui/lib/utils';
-import { Button } from '@documenso/ui/primitives/button';
+} from '@Scriblli/ui/components/recipient/recipient-autocomplete-input';
+import { RecipientRoleSelect } from '@Scriblli/ui/components/recipient/recipient-role-select';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@documenso/ui/primitives/card';
-import { Checkbox } from '@documenso/ui/primitives/checkbox';
-import { SigningOrderConfirmation } from '@documenso/ui/primitives/document-flow/signing-order-confirmation';
+} from '@Scriblli/ui/primitives/card';
+import { Checkbox } from '@Scriblli/ui/primitives/checkbox';
+import { SigningOrderConfirmation } from '@Scriblli/ui/primitives/document-flow/signing-order-confirmation';
 import {
   Form,
   FormControl,
@@ -52,11 +52,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
-import { FormErrorMessage } from '@documenso/ui/primitives/form/form-error-message';
-import { Input } from '@documenso/ui/primitives/input';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@documenso/ui/primitives/tooltip';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/form/form';
+import { FormErrorMessage } from '@Scriblli/ui/primitives/form/form-error-message';
+import { Input } from '@Scriblli/ui/primitives/input';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@Scriblli/ui/primitives/tooltip';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { AiFeaturesEnableDialog } from '~/components/dialogs/ai-features-enable-dialog';
 import { AiRecipientDetectionDialog } from '~/components/dialogs/ai-recipient-detection-dialog';

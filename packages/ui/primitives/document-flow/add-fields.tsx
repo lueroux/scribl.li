@@ -20,22 +20,22 @@ import {
 import { useFieldArray, useForm } from 'react-hook-form';
 import { useHotkeys } from 'react-hotkeys-hook';
 
-import { getBoundingClientRect } from '@documenso/lib/client-only/get-bounding-client-rect';
-import { useAutoSave } from '@documenso/lib/client-only/hooks/use-autosave';
-import { useDocumentElement } from '@documenso/lib/client-only/hooks/use-document-element';
-import { PDF_VIEWER_PAGE_SELECTOR } from '@documenso/lib/constants/pdf-viewer';
+import { getBoundingClientRect } from '@Scriblli/lib/client-only/get-bounding-client-rect';
+import { useAutoSave } from '@Scriblli/lib/client-only/hooks/use-autosave';
+import { useDocumentElement } from '@Scriblli/lib/client-only/hooks/use-document-element';
+import { PDF_VIEWER_PAGE_SELECTOR } from '@Scriblli/lib/constants/pdf-viewer';
 import {
   type TFieldMetaSchema as FieldMeta,
   ZFieldMetaSchema,
-} from '@documenso/lib/types/field-meta';
-import { nanoid } from '@documenso/lib/universal/id';
-import { ADVANCED_FIELD_TYPES_WITH_OPTIONAL_SETTING } from '@documenso/lib/utils/advanced-fields-helpers';
-import { validateFieldsUninserted } from '@documenso/lib/utils/fields';
-import { parseMessageDescriptor } from '@documenso/lib/utils/i18n';
+} from '@Scriblli/lib/types/field-meta';
+import { nanoid } from '@Scriblli/lib/universal/id';
+import { ADVANCED_FIELD_TYPES_WITH_OPTIONAL_SETTING } from '@Scriblli/lib/utils/advanced-fields-helpers';
+import { validateFieldsUninserted } from '@Scriblli/lib/utils/fields';
+import { parseMessageDescriptor } from '@Scriblli/lib/utils/i18n';
 import {
   canRecipientBeModified,
   canRecipientFieldsBeModified,
-} from '@documenso/lib/utils/recipients';
+} from '@Scriblli/lib/utils/recipients';
 
 import { FieldToolTip } from '../../components/field/field-tooltip';
 import { useRecipientColors } from '../../lib/recipient-colors';

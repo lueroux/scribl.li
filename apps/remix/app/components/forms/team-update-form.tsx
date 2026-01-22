@@ -7,11 +7,11 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import type { z } from 'zod';
 
-import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { trpc } from '@documenso/trpc/react';
-import { ZUpdateTeamRequestSchema } from '@documenso/trpc/server/team-router/update-team.types';
-import { Button } from '@documenso/ui/primitives/button';
+import { NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { trpc } from '@Scriblli/trpc/react';
+import { ZUpdateTeamRequestSchema } from '@Scriblli/trpc/server/team-router/update-team.types';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Form,
   FormControl,
@@ -19,9 +19,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
-import { Input } from '@documenso/ui/primitives/input';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/form/form';
+import { Input } from '@Scriblli/ui/primitives/input';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 export type UpdateTeamDialogProps = {
   teamId: number;

@@ -1,13 +1,13 @@
 import { z } from 'zod';
 
-import { SUPPORTED_LANGUAGE_CODES } from '@documenso/lib/constants/i18n';
-import { ZDefaultRecipientsSchema } from '@documenso/lib/types/default-recipients';
-import { ZDocumentEmailSettingsSchema } from '@documenso/lib/types/document-email';
+import { SUPPORTED_LANGUAGE_CODES } from '@Scriblli/lib/constants/i18n';
+import { ZDefaultRecipientsSchema } from '@Scriblli/lib/types/default-recipients';
+import { ZDocumentEmailSettingsSchema } from '@Scriblli/lib/types/document-email';
 import {
   ZDocumentMetaDateFormatSchema,
   ZDocumentMetaTimezoneSchema,
-} from '@documenso/lib/types/document-meta';
-import { DocumentVisibility } from '@documenso/lib/types/document-visibility';
+} from '@Scriblli/lib/types/document-meta';
+import { DocumentVisibility } from '@Scriblli/lib/types/document-visibility';
 
 /**
  * Null = Inherit from organisation.

@@ -5,28 +5,28 @@ import { Link, redirect } from 'react-router';
 import { getOptionalLoaderContext } from 'server/utils/get-loader-session';
 import { match } from 'ts-pattern';
 
-import signingCelebration from '@documenso/assets/images/signing-celebration.png';
-import { getOptionalSession } from '@documenso/auth/server/lib/utils/get-session';
-import { EnvelopeRenderProvider } from '@documenso/lib/client-only/providers/envelope-render-provider';
-import { useOptionalSession } from '@documenso/lib/client-only/providers/session';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { getDocumentAndSenderByToken } from '@documenso/lib/server-only/document/get-document-by-token';
-import { viewedDocument } from '@documenso/lib/server-only/document/viewed-document';
-import { getEnvelopeForRecipientSigning } from '@documenso/lib/server-only/envelope/get-envelope-for-recipient-signing';
-import { getEnvelopeRequiredAccessData } from '@documenso/lib/server-only/envelope/get-envelope-required-access-data';
-import { getCompletedFieldsForToken } from '@documenso/lib/server-only/field/get-completed-fields-for-token';
-import { getFieldsForToken } from '@documenso/lib/server-only/field/get-fields-for-token';
-import { getIsRecipientsTurnToSign } from '@documenso/lib/server-only/recipient/get-is-recipient-turn';
-import { getNextPendingRecipient } from '@documenso/lib/server-only/recipient/get-next-pending-recipient';
-import { getRecipientByToken } from '@documenso/lib/server-only/recipient/get-recipient-by-token';
-import { getRecipientSignatures } from '@documenso/lib/server-only/recipient/get-recipient-signatures';
-import { getRecipientsForAssistant } from '@documenso/lib/server-only/recipient/get-recipients-for-assistant';
-import { getTeamSettings } from '@documenso/lib/server-only/team/get-team-settings';
-import { getUserByEmail } from '@documenso/lib/server-only/user/get-user-by-email';
-import { DocumentAccessAuth } from '@documenso/lib/types/document-auth';
-import { extractDocumentAuthMethods } from '@documenso/lib/utils/document-auth';
-import { prisma } from '@documenso/prisma';
-import { SigningCard3D } from '@documenso/ui/components/signing-card';
+import signingCelebration from '@Scriblli/assets/images/signing-celebration.png';
+import { getOptionalSession } from '@Scriblli/auth/server/lib/utils/get-session';
+import { EnvelopeRenderProvider } from '@Scriblli/lib/client-only/providers/envelope-render-provider';
+import { useOptionalSession } from '@Scriblli/lib/client-only/providers/session';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { getDocumentAndSenderByToken } from '@Scriblli/lib/server-only/document/get-document-by-token';
+import { viewedDocument } from '@Scriblli/lib/server-only/document/viewed-document';
+import { getEnvelopeForRecipientSigning } from '@Scriblli/lib/server-only/envelope/get-envelope-for-recipient-signing';
+import { getEnvelopeRequiredAccessData } from '@Scriblli/lib/server-only/envelope/get-envelope-required-access-data';
+import { getCompletedFieldsForToken } from '@Scriblli/lib/server-only/field/get-completed-fields-for-token';
+import { getFieldsForToken } from '@Scriblli/lib/server-only/field/get-fields-for-token';
+import { getIsRecipientsTurnToSign } from '@Scriblli/lib/server-only/recipient/get-is-recipient-turn';
+import { getNextPendingRecipient } from '@Scriblli/lib/server-only/recipient/get-next-pending-recipient';
+import { getRecipientByToken } from '@Scriblli/lib/server-only/recipient/get-recipient-by-token';
+import { getRecipientSignatures } from '@Scriblli/lib/server-only/recipient/get-recipient-signatures';
+import { getRecipientsForAssistant } from '@Scriblli/lib/server-only/recipient/get-recipients-for-assistant';
+import { getTeamSettings } from '@Scriblli/lib/server-only/team/get-team-settings';
+import { getUserByEmail } from '@Scriblli/lib/server-only/user/get-user-by-email';
+import { DocumentAccessAuth } from '@Scriblli/lib/types/document-auth';
+import { extractDocumentAuthMethods } from '@Scriblli/lib/utils/document-auth';
+import { prisma } from '@Scriblli/prisma';
+import { SigningCard3D } from '@Scriblli/ui/components/signing-card';
 
 import { Header as AuthenticatedHeader } from '~/components/general/app-header';
 import { DocumentSigningAuthPageView } from '~/components/general/document-signing/document-signing-auth-page';
@@ -368,7 +368,7 @@ const SigningPageV1 = ({ data }: { data: Awaited<ReturnType<typeof handleV1Loade
               <Trans>
                 Want to send slick signing links like this one?{' '}
                 <Link
-                  to="https://documenso.com"
+                  to="https://Scriblli.com"
                   className="text-scriblli-700 hover:text-scriblli-600"
                 >
                   Check out Scriblli
@@ -468,7 +468,7 @@ const SigningPageV2 = ({ data }: { data: Awaited<ReturnType<typeof handleV2Loade
               <Trans>
                 Want to send slick signing links like this one?{' '}
                 <Link
-                  to="https://documenso.com"
+                  to="https://Scriblli.com"
                   className="text-scriblli-700 hover:text-scriblli-600"
                 >
                   Check out Scriblli

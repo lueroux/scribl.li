@@ -7,20 +7,20 @@ import type { KonvaEventObject } from 'konva/lib/Node';
 import type { Transformer } from 'konva/lib/shapes/Transformer';
 import { CopyPlusIcon, SquareStackIcon, TrashIcon, UserCircleIcon } from 'lucide-react';
 
-import type { TLocalField } from '@documenso/lib/client-only/hooks/use-editor-fields';
-import { usePageRenderer } from '@documenso/lib/client-only/hooks/use-page-renderer';
-import { useCurrentEnvelopeEditor } from '@documenso/lib/client-only/providers/envelope-editor-provider';
-import { useCurrentEnvelopeRender } from '@documenso/lib/client-only/providers/envelope-render-provider';
-import { FIELD_META_DEFAULT_VALUES } from '@documenso/lib/types/field-meta';
+import type { TLocalField } from '@Scriblli/lib/client-only/hooks/use-editor-fields';
+import { usePageRenderer } from '@Scriblli/lib/client-only/hooks/use-page-renderer';
+import { useCurrentEnvelopeEditor } from '@Scriblli/lib/client-only/providers/envelope-editor-provider';
+import { useCurrentEnvelopeRender } from '@Scriblli/lib/client-only/providers/envelope-render-provider';
+import { FIELD_META_DEFAULT_VALUES } from '@Scriblli/lib/types/field-meta';
 import {
   MIN_FIELD_HEIGHT_PX,
   MIN_FIELD_WIDTH_PX,
   convertPixelToPercentage,
-} from '@documenso/lib/universal/field-renderer/field-renderer';
-import { renderField } from '@documenso/lib/universal/field-renderer/render-field';
-import { getClientSideFieldTranslations } from '@documenso/lib/utils/fields';
-import { canRecipientFieldsBeModified } from '@documenso/lib/utils/recipients';
-import { CommandDialog } from '@documenso/ui/primitives/command';
+} from '@Scriblli/lib/universal/field-renderer/field-renderer';
+import { renderField } from '@Scriblli/lib/universal/field-renderer/render-field';
+import { getClientSideFieldTranslations } from '@Scriblli/lib/utils/fields';
+import { canRecipientFieldsBeModified } from '@Scriblli/lib/utils/recipients';
+import { CommandDialog } from '@Scriblli/ui/primitives/command';
 
 import { fieldButtonList } from './envelope-editor-fields-drag-drop';
 import { EnvelopeRecipientSelectorCommand } from './envelope-recipient-selector';

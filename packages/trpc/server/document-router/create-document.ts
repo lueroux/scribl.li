@@ -1,11 +1,11 @@
 import { EnvelopeType } from '@prisma/client';
 
-import { getServerLimits } from '@documenso/ee/server-only/limits/server';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { createEnvelope } from '@documenso/lib/server-only/envelope/create-envelope';
-import { insertFormValuesInPdf } from '@documenso/lib/server-only/pdf/insert-form-values-in-pdf';
-import { putNormalizedPdfFileServerSide } from '@documenso/lib/universal/upload/put-file.server';
-import { mapSecondaryIdToDocumentId } from '@documenso/lib/utils/envelope';
+import { getServerLimits } from '@Scriblli/ee/server-only/limits/server';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { createEnvelope } from '@Scriblli/lib/server-only/envelope/create-envelope';
+import { insertFormValuesInPdf } from '@Scriblli/lib/server-only/pdf/insert-form-values-in-pdf';
+import { putNormalizedPdfFileServerSide } from '@Scriblli/lib/universal/upload/put-file.server';
+import { mapSecondaryIdToDocumentId } from '@Scriblli/lib/utils/envelope';
 
 import { authenticatedProcedure } from '../trpc';
 import {

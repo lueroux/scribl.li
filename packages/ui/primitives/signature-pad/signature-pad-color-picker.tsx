@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@documenso/ui/primitives/select';
+} from '@Scriblli/ui/primitives/select';
 
 import { cn } from '../../lib/utils';
 

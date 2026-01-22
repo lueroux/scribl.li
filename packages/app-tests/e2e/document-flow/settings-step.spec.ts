@@ -4,8 +4,8 @@ import {
   seedBlankDocument,
   seedDraftDocument,
   seedPendingDocument,
-} from '@documenso/prisma/seed/documents';
-import { seedUser } from '@documenso/prisma/seed/users';
+} from '@Scriblli/prisma/seed/documents';
+import { seedUser } from '@Scriblli/prisma/seed/users';
 
 import { apiSignin } from '../fixtures/authentication';
 

@@ -1,9 +1,9 @@
 import { OrganisationGroupType, OrganisationMemberRole } from '@prisma/client';
 
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { generateDatabaseId } from '@documenso/lib/universal/id';
-import { getHighestOrganisationRoleInGroup } from '@documenso/lib/utils/organisations';
-import { prisma } from '@documenso/prisma';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { generateDatabaseId } from '@Scriblli/lib/universal/id';
+import { getHighestOrganisationRoleInGroup } from '@Scriblli/lib/utils/organisations';
+import { prisma } from '@Scriblli/prisma';
 
 import { adminProcedure } from '../trpc';
 import {

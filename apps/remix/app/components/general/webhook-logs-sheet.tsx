@@ -5,14 +5,14 @@ import { WebhookCallStatus } from '@prisma/client';
 import { RotateCwIcon } from 'lucide-react';
 import { createCallable } from 'react-call';
 
-import { toFriendlyWebhookEventName } from '@documenso/lib/universal/webhook/to-friendly-webhook-event-name';
-import { trpc } from '@documenso/trpc/react';
-import type { TFindWebhookCallsResponse } from '@documenso/trpc/server/webhook-router/find-webhook-calls.types';
-import { CopyTextButton } from '@documenso/ui/components/common/copy-text-button';
-import { cn } from '@documenso/ui/lib/utils';
-import { Button } from '@documenso/ui/primitives/button';
-import { Sheet, SheetContent, SheetTitle } from '@documenso/ui/primitives/sheet';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+import { toFriendlyWebhookEventName } from '@Scriblli/lib/universal/webhook/to-friendly-webhook-event-name';
+import { trpc } from '@Scriblli/trpc/react';
+import type { TFindWebhookCallsResponse } from '@Scriblli/trpc/server/webhook-router/find-webhook-calls.types';
+import { CopyTextButton } from '@Scriblli/ui/components/common/copy-text-button';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Sheet, SheetContent, SheetTitle } from '@Scriblli/ui/primitives/sheet';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 export type WebhookLogsSheetProps = {
   webhookCall: TFindWebhookCallsResponse['data'][number];

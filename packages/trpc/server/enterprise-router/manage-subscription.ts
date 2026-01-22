@@ -1,10 +1,10 @@
-import { createCustomer } from '@documenso/ee/server-only/stripe/create-customer';
-import { getPortalSession } from '@documenso/ee/server-only/stripe/get-portal-session';
-import { IS_BILLING_ENABLED, NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
-import { ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP } from '@documenso/lib/constants/organisations';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { buildOrganisationWhereQuery } from '@documenso/lib/utils/organisations';
-import { prisma } from '@documenso/prisma';
+import { createCustomer } from '@Scriblli/ee/server-only/stripe/create-customer';
+import { getPortalSession } from '@Scriblli/ee/server-only/stripe/get-portal-session';
+import { IS_BILLING_ENABLED, NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
+import { ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP } from '@Scriblli/lib/constants/organisations';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { buildOrganisationWhereQuery } from '@Scriblli/lib/utils/organisations';
+import { prisma } from '@Scriblli/prisma';
 
 import { authenticatedProcedure } from '../trpc';
 import { ZManageSubscriptionRequestSchema } from './manage-subscription.types';

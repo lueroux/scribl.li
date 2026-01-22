@@ -1,8 +1,8 @@
 import { Trans } from '@lingui/react/macro';
 import { Link } from 'react-router';
 
-import { SUPPORT_EMAIL } from '@documenso/lib/constants/app';
-import { Button } from '@documenso/ui/primitives/button';
+import { SUPPORT_EMAIL } from '@Scriblli/lib/constants/app';
+import { Button } from '@Scriblli/ui/primitives/button';
 
 export default function SignatureDisclosure() {
   return (
@@ -135,7 +135,7 @@ export default function SignatureDisclosure() {
         </h2>
         <p>
           <Trans>
-            By proceeding to use the electronic signature service provided by Documenso, you affirm
+            By proceeding to use the electronic signature service provided by Scriblli, you affirm
             that you have read and understood this disclosure. You agree to all terms and conditions
             related to the use of electronic signatures and electronic transactions as outlined
             herein.

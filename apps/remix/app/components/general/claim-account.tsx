@@ -6,11 +6,11 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import { z } from 'zod';
 
-import { authClient } from '@documenso/auth/client';
-import { useAnalytics } from '@documenso/lib/client-only/hooks/use-analytics';
-import { AppError } from '@documenso/lib/errors/app-error';
-import { ZPasswordSchema } from '@documenso/trpc/server/auth-router/schema';
-import { Button } from '@documenso/ui/primitives/button';
+import { authClient } from '@Scriblli/auth/client';
+import { useAnalytics } from '@Scriblli/lib/client-only/hooks/use-analytics';
+import { AppError } from '@Scriblli/lib/errors/app-error';
+import { ZPasswordSchema } from '@Scriblli/trpc/server/auth-router/schema';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Form,
   FormControl,
@@ -18,10 +18,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
-import { Input } from '@documenso/ui/primitives/input';
-import { PasswordInput } from '@documenso/ui/primitives/password-input';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/form/form';
+import { Input } from '@Scriblli/ui/primitives/input';
+import { PasswordInput } from '@Scriblli/ui/primitives/password-input';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { signupErrorMessages } from '~/components/forms/signup';
 

@@ -1,11 +1,11 @@
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import { getEnvelopeWhereInput } from '@documenso/lib/server-only/envelope/get-envelope-by-id';
-import { DOCUMENT_AUDIT_LOG_TYPE } from '@documenso/lib/types/document-audit-logs';
-import { prefixedId } from '@documenso/lib/universal/id';
-import { putNormalizedPdfFileServerSide } from '@documenso/lib/universal/upload/put-file.server';
-import { createDocumentAuditLogData } from '@documenso/lib/utils/document-audit-logs';
-import { canEnvelopeItemsBeModified } from '@documenso/lib/utils/envelope';
-import { prisma } from '@documenso/prisma';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import { getEnvelopeWhereInput } from '@Scriblli/lib/server-only/envelope/get-envelope-by-id';
+import { DOCUMENT_AUDIT_LOG_TYPE } from '@Scriblli/lib/types/document-audit-logs';
+import { prefixedId } from '@Scriblli/lib/universal/id';
+import { putNormalizedPdfFileServerSide } from '@Scriblli/lib/universal/upload/put-file.server';
+import { createDocumentAuditLogData } from '@Scriblli/lib/utils/document-audit-logs';
+import { canEnvelopeItemsBeModified } from '@Scriblli/lib/utils/envelope';
+import { prisma } from '@Scriblli/prisma';
 
 import { authenticatedProcedure } from '../trpc';
 import {

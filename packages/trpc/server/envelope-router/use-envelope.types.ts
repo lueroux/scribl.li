@@ -1,8 +1,8 @@
 import { z } from 'zod';
 import { zfd } from 'zod-form-data';
 
-import { ZDocumentEmailSettingsSchema } from '@documenso/lib/types/document-email';
-import { ZDocumentFormValuesSchema } from '@documenso/lib/types/document-form-values';
+import { ZDocumentEmailSettingsSchema } from '@Scriblli/lib/types/document-email';
+import { ZDocumentFormValuesSchema } from '@Scriblli/lib/types/document-form-values';
 import {
   ZDocumentMetaDateFormatSchema,
   ZDocumentMetaDistributionMethodSchema,
@@ -14,10 +14,10 @@ import {
   ZDocumentMetaTimezoneSchema,
   ZDocumentMetaTypedSignatureEnabledSchema,
   ZDocumentMetaUploadSignatureEnabledSchema,
-} from '@documenso/lib/types/document-meta';
-import { ZEnvelopeAttachmentTypeSchema } from '@documenso/lib/types/envelope-attachment';
-import { ZFieldMetaPrefillFieldsSchema } from '@documenso/lib/types/field-meta';
-import { ZRecipientEmailSchema } from '@documenso/lib/types/recipient';
+} from '@Scriblli/lib/types/document-meta';
+import { ZEnvelopeAttachmentTypeSchema } from '@Scriblli/lib/types/envelope-attachment';
+import { ZFieldMetaPrefillFieldsSchema } from '@Scriblli/lib/types/field-meta';
+import { ZRecipientEmailSchema } from '@Scriblli/lib/types/recipient';
 
 import { zodFormData } from '../../utils/zod-form-data';
 import type { TrpcRouteMeta } from '../trpc';

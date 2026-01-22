@@ -8,20 +8,20 @@ import { Paperclip, Plus, X } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { AppError } from '@documenso/lib/errors/app-error';
-import { trpc } from '@documenso/trpc/react';
-import { cn } from '@documenso/ui/lib/utils';
-import { Button } from '@documenso/ui/primitives/button';
+import { AppError } from '@Scriblli/lib/errors/app-error';
+import { trpc } from '@Scriblli/trpc/react';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
-import { Input } from '@documenso/ui/primitives/input';
-import { Popover, PopoverContent, PopoverTrigger } from '@documenso/ui/primitives/popover';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/form/form';
+import { Input } from '@Scriblli/ui/primitives/input';
+import { Popover, PopoverContent, PopoverTrigger } from '@Scriblli/ui/primitives/popover';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 export type DocumentAttachmentsPopoverProps = {
   envelopeId: string;

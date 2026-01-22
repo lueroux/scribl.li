@@ -1,14 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { ALIGNMENT_TEST_FIELDS } from '@documenso/app-tests/constants/field-alignment-pdf';
-import { FIELD_META_TEST_FIELDS } from '@documenso/app-tests/constants/field-meta-pdf';
-import { isBase64Image } from '@documenso/lib/constants/signatures';
+import { ALIGNMENT_TEST_FIELDS } from '@Scriblli/app-tests/constants/field-alignment-pdf';
+import { FIELD_META_TEST_FIELDS } from '@Scriblli/app-tests/constants/field-meta-pdf';
+import { isBase64Image } from '@Scriblli/lib/constants/signatures';
 import {
   incrementDocumentId,
   incrementTemplateId,
-} from '@documenso/lib/server-only/envelope/increment-id';
-import { nanoid, prefixedId } from '@documenso/lib/universal/id';
+} from '@Scriblli/lib/server-only/envelope/increment-id';
+import { nanoid, prefixedId } from '@Scriblli/lib/universal/id';
 
 import { prisma } from '..';
 import {
@@ -45,13 +45,13 @@ export const seedDatabase = async () => {
 
   const exampleUserExists = await prisma.user.findFirst({
     where: {
-      email: 'example@documenso.com',
+      email: 'example@Scriblli.com',
     },
   });
 
   const adminUserExists = await prisma.user.findFirst({
     where: {
-      email: 'admin@documenso.com',
+      email: 'admin@Scriblli.com',
     },
   });
 
@@ -61,12 +61,12 @@ export const seedDatabase = async () => {
 
   const exampleUser = await seedUser({
     name: 'Example User',
-    email: 'example@documenso.com',
+    email: 'example@Scriblli.com',
   });
 
   const adminUser = await seedUser({
     name: 'Admin User',
-    email: 'admin@documenso.com',
+    email: 'admin@Scriblli.com',
     isAdmin: true,
   });
 

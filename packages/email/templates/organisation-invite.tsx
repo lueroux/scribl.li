@@ -28,7 +28,7 @@ export type OrganisationInviteEmailProps = {
 
 export const OrganisationInviteEmailTemplate = ({
   assetBaseUrl = 'https://scribl.li',
-  baseUrl = 'https://documenso.com',
+  baseUrl = 'https://Scriblli.com',
   senderName = 'John Doe',
   organisationName = 'Organisation Name',
   token = '',

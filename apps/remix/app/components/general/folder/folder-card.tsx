@@ -11,18 +11,18 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router';
 
-import { formatDocumentsPath, formatTemplatesPath } from '@documenso/lib/utils/teams';
-import { trpc } from '@documenso/trpc/react';
-import { type TFolderWithSubfolders } from '@documenso/trpc/server/folder-router/schema';
-import { Button } from '@documenso/ui/primitives/button';
-import { Card, CardContent } from '@documenso/ui/primitives/card';
+import { formatDocumentsPath, formatTemplatesPath } from '@Scriblli/lib/utils/teams';
+import { trpc } from '@Scriblli/trpc/react';
+import { type TFolderWithSubfolders } from '@Scriblli/trpc/server/folder-router/schema';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Card, CardContent } from '@Scriblli/ui/primitives/card';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@documenso/ui/primitives/dropdown-menu';
+} from '@Scriblli/ui/primitives/dropdown-menu';
 
 import { useCurrentTeam } from '~/providers/team';
 

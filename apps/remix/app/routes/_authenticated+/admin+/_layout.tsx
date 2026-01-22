@@ -10,10 +10,10 @@ import {
 } from 'lucide-react';
 import { Link, Outlet, redirect, useLocation } from 'react-router';
 
-import { getSession } from '@documenso/auth/server/lib/utils/get-session';
-import { isAdmin } from '@documenso/lib/utils/is-admin';
-import { cn } from '@documenso/ui/lib/utils';
-import { Button } from '@documenso/ui/primitives/button';
+import { getSession } from '@Scriblli/auth/server/lib/utils/get-session';
+import { isAdmin } from '@Scriblli/lib/utils/is-admin';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Button } from '@Scriblli/ui/primitives/button';
 
 import type { Route } from './+types/_layout';
 

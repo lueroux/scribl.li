@@ -5,23 +5,23 @@ import { useLingui } from '@lingui/react';
 import { Loader } from 'lucide-react';
 import { useRevalidator } from 'react-router';
 
-import { DO_NOT_INVALIDATE_QUERY_ON_MUTATION } from '@documenso/lib/constants/trpc';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import type { TRecipientActionAuth } from '@documenso/lib/types/document-auth';
-import { ZCheckboxFieldMeta } from '@documenso/lib/types/field-meta';
-import { fromCheckboxValue, toCheckboxValue } from '@documenso/lib/universal/field-checkbox';
-import type { FieldWithSignatureAndFieldMeta } from '@documenso/prisma/types/field-with-signature-and-fieldmeta';
-import { trpc } from '@documenso/trpc/react';
+import { DO_NOT_INVALIDATE_QUERY_ON_MUTATION } from '@Scriblli/lib/constants/trpc';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import type { TRecipientActionAuth } from '@Scriblli/lib/types/document-auth';
+import { ZCheckboxFieldMeta } from '@Scriblli/lib/types/field-meta';
+import { fromCheckboxValue, toCheckboxValue } from '@Scriblli/lib/universal/field-checkbox';
+import type { FieldWithSignatureAndFieldMeta } from '@Scriblli/prisma/types/field-with-signature-and-fieldmeta';
+import { trpc } from '@Scriblli/trpc/react';
 import type {
   TRemovedSignedFieldWithTokenMutationSchema,
   TSignFieldWithTokenMutationSchema,
-} from '@documenso/trpc/server/field-router/schema';
-import { FieldToolTip } from '@documenso/ui/components/field/field-tooltip';
-import { cn } from '@documenso/ui/lib/utils';
-import { Checkbox } from '@documenso/ui/primitives/checkbox';
-import { checkboxValidationSigns } from '@documenso/ui/primitives/document-flow/field-items-advanced-settings/constants';
-import { Label } from '@documenso/ui/primitives/label';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/trpc/server/field-router/schema';
+import { FieldToolTip } from '@Scriblli/ui/components/field/field-tooltip';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Checkbox } from '@Scriblli/ui/primitives/checkbox';
+import { checkboxValidationSigns } from '@Scriblli/ui/primitives/document-flow/field-items-advanced-settings/constants';
+import { Label } from '@Scriblli/ui/primitives/label';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import { useRequiredDocumentSigningAuthContext } from './document-signing-auth-provider';
 import { DocumentSigningFieldContainer } from './document-signing-field-container';

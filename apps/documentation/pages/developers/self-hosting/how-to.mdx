@@ -1,6 +1,6 @@
 ---
-title: How to Self-Host Documenso
-description: Learn how to self-host Documenso on your server or cloud infrastructure using Docker or other deployment methods.
+title: How to Self-Host Scriblli
+description: Learn how to self-host Scriblli on your server or cloud infrastructure using Docker or other deployment methods.
 ---
 
 import { Callout, Steps } from 'nextra/components';
@@ -13,7 +13,7 @@ We support various deployment methods and are actively working on adding more. P
 
 ## Manual Deployment
 
-The following guide will walk you through setting up Documenso manually on your server or cloud infrastructure.
+The following guide will walk you through setting up Scriblli manually on your server or cloud infrastructure.
 
 <Steps>
 ### Clone the Repository
@@ -21,12 +21,12 @@ The following guide will walk you through setting up Documenso manually on your 
 The first step is to clone the repository:
 
 ```bash
-git clone https://github.com/documenso/documenso.git
+git clone https://github.com/Scriblli/Scriblli.git
 ```
 
 ### Configure the Environment Variables
 
-Navigate to the `documenso` folder and create a `.env` file from the example `.env.example` file:
+Navigate to the `Scriblli` folder and create a `.env` file from the example `.env.example` file:
 
 ```bash
 cp .env.example .env
@@ -44,7 +44,7 @@ Open the `.env` file and fill in the following variables:
 ```
 
 <Callout type="info">
-  If you use a reverse proxy in front of Documenso, don't forget to provide the public URL for the
+  If you use a reverse proxy in front of Scriblli, don't forget to provide the public URL for the
   `NEXT_PUBLIC_WEBAPP_URL` variable!
 </Callout>
 
@@ -76,12 +76,12 @@ This will start the server on `localhost:3000`. Any reverse proxy can handle the
 
 ## Docker
 
-The following guide will walk you through setting up Documenso using Docker. You can choose between a Docker Compose production setup or a standalone container.
+The following guide will walk you through setting up Scriblli using Docker. You can choose between a Docker Compose production setup or a standalone container.
 
-We provide a Docker container for Documenso, published on both DockerHub and GitHub Container Registry.
+We provide a Docker container for Scriblli, published on both DockerHub and GitHub Container Registry.
 
-- [DockerHub](https://hub.docker.com/r/documenso/documenso)
-- [GitHub Container Registry](https://ghcr.io/documenso/documenso)
+- [DockerHub](https://hub.docker.com/r/Scriblli/Scriblli)
+- [GitHub Container Registry](https://ghcr.io/Scriblli/Scriblli)
 
 You can pull the Docker image from either of these registries and run it with your preferred container hosting provider.
 
@@ -89,13 +89,13 @@ Please note that you must provide environment variables for connecting to the da
 
 ### Option 1: Production Docker Compose Setup
 
-This setup includes a PostgreSQL database and the Documenso application. You will need to provide your own SMTP details using environment variables.
+This setup includes a PostgreSQL database and the Scriblli application. You will need to provide your own SMTP details using environment variables.
 
 <Steps>
 
 ### Download the Docker Compose File
 
-Download the Docker Compose file from the Documenso repository - [compose.yml](https://raw.githubusercontent.com/documenso/documenso/release/docker/production/compose.yml).
+Download the Docker Compose file from the Scriblli repository - [compose.yml](https://raw.githubusercontent.com/Scriblli/Scriblli/release/docker/production/compose.yml).
 
 ### Navigate to the `compose.yml` File
 
@@ -147,7 +147,7 @@ This method avoids file permission issues by creating the certificate directly i
    echo
 
    # Generate certificate inside container using environment variable
-   docker exec -e CERT_PASS="$CERT_PASS" -it documenso-production-documenso-1 bash -c "
+   docker exec -e CERT_PASS="$CERT_PASS" -it Scriblli-production-Scriblli-1 bash -c "
      mkdir -p /app/certs && \
      openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
        -keyout /tmp/private.key \
@@ -168,7 +168,7 @@ This method avoids file permission issues by creating the certificate directly i
 
 4. Restart the container to apply changes:
    ```bash
-   docker-compose restart documenso
+   docker-compose restart Scriblli
    ```
 
 #### Option B: Use an Existing Certificate File
@@ -190,12 +190,12 @@ If you have an existing `.p12` certificate file:
 
    ```yaml
    volumes:
-     - /path/to/your/cert.p12:/opt/documenso/cert.p12:ro
+     - /path/to/your/cert.p12:/opt/Scriblli/cert.p12:ro
    ```
 
 4. **Add certificate configuration** to your `.env` file:
    ```bash
-   NEXT_PRIVATE_SIGNING_LOCAL_FILE_PATH=/opt/documenso/cert.p12
+   NEXT_PRIVATE_SIGNING_LOCAL_FILE_PATH=/opt/Scriblli/cert.p12
    NEXT_PRIVATE_SIGNING_PASSPHRASE=your_certificate_password
    ```
 
@@ -210,32 +210,32 @@ After setting up your certificate, save the `compose.yml` file and run the follo
 docker-compose --env-file ./.env up -d
 ```
 
-The command will start the PostgreSQL database and the Documenso application containers.
+The command will start the PostgreSQL database and the Scriblli application containers.
 
 ### Access the Application
 
-Access the Documenso application by visiting `http://localhost:3000` in your web browser.
+Access the Scriblli application by visiting `http://localhost:3000` in your web browser.
 
 </Steps>
 
 ### Option 2: Standalone Docker Container
 
-If you prefer to host the Documenso application on a specific container provider, use the pre-built Docker image from DockerHub or GitHub's Package Registry. You will need to provide your own database and SMTP host.
+If you prefer to host the Scriblli application on a specific container provider, use the pre-built Docker image from DockerHub or GitHub's Package Registry. You will need to provide your own database and SMTP host.
 
 <Steps>
 
 ### Pull the Docker Image
 
-Pull the Documenso Docker image from DockerHub:
+Pull the Scriblli Docker image from DockerHub:
 
 ```bash
-docker pull documenso/documenso
+docker pull Scriblli/Scriblli
 ```
 
 Or, pull the image from GitHub Container Registry:
 
 ```bash
-docker pull ghcr.io/documenso/documenso
+docker pull ghcr.io/Scriblli/Scriblli
 ```
 
 ### Run the Docker Container
@@ -254,27 +254,27 @@ docker run -d \
  -e NEXT_PRIVATE_SMTP_TRANSPORT="<your-next-private-smtp-transport>"
  -e NEXT_PRIVATE_SMTP_FROM_NAME="<your-next-private-smtp-from-name>"
  -e NEXT_PRIVATE_SMTP_FROM_ADDRESS="<your-next-private-smtp-from-address>"
- -v /path/to/your/keyfile.p12:/opt/documenso/cert.p12
- documenso/documenso
+ -v /path/to/your/keyfile.p12:/opt/Scriblli/cert.p12
+ Scriblli/Scriblli
 ```
 
 Replace the placeholders with the actual values.
 
 ### Access the Application
 
-You can access the Documenso application by visiting the URL you provided for the `NEXT_PUBLIC_WEBAPP_URL` environment variable in your web browser.
+You can access the Scriblli application by visiting the URL you provided for the `NEXT_PUBLIC_WEBAPP_URL` environment variable in your web browser.
 
 </Steps>
 
 ### Advanced Configuration
 
-The environment variables listed above are a subset of those available for configuring Documenso. The table below provides a complete list of environment variables and their descriptions.
+The environment variables listed above are a subset of those available for configuring Scriblli. The table below provides a complete list of environment variables and their descriptions.
 
 For AI setup specifics, see the [AI Recipient & Field Detection (Self-hosting)](./ai-features) page.
 
 | Variable                                     | Description                                                                                                                                             |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PORT`                                       | The port on which the Documenso application runs. It defaults to `3000`.                                                                                |
+| `PORT`                                       | The port on which the Scriblli application runs. It defaults to `3000`.                                                                                |
 | `NEXTAUTH_SECRET`                            | The secret key used by NextAuth.js for encryption and signing.                                                                                          |
 | `NEXT_PRIVATE_ENCRYPTION_KEY`                | The primary encryption key for symmetric encryption and decryption (at least 32 characters).                                                            |
 | `NEXT_PRIVATE_ENCRYPTION_SECONDARY_KEY`      | The secondary encryption key for symmetric encryption and decryption (at least 32 characters).                                                          |
@@ -288,13 +288,13 @@ For AI setup specifics, see the [AI Recipient & Field Detection (Self-hosting)](
 | `NEXT_PRIVATE_OIDC_PROVIDER_LABEL`           | The label to display for the OIDC provider button (optional).                                                                                           |
 | `NEXT_PRIVATE_OIDC_SKIP_VERIFY`              | Whether to skip email verification for OIDC accounts (optional, default `false`).                                                                       |
 | `NEXT_PUBLIC_WEBAPP_URL`                     | The URL for the web application.                                                                                                                        |
-| `NEXT_PUBLIC_SUPPORT_EMAIL`                  | The support email address displayed to users (default `support@documenso.com`).                                                                         |
+| `NEXT_PUBLIC_SUPPORT_EMAIL`                  | The support email address displayed to users (default `support@Scriblli.com`).                                                                         |
 | `NEXT_PRIVATE_DATABASE_URL`                  | The URL for the primary database connection (with connection pooling).                                                                                  |
 | `NEXT_PRIVATE_DIRECT_DATABASE_URL`           | The URL for the direct database connection (without connection pooling).                                                                                |
 | `NEXT_PRIVATE_SIGNING_TRANSPORT`             | The signing transport to use. Available options: local (default), gcloud-hsm                                                                            |
 | `NEXT_PRIVATE_SIGNING_PASSPHRASE`            | The passphrase for the key file.                                                                                                                        |
 | `NEXT_PRIVATE_SIGNING_LOCAL_FILE_CONTENTS`   | The base64-encoded contents of the key file will be used instead of the file path.                                                                      |
-| `NEXT_PRIVATE_SIGNING_LOCAL_FILE_PATH`       | The path to the key file, default `/opt/documenso/cert.p12`.                                                                                            |
+| `NEXT_PRIVATE_SIGNING_LOCAL_FILE_PATH`       | The path to the key file, default `/opt/Scriblli/cert.p12`.                                                                                            |
 | `NEXT_PRIVATE_SIGNING_TIMESTAMP_AUTHORITY`   | Comma-separated list of timestamp authority URLs for PDF signing. Enables LTV and archival timestamps.                                                  |
 | `NEXT_PUBLIC_SIGNING_CONTACT_INFO`           | Contact info to embed in PDF signatures. Defaults to the webapp URL.                                                                                    |
 | `NEXT_PRIVATE_USE_LEGACY_SIGNING_SUBFILTER`  | Set to "true" to use the legacy adbe.pkcs7.detached subfilter instead of ETSI.CAdES.detached.                                                           |
@@ -326,20 +326,20 @@ For AI setup specifics, see the [AI Recipient & Field Detection (Self-hosting)](
 | `NEXT_PUBLIC_POSTHOG_KEY`                    | The optional PostHog key for analytics and feature flags.                                                                                               |
 | `NEXT_PUBLIC_DISABLE_SIGNUP`                 | Whether to disable user signups through the /signup page.                                                                                               |
 | `NEXT_PRIVATE_BROWSERLESS_URL`               | The URL for a Browserless.io instance to generate PDFs (optional).                                                                                      |
-| `DOCUMENSO_DISABLE_TELEMETRY`                | Set to `true` to disable anonymous telemetry (see [Telemetry](#telemetry) section below).                                                               |
+| `Scriblli_DISABLE_TELEMETRY`                | Set to `true` to disable anonymous telemetry (see [Telemetry](#telemetry) section below).                                                               |
 | `GOOGLE_VERTEX_PROJECT_ID`                   | Google Cloud project ID used for Vertex AI (required for AI detection).                                                                                 |
 | `GOOGLE_VERTEX_API_KEY`                      | Vertex AI Express API key with access to Gemini models (required for AI detection). See [AI Recipient & Field Detectionfor](./ai-features) for details. |
 | `GOOGLE_VERTEX_LOCATION`                     | Optional Vertex region, defaults to `global`. Not all models are available in every region.                                                             |
 
 ## Telemetry
 
-Documenso collects anonymous telemetry data to help us understand how the software is being used and improve the product. This telemetry is **enabled by default** for self-hosted instances.
+Scriblli collects anonymous telemetry data to help us understand how the software is being used and improve the product. This telemetry is **enabled by default** for self-hosted instances.
 
 ### What We Collect
 
 We collect minimal, privacy-preserving data:
 
-- **App Version**: The version of Documenso you are running
+- **App Version**: The version of Scriblli you are running
 - **Installation ID**: A unique identifier for your installation (stored in your database)
 - **Node ID**: A unique identifier for each server/container instance (stored in the OS temp directory)
 
@@ -355,7 +355,7 @@ We do **not** collect any personal data, document contents, user information, or
 To disable telemetry, set the following environment variable:
 
 ```bash
-DOCUMENSO_DISABLE_TELEMETRY=true
+Scriblli_DISABLE_TELEMETRY=true
 ```
 
 This will completely disable all telemetry data collection.
@@ -366,14 +366,14 @@ You can run the application using a `systemd.service` file. Here is a simple exa
 
 ```bash
 [Unit]
-Description=documenso
+Description=Scriblli
 After=network.target
 
 [Service]
 Environment=PATH=/path/to/your/node/binaries
 Type=simple
 User=www-data
-WorkingDirectory=/var/www/documenso/apps/remix
+WorkingDirectory=/var/www/Scriblli/apps/remix
 ExecStart=/usr/bin/next start -p 3500
 TimeoutSec=15
 Restart=always
@@ -382,7 +382,7 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-We offer several alternative deployment methods for Documenso if you need more options.
+We offer several alternative deployment methods for Scriblli if you need more options.
 
 ## Railway
 
@@ -390,10 +390,10 @@ We offer several alternative deployment methods for Documenso if you need more o
 
 ## Render
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/documenso/documenso)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Scriblli/Scriblli)
 
 ## Koyeb
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/documenso/documenso&branch=main&name=documenso-app&builder=dockerfile&dockerfile=/docker/Dockerfile)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/Scriblli/Scriblli&branch=main&name=Scriblli-app&builder=dockerfile&dockerfile=/docker/Dockerfile)
 
 <CallToAction className="mt-12" utmSource="self-hosting" />

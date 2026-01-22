@@ -12,21 +12,21 @@ import { motion } from 'framer-motion';
 import { GripVerticalIcon, HelpCircle, Link2Icon, Plus, Trash } from 'lucide-react';
 import { useFieldArray, useForm } from 'react-hook-form';
 
-import { useAutoSave } from '@documenso/lib/client-only/hooks/use-autosave';
-import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import { isTemplateRecipientEmailPlaceholder } from '@documenso/lib/constants/template';
-import { ZRecipientAuthOptionsSchema } from '@documenso/lib/types/document-auth';
-import { nanoid } from '@documenso/lib/universal/id';
-import { generateRecipientPlaceholder } from '@documenso/lib/utils/templates';
-import { AnimateGenericFadeInOut } from '@documenso/ui/components/animate/animate-generic-fade-in-out';
-import { RecipientActionAuthSelect } from '@documenso/ui/components/recipient/recipient-action-auth-select';
-import { RecipientRoleSelect } from '@documenso/ui/components/recipient/recipient-role-select';
-import { cn } from '@documenso/ui/lib/utils';
-import { Button } from '@documenso/ui/primitives/button';
-import { FormErrorMessage } from '@documenso/ui/primitives/form/form-error-message';
-import { Input } from '@documenso/ui/primitives/input';
-import { toast } from '@documenso/ui/primitives/use-toast';
+import { useAutoSave } from '@Scriblli/lib/client-only/hooks/use-autosave';
+import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { useSession } from '@Scriblli/lib/client-only/providers/session';
+import { isTemplateRecipientEmailPlaceholder } from '@Scriblli/lib/constants/template';
+import { ZRecipientAuthOptionsSchema } from '@Scriblli/lib/types/document-auth';
+import { nanoid } from '@Scriblli/lib/universal/id';
+import { generateRecipientPlaceholder } from '@Scriblli/lib/utils/templates';
+import { AnimateGenericFadeInOut } from '@Scriblli/ui/components/animate/animate-generic-fade-in-out';
+import { RecipientActionAuthSelect } from '@Scriblli/ui/components/recipient/recipient-action-auth-select';
+import { RecipientRoleSelect } from '@Scriblli/ui/components/recipient/recipient-role-select';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { FormErrorMessage } from '@Scriblli/ui/primitives/form/form-error-message';
+import { Input } from '@Scriblli/ui/primitives/input';
+import { toast } from '@Scriblli/ui/primitives/use-toast';
 
 import {
   DocumentReadOnlyFields,

@@ -12,11 +12,11 @@ import {
 import {
   DOCUMENT_AUDIT_LOG_TYPE,
   RECIPIENT_DIFF_TYPE,
-} from '@documenso/lib/types/document-audit-logs';
-import type { RequestMetadata } from '@documenso/lib/universal/extract-request-metadata';
-import { fieldsContainUnsignedRequiredField } from '@documenso/lib/utils/advanced-fields-helpers';
-import { createDocumentAuditLogData } from '@documenso/lib/utils/document-audit-logs';
-import { prisma } from '@documenso/prisma';
+} from '@Scriblli/lib/types/document-audit-logs';
+import type { RequestMetadata } from '@Scriblli/lib/universal/extract-request-metadata';
+import { fieldsContainUnsignedRequiredField } from '@Scriblli/lib/utils/advanced-fields-helpers';
+import { createDocumentAuditLogData } from '@Scriblli/lib/utils/document-audit-logs';
+import { prisma } from '@Scriblli/prisma';
 
 import { AppError, AppErrorCode } from '../../errors/app-error';
 import { jobs } from '../../jobs/client';

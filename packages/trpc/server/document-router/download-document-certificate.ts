@@ -1,12 +1,12 @@
 import { EnvelopeType } from '@prisma/client';
 import { DateTime } from 'luxon';
 
-import { NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
-import { AppError } from '@documenso/lib/errors/app-error';
-import { encryptSecondaryData } from '@documenso/lib/server-only/crypto/encrypt';
-import { getEnvelopeById } from '@documenso/lib/server-only/envelope/get-envelope-by-id';
-import { isDocumentCompleted } from '@documenso/lib/utils/document';
-import { mapSecondaryIdToDocumentId } from '@documenso/lib/utils/envelope';
+import { NEXT_PUBLIC_WEBAPP_URL } from '@Scriblli/lib/constants/app';
+import { AppError } from '@Scriblli/lib/errors/app-error';
+import { encryptSecondaryData } from '@Scriblli/lib/server-only/crypto/encrypt';
+import { getEnvelopeById } from '@Scriblli/lib/server-only/envelope/get-envelope-by-id';
+import { isDocumentCompleted } from '@Scriblli/lib/utils/document';
+import { mapSecondaryIdToDocumentId } from '@Scriblli/lib/utils/envelope';
 
 import { authenticatedProcedure } from '../trpc';
 import {

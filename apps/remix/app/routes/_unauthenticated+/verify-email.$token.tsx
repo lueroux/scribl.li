@@ -7,11 +7,11 @@ import { AlertTriangle, CheckCircle2, Loader, XCircle } from 'lucide-react';
 import { Link, redirect, useNavigate } from 'react-router';
 import { match } from 'ts-pattern';
 
-import { authClient } from '@documenso/auth/client';
-import { useOptionalSession } from '@documenso/lib/client-only/providers/session';
-import { EMAIL_VERIFICATION_STATE } from '@documenso/lib/constants/email';
-import { Button } from '@documenso/ui/primitives/button';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+import { authClient } from '@Scriblli/auth/client';
+import { useOptionalSession } from '@Scriblli/lib/client-only/providers/session';
+import { EMAIL_VERIFICATION_STATE } from '@Scriblli/lib/constants/email';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import type { Route } from './+types/verify-email.$token';
 

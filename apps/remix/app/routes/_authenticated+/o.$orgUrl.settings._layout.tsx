@@ -12,11 +12,11 @@ import {
 import { FaUsers } from 'react-icons/fa6';
 import { Link, NavLink, Outlet } from 'react-router';
 
-import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { IS_BILLING_ENABLED } from '@documenso/lib/constants/app';
-import { canExecuteOrganisationAction } from '@documenso/lib/utils/organisations';
-import { cn } from '@documenso/ui/lib/utils';
-import { Button } from '@documenso/ui/primitives/button';
+import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { IS_BILLING_ENABLED } from '@Scriblli/lib/constants/app';
+import { canExecuteOrganisationAction } from '@Scriblli/lib/utils/organisations';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { Button } from '@Scriblli/ui/primitives/button';
 
 import { GenericErrorLayout } from '~/components/general/generic-error-layout';
 import { appMetaTags } from '~/utils/meta';

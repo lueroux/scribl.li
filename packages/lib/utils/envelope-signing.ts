@@ -4,25 +4,25 @@ import { DateTime } from 'luxon';
 import { P, match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { validateCheckboxLength } from '@documenso/lib/advanced-fields-validation/validate-checkbox';
-import { validateDropdownField } from '@documenso/lib/advanced-fields-validation/validate-dropdown';
-import { validateNumberField } from '@documenso/lib/advanced-fields-validation/validate-number';
-import { validateTextField } from '@documenso/lib/advanced-fields-validation/validate-text';
-import { DEFAULT_DOCUMENT_DATE_FORMAT } from '@documenso/lib/constants/date-formats';
-import { isBase64Image } from '@documenso/lib/constants/signatures';
-import { DEFAULT_DOCUMENT_TIME_ZONE } from '@documenso/lib/constants/time-zones';
-import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
-import type { TDocumentMeta } from '@documenso/lib/types/document-meta';
+import { validateCheckboxLength } from '@Scriblli/lib/advanced-fields-validation/validate-checkbox';
+import { validateDropdownField } from '@Scriblli/lib/advanced-fields-validation/validate-dropdown';
+import { validateNumberField } from '@Scriblli/lib/advanced-fields-validation/validate-number';
+import { validateTextField } from '@Scriblli/lib/advanced-fields-validation/validate-text';
+import { DEFAULT_DOCUMENT_DATE_FORMAT } from '@Scriblli/lib/constants/date-formats';
+import { isBase64Image } from '@Scriblli/lib/constants/signatures';
+import { DEFAULT_DOCUMENT_TIME_ZONE } from '@Scriblli/lib/constants/time-zones';
+import { AppError, AppErrorCode } from '@Scriblli/lib/errors/app-error';
+import type { TDocumentMeta } from '@Scriblli/lib/types/document-meta';
 import {
   ZCheckboxFieldMeta,
   ZDropdownFieldMeta,
   ZNumberFieldMeta,
   ZRadioFieldMeta,
   ZTextFieldMeta,
-} from '@documenso/lib/types/field-meta';
-import { toCheckboxCustomText, toRadioCustomText } from '@documenso/lib/utils/fields';
-import type { TSignEnvelopeFieldValue } from '@documenso/trpc/server/envelope-router/sign-envelope-field.types';
-import { checkboxValidationSigns } from '@documenso/ui/primitives/document-flow/field-items-advanced-settings/constants';
+} from '@Scriblli/lib/types/field-meta';
+import { toCheckboxCustomText, toRadioCustomText } from '@Scriblli/lib/utils/fields';
+import type { TSignEnvelopeFieldValue } from '@Scriblli/trpc/server/envelope-router/sign-envelope-field.types';
+import { checkboxValidationSigns } from '@Scriblli/ui/primitives/document-flow/field-items-advanced-settings/constants';
 
 export type ExtractFieldInsertionValuesOptions = {
   fieldValue: TSignEnvelopeFieldValue;

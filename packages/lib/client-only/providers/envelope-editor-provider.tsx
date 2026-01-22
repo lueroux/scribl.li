@@ -3,12 +3,12 @@ import React, { createContext, useCallback, useContext, useMemo, useRef, useStat
 import { useLingui } from '@lingui/react/macro';
 import { EnvelopeType } from '@prisma/client';
 
-import { trpc } from '@documenso/trpc/react';
-import type { TSetEnvelopeRecipientsRequest } from '@documenso/trpc/server/envelope-router/set-envelope-recipients.types';
-import type { TUpdateEnvelopeRequest } from '@documenso/trpc/server/envelope-router/update-envelope.types';
-import type { TRecipientColor } from '@documenso/ui/lib/recipient-colors';
-import { AVAILABLE_RECIPIENT_COLORS } from '@documenso/ui/lib/recipient-colors';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+import { trpc } from '@Scriblli/trpc/react';
+import type { TSetEnvelopeRecipientsRequest } from '@Scriblli/trpc/server/envelope-router/set-envelope-recipients.types';
+import type { TUpdateEnvelopeRequest } from '@Scriblli/trpc/server/envelope-router/update-envelope.types';
+import type { TRecipientColor } from '@Scriblli/ui/lib/recipient-colors';
+import { AVAILABLE_RECIPIENT_COLORS } from '@Scriblli/ui/lib/recipient-colors';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 import type { TDocumentEmailSettings } from '../../types/document-email';
 import type { TEnvelope } from '../../types/envelope';

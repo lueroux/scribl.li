@@ -7,16 +7,16 @@ import { DateTime } from 'luxon';
 import { Link } from 'react-router';
 import { match } from 'ts-pattern';
 
-import { useUpdateSearchParams } from '@documenso/lib/client-only/hooks/use-update-search-params';
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import { isDocumentCompleted } from '@documenso/lib/utils/document';
-import { formatDocumentsPath } from '@documenso/lib/utils/teams';
-import type { TFindDocumentsResponse } from '@documenso/trpc/server/document-router/find-documents.types';
-import type { DataTableColumnDef } from '@documenso/ui/primitives/data-table';
-import { DataTable } from '@documenso/ui/primitives/data-table';
-import { DataTablePagination } from '@documenso/ui/primitives/data-table-pagination';
-import { Skeleton } from '@documenso/ui/primitives/skeleton';
-import { TableCell } from '@documenso/ui/primitives/table';
+import { useUpdateSearchParams } from '@Scriblli/lib/client-only/hooks/use-update-search-params';
+import { useSession } from '@Scriblli/lib/client-only/providers/session';
+import { isDocumentCompleted } from '@Scriblli/lib/utils/document';
+import { formatDocumentsPath } from '@Scriblli/lib/utils/teams';
+import type { TFindDocumentsResponse } from '@Scriblli/trpc/server/document-router/find-documents.types';
+import type { DataTableColumnDef } from '@Scriblli/ui/primitives/data-table';
+import { DataTable } from '@Scriblli/ui/primitives/data-table';
+import { DataTablePagination } from '@Scriblli/ui/primitives/data-table-pagination';
+import { Skeleton } from '@Scriblli/ui/primitives/skeleton';
+import { TableCell } from '@Scriblli/ui/primitives/table';
 
 import { DocumentStatus } from '~/components/general/document/document-status';
 import { useCurrentTeam } from '~/providers/team';

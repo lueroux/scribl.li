@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 
-import { nanoid } from '@documenso/lib/universal/id';
-import { seedOrganisationMembers } from '@documenso/prisma/seed/organisations';
-import { seedUser } from '@documenso/prisma/seed/users';
+import { nanoid } from '@Scriblli/lib/universal/id';
+import { seedOrganisationMembers } from '@Scriblli/prisma/seed/organisations';
+import { seedUser } from '@Scriblli/prisma/seed/users';
 
 import { apiSignin } from '../../fixtures/authentication';
 
@@ -18,9 +18,9 @@ test('[ADMIN]: promote member to owner', async ({ page }) => {
   });
 
   // Create organisation members with different roles
-  const memberEmail = `member-${nanoid()}@test.documenso.com`;
-  const managerEmail = `manager-${nanoid()}@test.documenso.com`;
-  const adminMemberEmail = `admin-member-${nanoid()}@test.documenso.com`;
+  const memberEmail = `member-${nanoid()}@test.Scriblli.com`;
+  const managerEmail = `manager-${nanoid()}@test.Scriblli.com`;
+  const adminMemberEmail = `admin-member-${nanoid()}@test.Scriblli.com`;
 
   const [memberUser, managerUser, adminMemberUser] = await seedOrganisationMembers({
     members: [
@@ -128,7 +128,7 @@ test('[ADMIN]: promote manager to owner', async ({ page }) => {
     isPersonalOrganisation: false,
   });
 
-  const managerEmail = `manager-${nanoid()}@test.documenso.com`;
+  const managerEmail = `manager-${nanoid()}@test.Scriblli.com`;
 
   const [managerUser] = await seedOrganisationMembers({
     members: [
@@ -187,7 +187,7 @@ test('[ADMIN]: promote admin member to owner', async ({ page }) => {
     isPersonalOrganisation: false,
   });
 
-  const adminMemberEmail = `admin-member-${nanoid()}@test.documenso.com`;
+  const adminMemberEmail = `admin-member-${nanoid()}@test.Scriblli.com`;
 
   const [adminMemberUser] = await seedOrganisationMembers({
     members: [
@@ -272,7 +272,7 @@ test('[ADMIN]: verify role hierarchy after promotion', async ({ page }) => {
     isPersonalOrganisation: false,
   });
 
-  const memberEmail = `member-${nanoid()}@test.documenso.com`;
+  const memberEmail = `member-${nanoid()}@test.Scriblli.com`;
 
   const [memberUser] = await seedOrganisationMembers({
     members: [
@@ -373,8 +373,8 @@ test('[ADMIN]: multiple promotions in sequence', async ({ page }) => {
     isPersonalOrganisation: false,
   });
 
-  const member1Email = `member1-${nanoid()}@test.documenso.com`;
-  const member2Email = `member2-${nanoid()}@test.documenso.com`;
+  const member1Email = `member1-${nanoid()}@test.Scriblli.com`;
+  const member2Email = `member2-${nanoid()}@test.Scriblli.com`;
 
   const [member1User, member2User] = await seedOrganisationMembers({
     members: [
@@ -476,7 +476,7 @@ test('[ADMIN]: verify organisation access after ownership change', async ({ page
     isPersonalOrganisation: false,
   });
 
-  const memberEmail = `member-${nanoid()}@test.documenso.com`;
+  const memberEmail = `member-${nanoid()}@test.Scriblli.com`;
 
   const [memberUser] = await seedOrganisationMembers({
     members: [

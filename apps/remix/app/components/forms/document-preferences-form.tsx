@@ -7,31 +7,31 @@ import { DocumentVisibility, OrganisationType, type RecipientRole } from '@prism
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { useCurrentOrganisation } from '@documenso/lib/client-only/providers/organisation';
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import { DATE_FORMATS } from '@documenso/lib/constants/date-formats';
-import { DOCUMENT_SIGNATURE_TYPES, DocumentSignatureType } from '@documenso/lib/constants/document';
+import { useCurrentOrganisation } from '@Scriblli/lib/client-only/providers/organisation';
+import { useSession } from '@Scriblli/lib/client-only/providers/session';
+import { DATE_FORMATS } from '@Scriblli/lib/constants/date-formats';
+import { DOCUMENT_SIGNATURE_TYPES, DocumentSignatureType } from '@Scriblli/lib/constants/document';
 import {
   SUPPORTED_LANGUAGES,
   SUPPORTED_LANGUAGE_CODES,
   isValidLanguageCode,
-} from '@documenso/lib/constants/i18n';
-import { TIME_ZONES } from '@documenso/lib/constants/time-zones';
-import type { TDefaultRecipients } from '@documenso/lib/types/default-recipients';
-import { ZDefaultRecipientsSchema } from '@documenso/lib/types/default-recipients';
+} from '@Scriblli/lib/constants/i18n';
+import { TIME_ZONES } from '@Scriblli/lib/constants/time-zones';
+import type { TDefaultRecipients } from '@Scriblli/lib/types/default-recipients';
+import { ZDefaultRecipientsSchema } from '@Scriblli/lib/types/default-recipients';
 import {
   type TDocumentMetaDateFormat,
   ZDocumentMetaTimezoneSchema,
-} from '@documenso/lib/types/document-meta';
-import { isPersonalLayout } from '@documenso/lib/utils/organisations';
-import { recipientAbbreviation } from '@documenso/lib/utils/recipient-formatter';
-import { extractTeamSignatureSettings } from '@documenso/lib/utils/teams';
-import { DocumentSignatureSettingsTooltip } from '@documenso/ui/components/document/document-signature-settings-tooltip';
-import { RecipientRoleSelect } from '@documenso/ui/components/recipient/recipient-role-select';
-import { Alert } from '@documenso/ui/primitives/alert';
-import { AvatarWithText } from '@documenso/ui/primitives/avatar';
-import { Button } from '@documenso/ui/primitives/button';
-import { Combobox } from '@documenso/ui/primitives/combobox';
+} from '@Scriblli/lib/types/document-meta';
+import { isPersonalLayout } from '@Scriblli/lib/utils/organisations';
+import { recipientAbbreviation } from '@Scriblli/lib/utils/recipient-formatter';
+import { extractTeamSignatureSettings } from '@Scriblli/lib/utils/teams';
+import { DocumentSignatureSettingsTooltip } from '@Scriblli/ui/components/document/document-signature-settings-tooltip';
+import { RecipientRoleSelect } from '@Scriblli/ui/components/recipient/recipient-role-select';
+import { Alert } from '@Scriblli/ui/primitives/alert';
+import { AvatarWithText } from '@Scriblli/ui/primitives/avatar';
+import { Button } from '@Scriblli/ui/primitives/button';
+import { Combobox } from '@Scriblli/ui/primitives/combobox';
 import {
   Form,
   FormControl,
@@ -40,15 +40,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@documenso/ui/primitives/form/form';
-import { MultiSelectCombobox } from '@documenso/ui/primitives/multi-select-combobox';
+} from '@Scriblli/ui/primitives/form/form';
+import { MultiSelectCombobox } from '@Scriblli/ui/primitives/multi-select-combobox';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@documenso/ui/primitives/select';
+} from '@Scriblli/ui/primitives/select';
 
 import { useOptionalCurrentTeam } from '~/providers/team';
 

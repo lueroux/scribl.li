@@ -5,13 +5,13 @@ import { OrganisationMemberInviteStatus } from '@prisma/client';
 import { AnimatePresence } from 'framer-motion';
 import { BellIcon } from 'lucide-react';
 
-import { useSession } from '@documenso/lib/client-only/providers/session';
-import { formatAvatarUrl } from '@documenso/lib/utils/avatars';
-import { trpc } from '@documenso/trpc/react';
-import { AnimateGenericFadeInOut } from '@documenso/ui/components/animate/animate-generic-fade-in-out';
-import { Alert, AlertDescription } from '@documenso/ui/primitives/alert';
-import { AvatarWithText } from '@documenso/ui/primitives/avatar';
-import { Button } from '@documenso/ui/primitives/button';
+import { useSession } from '@Scriblli/lib/client-only/providers/session';
+import { formatAvatarUrl } from '@Scriblli/lib/utils/avatars';
+import { trpc } from '@Scriblli/trpc/react';
+import { AnimateGenericFadeInOut } from '@Scriblli/ui/components/animate/animate-generic-fade-in-out';
+import { Alert, AlertDescription } from '@Scriblli/ui/primitives/alert';
+import { AvatarWithText } from '@Scriblli/ui/primitives/avatar';
+import { Button } from '@Scriblli/ui/primitives/button';
 import {
   Dialog,
   DialogContent,
@@ -19,8 +19,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@documenso/ui/primitives/dialog';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+} from '@Scriblli/ui/primitives/dialog';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 export const OrganisationInvitations = ({ className }: { className?: string }) => {
   const { data, isLoading } = trpc.organisation.member.invite.getMany.useQuery({

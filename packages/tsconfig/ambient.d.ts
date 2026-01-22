@@ -1,1 +1,1 @@
-declare module '@documenso/tailwind-config';
+declare module '@Scriblli/tailwind-config';

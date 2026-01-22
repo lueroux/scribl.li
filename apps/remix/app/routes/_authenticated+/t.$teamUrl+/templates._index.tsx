@@ -3,11 +3,11 @@ import { EnvelopeType } from '@prisma/client';
 import { Cherry } from 'lucide-react';
 import { useParams, useSearchParams } from 'react-router';
 
-import { FolderType } from '@documenso/lib/types/folder-type';
-import { formatAvatarUrl } from '@documenso/lib/utils/avatars';
-import { formatDocumentsPath, formatTemplatesPath } from '@documenso/lib/utils/teams';
-import { trpc } from '@documenso/trpc/react';
-import { Avatar, AvatarFallback, AvatarImage } from '@documenso/ui/primitives/avatar';
+import { FolderType } from '@Scriblli/lib/types/folder-type';
+import { formatAvatarUrl } from '@Scriblli/lib/utils/avatars';
+import { formatDocumentsPath, formatTemplatesPath } from '@Scriblli/lib/utils/teams';
+import { trpc } from '@Scriblli/trpc/react';
+import { Avatar, AvatarFallback, AvatarImage } from '@Scriblli/ui/primitives/avatar';
 
 import { EnvelopeDropZoneWrapper } from '~/components/general/envelope/envelope-drop-zone-wrapper';
 import { FolderGrid } from '~/components/general/folder/folder-grid';

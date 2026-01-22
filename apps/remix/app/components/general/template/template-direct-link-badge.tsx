@@ -3,10 +3,10 @@ import { useLingui } from '@lingui/react';
 import { Trans } from '@lingui/react/macro';
 import { Link2Icon } from 'lucide-react';
 
-import { useCopyToClipboard } from '@documenso/lib/client-only/hooks/use-copy-to-clipboard';
-import { formatDirectTemplatePath } from '@documenso/lib/utils/templates';
-import { cn } from '@documenso/ui/lib/utils';
-import { useToast } from '@documenso/ui/primitives/use-toast';
+import { useCopyToClipboard } from '@Scriblli/lib/client-only/hooks/use-copy-to-clipboard';
+import { formatDirectTemplatePath } from '@Scriblli/lib/utils/templates';
+import { cn } from '@Scriblli/ui/lib/utils';
+import { useToast } from '@Scriblli/ui/primitives/use-toast';
 
 type TemplateDirectLinkBadgeProps = {
   token: string;
