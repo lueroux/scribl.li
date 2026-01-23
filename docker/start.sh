@@ -29,3 +29,4 @@ npx prisma migrate deploy --schema ../../packages/prisma/schema.prisma
 
 printf "🌟 Starting Scriblli server...\n"
 HOSTNAME=0.0.0.0 node build/server/main.js
+
