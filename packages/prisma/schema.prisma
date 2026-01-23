@@ -26,6 +26,7 @@ datasource db {
 
 // Todo: (RR7) Remove after RR7 migration.
 enum IdentityProvider {
+  DOCUMENSO // @deprecated - kept for backwards compatibility during migration
   Scriblli
   GOOGLE
   OIDC
