@@ -19,8 +19,8 @@ export type TeamEmailRemovedTemplateProps = {
 
 export const TeamEmailRemovedTemplate = ({
   assetBaseUrl = 'https://scribl.li',
-  baseUrl = 'https://Scriblli.com',
-  teamEmail = 'example@documenso.com',
+  baseUrl = 'https://scribl.li',
+  teamEmail = 'example@scribl.li',
   teamName = 'Team Name',
   teamUrl = 'demo',
 }: TeamEmailRemovedTemplateProps) => {

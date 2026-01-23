@@ -25,9 +25,9 @@ export type DocumentInviteEmailTemplateProps = Partial<TemplateDocumentInvitePro
 
 export const DocumentInviteEmailTemplate = ({
   inviterName = 'Lucas Smith',
-  inviterEmail = 'lucas@documenso.com',
+  inviterEmail = 'lucas@scribl.li',
   documentName = 'Open Source Pledge.pdf',
-  signDocumentLink = 'https://Scriblli.com',
+  signDocumentLink = 'https://scribl.li',
   assetBaseUrl = 'https://scribl.li',
   customBody,
   role,
