@@ -31,7 +31,7 @@ export const filesRoute = new Hono<HonoEnv>()
    */
   .post('/upload-pdf', sValidator('form', ZUploadPdfRequestSchema), async (c) => {
     try {
-      const { file } = c.req.valid('form');
+      const { file, password } = c.req.valid('form');
 
       if (!file) {
         return c.json({ error: 'No file provided' }, 400);
@@ -46,11 +46,22 @@ export const filesRoute = new Hono<HonoEnv>()
         return c.json({ error: 'File too large' }, 400);
       }
 
-      const result = await putNormalizedPdfFileServerSide(file);
+      const result = await putNormalizedPdfFileServerSide(file, { password });
 
       return c.json(result);
     } catch (error) {
       console.error('Upload failed:', error);
+
+      // Handle password-specific errors
+      if (error instanceof AppError) {
+        if (error.code === AppErrorCode.PDF_PASSWORD_REQUIRED) {
+          return c.json({ error: 'PDF_PASSWORD_REQUIRED', message: error.message }, 400);
+        }
+        if (error.code === AppErrorCode.PDF_WRONG_PASSWORD) {
+          return c.json({ error: 'PDF_WRONG_PASSWORD', message: error.message }, 400);
+        }
+      }
+
       return c.json({ error: 'Upload failed' }, 500);
     }
   })

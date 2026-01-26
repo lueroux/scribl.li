@@ -17,7 +17,7 @@ type File = {
   arrayBuffer: () => Promise<ArrayBuffer>;
 };
 
-export const putPdfFile = async (file: File) => {
+export const putPdfFile = async (file: File, password?: string) => {
   const formData = new FormData();
 
   // Create a proper File object from the data
@@ -27,6 +27,10 @@ export const putPdfFile = async (file: File) => {
 
   formData.append('file', properFile);
 
+  if (password) {
+    formData.append('password', password);
+  }
+
   const response = await fetch('/api/files/upload-pdf', {
     method: 'POST',
     body: formData,
@@ -34,6 +38,20 @@ export const putPdfFile = async (file: File) => {
 
   if (!response.ok) {
     console.error('Upload failed:', response.statusText);
+
+    // Handle password-specific errors
+    try {
+      const errorData = await response.json();
+      if (errorData.error === 'PDF_PASSWORD_REQUIRED') {
+        throw new AppError('PDF_PASSWORD_REQUIRED', { message: errorData.message });
+      }
+      if (errorData.error === 'PDF_WRONG_PASSWORD') {
+        throw new AppError('PDF_WRONG_PASSWORD', { message: errorData.message });
+      }
+    } catch (parseError) {
+      // If we can't parse the error, fall back to generic upload failed
+    }
+
     throw new AppError('UPLOAD_FAILED');
   }
 

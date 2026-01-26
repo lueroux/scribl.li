@@ -1,5 +1,5 @@
 import { PDF } from '@libpdf/core';
-import { DocumentDataType } from '@prisma/client';
+import type { DocumentDataType } from '@prisma/client';
 import { base64 } from '@scure/base';
 import { match } from 'ts-pattern';
 
@@ -49,7 +49,7 @@ export const putPdfFileServerSide = async (file: File) => {
  */
 export const putNormalizedPdfFileServerSide = async (
   file: File,
-  options: { flattenForm?: boolean } = {},
+  options: { flattenForm?: boolean; password?: string } = {},
 ) => {
   const buffer = Buffer.from(await file.arrayBuffer());
 

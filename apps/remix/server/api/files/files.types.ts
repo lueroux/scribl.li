@@ -4,6 +4,7 @@ import DocumentDataSchema from '@documenso/prisma/generated/zod/modelSchema/Docu
 
 export const ZUploadPdfRequestSchema = z.object({
   file: z.instanceof(File),
+  password: z.string().optional(),
 });
 
 export const ZUploadPdfResponseSchema = DocumentDataSchema.pick({

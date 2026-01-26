@@ -19,6 +19,7 @@ import { trpc } from '@documenso/trpc/react';
 import type { TCreateEnvelopePayload } from '@documenso/trpc/server/envelope-router/create-envelope.types';
 import { cn } from '@documenso/ui/lib/utils';
 import { DocumentUploadButton } from '@documenso/ui/primitives/document-upload-button';
+import { PdfPasswordDialog } from '@documenso/ui/primitives/pdf-password-dialog';
 import {
   Tooltip,
   TooltipContent,
@@ -55,8 +56,96 @@ export const EnvelopeUploadButton = ({ className, type, folderId }: EnvelopeUplo
   const { quota, remaining, refreshLimits, maximumEnvelopeItemCount } = useLimits();
 
   const [isLoading, setIsLoading] = useState(false);
+  const [passwordDialog, setPasswordDialog] = useState<{
+    open: boolean;
+    file: File | null;
+    error?: string;
+  }>({
+    open: false,
+    file: null,
+  });
 
   const { mutateAsync: createEnvelope } = trpc.envelope.create.useMutation();
+
+  const handlePasswordSubmit = async (password: string) => {
+    if (!passwordDialog.file) return;
+
+    try {
+      // Retry upload with password
+      const payload = {
+        folderId,
+        type,
+        title: passwordDialog.file.name,
+        meta: {
+          timezone: userTimezone,
+        },
+      } satisfies TCreateEnvelopePayload;
+
+      const formData = new FormData();
+      formData.append('payload', JSON.stringify(payload));
+      formData.append('files', passwordDialog.file);
+      formData.append('password', password);
+
+      const { id } = await createEnvelope(formData);
+
+      setPasswordDialog({ open: false, file: null });
+      setIsLoading(false);
+
+      await refreshLimits();
+
+      const pathPrefix = team ? formatDocumentsPath(team.url) : formatTemplatesPath();
+      const aiQueryParam = team.preferences.aiFeaturesEnabled ? '?ai=true' : '';
+
+      await navigate(`${pathPrefix}/${id}/edit${aiQueryParam}`);
+
+      toast({
+        title: type === EnvelopeType.DOCUMENT ? t`Document uploaded` : t`Template uploaded`,
+        description:
+          type === EnvelopeType.DOCUMENT
+            ? t`Your document has been uploaded successfully.`
+            : t`Your template has been uploaded successfully.`,
+        duration: 5000,
+      });
+    } catch (err) {
+      const error = AppError.parseError(err);
+
+      // Handle wrong password - show dialog again with error
+      if (error.code === AppErrorCode.PDF_WRONG_PASSWORD) {
+        setPasswordDialog((prev) => ({
+          ...prev,
+          error: t`Incorrect password. Please try again.`,
+        }));
+        return;
+      }
+
+      // Handle other errors
+      setPasswordDialog({ open: false, file: null });
+      setIsLoading(false);
+
+      const errorMessage = match(error.code)
+        .with(
+          'INVALID_DOCUMENT_FILE',
+          () => t`Invalid PDF file. Please check the file and try again.`,
+        )
+        .with(
+          AppErrorCode.LIMIT_EXCEEDED,
+          () => t`You have reached your document limit for this month. Please upgrade your plan.`,
+        )
+        .otherwise(() => t`An error occurred while uploading your document.`);
+
+      toast({
+        title: t`Error`,
+        description: errorMessage,
+        variant: 'destructive',
+        duration: 7500,
+      });
+    }
+  };
+
+  const handlePasswordCancel = () => {
+    setPasswordDialog({ open: false, file: null });
+    setIsLoading(false);
+  };
 
   const disabledMessage = useMemo(() => {
     if (organisation.subscription && remaining.documents === 0) {
@@ -125,8 +214,30 @@ export const EnvelopeUploadButton = ({ className, type, folderId }: EnvelopeUplo
 
       console.error(err);
 
+      // Handle password-protected PDF
+      if (error.code === AppErrorCode.PDF_PASSWORD_REQUIRED) {
+        setPasswordDialog({
+          open: true,
+          file: files[0],
+          error: undefined,
+        });
+        return; // Don't set loading to false yet, keep it true until dialog resolves
+      }
+
+      // Handle wrong password - show dialog again with error
+      if (error.code === AppErrorCode.PDF_WRONG_PASSWORD) {
+        setPasswordDialog((prev) => ({
+          ...prev,
+          error: t`Incorrect password. Please try again.`,
+        }));
+        return;
+      }
+
       const errorMessage = match(error.code)
-        .with('INVALID_DOCUMENT_FILE', () => t`You cannot upload encrypted PDFs.`)
+        .with(
+          'INVALID_DOCUMENT_FILE',
+          () => t`Invalid PDF file. Please check the file and try again.`,
+        )
         .with(
           AppErrorCode.LIMIT_EXCEEDED,
           () => t`You have reached your document limit for this month. Please upgrade your plan.`,
@@ -143,7 +254,7 @@ export const EnvelopeUploadButton = ({ className, type, folderId }: EnvelopeUplo
         variant: 'destructive',
         duration: 7500,
       });
-    } finally {
+
       setIsLoading(false);
     }
   };
@@ -206,6 +317,15 @@ export const EnvelopeUploadButton = ({ className, type, folderId }: EnvelopeUplo
             )}
         </Tooltip>
       </TooltipProvider>
+
+      <PdfPasswordDialog
+        open={passwordDialog.open}
+        fileName={passwordDialog.file?.name}
+        isSubmitting={isLoading}
+        error={passwordDialog.error}
+        onSubmit={handlePasswordSubmit}
+        onCancel={handlePasswordCancel}
+      />
     </div>
   );
 };

@@ -123,7 +123,16 @@ export const EnvelopeDropZoneWrapper = ({
       const error = AppError.parseError(err);
 
       const errorMessage = match(error.code)
-        .with('INVALID_DOCUMENT_FILE', () => t`You cannot upload encrypted PDFs.`)
+        .with(
+          'INVALID_DOCUMENT_FILE',
+          () => t`Invalid PDF file. Please check the file and try again.`,
+        )
+        .with(
+          AppErrorCode.PDF_PASSWORD_REQUIRED,
+          () =>
+            t`This PDF requires a password. Please use the upload button to upload password-protected PDFs.`,
+        )
+        .with(AppErrorCode.PDF_WRONG_PASSWORD, () => t`Incorrect password. Please try again.`)
         .with(
           AppErrorCode.LIMIT_EXCEEDED,
           () => t`You have reached your document limit for this month. Please upgrade your plan.`,
