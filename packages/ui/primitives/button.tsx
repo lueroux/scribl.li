@@ -8,22 +8,23 @@ import { Loader } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-lg-plus text-sm font-semibold transition-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background relative overflow-hidden',
+  'inline-flex items-center justify-center rounded-lg text-sm font-semibold transition-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background relative',
   {
     variants: {
       variant: {
         default:
-          'bg-gradient-primary text-white hover:shadow-primary hover-lift glow-primary border-0 font-semibold',
+          'bg-primary text-white hover:bg-primary/90 border-0 font-semibold focus-visible:bg-primary/80',
         destructive:
-          'bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700 hover:shadow-medium hover-lift focus-visible:ring-red-500',
+          'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500 focus-visible:bg-red-500',
         outline:
-          'border-2 border-primary/30 bg-transparent text-primary hover:bg-primary/10 hover:border-primary/50 hover:shadow-soft hover-lift backdrop-blur-sm',
-        secondary: 'bg-gradient-secondary text-white hover:shadow-medium hover-lift',
-        ghost: 'hover:bg-primary/10 hover:text-primary transition-spring hover:shadow-soft',
-        link: 'underline-offset-4 hover:underline text-primary transition-fast hover:text-primary/80',
+          'border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-white focus-visible:bg-primary focus-visible:text-white',
+        secondary:
+          'bg-secondary text-secondary-foreground hover:bg-secondary/80 focus-visible:bg-secondary/70',
+        ghost: 'hover:bg-primary/10 hover:text-primary focus-visible:bg-primary/20',
+        link: 'underline-offset-4 hover:underline text-primary hover:text-primary/80 focus-visible:text-primary/70',
         glass:
-          'glass text-primary hover:bg-primary/10 hover:backdrop-blur-md hover:border-primary/20 hover-lift',
-        gradient: 'bg-gradient-accent text-white hover:shadow-strong hover-lift glow-primary',
+          'bg-background/10 backdrop-blur-sm border border-border text-primary hover:bg-primary/10 hover:border-primary/30',
+        gradient: 'bg-gradient-accent text-white hover:opacity-90 focus-visible:opacity-80',
         none: '',
       },
       size: {
@@ -46,6 +47,7 @@ const loaderVariants = cva('mr-2 animate-spin', {
       default: 'h-5 w-5',
       sm: 'h-4 w-4',
       lg: 'h-5 w-5',
+      xl: 'h-6 w-6',
     },
   },
   defaultVariants: {

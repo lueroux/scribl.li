@@ -6,32 +6,30 @@ import { cva } from 'class-variance-authority';
 import { cn } from '../lib/utils';
 
 const badgeVariants = cva(
-  'inline-flex items-center rounded-lg-plus font-semibold ring-1 ring-inset w-fit transition-spring backdrop-blur-sm shadow-soft',
+  'inline-flex items-center font-semibold w-fit transition-functional border-2',
   {
     variants: {
       variant: {
         neutral:
-          'bg-gray-50/80 text-gray-700 ring-gray-300/30 hover:bg-gray-100/80 hover:ring-gray-400/40 dark:bg-gray-800/60 dark:text-gray-300 dark:ring-gray-600/40 hover:dark:bg-gray-700/80',
+          'bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600',
         destructive:
-          'bg-red-50/80 text-red-700 ring-red-300/40 hover:bg-red-100/80 hover:ring-red-400/50 dark:bg-red-950/60 dark:text-red-300 dark:ring-red-600/40 hover:dark:bg-red-900/80',
+          'bg-red-100 text-red-800 border-red-300 hover:bg-red-200 dark:bg-red-900 dark:text-red-200 dark:border-red-600',
         warning:
-          'bg-yellow-50/80 text-yellow-800 ring-yellow-300/40 hover:bg-yellow-100/80 hover:ring-yellow-400/50 dark:bg-yellow-950/60 dark:text-yellow-300 dark:ring-yellow-600/40 hover:dark:bg-yellow-900/80',
-        default:
-          'bg-gradient-to-r from-primary/10 to-primary/5 text-primary ring-primary/20 hover:from-primary/20 hover:to-primary/10 hover:ring-primary/30 shadow-primary/10',
+          'bg-yellow-100 text-yellow-800 border-yellow-300 hover:bg-yellow-200 dark:bg-yellow-900 dark:text-yellow-200 dark:border-yellow-600',
+        default: 'bg-primary/10 text-primary border-primary hover:bg-primary/20',
         secondary:
-          'bg-blue-50/80 text-blue-700 ring-blue-300/40 hover:bg-blue-100/80 hover:ring-blue-400/50 dark:bg-blue-950/60 dark:text-blue-300 dark:ring-blue-600/40 hover:dark:bg-blue-900/80',
+          'bg-blue-100 text-blue-800 border-blue-300 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:border-blue-600',
         success:
-          'bg-green-50/80 text-green-700 ring-green-300/40 hover:bg-green-100/80 hover:ring-green-400/50 dark:bg-green-950/60 dark:text-green-300 dark:ring-green-600/40 hover:dark:bg-green-900/80',
-        outline:
-          'bg-transparent border-2 border-primary/30 text-primary hover:bg-primary/5 hover:border-primary/50 backdrop-blur-md',
-        glass: 'glass text-primary hover:bg-primary/10 hover:border-primary/20',
+          'bg-green-100 text-green-800 border-green-300 hover:bg-green-200 dark:bg-green-900 dark:text-green-200 dark:border-green-600',
+        outline: 'bg-transparent border-primary text-primary hover:bg-primary hover:text-white',
+        bauhaus: 'bg-bauhaus-yellow text-black border-black font-bold',
       },
       size: {
-        xs: 'px-2 py-0.5 text-xs rounded-md-plus',
-        small: 'px-2.5 py-1 text-xs',
-        default: 'px-3 py-1.5 text-xs',
-        large: 'px-4 py-2 text-sm rounded-xl-plus',
-        xl: 'px-5 py-2.5 text-base rounded-xl-plus font-bold',
+        xs: 'px-2 py-0.5 text-xs rounded-minimal',
+        small: 'px-2.5 py-1 text-xs rounded-geometric',
+        default: 'px-3 py-1.5 text-xs rounded-geometric',
+        large: 'px-4 py-2 text-sm rounded-geometric',
+        xl: 'px-5 py-2.5 text-base rounded-geometric font-bold',
       },
     },
     defaultVariants: {

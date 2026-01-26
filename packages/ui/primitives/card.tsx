@@ -31,33 +31,20 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
-        style={
-          // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-          {
-            '--card-gradient-degrees': `${degrees}deg`,
-          } as React.CSSProperties
-        }
         className={cn(
-          'rounded-xl-plus transition-spring hover-lift group relative border border-border/50 bg-card text-card-foreground',
+          'transition-functional border-2 border-border bg-card text-card-foreground',
           {
-            'backdrop-blur-[8px]': backdropBlur,
-            glass: spotlight,
-            'shadow-soft hover:shadow-medium': !gradient && !spotlight,
-            'gradient-border-mask before:rounded-xl-plus before:pointer-events-none before:absolute before:-inset-[1px] before:p-[1px] before:[background:linear-gradient(var(--card-gradient-degrees),hsl(var(--primary))_0%,hsl(var(--primary)/0.3)_50%,transparent_100%)]':
-              gradient,
-            'dark:gradient-border-mask before:rounded-xl-plus before:pointer-events-none before:absolute before:-inset-[1px] before:p-[1px] before:[background:linear-gradient(var(--card-gradient-degrees),hsl(var(--primary)/0.8)_0%,hsl(var(--primary)/0.2)_50%,transparent_100%)]':
-              gradient,
-            'hover:shadow-strong hover:glow-primary shadow-primary': gradient,
-            'hover:border-primary/30 hover:bg-primary/5': spotlight,
-            'after:rounded-xl-plus after:pointer-events-none after:absolute after:inset-0 after:bg-gradient-to-br after:from-white/5 after:to-transparent': true,
+            'rounded-geometric': !gradient,
+            'rounded-sharp': gradient,
+            'shadow-flat': !spotlight,
+            'shadow-minimal': spotlight,
+            'hover:border-primary': true,
           },
           className,
         )}
         {...props}
       >
         {children}
-        {/* Subtle inner glow effect */}
-        <div className="rounded-xl-plus transition-spring pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100" />
       </div>
     );
   },

@@ -10,26 +10,24 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         type={type}
         className={cn(
-          // Base styling with enhanced visual design
-          'border-border/60 bg-background/50 ring-offset-background backdrop-blur-sm placeholder:text-muted-foreground/50',
-          'rounded-lg-plus flex h-11 w-full border-2 px-4 py-3 text-sm font-medium',
+          // Bauhaus functional design
+          'border-border bg-background placeholder:text-muted-foreground/70',
+          'rounded-geometric flex h-11 w-full border-2 px-4 py-3 text-sm font-medium',
           'file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground',
-          // Enhanced focus and interaction states
-          'transition-spring focus-visible:outline-none',
-          'focus-visible:border-primary/60 focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:ring-offset-0',
-          'focus-visible:shadow-soft focus-visible:bg-background/80',
+          // Functional focus states
+          'transition-functional focus-visible:border-primary focus-visible:outline-none',
           // Hover states
-          'hover:shadow-soft hover:border-border/80 hover:bg-background/70',
+          'hover:border-primary/50',
           // Disabled states
-          'disabled:cursor-not-allowed disabled:bg-background/30 disabled:opacity-60',
-          // Enhanced error states
+          'disabled:cursor-not-allowed disabled:bg-muted disabled:opacity-60',
+          // Error states
           {
-            'transition-spring !border-red-500/60 !bg-red-50/50 !ring-red-500/20 focus-visible:!border-red-500 focus-visible:!ring-red-500/30 dark:!bg-red-950/20':
+            '!border-red-600 !bg-red-50 focus-visible:!border-red-600 dark:!bg-red-950/20':
               props['aria-invalid'],
           },
-          // Success states (when valid and not empty)
+          // Success states
           {
-            '!border-green-500/40 !ring-green-500/10 focus-visible:!border-green-500/60':
+            '!border-green-600 focus-visible:!border-green-600':
               props.value && !props['aria-invalid'] && props.required,
           },
           className,
