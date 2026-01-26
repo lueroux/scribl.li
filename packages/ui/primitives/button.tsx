@@ -8,23 +8,29 @@ import { Loader } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background',
+  'inline-flex items-center justify-center rounded-lg-plus text-sm font-semibold transition-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background relative overflow-hidden',
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        default:
+          'bg-gradient-primary text-white hover:shadow-primary hover-lift glow-primary border-0 font-semibold',
         destructive:
-          'bg-destructive text-destructive-foreground hover:bg-destructive/90 focus-visible:ring-destructive',
-        outline: 'border border-input hover:bg-accent hover:text-accent-foreground',
-        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'underline-offset-4 hover:underline text-primary',
+          'bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700 hover:shadow-medium hover-lift focus-visible:ring-red-500',
+        outline:
+          'border-2 border-primary/30 bg-transparent text-primary hover:bg-primary/10 hover:border-primary/50 hover:shadow-soft hover-lift backdrop-blur-sm',
+        secondary: 'bg-gradient-secondary text-white hover:shadow-medium hover-lift',
+        ghost: 'hover:bg-primary/10 hover:text-primary transition-spring hover:shadow-soft',
+        link: 'underline-offset-4 hover:underline text-primary transition-fast hover:text-primary/80',
+        glass:
+          'glass text-primary hover:bg-primary/10 hover:backdrop-blur-md hover:border-primary/20 hover-lift',
+        gradient: 'bg-gradient-accent text-white hover:shadow-strong hover-lift glow-primary',
         none: '',
       },
       size: {
-        default: 'h-10 py-2 px-4',
-        sm: 'h-9 px-3 rounded-md',
-        lg: 'h-11 px-8 rounded-md',
+        default: 'h-11 py-3 px-6 text-sm',
+        sm: 'h-9 px-4 text-xs rounded-md-plus',
+        lg: 'h-12 px-8 text-base rounded-xl-plus',
+        xl: 'h-14 px-10 text-lg rounded-xl-plus font-bold',
       },
     },
     defaultVariants: {

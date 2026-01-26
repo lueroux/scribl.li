@@ -17,7 +17,15 @@ export type CardProps = React.HTMLAttributes<HTMLDivElement> & {
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   (
-    { className, children, gradient = false, degrees = 120, backdropBlur = true, ...props },
+    {
+      className,
+      children,
+      gradient = false,
+      degrees = 120,
+      backdropBlur = true,
+      spotlight = false,
+      ...props
+    },
     ref,
   ) => {
     return (
@@ -30,22 +38,26 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
           } as React.CSSProperties
         }
         className={cn(
-          'bg-background text-foreground group relative rounded-lg border-2',
+          'rounded-xl-plus transition-spring hover-lift group relative border border-border/50 bg-card text-card-foreground',
           {
-            'backdrop-blur-[2px]': backdropBlur,
-            'gradient-border-mask before:pointer-events-none before:absolute before:-inset-[2px] before:rounded-lg before:p-[2px] before:[background:linear-gradient(var(--card-gradient-degrees),theme(colors.primary.DEFAULT/50%)_5%,theme(colors.border/80%)_30%)]':
+            'backdrop-blur-[8px]': backdropBlur,
+            glass: spotlight,
+            'shadow-soft hover:shadow-medium': !gradient && !spotlight,
+            'gradient-border-mask before:rounded-xl-plus before:pointer-events-none before:absolute before:-inset-[1px] before:p-[1px] before:[background:linear-gradient(var(--card-gradient-degrees),hsl(var(--primary))_0%,hsl(var(--primary)/0.3)_50%,transparent_100%)]':
               gradient,
-            'dark:gradient-border-mask before:pointer-events-none before:absolute before:-inset-[2px] before:rounded-lg before:p-[2px] before:[background:linear-gradient(var(--card-gradient-degrees),theme(colors.primary.DEFAULT/70%)_5%,theme(colors.border/80%)_30%)]':
+            'dark:gradient-border-mask before:rounded-xl-plus before:pointer-events-none before:absolute before:-inset-[1px] before:p-[1px] before:[background:linear-gradient(var(--card-gradient-degrees),hsl(var(--primary)/0.8)_0%,hsl(var(--primary)/0.2)_50%,transparent_100%)]':
               gradient,
-            'shadow-[0_0_0_4px_theme(colors.gray.100/70%),0_0_0_1px_theme(colors.gray.100/70%),0_0_0_0.5px_var(colors.primary.DEFAULT/70%)]':
-              true,
-            'dark:shadow-[0]': true,
+            'hover:shadow-strong hover:glow-primary shadow-primary': gradient,
+            'hover:border-primary/30 hover:bg-primary/5': spotlight,
+            'after:rounded-xl-plus after:pointer-events-none after:absolute after:inset-0 after:bg-gradient-to-br after:from-white/5 after:to-transparent': true,
           },
           className,
         )}
         {...props}
       >
         {children}
+        {/* Subtle inner glow effect */}
+        <div className="rounded-xl-plus transition-spring pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100" />
       </div>
     );
   },
@@ -77,7 +89,7 @@ const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn('text-muted-foreground text-sm', className)} {...props} />
+  <p ref={ref} className={cn('text-sm text-muted-foreground', className)} {...props} />
 ));
 
 CardDescription.displayName = 'CardDescription';
