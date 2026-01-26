@@ -13,6 +13,7 @@ export enum AppErrorCode {
   'INVALID_REQUEST' = 'INVALID_REQUEST',
   'LIMIT_EXCEEDED' = 'LIMIT_EXCEEDED',
   'NOT_FOUND' = 'NOT_FOUND',
+  'NOT_SETUP' = 'NOT_SETUP',
   'PDF_PASSWORD_REQUIRED' = 'PDF_PASSWORD_REQUIRED',
   'PDF_WRONG_PASSWORD' = 'PDF_WRONG_PASSWORD',
   'SIGNATURE_LIMIT_EXCEEDED' = 'SIGNATURE_LIMIT_EXCEEDED',
@@ -27,13 +28,17 @@ export enum AppErrorCode {
 export const genericErrorCodeToTrpcErrorCodeMap: Record<string, { code: string; status: number }> =
   {
     [AppErrorCode.ALREADY_EXISTS]: { code: 'BAD_REQUEST', status: 400 },
+    [AppErrorCode.CONFLICT]: { code: 'CONFLICT', status: 409 },
     [AppErrorCode.EXPIRED_CODE]: { code: 'BAD_REQUEST', status: 400 },
+    [AppErrorCode.FORBIDDEN]: { code: 'FORBIDDEN', status: 403 },
     [AppErrorCode.INVALID_BODY]: { code: 'BAD_REQUEST', status: 400 },
     [AppErrorCode.INVALID_REQUEST]: { code: 'BAD_REQUEST', status: 400 },
+    [AppErrorCode.LIMIT_EXCEEDED]: { code: 'BAD_REQUEST', status: 400 },
     [AppErrorCode.NOT_FOUND]: { code: 'NOT_FOUND', status: 404 },
     [AppErrorCode.NOT_SETUP]: { code: 'BAD_REQUEST', status: 400 },
     [AppErrorCode.PDF_PASSWORD_REQUIRED]: { code: 'BAD_REQUEST', status: 400 },
     [AppErrorCode.PDF_WRONG_PASSWORD]: { code: 'BAD_REQUEST', status: 400 },
+    [AppErrorCode.SIGNATURE_LIMIT_EXCEEDED]: { code: 'BAD_REQUEST', status: 400 },
     [AppErrorCode.UNAUTHORIZED]: { code: 'UNAUTHORIZED', status: 401 },
     [AppErrorCode.UNKNOWN_ERROR]: { code: 'INTERNAL_SERVER_ERROR', status: 500 },
     [AppErrorCode.RETRY_EXCEPTION]: { code: 'INTERNAL_SERVER_ERROR', status: 500 },
@@ -209,21 +214,40 @@ export class AppError extends Error {
   }
 
   static toRestAPIError(err: unknown): {
-    status: 400 | 401 | 404 | 500;
+    status: 400 | 401 | 403 | 404 | 409 | 429 | 500;
     body: { message: string };
   } {
     const error = AppError.parseError(err);
 
     const status = match(error.code)
-      .with(AppErrorCode.INVALID_BODY, AppErrorCode.INVALID_REQUEST, () => 400 as const)
-      .with(AppErrorCode.UNAUTHORIZED, () => 401 as const)
+      .with(
+        AppErrorCode.INVALID_BODY,
+        AppErrorCode.INVALID_REQUEST,
+        AppErrorCode.NOT_SETUP,
+        AppErrorCode.PDF_PASSWORD_REQUIRED,
+        AppErrorCode.PDF_WRONG_PASSWORD,
+        AppErrorCode.LIMIT_EXCEEDED,
+        AppErrorCode.SIGNATURE_LIMIT_EXCEEDED,
+        AppErrorCode.EXPIRED_CODE,
+        AppErrorCode.ALREADY_EXISTS,
+        () => 400 as const,
+      )
+      .with(AppErrorCode.UNAUTHORIZED, AppErrorCode.TWO_FACTOR_AUTH_FAILED, () => 401 as const)
+      .with(AppErrorCode.FORBIDDEN, () => 403 as const)
       .with(AppErrorCode.NOT_FOUND, () => 404 as const)
-      .otherwise(() => 500 as const);
+      .with(AppErrorCode.CONFLICT, () => 409 as const)
+      .with(AppErrorCode.TOO_MANY_REQUESTS, () => 429 as const)
+      .with(
+        AppErrorCode.UNKNOWN_ERROR,
+        AppErrorCode.RETRY_EXCEPTION,
+        AppErrorCode.SCHEMA_FAILED,
+        () => 500 as const,
+      ) as unknown as 400 | 401 | 403 | 404 | 409 | 429 | 500;
 
     return {
       status,
       body: {
-        message: status !== 500 ? error.message : 'Something went wrong',
+        message: Number(status) !== 500 ? error.message : 'Something went wrong',
       },
     };
   }

@@ -206,6 +206,7 @@ export const generateDefaultTeamSettings = (): Omit<TeamGlobalSettings, 'id' | '
 
     defaultRecipients: null,
     aiFeaturesEnabled: null,
+    data: null,
   };
 };
 

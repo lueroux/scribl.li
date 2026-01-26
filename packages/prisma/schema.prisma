@@ -880,6 +880,9 @@ model TeamGlobalSettings {
 
   // AI features settings.
   aiFeaturesEnabled Boolean?
+
+  // Integration settings (JSON field for storing various integration configs)
+  data Json?
 }
 
 model Team {

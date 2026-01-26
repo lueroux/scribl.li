@@ -93,7 +93,7 @@ export const EnvelopeUploadButton = ({ className, type, folderId }: EnvelopeUplo
 
       await refreshLimits();
 
-      const pathPrefix = team ? formatDocumentsPath(team.url) : formatTemplatesPath();
+      const pathPrefix = team ? formatDocumentsPath(team.url) : '/templates';
       const aiQueryParam = team.preferences.aiFeaturesEnabled ? '?ai=true' : '';
 
       await navigate(`${pathPrefix}/${id}/edit${aiQueryParam}`);

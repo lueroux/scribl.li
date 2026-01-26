@@ -4,6 +4,7 @@ import {
   BracesIcon,
   Globe2Icon,
   GroupIcon,
+  LinkIcon,
   Settings2Icon,
   SettingsIcon,
   Users2Icon,
@@ -100,6 +101,11 @@ export default function TeamsSettingsLayout() {
       path: `/t/${team.url}/settings/webhooks`,
       label: t`Webhooks`,
       icon: WebhookIcon,
+    },
+    {
+      path: `/t/${team.url}/settings/integrations`,
+      label: t`Integrations`,
+      icon: LinkIcon,
     },
   ];
 
