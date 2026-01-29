@@ -1,0 +1,38 @@
+{
+  "name": "scriblli-landing",
+  "version": "1.0.0",
+  "description": "Landing page for Scribl.li - Open Source Document Signing Platform",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o css/styles.min.css css/styles.css",
+    "minify-js": "terser js/main.js -o js/main.min.js",
+    "deploy": "npm run build && rsync -avz --delete . user@server:/var/www/scriblli.com/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "landing-page",
+    "document-signing",
+    "open-source",
+    "scriblli",
+    "esignature"
+  ],
+  "author": "Scribl.li Team",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "terser": "^5.19.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scriblli/scriblli-landing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scriblli/scriblli-landing/issues"
+  },
+  "homepage": "https://scriblli.com",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

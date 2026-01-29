@@ -1,7 +1,19 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { seedBlogCategories, seedBlogPosts } from './seed/blog-categories.seed';
+
 const seedDatabase = async () => {
+  // Seed blog categories and posts first
+  try {
+    await seedBlogCategories();
+    await seedBlogPosts();
+  } catch (e) {
+    console.log('[SEEDING]: Blog seed failed');
+    console.error(e);
+  }
+
+  // Seed other database items
   const files = fs.readdirSync(path.join(__dirname, './seed'));
 
   for (const file of files) {

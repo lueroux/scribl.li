@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Scrib.li | Developer Resources</title>
+    <meta name="description" content="Complete documentation for Scrib.li's e-signature platform. API reference, guides, and integration examples.">
+    <meta name="keywords" content="e-signature API, documentation, developer guide, integration, REST API">
+    
+    <link rel="canonical" href="https://scriblli.com/documentation.html">
+    
+    <!-- Scriblli Theme CSS -->
+    <link rel="stylesheet" href="css/scriblli-theme-fixed.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: 'hsl(83, 47%, 64%)',
+                            50: 'hsl(83, 47%, 97%)',
+                            100: 'hsl(83, 47%, 94%)',
+                            500: 'hsl(83, 47%, 64%)',
+                            600: 'hsl(83, 47%, 54%)',
+                            700: 'hsl(83, 47%, 41%)',
+                        }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-neutral-200">
+        <div class="section-container">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/images/logo.png" alt="Scribl.li" class="h-8 w-auto">
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="features.html" class="nav-link">Features</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#signin" class="nav-link">Sign In</a>
+                    <a href="#signup" class="btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-50 to-white">
+        <div class="section-container">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="heading-xl mb-4">Developer Documentation</h1>
+                <p class="text-body mb-8">Everything you need to integrate Scrib.li's e-signature functionality into your applications</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#api-reference" class="btn-primary text-lg px-6 py-3">API Reference</a>
+                    <a href="#quick-start" class="btn-outline text-lg px-6 py-3">Quick Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Quick Start -->
+    <section id="quick-start" class="section-padding">
+        <div class="section-container">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="heading-lg mb-6">Quick Start</h2>
+                
+                <div class="card p-6 mb-6">
+                    <h3 class="heading-sm mb-4">1. Get Your API Key</h3>
+                    <p class="text-muted-foreground mb-4">Sign up for a Professional or Business plan to access your API key from the dashboard.</p>
+                    <a href="pricing.html" class="text-primary-600 font-medium hover:text-primary-700">View Pricing →</a>
+                </div>
+                
+                <div class="card p-6 mb-6">
+                    <h3 class="heading-sm mb-4">2. Make Your First API Call</h3>
+                    <div class="bg-neutral-900 text-neutral-300 p-4 rounded-lg overflow-x-auto">
+                        <pre><code>curl -X POST https://api.scriblli.com/v1/documents \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Sample Document",
+    "signers": [
+      {
+        "email": "signer@example.com",
+        "name": "John Doe"
+      }
+    ]
+  }'</code></pre>
+                    </div>
+                </div>
+                
+                <div class="card p-6">
+                    <h3 class="heading-sm mb-4">3. Send for Signature</h3>
+                    <p class="text-muted-foreground">Use the document ID returned to send it to your signers. They'll receive an email with a secure link to sign.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- API Reference -->
+    <section id="api-reference" class="section-padding bg-muted">
+        <div class="section-container">
+            <h2 class="heading-lg mb-6">API Reference</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card card-hover">
+                    <h3 class="heading-sm mb-3">Documents</h3>
+                    <p class="text-muted-foreground mb-4">Create, upload, and manage documents</p>
+                    <ul class="space-y-2 text-sm">
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">POST /documents</code> - Create document</li>
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">GET /documents</code> - List documents</li>
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">GET /documents/{id}</code> - Get document</li>
+                    </ul>
+                </div>
+                
+                <div class="card card-hover">
+                    <h3 class="heading-sm mb-3">Signers</h3>
+                    <p class="text-muted-foreground mb-4">Manage document signers</p>
+                    <ul class="space-y-2 text-sm">
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">POST /signers</code> - Add signer</li>
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">GET /signers/{id}</code> - Get signer</li>
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">PUT /signers/{id}</code> - Update signer</li>
+                    </ul>
+                </div>
+                
+                <div class="card card-hover">
+                    <h3 class="heading-sm mb-3">Templates</h3>
+                    <p class="text-muted-foreground mb-4">Create and manage templates</p>
+                    <ul class="space-y-2 text-sm">
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">POST /templates</code> - Create template</li>
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">GET /templates</code> - List templates</li>
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">DELETE /templates/{id}</code> - Delete</li>
+                    </ul>
+                </div>
+                
+                <div class="card card-hover">
+                    <h3 class="heading-sm mb-3">Webhooks</h3>
+                    <p class="text-muted-foreground mb-4">Receive real-time notifications</p>
+                    <ul class="space-y-2 text-sm">
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">POST /webhooks</code> - Create webhook</li>
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">GET /webhooks</code> - List webhooks</li>
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">PUT /webhooks/{id}</code> - Update webhook</li>
+                    </ul>
+                </div>
+                
+                <div class="card card-hover">
+                    <h3 class="heading-sm mb-3">Audit Trail</h3>
+                    <p class="text-muted-foreground mb-4">Access document history</p>
+                    <ul class="space-y-2 text-sm">
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">GET /documents/{id}/audit</code> - Get audit trail</li>
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">GET /documents/{id}/events</code> - Get events</li>
+                    </ul>
+                </div>
+                
+                <div class="card card-hover">
+                    <h3 class="heading-sm mb-3">Account</h3>
+                    <p class="text-muted-foreground mb-4">Manage your account</p>
+                    <ul class="space-y-2 text-sm">
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">GET /account</code> - Get account info</li>
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">GET /usage</code> - View usage stats</li>
+                        <li><code class="text-primary-600 bg-primary-50 px-2 py-1 rounded">POST /api-keys</code> - Create API key</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SDKs and Libraries -->
+    <section class="section-padding">
+        <div class="section-container">
+            <h2 class="heading-lg mb-6">SDKs & Libraries</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary-100 rounded-geometric flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="heading-sm">Node.js</h3>
+                    </div>
+                    <p class="text-muted-foreground mb-4">Official Node.js SDK for Scrib.li API</p>
+                    <code class="text-sm bg-muted p-2 rounded">npm install scriblli</code>
+                </div>
+                
+                <div class="card card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary-100 rounded-geometric flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="heading-sm">Python</h3>
+                    </div>
+                    <p class="text-muted-foreground mb-4">Python client library for Scrib.li</p>
+                    <code class="text-sm bg-muted p-2 rounded">pip install scriblli</code>
+                </div>
+                
+                <div class="card card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary-100 rounded-geometric flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.165-.438-1.349-.854-.068-.248-.062-.381-.034-.529.113-.484.687-.631 1.125-.495.293.09.563.315.732.676.775-.507.775-.507 1.316-.844-.203-.314-.304-.451-.439-.586-.473-.528-1.103-.798-2.126-.775l-.528.067c-.507.124-.991.395-1.283.754-.855.968-.611 2.655.427 3.354 1.023.765 2.521.934 2.712 1.653.18.878-.652 1.159-1.475 1.058-.607-.136-.945-.439-1.316-1.002l-1.372.788c.164.293.34.427.607.688.92.934 3.23.889 3.635-.528.015-.057.125-.385.034-.902z"/>
+                            </svg>
+                        </div>
+                        <h3 class="heading-sm">JavaScript</h3>
+                    </div>
+                    <p class="text-muted-foreground mb-4">Browser and Node.js compatible</p>
+                    <code class="text-sm bg-muted p-2 rounded">npm install scriblli-js</code>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Code Examples -->
+    <section class="section-padding bg-muted">
+        <div class="section-container">
+            <h2 class="heading-lg mb-6">Code Examples</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h3 class="heading-md mb-4">Create and Send a Document</h3>
+                    <div class="bg-neutral-900 text-neutral-300 p-4 rounded-lg overflow-x-auto">
+                        <pre><code class="language-javascript">const Scriblli = require('scriblli');
+const client = new Scriblli('YOUR_API_KEY');
+
+// Create a new document
+const document = await client.documents.create({
+  title: 'Employment Agreement',
+  file: 'path/to/document.pdf',
+  signers: [
+    {
+      email: 'employee@example.com',
+      name: 'Jane Doe',
+      role: 'employee'
+    },
+    {
+      email: 'hr@company.com',
+      name: 'John Smith',
+      role: 'hr_manager'
+    }
+  ]
+});
+
+// Send for signature
+await client.documents.send(document.id);
+console.log(`Document ${document.id} sent for signature`);</code></pre>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="heading-md mb-4">Webhook Handler</h3>
+                    <div class="bg-neutral-900 text-neutral-300 p-4 rounded-lg overflow-x-auto">
+                        <pre><code class="language-javascript">app.post('/webhook', (req, res) => {
+  const event = req.body;
+  
+  switch(event.type) {
+    case 'document.signed':
+      console.log(`Document ${event.data.documentId} was signed`);
+      // Update your database
+      break;
+      
+    case 'document.completed':
+      console.log(`Document ${event.data.documentId} is fully signed`);
+      // Process completed document
+      break;
+      
+    case 'signer.declined':
+      console.log(`Signer declined to sign`);
+      // Handle declined signature
+      break;
+  }
+  
+  res.status(200).send('OK');
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-neutral-900 text-neutral-300 py-12 px-4">
+        <div class="section-container">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <img src="assets/images/logo.png" alt="Scribl.li" class="h-12 w-auto mb-4 invert">
+                    <p class="text-sm">© 2026 Scrib.li, Inc.<br>All rights reserved.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="features.html" class="hover:text-white transition">Features</a></li>
+                        <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="security.html" class="hover:text-white transition">Security</a></li>
+                        <li><a href="integrations.html" class="hover:text-white transition">Integrations</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Developers</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="documentation.html" class="hover:text-white transition">Documentation</a></li>
+                        <li><a href="#api-reference" class="hover:text-white transition">API Reference</a></li>
+                        <li><a href="#sdks" class="hover:text-white transition">SDKs</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="hover:text-white transition">About</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="careers.html" class="hover:text-white transition">Careers</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

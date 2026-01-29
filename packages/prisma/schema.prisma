@@ -1081,3 +1081,50 @@ model Counter {
   id    String @id
   value Int
 }
+
+enum BlogPostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model BlogCategory {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  posts BlogPost[]
+
+  @@index([slug])
+}
+
+model BlogPost {
+  id              String         @id @default(cuid())
+  title           String
+  slug            String         @unique
+  excerpt         String?
+  content         String
+  author          String
+  authorEmail     String?
+  publishedAt     DateTime?
+  readTime        Int            @default(5)
+  featured        Boolean        @default(false)
+  imageUrl        String?
+  metaTitle       String?
+  metaDescription String?
+  status          BlogPostStatus @default(DRAFT)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  categoryId String?
+  category   BlogCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  @@index([slug])
+  @@index([status])
+  @@index([publishedAt])
+  @@index([featured])
+  @@index([categoryId])
+}

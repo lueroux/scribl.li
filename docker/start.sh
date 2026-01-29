@@ -27,6 +27,11 @@ printf "👥 Community: https://github.com/Scriblli/Scriblli\n\n"
 printf "🗄️  Running database migrations...\n"
 npx prisma migrate deploy --schema ../../packages/prisma/schema.prisma
 
-printf "🌟 Starting Scriblli server...\n"
+printf "� Seeding database...\n"
+cd ../../packages/prisma
+npm run prisma:seed
+cd ../../apps/remix
+
+printf "�🌟 Starting Scriblli server...\n"
 HOSTNAME=0.0.0.0 node build/server/main.js
 
