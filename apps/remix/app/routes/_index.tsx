@@ -43,7 +43,12 @@ export async function loader({ request }: Route.LoaderArgs) {
 
     if (!currentTeam) {
       // If user has no teams, they are new - redirect to onboarding
+      // But if email is not verified, skip onboarding to prevent 500 errors
       if (teams.length === 0) {
+        if (!session.user.emailVerified) {
+          // Create a default free organisation for unverified users
+          throw redirect('/inbox');
+        }
         throw redirect('/onboarding');
       }
       throw redirect('/inbox');

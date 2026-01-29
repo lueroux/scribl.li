@@ -30,11 +30,32 @@ export const OnboardingPlanSelection = () => {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { data: plansQuery } = trpc.enterprise.billing.plans.get.useQuery();
+  const { data: plansQuery, error: plansError } = trpc.enterprise.billing.plans.get.useQuery();
 
   const { mutateAsync: createOrganisation } = trpc.organisation.create.useMutation();
 
   const plans = plansQuery?.plans || {};
+
+  // Show error state if plans fail to load
+  if (plansError) {
+    return (
+      <div className="mx-auto w-full max-w-screen-xl px-4 py-8">
+        <div className="mb-8 text-center">
+          <h1 className="text-3xl font-bold md:text-4xl">
+            <Trans>Choose Your Plan</Trans>
+          </h1>
+          <p className="mt-2 text-muted-foreground">
+            <Trans>Something went wrong loading plans. Please refresh the page.</Trans>
+          </p>
+        </div>
+        <div className="text-center">
+          <Button onClick={() => window.location.reload()}>
+            <Trans>Refresh Page</Trans>
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   const pricesToDisplay = Object.values(plans)
     .filter(

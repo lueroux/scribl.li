@@ -7,25 +7,36 @@ import { authenticatedProcedure } from '../trpc';
 export const getPlansRoute = authenticatedProcedure.query(async ({ ctx }) => {
   const userId = ctx.user.id;
 
-  const plans = await getInternalClaimPlans();
+  try {
+    const plans = await getInternalClaimPlans();
 
-  let canCreateFreeOrganisation = false;
+    let canCreateFreeOrganisation = false;
 
-  if (IS_BILLING_ENABLED()) {
-    const numberOfFreeOrganisations = await prisma.organisation.count({
-      where: {
-        ownerUserId: userId,
-        subscription: {
-          is: null,
+    if (IS_BILLING_ENABLED()) {
+      const numberOfFreeOrganisations = await prisma.organisation.count({
+        where: {
+          ownerUserId: userId,
+          subscription: {
+            is: null,
+          },
         },
-      },
-    });
+      });
 
-    canCreateFreeOrganisation = numberOfFreeOrganisations === 0;
+      canCreateFreeOrganisation = numberOfFreeOrganisations === 0;
+    }
+
+    return {
+      plans,
+      canCreateFreeOrganisation,
+    };
+  } catch (err) {
+    // If Stripe is not configured or fails, return empty plans
+    console.error('Failed to fetch billing plans:', err);
+
+    // Return a minimal response with empty plans to prevent 500 errors
+    return {
+      plans: {},
+      canCreateFreeOrganisation: false,
+    };
   }
-
-  return {
-    plans,
-    canCreateFreeOrganisation,
-  };
 });
