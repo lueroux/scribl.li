@@ -99,7 +99,7 @@ export const onSubscriptionUpdated = async ({
 
   // Migrate the organisation type if it is no longer an individual plan.
   if (
-    updatedSubscriptionClaim.id !== INTERNAL_CLAIM_ID.INDIVIDUAL &&
+    updatedSubscriptionClaim.id !== INTERNAL_CLAIM_ID.PRO &&
     updatedSubscriptionClaim.id !== INTERNAL_CLAIM_ID.FREE &&
     organisation.type === OrganisationType.PERSONAL
   ) {

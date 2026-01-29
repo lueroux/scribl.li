@@ -141,7 +141,7 @@ export const BillingPlans = ({ plans }: BillingPlansProps) => {
 
                 <div className="flex-1" />
 
-                {isPersonalLayoutMode && price.claim === INTERNAL_CLAIM_ID.INDIVIDUAL ? (
+                {isPersonalLayoutMode && price.claim === INTERNAL_CLAIM_ID.PRO ? (
                   <IndividualPersonalLayoutCheckoutButton priceId={price.id}>
                     <Trans>Subscribe</Trans>
                   </IndividualPersonalLayoutCheckoutButton>
@@ -180,9 +180,7 @@ const BillingDialog = ({
   const organisation = useCurrentOrganisation();
 
   const [subscriptionOption, setSubscriptionOption] = useState<'update' | 'create'>(
-    organisation.type === 'PERSONAL' && claim === INTERNAL_CLAIM_ID.INDIVIDUAL
-      ? 'update'
-      : 'create',
+    organisation.type === 'PERSONAL' && claim === INTERNAL_CLAIM_ID.PRO ? 'update' : 'create',
   );
 
   const [step, setStep] = useState(0);

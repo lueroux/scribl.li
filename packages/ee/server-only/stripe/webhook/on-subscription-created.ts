@@ -208,10 +208,7 @@ const handleOrganisationUpdate = async ({ customerId, claim }: HandleOrganisatio
   let newOrganisationType: OrganisationType = OrganisationType.ORGANISATION;
 
   // Keep the organisation as personal if the claim is for an individual.
-  if (
-    organisation.type === OrganisationType.PERSONAL &&
-    claim.id === INTERNAL_CLAIM_ID.INDIVIDUAL
-  ) {
+  if (organisation.type === OrganisationType.PERSONAL && claim.id === INTERNAL_CLAIM_ID.PRO) {
     newOrganisationType = OrganisationType.PERSONAL;
   }
 

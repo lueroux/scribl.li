@@ -190,7 +190,7 @@ export const OrganisationMemberInviteDialog = ({
     }
 
     // This is probably going to screw us over in the future.
-    if (fullOrganisation.organisationClaim.originalSubscriptionClaimId !== INTERNAL_CLAIM_ID.TEAM) {
+    if (fullOrganisation.organisationClaim.originalSubscriptionClaimId !== INTERNAL_CLAIM_ID.PRO) {
       return 'alert';
     }
 

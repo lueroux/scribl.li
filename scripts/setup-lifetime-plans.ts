@@ -13,8 +13,8 @@ async function setupLifetimePlans() {
 
   // Define lifetime prices for each plan (in cents)
   const lifetimePrices = {
-    [INTERNAL_CLAIM_ID.INDIVIDUAL]: 49900, // $499 one-time
-    [INTERNAL_CLAIM_ID.TEAM]: 149900, // $1,499 one-time
+    [INTERNAL_CLAIM_ID.PRO]: 49900, // $499 one-time
+    [INTERNAL_CLAIM_ID.BUSINESS]: 149900, // $1,499 one-time
     [INTERNAL_CLAIM_ID.PLATFORM]: 299900, // $2,999 one-time
     [INTERNAL_CLAIM_ID.ENTERPRISE]: 999900, // $9,999 one-time
   };
@@ -22,7 +22,7 @@ async function setupLifetimePlans() {
   try {
     // Get all active products
     const { data: products } = await stripe.products.search({
-      query: `active:'true' AND metadata["claimId"]:'${INTERNAL_CLAIM_ID.INDIVIDUAL}' OR metadata["claimId"]:'${INTERNAL_CLAIM_ID.TEAM}' OR metadata["claimId"]:'${INTERNAL_CLAIM_ID.PLATFORM}' OR metadata["claimId"]:'${INTERNAL_CLAIM_ID.ENTERPRISE}'`,
+      query: `active:'true' AND metadata["claimId"]:'${INTERNAL_CLAIM_ID.PRO}' OR metadata["claimId"]:'${INTERNAL_CLAIM_ID.BUSINESS}' OR metadata["claimId"]:'${INTERNAL_CLAIM_ID.PLATFORM}' OR metadata["claimId"]:'${INTERNAL_CLAIM_ID.ENTERPRISE}'`,
       limit: 100,
     });
 
