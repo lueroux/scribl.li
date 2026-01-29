@@ -42,6 +42,10 @@ export async function loader({ request }: Route.LoaderArgs) {
     }
 
     if (!currentTeam) {
+      // If user has no teams, they are new - redirect to onboarding
+      if (teams.length === 0) {
+        throw redirect('/onboarding');
+      }
       throw redirect('/inbox');
     }
 

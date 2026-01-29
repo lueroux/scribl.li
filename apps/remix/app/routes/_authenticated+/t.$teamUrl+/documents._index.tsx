@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import { Trans } from '@lingui/react/macro';
+import { Trans, _ } from '@lingui/react/macro';
 import { EnvelopeType } from '@prisma/client';
 import { FolderType, OrganisationType } from '@prisma/client';
 import { useParams, useSearchParams } from 'react-router';
@@ -24,6 +24,7 @@ import { DocumentStatus } from '~/components/general/document/document-status';
 import { EnvelopeDropZoneWrapper } from '~/components/general/envelope/envelope-drop-zone-wrapper';
 import { FolderGrid } from '~/components/general/folder/folder-grid';
 import { PeriodSelector } from '~/components/general/period-selector';
+import { UpgradeBanner } from '~/components/general/upgrade-banner';
 import { DocumentsTable } from '~/components/tables/documents-table';
 import { DocumentsTableEmptyState } from '~/components/tables/documents-table-empty-state';
 import { DocumentsTableSenderFilter } from '~/components/tables/documents-table-sender-filter';
@@ -114,11 +115,35 @@ export default function DocumentsPage() {
       <div className="mx-auto w-full max-w-screen-xl px-4 md:px-8">
         <FolderGrid type={FolderType.DOCUMENT} parentId={folderId ?? null} />
 
+        {stats && stats.quota && stats.remaining && (
+          <div className="mt-6">
+            {stats.remaining.documents <= 3 && stats.remaining.documents > 0 && (
+              <UpgradeBanner
+                title={_`Running out of documents`}
+                description={_`You have ${stats.remaining.documents} documents left in your monthly quota. Upgrade your plan to continue sending documents without interruption.`}
+                limitType="documents"
+                currentUsage={stats.quota.documents - stats.remaining.documents}
+                limit={stats.quota.documents}
+                variant="warning"
+              />
+            )}
+            {stats.remaining.documents === 0 && (
+              <UpgradeBanner
+                title={_`Document limit reached`}
+                description={_`You've reached your monthly document limit. Upgrade your plan to continue sending documents.`}
+                limitType="documents"
+                currentUsage={stats.quota.documents}
+                limit={stats.quota.documents}
+              />
+            )}
+          </div>
+        )}
+
         <div className="mt-8 flex flex-wrap items-center justify-between gap-x-4 gap-y-8">
           <div className="flex flex-row items-center">
-            <Avatar className="dark:border-border mr-3 h-12 w-12 border-2 border-solid border-white">
+            <Avatar className="mr-3 h-12 w-12 border-2 border-solid border-white dark:border-border">
               {team.avatarImageId && <AvatarImage src={formatAvatarUrl(team.avatarImageId)} />}
-              <AvatarFallback className="text-muted-foreground text-xs">
+              <AvatarFallback className="text-xs text-muted-foreground">
                 {team.name.slice(0, 1)}
               </AvatarFallback>
             </Avatar>
@@ -148,7 +173,7 @@ export default function DocumentsPage() {
                   .map((value) => (
                     <TabsTrigger
                       key={value}
-                      className="hover:text-foreground min-w-[60px]"
+                      className="min-w-[60px] hover:text-foreground"
                       value={value}
                       asChild
                     >
