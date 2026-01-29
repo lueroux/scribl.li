@@ -9,44 +9,67 @@
     
     <link rel="canonical" href="https://scriblli.com/about.html">
     
+    <!-- Scriblli Theme CSS -->
+    <link rel="stylesheet" href="css/scriblli-theme-fixed.css">
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: 'hsl(83, 47%, 64%)',
+                            50: 'hsl(83, 47%, 97%)',
+                            100: 'hsl(83, 47%, 94%)',
+                            500: 'hsl(83, 47%, 64%)',
+                            600: 'hsl(83, 47%, 54%)',
+                            700: 'hsl(83, 47%, 41%)',
+                        }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="bg-white">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-neutral-200">
+        <div class="section-container">
             <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="text-2xl font-bold text-indigo-600">Scribl.li</a>
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/images/logo.png" alt="Scribl.li" class="h-8 w-auto">
+                </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="features.html" class="text-gray-700 hover:text-indigo-600 transition">Features</a>
-                    <a href="pricing.html" class="text-gray-700 hover:text-indigo-600 transition">Pricing</a>
-                    <a href="about.html" class="text-indigo-600 font-semibold">About</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-indigo-600 transition">Contact</a>
+                    <a href="features.html" class="nav-link">Features</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link text-primary-600 font-semibold">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <a href="#signin" class="text-gray-700 hover:text-indigo-600 transition">Sign In</a>
-                    <a href="#signup" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Sign Up</a>
+                    <a href="https://scribl.li/signin" class="nav-link">Sign In</a>
+                    <a href="https://scribl.li/signup" class="btn-primary">Get Started</a>
                 </div>
             </div>
         </div>
     </nav>
     
     <!-- Hero Section -->
-    <section class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 to-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl font-bold text-gray-900 mb-6">Making E-Signatures Affordable for Everyone</h1>
-            <p class="text-xl text-gray-600">We believe professional document signing shouldn't cost a fortune. That's why we built Scribl.li.</p>
+    <section class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-50 to-white">
+        <div class="section-container text-center">
+            <h1 class="heading-xl mb-6">Making E-Signatures Affordable for Everyone</h1>
+            <p class="text-body">We believe professional document signing shouldn't cost a fortune. That's why we built Scribl.li.</p>
         </div>
     </section>
     
     <!-- Mission Section -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
+    <section class="section-padding">
+        <div class="section-container">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-4xl font-bold mb-6">Our Mission</h2>
+                    <h2 class="heading-lg mb-6">Our Mission</h2>
                     <p class="text-lg text-gray-600 mb-4">
                         We started Scribl.li because we were frustrated with the high cost of existing e-signature solutions. Small businesses and startups were being priced out of essential tools they needed to operate efficiently.
                     </p>
@@ -57,50 +80,58 @@
                         By leveraging modern technology and efficient operations, we're able to offer the same features as expensive alternatives at a fraction of the cost—without compromising on quality, security, or compliance.
                     </p>
                 </div>
-                <div class="bg-gradient-to-br from-indigo-100 to-purple-100 rounded-2xl p-12 text-center">
-                    <div class="text-6xl font-bold text-indigo-600 mb-4">Lower</div>
-                    <p class="text-2xl font-semibold text-gray-900 mb-2">Pricing</p>
-                    <p class="text-gray-600">Compared to major e-signature providers</p>
+                <div class="bg-gradient-to-br from-primary-100 to-primary-50 rounded-geometric p-12 text-center">
+                    <div class="text-6xl font-bold text-primary-600 mb-4">Lower</div>
+                    <p class="heading-sm mb-2">Pricing</p>
+                    <p class="text-muted-foreground">Compared to major e-signature providers</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Values Section -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12">Our Values</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
-                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-dollar-sign text-indigo-600 text-2xl"></i>
+    <section class="section-padding bg-muted">
+        <div class="section-container">
+            <h2 class="heading-lg text-center mb-12">Our Values</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card card-hover text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-geometric flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-3">Affordability</h3>
-                    <p class="text-gray-600">We're committed to keeping our prices low so businesses of all sizes can access professional e-signature tools.</p>
+                    <h3 class="heading-sm mb-3">Affordability</h3>
+                    <p class="text-muted-foreground">We're committed to keeping our prices low so businesses of all sizes can access professional e-signature tools.</p>
                 </div>
                 
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
-                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-shield-alt text-indigo-600 text-2xl"></i>
+                <div class="card card-hover text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-geometric flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-3">Security</h3>
-                    <p class="text-gray-600">Lower prices don't mean lower security. We maintain bank-level encryption and industry-leading compliance standards.</p>
+                    <h3 class="heading-sm mb-3">Security</h3>
+                    <p class="text-muted-foreground">Lower prices don't mean lower security. We maintain bank-level encryption and industry-leading compliance standards.</p>
                 </div>
                 
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
-                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-heart text-indigo-600 text-2xl"></i>
+                <div class="card card-hover text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-geometric flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-3">Customer First</h3>
-                    <p class="text-gray-600">Our success is measured by your success. We're here to help you streamline your document workflows.</p>
+                    <h3 class="heading-sm mb-3">Customer First</h3>
+                    <p class="text-muted-foreground">Our success is measured by your success. We're here to help you streamline your document workflows.</p>
                 </div>
                 
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center">
-                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-rocket text-indigo-600 text-2xl"></i>
+                <div class="card card-hover text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-geometric flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-3">Innovation</h3>
-                    <p class="text-gray-600">We continuously improve our platform with new features and capabilities based on customer feedback.</p>
+                    <h3 class="heading-sm mb-3">Innovation</h3>
+                    <p class="text-muted-foreground">We continuously improve our platform with new features and capabilities based on customer feedback.</p>
                 </div>
                 
                 <div class="bg-white p-8 rounded-xl shadow-lg text-center">
@@ -123,107 +154,110 @@
     </section>
     
     <!-- Stats Section -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12">By The Numbers</h2>
+    <section class="section-padding">
+        <div class="section-container">
+            <h2 class="heading-lg text-center mb-12">By The Numbers</h2>
             <div class="grid md:grid-cols-4 gap-8 text-center">
                 <div>
-                    <div class="text-5xl font-bold text-indigo-600 mb-2">10,000+</div>
-                    <p class="text-gray-600">Active Users</p>
+                    <div class="text-5xl font-bold text-primary-600 mb-2">10,000+</div>
+                    <p class="text-muted-foreground">Active Users</p>
                 </div>
                 <div>
-                    <div class="text-5xl font-bold text-indigo-600 mb-2">500K+</div>
-                    <p class="text-gray-600">Documents Signed</p>
+                    <div class="text-5xl font-bold text-primary-600 mb-2">500K+</div>
+                    <p class="text-muted-foreground">Documents Signed</p>
                 </div>
                 <div>
-                    <div class="text-5xl font-bold text-indigo-600 mb-2">99.9%</div>
-                    <p class="text-gray-600">Uptime</p>
+                    <div class="text-5xl font-bold text-primary-600 mb-2">99.9%</div>
+                    <p class="text-muted-foreground">Uptime</p>
                 </div>
                 <div>
-                    <div class="text-5xl font-bold text-indigo-600 mb-2">4.8/5</div>
-                    <p class="text-gray-600">Customer Rating</p>
+                    <div class="text-5xl font-bold text-primary-600 mb-2">4.8/5</div>
+                    <p class="text-muted-foreground">Customer Rating</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Why We're Different -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12">Why We're Different</h2>
-            <div class="space-y-6">
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold mb-3 flex items-center">
-                        <i class="fas fa-tag text-indigo-600 mr-3"></i>
+    <section class="section-padding bg-muted">
+        <div class="section-container">
+            <h2 class="heading-lg text-center mb-12">Why We're Different</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h3 class="heading-sm mb-3 flex items-center">
+                        <svg class="w-6 h-6 text-primary-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                        </svg>
                         Fair Pricing Model
                     </h3>
-                    <p class="text-gray-600">We don't believe in charging premium prices just because we can. Our efficient operations allow us to pass savings directly to you.</p>
+                    <p class="text-muted-foreground">We don't believe in charging premium prices just because we can. Our efficient operations allow us to pass savings directly to you.</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold mb-3 flex items-center">
-                        <i class="fas fa-cogs text-indigo-600 mr-3"></i>
+                <div class="card">
+                    <h3 class="heading-sm mb-3 flex items-center">
+                        <svg class="w-6 h-6 text-primary-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
                         Modern Technology Stack
                     </h3>
-                    <p class="text-gray-600">Built from the ground up with modern cloud infrastructure, we deliver better performance at competitive costs.</p>
+                    <p class="text-muted-foreground">Built from the ground up with modern cloud infrastructure, we deliver better performance at competitive costs.</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold mb-3 flex items-center">
-                        <i class="fas fa-handshake text-indigo-600 mr-3"></i>
+                <div class="card">
+                    <h3 class="heading-sm mb-3 flex items-center">
+                        <svg class="w-6 h-6 text-primary-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
                         No Vendor Lock-In
                     </h3>
-                    <p class="text-gray-600">Export your data anytime. We earn your business every month by providing value, not by trapping you in contracts.</p>
+                    <p class="text-muted-foreground">Export your data anytime. We earn your business every month by providing value, not by trapping you in contracts.</p>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold mb-3 flex items-center">
-                        <i class="fas fa-headset text-indigo-600 mr-3"></i>
+                <div class="card">
+                    <h3 class="heading-sm mb-3 flex items-center">
+                        <svg class="w-6 h-6 text-primary-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
                         Responsive Support
                     </h3>
-                    <p class="text-gray-600">Real humans, real help. Our support team is here to ensure your success, not just close tickets.</p>
+                    <p class="text-muted-foreground">Real humans, real help. Our support team is here to ensure your success, not just close tickets.</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Team Section -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-6">Built by a Passionate Team</h2>
-            <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+    <section class="section-padding">
+        <div class="section-container text-center">
+            <h2 class="heading-lg mb-6">Built by a Passionate Team</h2>
+            <p class="text-body mb-12 max-w-3xl mx-auto">
                 Our team combines decades of experience in software development, security, and customer service. We're dedicated to building the best e-signature platform at the most affordable price.
             </p>
-            <div class="bg-indigo-600 text-white rounded-2xl p-12">
-                <h3 class="text-3xl font-bold mb-4">Join Our Growing Team</h3>
-                <p class="text-xl text-indigo-100 mb-6">We're always looking for talented individuals who share our mission</p>
-                <a href="contact.html" class="inline-block bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-                    View Open Positions
-                </a>
+            <div class="bg-primary-600 text-white rounded-geometric p-12">
+                <h3 class="heading-md mb-4">Join Our Growing Team</h3>
+                <p class="text-primary-100 mb-6">We're always looking for talented individuals who share our mission</p>
+                <a href="contact.html" class="btn-secondary">View Open Positions</a>
             </div>
         </div>
     </section>
     
     <!-- CTA Section -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-indigo-600 to-purple-600">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-white mb-4">Ready to Save on E-Signatures?</h2>
-            <p class="text-xl text-indigo-100 mb-8">Join thousands of businesses who made the switch to affordable, professional e-signatures</p>
+    <section class="section-padding bg-gradient-to-r from-primary-600 to-primary-700">
+        <div class="section-container text-center">
+            <h2 class="heading-lg text-white mb-4">Ready to Save on E-Signatures?</h2>
+            <p class="text-primary-100 mb-8">Join thousands of businesses who made the switch to affordable, professional e-signatures</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#signup" class="bg-white text-indigo-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">
-                    Start Free Trial
-                </a>
-                <a href="pricing.html" class="bg-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-indigo-800 transition">
-                    View Pricing
-                </a>
+                <a href="https://scribl.li/signup" class="btn-secondary">Start Free Trial</a>
+                <a href="pricing.html" class="btn-primary">View Pricing</a>
             </div>
         </div>
     </section>
     
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <p class="text-2xl font-bold text-white mb-4">Scribl.li</p>
+    <footer class="bg-neutral-900 text-neutral-300 py-12 px-4">
+        <div class="section-container text-center">
+            <p class="heading-sm text-white mb-4">Scribl.li</p>
             <p>&copy; 2026 Scribl.li, Inc. All rights reserved.</p>
             <div class="mt-4 space-x-4">
                 <a href="index.html" class="hover:text-white transition">Home</a>

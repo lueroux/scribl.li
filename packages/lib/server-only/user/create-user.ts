@@ -34,6 +34,7 @@ export const createUser = async ({ name, email, password, signature }: CreateUse
         email: email.toLowerCase(),
         password: hashedPassword, // Todo: (RR7) Drop password.
         signature,
+        identityProvider: 'DOCUMENSO', // Using DOCUMENSO until Scriblli enum is properly migrated
       },
     });
 

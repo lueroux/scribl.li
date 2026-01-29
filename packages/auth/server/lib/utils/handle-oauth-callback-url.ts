@@ -112,6 +112,7 @@ export const handleOAuthCallbackUrl = async (options: HandleOAuthCallbackUrlOpti
         email: email,
         name: name,
         emailVerified: new Date(),
+        identityProvider: 'DOCUMENSO', // Using DOCUMENSO until Scriblli enum is properly migrated
       },
     });
 

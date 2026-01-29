@@ -73,6 +73,7 @@ export const handleOAuthOrganisationCallbackUrl = async (
         email: email,
         name: name,
         emailVerified: null, // Do not verify email.
+        identityProvider: 'DOCUMENSO', // Using DOCUMENSO until Scriblli enum is properly migrated
       },
     });
 

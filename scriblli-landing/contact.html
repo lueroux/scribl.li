@@ -5,37 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Scribl.li</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Scriblli Theme CSS -->
+    <link rel="stylesheet" href="css/scriblli-theme-fixed.css">
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: 'hsl(83, 47%, 64%)',
+                            50: 'hsl(83, 47%, 97%)',
+                            100: 'hsl(83, 47%, 94%)',
+                            500: 'hsl(83, 47%, 64%)',
+                            600: 'hsl(83, 47%, 54%)',
+                            700: 'hsl(83, 47%, 41%)',
+                        }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-50">
+<body class="bg-white">
     <!-- Navigation -->
     <nav class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="section-container">
             <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="text-2xl font-bold text-indigo-600">Scribl.li</a>
-                <a href="index.html" class="text-gray-600 hover:text-indigo-600 transition">
-                    <i class="fas fa-arrow-left mr-2"></i>Back to Home
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/images/logo.png" alt="Scribl.li" class="h-8 w-auto">
+                </a>
+                <a href="https://scribl.li/signin" class="nav-link">Sign In</a>
+                <a href="index.html" class="nav-link">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Back to Home
                 </a>
             </div>
         </div>
     </nav>
     
     <!-- Contact Form Section -->
-    <section class="py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto">
+    <section class="section-padding">
+        <div class="section-container">
             <div class="text-center mb-12">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
-                <p class="text-xl text-gray-600">Have a question? We'd love to hear from you.</p>
+                <h1 class="heading-lg mb-4">Contact Us</h1>
+                <p class="text-body">Have a question? We'd love to hear from you.</p>
             </div>
             
-            <div class="bg-white rounded-lg shadow-lg p-8">
+            <div class="card">
                 <form id="contactForm" class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
@@ -43,7 +65,7 @@
                                 Name <span class="text-red-500">*</span>
                             </label>
                             <input type="text" id="name" name="name" required
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                                   class="form-input">
                         </div>
                         
                         <div>
@@ -51,7 +73,7 @@
                                 Email <span class="text-red-500">*</span>
                             </label>
                             <input type="email" id="email" name="email" required
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                                   class="form-input">
                         </div>
                     </div>
                     
@@ -60,7 +82,7 @@
                             Phone (Optional)
                         </label>
                         <input type="tel" id="phone" name="phone"
-                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                               class="form-input">
                     </div>
                     
                     <div>
@@ -68,7 +90,7 @@
                             Subject <span class="text-red-500">*</span>
                         </label>
                         <select id="subject" name="subject" required
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                                class="form-select">
                             <option value="">Select a subject</option>
                             <option value="General Inquiry">General Inquiry</option>
                             <option value="Technical Support">Technical Support</option>
@@ -83,44 +105,51 @@
                             Message <span class="text-red-500">*</span>
                         </label>
                         <textarea id="message" name="message" rows="6" required
-                                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"></textarea>
+                                  class="form-textarea"></textarea>
                     </div>
                     
                     <div class="flex items-center">
                         <input type="checkbox" id="newsletter" name="newsletter"
-                               class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="newsletter" class="ml-2 block text-sm text-gray-700">
+                               class="form-checkbox">
+                        <label for="newsletter" class="ml-2 block text-sm text-muted-foreground">
                             Subscribe to our newsletter for updates and news
                         </label>
                     </div>
                     
-                    <button type="submit"
-                            class="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-indigo-700 transition transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed">
+                    <button type="submit" class="btn-primary w-full">
                         <span id="submitText">Send Message</span>
                         <span id="submitLoader" class="hidden">
-                            <i class="fas fa-spinner fa-spin mr-2"></i>Sending...
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Sending...
                         </span>
                     </button>
                 </form>
                 
                 <!-- Success Message -->
-                <div id="successMessage" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <div id="successMessage" class="hidden mt-6 p-4 bg-success-50 border border-success-200 rounded-lg">
                     <div class="flex items-center">
-                        <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
+                        <svg class="w-6 h-6 text-success-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
                         <div>
-                            <h3 class="text-green-800 font-semibold">Message Sent!</h3>
-                            <p class="text-green-700">Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                            <h3 class="text-success-800 font-semibold">Message Sent!</h3>
+                            <p class="text-success-700">Thank you for contacting us. We'll get back to you within 24 hours.</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Error Message -->
-                <div id="errorMessage" class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <div id="errorMessage" class="hidden mt-6 p-4 bg-error-50 border border-error-200 rounded-lg">
                     <div class="flex items-center">
-                        <i class="fas fa-exclamation-circle text-red-500 text-xl mr-3"></i>
+                        <svg class="w-6 h-6 text-error-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
                         <div>
-                            <h3 class="text-red-800 font-semibold">Error</h3>
-                            <p class="text-red-700" id="errorText">Something went wrong. Please try again.</p>
+                            <h3 class="text-error-800 font-semibold">Error</h3>
+                            <p class="text-error-700" id="errorText">Something went wrong. Please try again.</p>
                         </div>
                     </div>
                 </div>
@@ -129,35 +158,42 @@
             <!-- Contact Information -->
             <div class="mt-12 grid md:grid-cols-3 gap-8">
                 <div class="text-center">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-envelope text-indigo-600"></i>
+                    <div class="w-12 h-12 bg-primary-100 rounded-geometric flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
                     </div>
                     <h3 class="font-semibold mb-2">Email</h3>
-                    <p class="text-gray-600">contact@scriblli.com</p>
+                    <p class="text-muted-foreground">contact@scriblli.com</p>
                 </div>
                 
                 <div class="text-center">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-phone text-indigo-600"></i>
+                    <div class="w-12 h-12 bg-primary-100 rounded-geometric flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
                     </div>
                     <h3 class="font-semibold mb-2">Phone</h3>
-                    <p class="text-gray-600">+1 (555) 123-4567</p>
+                    <p class="text-muted-foreground">+1 (555) 123-4567</p>
                 </div>
                 
                 <div class="text-center">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                    <div class="w-12 h-12 bg-primary-100 rounded-geometric flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
                     </div>
                     <h3 class="font-semibold mb-2">Office</h3>
-                    <p class="text-gray-600">San Francisco, CA</p>
+                    <p class="text-muted-foreground">San Francisco, CA</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-8 px-4">
-        <div class="max-w-7xl mx-auto text-center">
+    <footer class="bg-neutral-900 text-neutral-300 py-8 px-4">
+        <div class="section-container text-center">
             <p>&copy; 2026 Scribl.li, Inc. All rights reserved.</p>
         </div>
     </footer>
