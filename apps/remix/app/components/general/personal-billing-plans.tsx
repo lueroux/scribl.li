@@ -33,7 +33,7 @@ import { Input } from '@documenso/ui/primitives/input';
 import { Tabs, TabsList, TabsTrigger } from '@documenso/ui/primitives/tabs';
 import { useToast } from '@documenso/ui/primitives/use-toast';
 
-import { ZCreateOrganisationFormSchema } from '../../dialogs/organisation-create-dialog';
+import { ZCreateOrganisationFormSchema } from '../dialogs/organisation-create-dialog';
 
 const MotionCard = motion.create(Card);
 
