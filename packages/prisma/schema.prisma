@@ -235,12 +235,13 @@ enum SubscriptionStatus {
 model Subscription {
   id                Int                @id @default(autoincrement())
   status            SubscriptionStatus @default(INACTIVE)
-  planId            String             @unique
+  planId            String
   priceId           String
   periodEnd         DateTime?
   createdAt         DateTime           @default(now())
   updatedAt         DateTime           @updatedAt
   cancelAtPeriodEnd Boolean            @default(false)
+  billingType       String             @default("subscription")
 
   customerId String
 

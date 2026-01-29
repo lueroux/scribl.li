@@ -53,7 +53,9 @@ export const BillingPlans = ({ plans }: BillingPlansProps) => {
 
   const { organisations } = useSession();
 
-  const [interval, setInterval] = useState<'monthlyPrice' | 'yearlyPrice'>('yearlyPrice');
+  const [interval, setInterval] = useState<'monthlyPrice' | 'yearlyPrice' | 'lifetimePrice'>(
+    'yearlyPrice',
+  );
 
   const isPersonalLayoutMode = isPersonalLayout(organisations);
 
@@ -77,7 +79,9 @@ export const BillingPlans = ({ plans }: BillingPlansProps) => {
     <div>
       <Tabs
         value={interval}
-        onValueChange={(value) => setInterval(value as 'monthlyPrice' | 'yearlyPrice')}
+        onValueChange={(value) =>
+          setInterval(value as 'monthlyPrice' | 'yearlyPrice' | 'lifetimePrice')
+        }
       >
         <TabsList>
           <TabsTrigger className="min-w-[150px]" value="monthlyPrice">
@@ -85,6 +89,9 @@ export const BillingPlans = ({ plans }: BillingPlansProps) => {
           </TabsTrigger>
           <TabsTrigger className="min-w-[150px]" value="yearlyPrice">
             <Trans>Yearly</Trans>
+          </TabsTrigger>
+          <TabsTrigger className="min-w-[150px]" value="lifetimePrice">
+            <Trans>Lifetime</Trans>
           </TabsTrigger>
         </TabsList>
       </Tabs>
@@ -106,8 +113,10 @@ export const BillingPlans = ({ plans }: BillingPlansProps) => {
                   <span className="text-xs">
                     {interval === 'monthlyPrice' ? (
                       <Trans>per month</Trans>
-                    ) : (
+                    ) : interval === 'yearlyPrice' ? (
                       <Trans>per year</Trans>
+                    ) : (
+                      <Trans>one-time payment</Trans>
                     )}
                   </span>
                 </div>

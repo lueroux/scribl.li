@@ -8,6 +8,8 @@ export type CreateCheckoutSessionOptions = {
   priceId: string;
   returnUrl: string;
   subscriptionMetadata?: Stripe.Metadata;
+  mode?: 'subscription' | 'payment';
+  paymentMetadata?: Stripe.Metadata;
 };
 
 export const createCheckoutSession = async ({
@@ -15,10 +17,12 @@ export const createCheckoutSession = async ({
   priceId,
   returnUrl,
   subscriptionMetadata,
+  mode = 'subscription',
+  paymentMetadata,
 }: CreateCheckoutSessionOptions) => {
-  const session = await stripe.checkout.sessions.create({
+  const sessionConfig: Stripe.Checkout.SessionCreateParams = {
     customer: customerId,
-    mode: 'subscription',
+    mode,
     line_items: [
       {
         price: priceId,
@@ -27,10 +31,19 @@ export const createCheckoutSession = async ({
     ],
     success_url: `${returnUrl}?success=true`,
     cancel_url: `${returnUrl}?canceled=true`,
-    subscription_data: {
+  };
+
+  if (mode === 'subscription') {
+    sessionConfig.subscription_data = {
       metadata: subscriptionMetadata,
-    },
-  });
+    };
+  } else if (mode === 'payment') {
+    sessionConfig.payment_intent_data = {
+      metadata: paymentMetadata,
+    };
+  }
+
+  const session = await stripe.checkout.sessions.create(sessionConfig);
 
   if (!session.url) {
     throw new AppError(AppErrorCode.UNKNOWN_ERROR, {

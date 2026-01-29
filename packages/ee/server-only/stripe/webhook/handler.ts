@@ -5,6 +5,7 @@ import type { Stripe } from '@documenso/lib/server-only/stripe';
 import { stripe } from '@documenso/lib/server-only/stripe';
 import { env } from '@documenso/lib/utils/env';
 
+import { onCheckoutSessionCompleted } from './on-checkout-session-completed';
 import { onSubscriptionCreated } from './on-subscription-created';
 import { onSubscriptionDeleted } from './on-subscription-deleted';
 import { onSubscriptionUpdated } from './on-subscription-updated';
@@ -67,7 +68,7 @@ export const stripeWebhookHandler = async (req: Request): Promise<Response> => {
      * Notes:
      * - Dropped invoice.payment_succeeded
      * - Dropped invoice.payment_failed
-     * - Dropped checkout-session.completed
+     * - Added checkout.session.completed for lifetime payments
      */
     return await match(event.type)
       .with('customer.subscription.created', async () => {
@@ -101,6 +102,20 @@ export const stripeWebhookHandler = async (req: Request): Promise<Response> => {
         const subscription = event.data.object as Stripe.Subscription;
 
         await onSubscriptionDeleted({ subscription });
+
+        return Response.json(
+          {
+            success: true,
+            message: 'Webhook received',
+          } satisfies StripeWebhookResponse,
+          { status: 200 },
+        );
+      })
+      .with('checkout.session.completed', async () => {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+        const session = event.data.object as Stripe.Checkout.Session;
+
+        await onCheckoutSessionCompleted({ session });
 
         return Response.json(
           {

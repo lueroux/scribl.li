@@ -3,6 +3,7 @@ import { createCustomer } from '@documenso/ee/server-only/stripe/create-customer
 import { IS_BILLING_ENABLED, NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
 import { ORGANISATION_MEMBER_ROLE_PERMISSIONS_MAP } from '@documenso/lib/constants/organisations';
 import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
+import { type Stripe, stripe } from '@documenso/lib/server-only/stripe';
 import { buildOrganisationWhereQuery } from '@documenso/lib/utils/organisations';
 import { prisma } from '@documenso/prisma';
 
@@ -74,10 +75,26 @@ export const createSubscriptionRoute = authenticatedProcedure
       ? `${NEXT_PUBLIC_WEBAPP_URL()}/settings/billing-personal`
       : `${NEXT_PUBLIC_WEBAPP_URL()}/o/${organisation.url}/settings/billing`;
 
+    // Check if this is a lifetime price (one-time payment)
+    const price = await stripe.prices.retrieve(priceId, {
+      expand: ['product'],
+    });
+
+    const isLifetime =
+      price.type === 'one_time' &&
+      (price.product as Stripe.Product).metadata?.billingType === 'lifetime';
+
     const redirectUrl = await createCheckoutSession({
       customerId,
       priceId,
       returnUrl,
+      mode: isLifetime ? 'payment' : 'subscription',
+      paymentMetadata: isLifetime
+        ? {
+            organisationId,
+            billingType: 'lifetime',
+          }
+        : undefined,
     });
 
     if (!redirectUrl) {

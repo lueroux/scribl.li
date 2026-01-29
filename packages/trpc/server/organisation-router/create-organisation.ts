@@ -5,6 +5,7 @@ import { createCustomer } from '@documenso/ee/server-only/stripe/create-customer
 import { IS_BILLING_ENABLED, NEXT_PUBLIC_WEBAPP_URL } from '@documenso/lib/constants/app';
 import { AppError, AppErrorCode } from '@documenso/lib/errors/app-error';
 import { createOrganisation } from '@documenso/lib/server-only/organisation/create-organisation';
+import { type Stripe, stripe } from '@documenso/lib/server-only/stripe';
 import { INTERNAL_CLAIM_ID, internalClaims } from '@documenso/lib/types/subscription';
 import { generateStripeOrganisationCreateMetadata } from '@documenso/lib/utils/billing';
 import { prisma } from '@documenso/prisma';
@@ -54,11 +55,29 @@ export const createOrganisationRoute = authenticatedProcedure
         name: user.name || user.email,
       });
 
+      // Check if this is a lifetime price (one-time payment)
+      const price = await stripe.prices.retrieve(priceId, {
+        expand: ['product'],
+      });
+
+      const isLifetime =
+        price.type === 'one_time' &&
+        (price.product as Stripe.Product).metadata?.billingType === 'lifetime';
+
       const checkoutUrl = await createCheckoutSession({
         priceId,
         customerId: customer.id,
         returnUrl: `${NEXT_PUBLIC_WEBAPP_URL()}/settings/organisations`,
-        subscriptionMetadata: generateStripeOrganisationCreateMetadata(name, user.id),
+        mode: isLifetime ? 'payment' : 'subscription',
+        subscriptionMetadata: !isLifetime
+          ? generateStripeOrganisationCreateMetadata(name, user.id)
+          : undefined,
+        paymentMetadata: isLifetime
+          ? {
+              ...generateStripeOrganisationCreateMetadata(name, user.id),
+              billingType: 'lifetime',
+            }
+          : undefined,
       });
 
       return {

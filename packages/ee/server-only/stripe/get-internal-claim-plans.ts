@@ -21,6 +21,11 @@ export type InternalClaimPlans = {
       isVisibleInApp: boolean;
       friendlyPrice: string;
     };
+    lifetimePrice?: Stripe.Price & {
+      product: Stripe.Product;
+      isVisibleInApp: boolean;
+      friendlyPrice: string;
+    };
   };
 };
 
@@ -29,7 +34,13 @@ export type InternalClaimPlans = {
  */
 export const getInternalClaimPlans = async (): Promise<InternalClaimPlans> => {
   const { data: prices } = await stripe.prices.search({
-    query: `active:'true' type:'recurring'`,
+    query: `active:'true' AND type:'recurring'`,
+    expand: ['data.product'],
+    limit: 100,
+  });
+
+  const { data: oneTimePrices } = await stripe.prices.search({
+    query: `active:'true' AND type:'one_time'`,
     expand: ['data.product'],
     limit: 100,
   });
@@ -78,6 +89,40 @@ export const getInternalClaimPlans = async (): Promise<InternalClaimPlans> => {
         friendlyPrice: `$${usdPrice} ${price.currency.toUpperCase()}`.replace('.00', ''),
       };
     }
+  });
+
+  // Handle one-time payments for lifetime plans
+  oneTimePrices.forEach((price) => {
+    // We use `expand` to get the product, but it's not typed as part of the Price type.
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const product = price.product as Stripe.Product;
+
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const productClaimId = product.metadata.claimId as INTERNAL_CLAIM_ID | undefined;
+    const isVisibleInApp = price.metadata.visibleInApp === 'true';
+    const isLifetime = product.metadata.billingType === 'lifetime';
+
+    if (
+      !productClaimId ||
+      !Object.values(INTERNAL_CLAIM_ID).includes(productClaimId) ||
+      !isLifetime
+    ) {
+      return;
+    }
+
+    let usdPrice = toHumanPrice(price.unit_amount ?? 0);
+
+    if (product.metadata['isSeatBased'] === 'true') {
+      usdPrice = '1200';
+    }
+
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    plans[productClaimId].lifetimePrice = {
+      ...price,
+      isVisibleInApp,
+      product,
+      friendlyPrice: `$${usdPrice} ${price.currency.toUpperCase()}`.replace('.00', ''),
+    };
   });
 
   return plans;

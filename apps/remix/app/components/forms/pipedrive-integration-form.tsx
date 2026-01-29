@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Trans, useLingui } from '@lingui/react/macro';
+import { Trans } from '@lingui/react/macro';
 import { CheckCircleIcon, XCircleIcon } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -52,11 +52,11 @@ export const PipedriveIntegrationForm = ({ className }: PipedriveIntegrationForm
           description: t`Pipedrive integration settings have been updated successfully.`,
           duration: 5000,
         });
-        
+
         if (result.connectionStatus) {
           setConnectionStatus(result.connectionStatus);
         }
-        
+
         void refetch();
       },
       onError: (error) => {
@@ -72,7 +72,7 @@ export const PipedriveIntegrationForm = ({ className }: PipedriveIntegrationForm
   const { mutateAsync: testConnection } = trpc.integrations.pipedrive.testConnection.useMutation({
     onSuccess: (result) => {
       setConnectionStatus(result.connectionStatus);
-      
+
       if (result.success) {
         toast({
           title: t`Connection successful`,
@@ -112,7 +112,7 @@ export const PipedriveIntegrationForm = ({ className }: PipedriveIntegrationForm
 
   const onSubmit = async (data: TPipedriveFormSchema) => {
     // Only include fields that have actual values
-    const updateData: Record<string, any> = {
+    const updateData: Record<string, string | boolean> = {
       enabled: data.enabled,
     };
 
@@ -129,7 +129,7 @@ export const PipedriveIntegrationForm = ({ className }: PipedriveIntegrationForm
 
   const handleTestConnection = async () => {
     const values = form.getValues();
-    
+
     if (!values.apiToken?.trim() || !values.companyDomain?.trim()) {
       toast({
         title: t`Missing credentials`,
@@ -180,7 +180,7 @@ export const PipedriveIntegrationForm = ({ className }: PipedriveIntegrationForm
           <FormField
             control={form.control}
             name="enabled"
-            render={({ field }: { field: any }) => (
+            render={({ field }) => (
               <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
                 <div className="space-y-0.5">
                   <FormLabel className="text-base">
@@ -204,21 +204,18 @@ export const PipedriveIntegrationForm = ({ className }: PipedriveIntegrationForm
             <FormField
               control={form.control}
               name="companyDomain"
-              render={({ field }: { field: any }) => (
+              render={({ field }) => (
                 <FormItem>
                   <FormLabel>
                     <Trans>Company Domain</Trans>
                   </FormLabel>
                   <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="company-name"
-                      disabled={isUpdating}
-                    />
+                    <Input {...field} placeholder="company-name" disabled={isUpdating} />
                   </FormControl>
                   <FormDescription>
                     <Trans>
-                      Your Pipedrive company domain (e.g., "company-name" from company-name.pipedrive.com)
+                      Your Pipedrive company domain (e.g., "company-name" from
+                      company-name.pipedrive.com)
                     </Trans>
                   </FormDescription>
                   <FormMessage />
@@ -229,7 +226,7 @@ export const PipedriveIntegrationForm = ({ className }: PipedriveIntegrationForm
             <FormField
               control={form.control}
               name="apiToken"
-              render={({ field }: { field: any }) => (
+              render={({ field }) => (
                 <FormItem>
                   <FormLabel>
                     <Trans>API Token</Trans>
@@ -244,7 +241,8 @@ export const PipedriveIntegrationForm = ({ className }: PipedriveIntegrationForm
                   </FormControl>
                   <FormDescription>
                     <Trans>
-                      Your Pipedrive API token. You can find this in your Pipedrive settings under API.
+                      Your Pipedrive API token. You can find this in your Pipedrive settings under
+                      API.
                     </Trans>
                   </FormDescription>
                   <FormMessage />
@@ -287,14 +285,28 @@ export const PipedriveIntegrationForm = ({ className }: PipedriveIntegrationForm
 
       {/* Help Text */}
       <div className="mt-6 rounded-lg bg-muted/50 p-4">
-        <div className="text-sm font-medium mb-2">
+        <div className="mb-2 text-sm font-medium">
           <Trans>How it works:</Trans>
         </div>
-        <ul className="text-sm text-muted-foreground space-y-1">
-          <li>• <Trans>When a document is signed in Scriblli, an activity will be created in Pipedrive</Trans></li>
-          <li>• <Trans>Activities include document details, signers, and completion status</Trans></li>
-          <li>• <Trans>If your document has an external ID like "deal_123", it will be linked to deal #123</Trans></li>
-          <li>• <Trans>Configure your Pipedrive API token and company domain to get started</Trans></li>
+        <ul className="space-y-1 text-sm text-muted-foreground">
+          <li>
+            •{' '}
+            <Trans>
+              When a document is signed in Scriblli, an activity will be created in Pipedrive
+            </Trans>
+          </li>
+          <li>
+            • <Trans>Activities include document details, signers, and completion status</Trans>
+          </li>
+          <li>
+            •{' '}
+            <Trans>
+              If your document has an external ID like "deal_123", it will be linked to deal #123
+            </Trans>
+          </li>
+          <li>
+            • <Trans>Configure your Pipedrive API token and company domain to get started</Trans>
+          </li>
         </ul>
       </div>
     </div>
