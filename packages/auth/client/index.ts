@@ -35,12 +35,22 @@ type TPasskeySignin = InferRequestType<AuthClientType['passkey']['authorize']['$
 };
 
 export class AuthClient {
-  public client: AuthClientType;
+  private _client: AuthClientType | null = null;
+  private _baseUrl: string | (() => string);
 
   private signOutredirectPath: string = '/signin';
 
-  constructor(options: { baseUrl: string }) {
-    this.client = hc<AuthAppType>(options.baseUrl);
+  constructor(options: { baseUrl: string | (() => string) }) {
+    this._baseUrl = options.baseUrl;
+  }
+
+  // Lazy initialization of the client to ensure window.__ENV__ is populated
+  public get client(): AuthClientType {
+    if (!this._client) {
+      const baseUrl = typeof this._baseUrl === 'function' ? this._baseUrl() : this._baseUrl;
+      this._client = hc<AuthAppType>(baseUrl);
+    }
+    return this._client;
   }
 
   public async signOut({ redirectPath }: { redirectPath?: string } = {}) {
@@ -364,5 +374,5 @@ export class AuthClient {
 }
 
 export const authClient = new AuthClient({
-  baseUrl: `${NEXT_PUBLIC_WEBAPP_URL()}/api/auth`,
+  baseUrl: () => `${NEXT_PUBLIC_WEBAPP_URL()}/api/auth`,
 });
