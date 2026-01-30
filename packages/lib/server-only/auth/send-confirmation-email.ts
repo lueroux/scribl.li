@@ -12,6 +12,7 @@ import {
   Scriblli_INTERNAL_EMAIL,
   USER_SIGNUP_VERIFICATION_TOKEN_IDENTIFIER,
 } from '../../constants/email';
+import { env } from '../../utils/env';
 import { renderEmailWithI18N } from '../../utils/render-email-with-i18n';
 
 export interface SendConfirmationEmailProps {
@@ -42,8 +43,15 @@ export const sendConfirmationEmail = async ({ userId }: SendConfirmationEmailPro
     throw new Error('Verification token not found for the user');
   }
 
-  const assetBaseUrl = NEXT_PUBLIC_WEBAPP_URL() || 'http://localhost:3000';
+  const assetBaseUrl =
+    env('NEXT_PUBLIC_WEBAPP_URL') || NEXT_PUBLIC_WEBAPP_URL() || 'http://localhost:3000';
   const confirmationLink = `${assetBaseUrl}/verify-email/${verificationToken.token}`;
+
+  // Debug logging - remove this after fixing
+  console.log('env NEXT_PUBLIC_WEBAPP_URL:', env('NEXT_PUBLIC_WEBAPP_URL'));
+  console.log('NEXT_PUBLIC_WEBAPP_URL():', NEXT_PUBLIC_WEBAPP_URL());
+  console.log('assetBaseUrl:', assetBaseUrl);
+  console.log('confirmationLink:', confirmationLink);
 
   const confirmationTemplate = createElement(ConfirmEmailTemplate, {
     assetBaseUrl,
