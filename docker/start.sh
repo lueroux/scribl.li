@@ -24,8 +24,9 @@ printf "🏥 Health check: http://localhost:3000/api/health\n"
 printf "📊 Certificate status: http://localhost:3000/api/certificate-status\n"
 printf "👥 Community: https://github.com/Scriblli/Scriblli\n\n"
 
-printf "🗄️  Running database migrations...\n"
-npx prisma migrate deploy --schema ../../packages/prisma/schema.prisma
+printf "🗄️  RESETTING database (one-time fresh install)...\n"
+npx prisma migrate reset --force --schema ../../packages/prisma/schema.prisma
+printf "🗄️  Database reset complete. Migrations applied.\n"
 
 printf "🌟 Starting Scriblli server...\n"
 HOSTNAME=0.0.0.0 node build/server/main.js
